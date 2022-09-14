@@ -6,17 +6,20 @@ struct ItemPicker: View {
 			.lazy
 			.flatMap(\.products)
 			.map(\.item)
-	).sorted()
+	).sorted().map { $0.resolved() }
 	
 	var pick: (Item.ID) -> Void
+	@State var search = ""
+	
 	@Environment(\.dismiss) private var dismiss
 	
 	var body: some View {
-		List(Self.craftableItems) { itemID in
-			let item = itemID.resolved()
+		let search = search.lowercased()
+		let items = Self.craftableItems.filter { $0.name.lowercased().hasPrefix(search) }
+		List(items) { item in
 			Button {
 				withAnimation {
-					pick(itemID)
+					pick(item.id)
 					dismiss()
 				}
 			} label: {
@@ -29,6 +32,7 @@ struct ItemPicker: View {
 				}
 			}
 		}
+		.searchable(text: $search)
 		.navigationTitle("Choose an Item")
 	}
 }
