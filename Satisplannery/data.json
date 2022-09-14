@@ -1,0 +1,4882 @@
+{
+  "items" : [
+    {
+      "id" : "Desc_NuclearWaste_C",
+      "name" : "Uranium Waste",
+      "description" : "The by-product of consuming Uranium Fuel Rods in the Nuclear Power Plant.\r\nNon-fissible Uranium can be extracted. Handle with caution.\r\n\r\nCaution: HIGHLY Radioactive.",
+      "resourceSinkPoints" : 0
+    },
+    {
+      "id" : "Desc_PlutoniumWaste_C",
+      "name" : "Plutonium Waste",
+      "description" : "The by-product of consuming Plutonium Fuel Rods in the Nuclear Power Plant.\r\nNeeds to be stored in a safe location. Handle with caution.\r\n\r\nCaution: EXTREMELY Radioactive.",
+      "resourceSinkPoints" : 0
+    },
+    {
+      "id" : "Desc_Filter_C",
+      "name" : "Gas Filter",
+      "description" : "Used in the Gas Mask to filter out toxics and pollutants from the air.",
+      "resourceSinkPoints" : 830
+    },
+    {
+      "id" : "Desc_AluminumPlate_C",
+      "name" : "Alclad Aluminum Sheet",
+      "description" : "Thin, lightweight, and highly durable sheets that are mainly used for products that require high heat conduction or a high specific strength.",
+      "resourceSinkPoints" : 266
+    },
+    {
+      "id" : "Desc_Battery_C",
+      "name" : "Battery",
+      "description" : "Primarily used as fuel for Drones and Vehicles.",
+      "resourceSinkPoints" : 465
+    },
+    {
+      "id" : "Desc_Plastic_C",
+      "name" : "Plastic",
+      "description" : "A versatile and easy to manufacture material that can be used for a lot of things.",
+      "resourceSinkPoints" : 75
+    },
+    {
+      "id" : "Desc_Wire_C",
+      "name" : "Wire",
+      "description" : "Used for crafting.\r\nOne of the most basic parts.",
+      "resourceSinkPoints" : 6
+    },
+    {
+      "id" : "Desc_AluminumIngot_C",
+      "name" : "Aluminum Ingot",
+      "description" : "Aluminum Ingots are made from Aluminum Scrap, which is refined from Alumina Solution.\r\nUsed to produce specialized aluminum-based parts.",
+      "resourceSinkPoints" : 131
+    },
+    {
+      "id" : "Desc_Fuel_C",
+      "name" : "Packaged Fuel",
+      "description" : "Fuel, packaged for alternative transport. Can be used as fuel for Vehicles or the Jetpack.",
+      "resourceSinkPoints" : 270
+    },
+    {
+      "id" : "Desc_NonFissibleUranium_C",
+      "name" : "Non-fissile Uranium",
+      "description" : "The isotope Uranium-238 is non-fissile, meaning it cannot be used for nuclear fission. It can, however, be conversed into fissile Plutonium in the Particle Accelerator.\r\n\r\nCaution: Mildly Radioactive.",
+      "resourceSinkPoints" : 0
+    },
+    {
+      "id" : "Desc_PlutoniumPellet_C",
+      "name" : "Plutonium Pellet",
+      "description" : "Produced in the Particle Accelerator through conversion of Non-fissile Uranium.\r\nUsed to produce Encased Plutonium Cells for Plutonium Fuel Rods.\r\n\r\nPower Usage: 250-750 MW (500 MW average).\r\nCaution: Moderately Radioactive.",
+      "resourceSinkPoints" : 0
+    },
+    {
+      "id" : "Desc_PlutoniumCell_C",
+      "name" : "Encased Plutonium Cell",
+      "description" : "Plutonium Cells are concrete encased Plutonium Pellets.\r\nUsed to produce Plutonium Fuel Rods for Nuclear Power production.\r\n\r\nCaution: Moderately Radioactive.",
+      "resourceSinkPoints" : 0
+    },
+    {
+      "id" : "Desc_Crystal_C",
+      "name" : "Blue Power Slug",
+      "description" : "A strange slug radiating a weak strange power.",
+      "resourceSinkPoints" : 0
+    },
+    {
+      "id" : "Desc_IronRod_C",
+      "name" : "Iron Rod",
+      "description" : "Used for crafting.\r\nOne of the most basic parts.",
+      "resourceSinkPoints" : 4
+    },
+    {
+      "id" : "Desc_IronScrew_C",
+      "name" : "Screw",
+      "description" : "Used for crafting.\r\nOne of the most basic parts.",
+      "resourceSinkPoints" : 2
+    },
+    {
+      "id" : "Desc_Crystal_mk2_C",
+      "name" : "Yellow Power Slug",
+      "description" : "A strange slug radiating a strange power.",
+      "resourceSinkPoints" : 0
+    },
+    {
+      "id" : "Desc_Crystal_mk3_C",
+      "name" : "Purple Power Slug",
+      "description" : "A strange slug radiating a powerful strange power.",
+      "resourceSinkPoints" : 0
+    },
+    {
+      "id" : "Desc_Cement_C",
+      "name" : "Concrete",
+      "description" : "Used for building.\r\nGood for stable foundations.",
+      "resourceSinkPoints" : 12
+    },
+    {
+      "id" : "Desc_Silica_C",
+      "name" : "Silica",
+      "description" : "Derived from Raw Quartz. Commonly used to create glass structures, advanced refinement processes, and alternative production of electronics.",
+      "resourceSinkPoints" : 20
+    },
+    {
+      "id" : "Desc_IronPlate_C",
+      "name" : "Iron Plate",
+      "description" : "Used for crafting.\r\nOne of the most basic parts.",
+      "resourceSinkPoints" : 6
+    },
+    {
+      "id" : "Desc_SteelPlate_C",
+      "name" : "Steel Beam",
+      "description" : "Steel Beams are used most often when constructing a little more advanced buildings.",
+      "resourceSinkPoints" : 64
+    },
+    {
+      "id" : "Desc_TurboFuel_C",
+      "name" : "Packaged Turbofuel",
+      "description" : "Turbofuel, packaged for alternative transport. Can be used as fuel for Vehicles.",
+      "resourceSinkPoints" : 570
+    },
+    {
+      "id" : "Desc_HazmatFilter_C",
+      "name" : "Iodine Infused Filter",
+      "description" : "Used in the Hazmat Suit to absorb radioactive particles.",
+      "resourceSinkPoints" : 2718
+    },
+    {
+      "id" : "Desc_Cable_C",
+      "name" : "Cable",
+      "description" : "Used for crafting.\r\nPrimarily used to build power lines.",
+      "resourceSinkPoints" : 24
+    },
+    {
+      "id" : "Desc_CrystalShard_C",
+      "name" : "Power Shard",
+      "description" : "Mucus from the power slugs compressed into a solid crystal-like shard. \r\nIt radiates a strange power.",
+      "resourceSinkPoints" : 0
+    },
+    {
+      "id" : "Desc_ColorCartridge_C",
+      "name" : "Color Cartridge",
+      "description" : "Used for applying Patterns to structures with the Customizer.\r\n\r\n(Patterns can be purchased in the AWESOME Shop.)",
+      "resourceSinkPoints" : 10
+    },
+    {
+      "id" : "Desc_HUBParts_C",
+      "name" : "HUB Parts",
+      "description" : "The parts required to build the basic structure of the HUB.",
+      "resourceSinkPoints" : 0
+    },
+    {
+      "id" : "Desc_IronPlateReinforced_C",
+      "name" : "Reinforced Iron Plate",
+      "description" : "Used for crafting.\r\nA sturdier and more durable Iron Plate.",
+      "resourceSinkPoints" : 120
+    },
+    {
+      "id" : "Desc_CopperIngot_C",
+      "name" : "Copper Ingot",
+      "description" : "Used for crafting.\r\nCrafted into the most basic parts.",
+      "resourceSinkPoints" : 6
+    },
+    {
+      "id" : "Desc_Gift_C",
+      "name" : "FICSMAS Gift",
+      "description" : "Special FICSMAS buildings and parts can be obtained and produced from this FICSIT Holiday present.\r\n\r\n*Watch the sky for deliveries from orbit!",
+      "resourceSinkPoints" : 1
+    },
+    {
+      "id" : "Desc_CandyCane_C",
+      "name" : "Candy Cane",
+      "description" : "A delicious Candy Cane to be enjoyed during the FICSMAS Holidays. \r\n*Disclaimer: Can't be consumed...",
+      "resourceSinkPoints" : 1
+    },
+    {
+      "id" : "Desc_XmasBranch_C",
+      "name" : "FICSMAS Tree Branch",
+      "description" : "A special Tree Branch, used to produce parts and buildings during the FICSMAS Event.",
+      "resourceSinkPoints" : 1
+    },
+    {
+      "id" : "Desc_XmasBow_C",
+      "name" : "FICSMAS Bow",
+      "description" : "A fancy Bow, maybe someone can wear this? You certainly can't! Probably, some parts and decorations can be made from this.",
+      "resourceSinkPoints" : 1
+    },
+    {
+      "id" : "Desc_Snow_C",
+      "name" : "Actual Snow",
+      "description" : "It's snow. Not the nice, thick, crunchy kind though... more the disgustingly wet, slushy kind... Guess we can make stuff from it.",
+      "resourceSinkPoints" : 1
+    },
+    {
+      "id" : "Desc_XmasStar_C",
+      "name" : "FICSMAS Wonder Star",
+      "description" : "This special FICSMAS Star signifies the productivity of FICSIT all across the universe. It also signifies the fact that you have nearly completed the Holiday Event, so it's time to get back to work.",
+      "resourceSinkPoints" : 1
+    },
+    {
+      "id" : "Desc_XmasBall1_C",
+      "name" : "Red FICSMAS Ornament",
+      "description" : "Used for making FICSMAS Decorations.",
+      "resourceSinkPoints" : 1
+    },
+    {
+      "id" : "Desc_XmasBall2_C",
+      "name" : "Blue FICSMAS Ornament",
+      "description" : "Again, used for making FICSMAS Decorations.",
+      "resourceSinkPoints" : 1
+    },
+    {
+      "id" : "Desc_XmasBall3_C",
+      "name" : "Copper FICSMAS Ornament",
+      "description" : "Still used for making FICSMAS Decorations.",
+      "resourceSinkPoints" : 1
+    },
+    {
+      "id" : "Desc_XmasBall4_C",
+      "name" : "Iron FICSMAS Ornament",
+      "description" : "This super special... nope... still just used for making FICSMAS Decorations.",
+      "resourceSinkPoints" : 1
+    },
+    {
+      "id" : "Desc_XmasBallCluster_C",
+      "name" : "FICSMAS Ornament Bundle",
+      "description" : "All the FICSMAS Ornaments smashed together to make even more FICSMAS Decorations!",
+      "resourceSinkPoints" : 1
+    },
+    {
+      "id" : "Desc_XmasWreath_C",
+      "name" : "FICSMAS Decoration",
+      "description" : "A decoration used to make decorations. Its use cases are questionable.",
+      "resourceSinkPoints" : 1
+    },
+    {
+      "id" : "Desc_ModularFrameFused_C",
+      "name" : "Fused Modular Frame",
+      "description" : "A corrosion resistant, nitride hardened, highly robust, yet lightweight modular frame.",
+      "resourceSinkPoints" : 62840
+    },
+    {
+      "id" : "Desc_CircuitBoard_C",
+      "name" : "Circuit Board",
+      "description" : "Circuit Boards are advanced electronics that are used in a plethora of different ways.",
+      "resourceSinkPoints" : 696
+    },
+    {
+      "id" : "Desc_CopperSheet_C",
+      "name" : "Copper Sheet",
+      "description" : "Used for crafting.\r\nPrimarily used for pipelines due to its high corrosion resistance.",
+      "resourceSinkPoints" : 24
+    },
+    {
+      "id" : "Desc_CrystalOscillator_C",
+      "name" : "Crystal Oscillator",
+      "description" : "A crystal oscillator is an electronic oscillator circuit that uses the mechanical resonance of a vibrating crystal to create an electrical signal with a precise frequency.",
+      "resourceSinkPoints" : 3072
+    },
+    {
+      "id" : "Desc_SpaceElevatorPart_1_C",
+      "name" : "Smart Plating",
+      "description" : "Project Part #1. Ship with the Space Elevator to complete phases of Project Assembly.",
+      "resourceSinkPoints" : 520
+    },
+    {
+      "id" : "Desc_SpaceElevatorPart_2_C",
+      "name" : "Versatile Framework",
+      "description" : "Project Part #2. Ship with the Space Elevator to complete phases of Project Assembly.",
+      "resourceSinkPoints" : 1176
+    },
+    {
+      "id" : "Desc_SpaceElevatorPart_3_C",
+      "name" : "Automated Wiring",
+      "description" : "Project Part #3. Ship with the Space Elevator to complete phases of Project Assembly.",
+      "resourceSinkPoints" : 1440
+    },
+    {
+      "id" : "Desc_SpaceElevatorPart_4_C",
+      "name" : "Modular Engine",
+      "description" : "Project Part #4. Ship with the Space Elevator to complete phases of Project Assembly.",
+      "resourceSinkPoints" : 9960
+    },
+    {
+      "id" : "Desc_PackagedWater_C",
+      "name" : "Packaged Water",
+      "description" : "Water, packaged for alternative transport.",
+      "resourceSinkPoints" : 130
+    },
+    {
+      "id" : "Desc_AlienDNACapsule_C",
+      "name" : "Organic Data Capsule",
+      "description" : "This data capsule translates organic chemicals into readable alien genetics information.\r\nUsed for researching alien organisms.",
+      "resourceSinkPoints" : 0
+    },
+    {
+      "id" : "Desc_HighSpeedConnector_C",
+      "name" : "High-Speed Connector",
+      "description" : "The high-speed connector connects several cables and wires in a very efficient way. Uses a standard pattern so its applications are many and varied.",
+      "resourceSinkPoints" : 3776
+    },
+    {
+      "id" : "Desc_Motor_C",
+      "name" : "Motor",
+      "description" : "The Motor creates a mechanical force that is used to move things from machines to vehicles.",
+      "resourceSinkPoints" : 1520
+    },
+    {
+      "id" : "Desc_SpaceElevatorPart_5_C",
+      "name" : "Adaptive Control Unit",
+      "description" : "Project Part #5. Ship with the Space Elevator to complete phases of Project Assembly.",
+      "resourceSinkPoints" : 86120
+    },
+    {
+      "id" : "Desc_SpaceElevatorPart_6_C",
+      "name" : "Magnetic Field Generator",
+      "description" : "Project Part #7. Ship with the Space Elevator to complete phases of Project Assembly.\r\n\r\nThese modular generators use superconducting magnets and vast amounts of electricity to produce an easily expandable and powerful magnetic field.",
+      "resourceSinkPoints" : 15650
+    },
+    {
+      "id" : "Desc_SpaceElevatorPart_7_C",
+      "name" : "Assembly Director System",
+      "description" : "Project Part #6. Ship with the Space Elevator to complete phases of Project Assembly.\r\n\r\nThis extremely fast and precise computing system is specifically designed to direct the Project Assembly: Assembly Phase.",
+      "resourceSinkPoints" : 543632
+    },
+    {
+      "id" : "Desc_SpaceElevatorPart_8_C",
+      "name" : "Thermal Propulsion Rocket",
+      "description" : "Project Part #8. Ship with the Space Elevator to complete phases of Project Assembly.\r\n\r\nUses extreme heat to produce the high pressure plasma required to get Project Assembly into motion.",
+      "resourceSinkPoints" : 732956
+    },
+    {
+      "id" : "Desc_SpaceElevatorPart_9_C",
+      "name" : "Nuclear Pasta",
+      "description" : "Project Part #9. Ship with the Space Elevator to complete phases of Project Assembly.\r\nPower Usage: 500-1500 MW (1000 MW average).\r\n\r\nNuclear Pasta is extremely dense degenerate matter, formed when extreme pressure forces protons and electrons together into neutrons. It is theorized to exist naturally within the crust of neutron stars.",
+      "resourceSinkPoints" : 543424
+    },
+    {
+      "id" : "Desc_IronIngot_C",
+      "name" : "Iron Ingot",
+      "description" : "Used for crafting.\r\nCrafted into the most basic parts.",
+      "resourceSinkPoints" : 2
+    },
+    {
+      "id" : "Desc_Rotor_C",
+      "name" : "Rotor",
+      "description" : "Used for crafting.\r\nThe moving parts of a motor.",
+      "resourceSinkPoints" : 140
+    },
+    {
+      "id" : "Desc_Rubber_C",
+      "name" : "Rubber",
+      "description" : "Rubber is a material that is very flexible and has a lot of friction.",
+      "resourceSinkPoints" : 60
+    },
+    {
+      "id" : "Desc_SteelPlateReinforced_C",
+      "name" : "Encased Industrial Beam",
+      "description" : "Encased Industrial Beams utilizes the compressive strength of concrete and tensile strength of steel simultaneously.\r\nMostly used as a stable basis for constructing buildings.",
+      "resourceSinkPoints" : 632
+    },
+    {
+      "id" : "Desc_SteelPipe_C",
+      "name" : "Steel Pipe",
+      "description" : "Steel Pipes are used most often when constructing a little more advanced buildings.",
+      "resourceSinkPoints" : 24
+    },
+    {
+      "id" : "Desc_LiquidFuel_C",
+      "name" : "Fuel",
+      "description" : "Fuel can be used to generate power or packaged to be used as fuel for Vehicles or the Jetpack.",
+      "resourceSinkPoints" : 75
+    },
+    {
+      "id" : "Desc_PolymerResin_C",
+      "name" : "Polymer Resin",
+      "description" : "Used for crafting.\r\nA by-product of oil refinement into fuel. Commonly used to manufacture plastics.",
+      "resourceSinkPoints" : 12
+    },
+    {
+      "id" : "Desc_HeavyOilResidue_C",
+      "name" : "Heavy Oil Residue",
+      "description" : "A by-product of Plastic and Rubber production. Can be further refined into Fuel and Petroleum Coke.",
+      "resourceSinkPoints" : 30
+    },
+    {
+      "id" : "Desc_PetroleumCoke_C",
+      "name" : "Petroleum Coke",
+      "description" : "Used for crafting.\r\nA carbon-rich material distilled from Heavy Oil Residue. \r\nUsed as a less efficient coal replacement or for aluminum refinement.",
+      "resourceSinkPoints" : 20
+    },
+    {
+      "id" : "Desc_ModularFrame_C",
+      "name" : "Modular Frame",
+      "description" : "Used for crafting.\r\nMulti-purpose building block.",
+      "resourceSinkPoints" : 408
+    },
+    {
+      "id" : "Desc_FluidCanister_C",
+      "name" : "Empty Canister",
+      "description" : "Used to package fluids for transportation.",
+      "resourceSinkPoints" : 60
+    },
+    {
+      "id" : "Desc_ModularFrameHeavy_C",
+      "name" : "Heavy Modular Frame",
+      "description" : "A more robust multi-purpose frame.",
+      "resourceSinkPoints" : 11520
+    },
+    {
+      "id" : "Desc_PackagedOil_C",
+      "name" : "Packaged Oil",
+      "description" : "Crude Oil, packaged for alternative transport. Can be used as fuel for Vehicles.",
+      "resourceSinkPoints" : 180
+    },
+    {
+      "id" : "Desc_PackagedOilResidue_C",
+      "name" : "Packaged Heavy Oil Residue",
+      "description" : "Heavy Oil Residue, packaged for alternative transport. Can be used as fuel for Vehicles.",
+      "resourceSinkPoints" : 180
+    },
+    {
+      "id" : "Desc_SteelIngot_C",
+      "name" : "Steel Ingot",
+      "description" : "Steel Ingots are made from Iron Ore that's been smelted with Coal. They are made into several parts used in building construction.",
+      "resourceSinkPoints" : 8
+    },
+    {
+      "id" : "Desc_AluminaSolution_C",
+      "name" : "Alumina Solution",
+      "description" : "Dissolved Alumina, extracted from Bauxite. Can be further refined into Aluminum Scrap for Aluminum Ingot production.",
+      "resourceSinkPoints" : 20
+    },
+    {
+      "id" : "Desc_AluminumScrap_C",
+      "name" : "Aluminum Scrap",
+      "description" : "Aluminum Scrap is pure aluminum refined from Alumina. Can be smelted down to Aluminum Ingots for industrial usage.",
+      "resourceSinkPoints" : 27
+    },
+    {
+      "id" : "Desc_SulfuricAcid_C",
+      "name" : "Sulfuric Acid",
+      "description" : "A mineral acid produced by combining Sulfur and Water in a complex reaction. Primarily used in refinement processes and Battery production.",
+      "resourceSinkPoints" : 16
+    },
+    {
+      "id" : "Desc_UraniumCell_C",
+      "name" : "Encased Uranium Cell",
+      "description" : "Uranium Cells are produced from Uranium Ore. \r\nUsed to produce Uranium Fuel Rods for Nuclear Power production.\r\n\r\nCaution: Mildly Radioactive.",
+      "resourceSinkPoints" : 147
+    },
+    {
+      "id" : "Desc_AluminumPlateReinforced_C",
+      "name" : "Heat Sink",
+      "description" : "Used to dissipate heat faster.",
+      "resourceSinkPoints" : 2804
+    },
+    {
+      "id" : "Desc_CoolingSystem_C",
+      "name" : "Cooling System",
+      "description" : "Used to keep temperatures of advanced parts and buildings from exceeding to inefficient levels.",
+      "resourceSinkPoints" : 12006
+    },
+    {
+      "id" : "Desc_NitricAcid_C",
+      "name" : "Nitric Acid",
+      "description" : "Produced by reaction of Nitrogen Gas with Water. Its high corrosiveness and oxidizing properties make it an excellent choice for refinement and fuel production processes.",
+      "resourceSinkPoints" : 94
+    },
+    {
+      "id" : "Desc_AluminumCasing_C",
+      "name" : "Aluminum Casing",
+      "description" : "A versatile container cast from Aluminum Ingots.",
+      "resourceSinkPoints" : 393
+    },
+    {
+      "id" : "Desc_ModularFrameLightweight_C",
+      "name" : "Radio Control Unit",
+      "description" : "Enhances and directs radio signals.",
+      "resourceSinkPoints" : 19600
+    },
+    {
+      "id" : "Desc_Computer_C",
+      "name" : "Computer",
+      "description" : "A Computer is a complex logic machine that is used to control advanced behaviour in machines.",
+      "resourceSinkPoints" : 17260
+    },
+    {
+      "id" : "Desc_QuartzCrystal_C",
+      "name" : "Quartz Crystal",
+      "description" : "Derived from Raw Quartz. Used in the production of advanced radar technology and high-quality display screens.",
+      "resourceSinkPoints" : 50
+    },
+    {
+      "id" : "Desc_GoldIngot_C",
+      "name" : "Caterium Ingot",
+      "description" : "Caterium Ingots are smelted from Caterium Ore. Caterium Ingots are mostly used for advanced electronics.",
+      "resourceSinkPoints" : 42
+    },
+    {
+      "id" : "Desc_Stator_C",
+      "name" : "Stator",
+      "description" : "Used for crafting.\r\nThe static parts of a motor.",
+      "resourceSinkPoints" : 240
+    },
+    {
+      "id" : "Desc_CircuitBoardHighSpeed_C",
+      "name" : "AI Limiter",
+      "description" : "AI Limiters are super advanced electronics that are used to control AIs and keep them from evolving in malicious ways.",
+      "resourceSinkPoints" : 920
+    },
+    {
+      "id" : "Desc_HighSpeedWire_C",
+      "name" : "Quickwire",
+      "description" : "Caterium's high conductivity and resistance to corrosion makes it ideal for small, advanced electronics.",
+      "resourceSinkPoints" : 17
+    },
+    {
+      "id" : "Desc_CompactedCoal_C",
+      "name" : "Compacted Coal",
+      "description" : "A much more efficient alternative for Coal. Used as fuel for vehicles & coal generators.",
+      "resourceSinkPoints" : 28
+    },
+    {
+      "id" : "Desc_LiquidTurboFuel_C",
+      "name" : "Turbofuel",
+      "description" : "A more efficient alternative to Fuel. Can be used to generate power or packaged to be used as fuel for Vehicles.",
+      "resourceSinkPoints" : 225
+    },
+    {
+      "id" : "Desc_ComputerSuper_C",
+      "name" : "Supercomputer",
+      "description" : "The supercomputer is the next-gen version of the computer.",
+      "resourceSinkPoints" : 99576
+    },
+    {
+      "id" : "Desc_GasTank_C",
+      "name" : "Empty Fluid Tank",
+      "description" : "Used to package gases and volatile liquids for transportation.",
+      "resourceSinkPoints" : 225
+    },
+    {
+      "id" : "Desc_ElectromagneticControlRod_C",
+      "name" : "Electromagnetic Control Rod",
+      "description" : "Control Rods regulate power output via electromagnetism.",
+      "resourceSinkPoints" : 2560
+    },
+    {
+      "id" : "Desc_PressureConversionCube_C",
+      "name" : "Pressure Conversion Cube",
+      "description" : "Converts outgoing force into internal pressure. Required to contain unstable, high-energy matter.",
+      "resourceSinkPoints" : 257312
+    },
+    {
+      "id" : "Desc_MotorLightweight_C",
+      "name" : "Turbo Motor",
+      "description" : "The Turbo Motor is a more complex, and more powerful, version of the regular Motor.",
+      "resourceSinkPoints" : 242720
+    },
+    {
+      "id" : "Desc_CopperDust_C",
+      "name" : "Copper Powder",
+      "description" : "Ground down Copper Ingots.\r\nThe high natural density of Copper, combined with the granularity of the powder, make this part fit for producing Nuclear Pasta in the Particle Accelerator.",
+      "resourceSinkPoints" : 72
+    },
+    {
+      "id" : "Desc_Gunpowder_C",
+      "name" : "Black Powder",
+      "description" : "An explosive powder that is commonly used to produce simple explosives.",
+      "resourceSinkPoints" : 14
+    },
+    {
+      "id" : "Desc_AlienProtein_C",
+      "name" : "Alien Protein",
+      "description" : "Ground down Alien Remains in a neat little package.\r\nUsed for medical purposed and to research alien organisms.",
+      "resourceSinkPoints" : 0
+    },
+    {
+      "id" : "Desc_GunpowderMK2_C",
+      "name" : "Smokeless Powder",
+      "description" : "An explosive powder that is commonly used to produce modern firearms.",
+      "resourceSinkPoints" : 58
+    },
+    {
+      "id" : "Desc_Sulfur_C",
+      "name" : "Sulfur",
+      "description" : "Sulfur is primarily used for Black Powder.",
+      "resourceSinkPoints" : 11
+    },
+    {
+      "id" : "Desc_Coal_C",
+      "name" : "Coal",
+      "description" : "Mainly used as fuel for vehicles & coal generators and for steel production.",
+      "resourceSinkPoints" : 3
+    },
+    {
+      "id" : "Desc_OreCopper_C",
+      "name" : "Copper Ore",
+      "description" : "Used for crafting.\r\nBasic resource mainly used for electricity.",
+      "resourceSinkPoints" : 3
+    },
+    {
+      "id" : "Desc_OreGold_C",
+      "name" : "Caterium Ore",
+      "description" : "Caterium Ore is smelted into Caterium Ingots. Caterium Ingots are mostly used for advanced electronics.",
+      "resourceSinkPoints" : 7
+    },
+    {
+      "id" : "Desc_OreIron_C",
+      "name" : "Iron Ore",
+      "description" : "Used for crafting.\r\nThe most essential basic resource.",
+      "resourceSinkPoints" : 1
+    },
+    {
+      "id" : "Desc_RawQuartz_C",
+      "name" : "Raw Quartz",
+      "description" : "Raw Quartz can be processed into Quartz Crystals and Silica, which both offer a variety of applications.",
+      "resourceSinkPoints" : 15
+    },
+    {
+      "id" : "Desc_Stone_C",
+      "name" : "Limestone",
+      "description" : "Used for crafting.\r\nBasic resource mainly used for stable foundations.",
+      "resourceSinkPoints" : 2
+    },
+    {
+      "id" : "Desc_Water_C",
+      "name" : "Water",
+      "description" : "It's water.",
+      "resourceSinkPoints" : 5
+    },
+    {
+      "id" : "Desc_LiquidOil_C",
+      "name" : "Crude Oil",
+      "description" : "Crude Oil is refined into all kinds of Oil-based resources, like Fuel and Plastic.",
+      "resourceSinkPoints" : 30
+    },
+    {
+      "id" : "Desc_OreBauxite_C",
+      "name" : "Bauxite",
+      "description" : "Bauxite is used to produce Alumina, which can be further refined into the Aluminum Scrap required to produce Aluminum Ingots.",
+      "resourceSinkPoints" : 8
+    },
+    {
+      "id" : "Desc_OreUranium_C",
+      "name" : "Uranium",
+      "description" : "Uranium is a radioactive element. \r\nUsed to produce Encased Uranium Cells for Uranium Fuel Rods.\r\n\r\nCaution: Moderately Radioactive.",
+      "resourceSinkPoints" : 35
+    },
+    {
+      "id" : "Desc_NitrogenGas_C",
+      "name" : "Nitrogen Gas",
+      "description" : "Nitrogen can be used in a variety of ways, such as metallurgy, cooling, and Nitric Acid production. On Massage-2(AB)b, it can be extracted from underground gas wells.",
+      "resourceSinkPoints" : 10
+    }
+  ],
+  "recipes" : [
+    {
+      "craftingTime" : 8,
+      "id" : "Recipe_Alternate_ClassicBattery_C",
+      "name" : "Alternate: Classic Battery",
+      "ingredients" : [
+        {
+          "amount" : 6,
+          "item" : "Desc_Sulfur_C"
+        },
+        {
+          "amount" : 7,
+          "item" : "Desc_AluminumPlate_C"
+        },
+        {
+          "amount" : 8,
+          "item" : "Desc_Plastic_C"
+        },
+        {
+          "amount" : 12,
+          "item" : "Desc_Wire_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 4,
+          "item" : "Desc_Battery_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 2,
+      "id" : "Recipe_Cable_C",
+      "name" : "Cable",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_Wire_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Cable_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 4,
+      "id" : "Recipe_Wire_C",
+      "name" : "Wire",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_CopperIngot_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_Wire_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 2,
+      "id" : "Recipe_IngotCopper_C",
+      "name" : "Copper Ingot",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_OreCopper_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_CopperIngot_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_IronPlateReinforced_C",
+      "name" : "Reinforced Iron Plate",
+      "ingredients" : [
+        {
+          "amount" : 6,
+          "item" : "Desc_IronPlate_C"
+        },
+        {
+          "amount" : 12,
+          "item" : "Desc_IronScrew_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_IronPlateReinforced_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 4,
+      "id" : "Recipe_Concrete_C",
+      "name" : "Concrete",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_Stone_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Cement_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 6,
+      "id" : "Recipe_Screw_C",
+      "name" : "Screw",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_IronRod_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 4,
+          "item" : "Desc_IronScrew_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 6,
+      "id" : "Recipe_XmasBranch_C",
+      "name" : "FICSMAS Tree Branch",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Gift_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_XmasBranch_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 6,
+      "id" : "Recipe_IronPlate_C",
+      "name" : "Iron Plate",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_IronIngot_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_IronPlate_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 4,
+      "id" : "Recipe_IronRod_C",
+      "name" : "Iron Rod",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_IronIngot_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_IronRod_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 2,
+      "id" : "Recipe_Coal_C",
+      "name" : "Coal",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Coal_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Coal_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 2,
+      "id" : "Recipe_CrudeOil_C",
+      "name" : "Crude Oil",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_LiquidOil_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_LiquidOil_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 2,
+      "id" : "Recipe_Limestone_C",
+      "name" : "Limestone",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Stone_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Stone_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 2,
+      "id" : "Recipe_OreBauxite_C",
+      "name" : "Bauxite",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_OreBauxite_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_OreBauxite_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 2,
+      "id" : "Recipe_OreCaterium_C",
+      "name" : "Caterium Ore",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_OreGold_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_OreGold_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 2,
+      "id" : "Recipe_OreCopper_C",
+      "name" : "Copper Ore",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_OreCopper_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_OreCopper_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 2,
+      "id" : "Recipe_OreIron_C",
+      "name" : "Iron Ore",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_OreIron_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_OreIron_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 2,
+      "id" : "Recipe_OreUranium_C",
+      "name" : "Uranium",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_OreUranium_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_OreUranium_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 2,
+      "id" : "Recipe_RawQuartz_C",
+      "name" : "Raw Quartz",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_RawQuartz_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_RawQuartz_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 2,
+      "id" : "Recipe_Sulfur_C",
+      "name" : "Sulfur",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Sulfur_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Sulfur_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 2,
+      "id" : "Recipe_IngotIron_C",
+      "name" : "Iron Ingot",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_OreIron_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_IronIngot_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 16,
+      "id" : "Recipe_Alternate_AdheredIronPlate_C",
+      "name" : "Alternate: Adhered Iron Plate",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_IronPlate_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_Rubber_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_IronPlateReinforced_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 8,
+      "id" : "Recipe_CircuitBoard_C",
+      "name" : "Circuit Board",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_CopperSheet_C"
+        },
+        {
+          "amount" : 4,
+          "item" : "Desc_Plastic_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_CircuitBoard_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 6,
+      "id" : "Recipe_LiquidFuel_C",
+      "name" : "Fuel",
+      "ingredients" : [
+        {
+          "amount" : 6000,
+          "item" : "Desc_LiquidOil_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 4000,
+          "item" : "Desc_LiquidFuel_C"
+        },
+        {
+          "amount" : 3,
+          "item" : "Desc_PolymerResin_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 6,
+      "id" : "Recipe_PetroleumCoke_C",
+      "name" : "Petroleum Coke",
+      "ingredients" : [
+        {
+          "amount" : 4000,
+          "item" : "Desc_HeavyOilResidue_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 12,
+          "item" : "Desc_PetroleumCoke_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 6,
+      "id" : "Recipe_Plastic_C",
+      "name" : "Plastic",
+      "ingredients" : [
+        {
+          "amount" : 3000,
+          "item" : "Desc_LiquidOil_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_Plastic_C"
+        },
+        {
+          "amount" : 1000,
+          "item" : "Desc_HeavyOilResidue_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 6,
+      "id" : "Recipe_Rubber_C",
+      "name" : "Rubber",
+      "ingredients" : [
+        {
+          "amount" : 3000,
+          "item" : "Desc_LiquidOil_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_Rubber_C"
+        },
+        {
+          "amount" : 2000,
+          "item" : "Desc_HeavyOilResidue_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 6,
+      "id" : "Recipe_ResidualFuel_C",
+      "name" : "Residual Fuel",
+      "ingredients" : [
+        {
+          "amount" : 6000,
+          "item" : "Desc_HeavyOilResidue_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 4000,
+          "item" : "Desc_LiquidFuel_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 6,
+      "id" : "Recipe_ResidualPlastic_C",
+      "name" : "Residual Plastic",
+      "ingredients" : [
+        {
+          "amount" : 6,
+          "item" : "Desc_PolymerResin_C"
+        },
+        {
+          "amount" : 2000,
+          "item" : "Desc_Water_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_Plastic_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 6,
+      "id" : "Recipe_ResidualRubber_C",
+      "name" : "Residual Rubber",
+      "ingredients" : [
+        {
+          "amount" : 4,
+          "item" : "Desc_PolymerResin_C"
+        },
+        {
+          "amount" : 4000,
+          "item" : "Desc_Water_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_Rubber_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 24,
+      "id" : "Recipe_Alternate_BoltedFrame_C",
+      "name" : "Alternate: Bolted Frame",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_IronPlateReinforced_C"
+        },
+        {
+          "amount" : 56,
+          "item" : "Desc_IronScrew_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_ModularFrame_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 60,
+      "id" : "Recipe_ModularFrame_C",
+      "name" : "Modular Frame",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_IronPlateReinforced_C"
+        },
+        {
+          "amount" : 12,
+          "item" : "Desc_IronRod_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_ModularFrame_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 15,
+      "id" : "Recipe_Rotor_C",
+      "name" : "Rotor",
+      "ingredients" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_IronRod_C"
+        },
+        {
+          "amount" : 25,
+          "item" : "Desc_IronScrew_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Rotor_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 6,
+      "id" : "Recipe_CopperSheet_C",
+      "name" : "Copper Sheet",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_CopperIngot_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_CopperSheet_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 30,
+      "id" : "Recipe_SpaceElevatorPart_1_C",
+      "name" : "Smart Plating",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_IronPlateReinforced_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_Rotor_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_SpaceElevatorPart_1_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 8,
+      "id" : "Recipe_Alternate_CoatedCable_C",
+      "name" : "Alternate: Coated Cable",
+      "ingredients" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_Wire_C"
+        },
+        {
+          "amount" : 2000,
+          "item" : "Desc_HeavyOilResidue_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 9,
+          "item" : "Desc_Cable_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 4,
+      "id" : "Recipe_Alternate_CoatedIronCanister_C",
+      "name" : "Alternate: Coated Iron Canister",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_IronPlate_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_CopperSheet_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 4,
+          "item" : "Desc_FluidCanister_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 6,
+      "id" : "Recipe_ColorCartridge_C",
+      "name" : "Color Cartridge",
+      "ingredients" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_FlowerPetals_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 10,
+          "item" : "Desc_ColorCartridge_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 4,
+      "id" : "Recipe_FluidCanister_C",
+      "name" : "Empty Canister",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_Plastic_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 4,
+          "item" : "Desc_FluidCanister_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 3,
+      "id" : "Recipe_Fuel_C",
+      "name" : "Packaged Fuel",
+      "ingredients" : [
+        {
+          "amount" : 2000,
+          "item" : "Desc_LiquidFuel_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_FluidCanister_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_Fuel_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 4,
+      "id" : "Recipe_PackagedCrudeOil_C",
+      "name" : "Packaged Oil",
+      "ingredients" : [
+        {
+          "amount" : 2000,
+          "item" : "Desc_LiquidOil_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_FluidCanister_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_PackagedOil_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 4,
+      "id" : "Recipe_PackagedOilResidue_C",
+      "name" : "Packaged Heavy Oil Residue",
+      "ingredients" : [
+        {
+          "amount" : 2000,
+          "item" : "Desc_HeavyOilResidue_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_FluidCanister_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_PackagedOilResidue_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 2,
+      "id" : "Recipe_PackagedWater_C",
+      "name" : "Packaged Water",
+      "ingredients" : [
+        {
+          "amount" : 2000,
+          "item" : "Desc_Water_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_FluidCanister_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_PackagedWater_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 2,
+      "id" : "Recipe_UnpackageFuel_C",
+      "name" : "Unpackage Fuel",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_Fuel_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2000,
+          "item" : "Desc_LiquidFuel_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_FluidCanister_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 2,
+      "id" : "Recipe_UnpackageOil_C",
+      "name" : "Unpackage Oil",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_PackagedOil_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2000,
+          "item" : "Desc_LiquidOil_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_FluidCanister_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 6,
+      "id" : "Recipe_UnpackageOilResidue_C",
+      "name" : "Unpackage Heavy Oil Residue",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_PackagedOilResidue_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2000,
+          "item" : "Desc_HeavyOilResidue_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_FluidCanister_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 1,
+      "id" : "Recipe_UnpackageWater_C",
+      "name" : "Unpackage Water",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_PackagedWater_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2000,
+          "item" : "Desc_Water_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_FluidCanister_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_Alternate_CoatedIronPlate_C",
+      "name" : "Alternate: Coated Iron Plate",
+      "ingredients" : [
+        {
+          "amount" : 10,
+          "item" : "Desc_IronIngot_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_Plastic_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 15,
+          "item" : "Desc_IronPlate_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_Alternate_CokeSteelIngot_C",
+      "name" : "Alternate: Coke Steel Ingot",
+      "ingredients" : [
+        {
+          "amount" : 15,
+          "item" : "Desc_OreIron_C"
+        },
+        {
+          "amount" : 15,
+          "item" : "Desc_PetroleumCoke_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 20,
+          "item" : "Desc_SteelIngot_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_Alternate_CopperAlloyIngot_C",
+      "name" : "Alternate: Copper Alloy Ingot",
+      "ingredients" : [
+        {
+          "amount" : 10,
+          "item" : "Desc_OreCopper_C"
+        },
+        {
+          "amount" : 5,
+          "item" : "Desc_OreIron_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 20,
+          "item" : "Desc_CopperIngot_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 16,
+      "id" : "Recipe_Alternate_CopperRotor_C",
+      "name" : "Alternate: Copper Rotor",
+      "ingredients" : [
+        {
+          "amount" : 6,
+          "item" : "Desc_CopperSheet_C"
+        },
+        {
+          "amount" : 52,
+          "item" : "Desc_IronScrew_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_Rotor_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 2,
+      "id" : "Recipe_Alternate_DilutedPackagedFuel_C",
+      "name" : "Alternate: Diluted Packaged Fuel",
+      "ingredients" : [
+        {
+          "amount" : 1000,
+          "item" : "Desc_HeavyOilResidue_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_PackagedWater_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_Fuel_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 4,
+      "id" : "Recipe_Alternate_ElectroAluminumScrap_C",
+      "name" : "Alternate: Electrode - Aluminum Scrap",
+      "ingredients" : [
+        {
+          "amount" : 12000,
+          "item" : "Desc_AluminaSolution_C"
+        },
+        {
+          "amount" : 4,
+          "item" : "Desc_PetroleumCoke_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 20,
+          "item" : "Desc_AluminumScrap_C"
+        },
+        {
+          "amount" : 7000,
+          "item" : "Desc_Water_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_UraniumCell_C",
+      "name" : "Encased Uranium Cell",
+      "ingredients" : [
+        {
+          "amount" : 10,
+          "item" : "Desc_OreUranium_C"
+        },
+        {
+          "amount" : 3,
+          "item" : "Desc_Cement_C"
+        },
+        {
+          "amount" : 8000,
+          "item" : "Desc_SulfuricAcid_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_UraniumCell_C"
+        },
+        {
+          "amount" : 2000,
+          "item" : "Desc_SulfuricAcid_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 10,
+      "id" : "Recipe_CoolingSystem_C",
+      "name" : "Cooling System",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_AluminumPlateReinforced_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_Rubber_C"
+        },
+        {
+          "amount" : 5000,
+          "item" : "Desc_Water_C"
+        },
+        {
+          "amount" : 25000,
+          "item" : "Desc_NitrogenGas_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_CoolingSystem_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 6,
+      "id" : "Recipe_NitricAcid_C",
+      "name" : "Nitric Acid",
+      "ingredients" : [
+        {
+          "amount" : 12000,
+          "item" : "Desc_NitrogenGas_C"
+        },
+        {
+          "amount" : 3000,
+          "item" : "Desc_Water_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_IronPlate_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 3000,
+          "item" : "Desc_NitricAcid_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 24,
+      "id" : "Recipe_NonFissileUranium_C",
+      "name" : "Non-fissile Uranium",
+      "ingredients" : [
+        {
+          "amount" : 15,
+          "item" : "Desc_NuclearWaste_C"
+        },
+        {
+          "amount" : 10,
+          "item" : "Desc_Silica_C"
+        },
+        {
+          "amount" : 6000,
+          "item" : "Desc_NitricAcid_C"
+        },
+        {
+          "amount" : 6000,
+          "item" : "Desc_SulfuricAcid_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 20,
+          "item" : "Desc_NonFissibleUranium_C"
+        },
+        {
+          "amount" : 6000,
+          "item" : "Desc_Water_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 2,
+      "id" : "Recipe_AluminumCasing_C",
+      "name" : "Aluminum Casing",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_AluminumIngot_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_AluminumCasing_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 6,
+      "id" : "Recipe_AluminumSheet_C",
+      "name" : "Alclad Aluminum Sheet",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_AluminumIngot_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_CopperIngot_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_AluminumPlate_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 48,
+      "id" : "Recipe_RadioControlUnit_C",
+      "name" : "Radio Control Unit",
+      "ingredients" : [
+        {
+          "amount" : 32,
+          "item" : "Desc_AluminumCasing_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_CrystalOscillator_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_Computer_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_ModularFrameLightweight_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 6,
+      "id" : "Recipe_AluminaSolution_C",
+      "name" : "Alumina Solution",
+      "ingredients" : [
+        {
+          "amount" : 12,
+          "item" : "Desc_OreBauxite_C"
+        },
+        {
+          "amount" : 18000,
+          "item" : "Desc_Water_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 12000,
+          "item" : "Desc_AluminaSolution_C"
+        },
+        {
+          "amount" : 5,
+          "item" : "Desc_Silica_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 1,
+      "id" : "Recipe_AluminumScrap_C",
+      "name" : "Aluminum Scrap",
+      "ingredients" : [
+        {
+          "amount" : 4000,
+          "item" : "Desc_AluminaSolution_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_Coal_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 6,
+          "item" : "Desc_AluminumScrap_C"
+        },
+        {
+          "amount" : 2000,
+          "item" : "Desc_Water_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 4,
+      "id" : "Recipe_IngotAluminum_C",
+      "name" : "Aluminum Ingot",
+      "ingredients" : [
+        {
+          "amount" : 6,
+          "item" : "Desc_AluminumScrap_C"
+        },
+        {
+          "amount" : 5,
+          "item" : "Desc_Silica_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 4,
+          "item" : "Desc_AluminumIngot_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 8,
+      "id" : "Recipe_QuartzCrystal_C",
+      "name" : "Quartz Crystal",
+      "ingredients" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_RawQuartz_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_QuartzCrystal_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 8,
+      "id" : "Recipe_Silica_C",
+      "name" : "Silica",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_RawQuartz_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_Silica_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 120,
+      "id" : "Recipe_CrystalOscillator_C",
+      "name" : "Crystal Oscillator",
+      "ingredients" : [
+        {
+          "amount" : 36,
+          "item" : "Desc_QuartzCrystal_C"
+        },
+        {
+          "amount" : 28,
+          "item" : "Desc_Cable_C"
+        },
+        {
+          "amount" : 5,
+          "item" : "Desc_IronPlateReinforced_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_CrystalOscillator_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 1,
+      "id" : "Recipe_UnpackageAlumina_C",
+      "name" : "Unpackage Alumina Solution",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_PackagedAlumina_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2000,
+          "item" : "Desc_AluminaSolution_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_FluidCanister_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_Alternate_ElectrodeCircuitBoard_C",
+      "name" : "Alternate: Electrode Circuit Board",
+      "ingredients" : [
+        {
+          "amount" : 6,
+          "item" : "Desc_Rubber_C"
+        },
+        {
+          "amount" : 9,
+          "item" : "Desc_PetroleumCoke_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_CircuitBoard_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 16,
+      "id" : "Recipe_Alternate_FlexibleFramework_C",
+      "name" : "Alternate: Flexible Framework",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_ModularFrame_C"
+        },
+        {
+          "amount" : 6,
+          "item" : "Desc_SteelPlate_C"
+        },
+        {
+          "amount" : 8,
+          "item" : "Desc_Rubber_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_SpaceElevatorPart_2_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 20,
+      "id" : "Recipe_Alternate_FusedWire_C",
+      "name" : "Alternate: Fused Wire",
+      "ingredients" : [
+        {
+          "amount" : 4,
+          "item" : "Desc_CopperIngot_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_GoldIngot_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 30,
+          "item" : "Desc_Wire_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 16,
+      "id" : "Recipe_Alternate_HeavyFlexibleFrame_C",
+      "name" : "Alternate: Heavy Flexible Frame",
+      "ingredients" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_ModularFrame_C"
+        },
+        {
+          "amount" : 3,
+          "item" : "Desc_SteelPlateReinforced_C"
+        },
+        {
+          "amount" : 20,
+          "item" : "Desc_Rubber_C"
+        },
+        {
+          "amount" : 104,
+          "item" : "Desc_IronScrew_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_ModularFrameHeavy_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 24,
+      "id" : "Recipe_Computer_C",
+      "name" : "Computer",
+      "ingredients" : [
+        {
+          "amount" : 10,
+          "item" : "Desc_CircuitBoard_C"
+        },
+        {
+          "amount" : 9,
+          "item" : "Desc_Cable_C"
+        },
+        {
+          "amount" : 18,
+          "item" : "Desc_Plastic_C"
+        },
+        {
+          "amount" : 52,
+          "item" : "Desc_IronScrew_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Computer_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 60,
+      "id" : "Recipe_SpaceElevatorPart_4_C",
+      "name" : "Modular Engine",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_Motor_C"
+        },
+        {
+          "amount" : 15,
+          "item" : "Desc_Rubber_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_SpaceElevatorPart_1_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_SpaceElevatorPart_4_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 120,
+      "id" : "Recipe_SpaceElevatorPart_5_C",
+      "name" : "Adaptive Control Unit",
+      "ingredients" : [
+        {
+          "amount" : 15,
+          "item" : "Desc_SpaceElevatorPart_3_C"
+        },
+        {
+          "amount" : 10,
+          "item" : "Desc_CircuitBoard_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_ModularFrameHeavy_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_Computer_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_SpaceElevatorPart_5_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 6,
+      "id" : "Recipe_Alternate_HeavyOilResidue_C",
+      "name" : "Alternate: Heavy Oil Residue",
+      "ingredients" : [
+        {
+          "amount" : 3000,
+          "item" : "Desc_LiquidOil_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 4000,
+          "item" : "Desc_HeavyOilResidue_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_PolymerResin_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 32,
+      "id" : "Recipe_Alternate_HighSpeedWiring_C",
+      "name" : "Alternate: Automated Speed Wiring",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_Stator_C"
+        },
+        {
+          "amount" : 40,
+          "item" : "Desc_Wire_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_HighSpeedConnector_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 4,
+          "item" : "Desc_SpaceElevatorPart_3_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 10,
+      "id" : "Recipe_EncasedIndustrialBeam_C",
+      "name" : "Encased Industrial Beam",
+      "ingredients" : [
+        {
+          "amount" : 4,
+          "item" : "Desc_SteelPlate_C"
+        },
+        {
+          "amount" : 5,
+          "item" : "Desc_Cement_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_SteelPlateReinforced_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_Motor_C",
+      "name" : "Motor",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_Rotor_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_Stator_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Motor_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_Stator_C",
+      "name" : "Stator",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_SteelPipe_C"
+        },
+        {
+          "amount" : 8,
+          "item" : "Desc_Wire_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Stator_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 30,
+      "id" : "Recipe_ModularFrameHeavy_C",
+      "name" : "Heavy Modular Frame",
+      "ingredients" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_ModularFrame_C"
+        },
+        {
+          "amount" : 15,
+          "item" : "Desc_SteelPipe_C"
+        },
+        {
+          "amount" : 5,
+          "item" : "Desc_SteelPlateReinforced_C"
+        },
+        {
+          "amount" : 100,
+          "item" : "Desc_IronScrew_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_ModularFrameHeavy_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 24,
+      "id" : "Recipe_SpaceElevatorPart_3_C",
+      "name" : "Automated Wiring",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Stator_C"
+        },
+        {
+          "amount" : 20,
+          "item" : "Desc_Cable_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_SpaceElevatorPart_3_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_AILimiter_C",
+      "name" : "AI Limiter",
+      "ingredients" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_CopperSheet_C"
+        },
+        {
+          "amount" : 20,
+          "item" : "Desc_HighSpeedWire_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_CircuitBoardHighSpeed_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 24,
+      "id" : "Recipe_Alternate_PlasticSmartPlating_C",
+      "name" : "Alternate: Plastic Smart Plating",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_IronPlateReinforced_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_Rotor_C"
+        },
+        {
+          "amount" : 3,
+          "item" : "Desc_Plastic_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_SpaceElevatorPart_1_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 6,
+      "id" : "Recipe_Alternate_PolymerResin_C",
+      "name" : "Alternate: Polymer Resin",
+      "ingredients" : [
+        {
+          "amount" : 6000,
+          "item" : "Desc_LiquidOil_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 13,
+          "item" : "Desc_PolymerResin_C"
+        },
+        {
+          "amount" : 2000,
+          "item" : "Desc_HeavyOilResidue_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 2,
+      "id" : "Recipe_PureAluminumIngot_C",
+      "name" : "Alternate: Pure Aluminum Ingot",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_AluminumScrap_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_AluminumIngot_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 5,
+      "id" : "Recipe_Alternate_PureCateriumIngot_C",
+      "name" : "Alternate: Pure Caterium Ingot",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_OreGold_C"
+        },
+        {
+          "amount" : 2000,
+          "item" : "Desc_Water_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_GoldIngot_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 24,
+      "id" : "Recipe_Alternate_PureCopperIngot_C",
+      "name" : "Alternate: Pure Copper Ingot",
+      "ingredients" : [
+        {
+          "amount" : 6,
+          "item" : "Desc_OreCopper_C"
+        },
+        {
+          "amount" : 4000,
+          "item" : "Desc_Water_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 15,
+          "item" : "Desc_CopperIngot_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_Alternate_PureIronIngot_C",
+      "name" : "Alternate: Pure Iron Ingot",
+      "ingredients" : [
+        {
+          "amount" : 7,
+          "item" : "Desc_OreIron_C"
+        },
+        {
+          "amount" : 4000,
+          "item" : "Desc_Water_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 13,
+          "item" : "Desc_IronIngot_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 8,
+      "id" : "Recipe_Alternate_PureQuartzCrystal_C",
+      "name" : "Alternate: Pure Quartz Crystal",
+      "ingredients" : [
+        {
+          "amount" : 9,
+          "item" : "Desc_RawQuartz_C"
+        },
+        {
+          "amount" : 5000,
+          "item" : "Desc_Water_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 7,
+          "item" : "Desc_QuartzCrystal_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_Alternate_RecycledRubber_C",
+      "name" : "Alternate: Recycled Rubber",
+      "ingredients" : [
+        {
+          "amount" : 6,
+          "item" : "Desc_Plastic_C"
+        },
+        {
+          "amount" : 6000,
+          "item" : "Desc_LiquidFuel_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 12,
+          "item" : "Desc_Rubber_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_Alternate_RubberConcrete_C",
+      "name" : "Alternate: Rubber Concrete",
+      "ingredients" : [
+        {
+          "amount" : 10,
+          "item" : "Desc_Stone_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_Rubber_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 9,
+          "item" : "Desc_Cement_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 8,
+      "id" : "Recipe_Alternate_SteamedCopperSheet_C",
+      "name" : "Alternate: Steamed Copper Sheet",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_CopperIngot_C"
+        },
+        {
+          "amount" : 3000,
+          "item" : "Desc_Water_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_CopperSheet_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 3,
+      "id" : "Recipe_Alternate_SteelCanister_C",
+      "name" : "Alternate: Steel Canister",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_SteelIngot_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_FluidCanister_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 24,
+      "id" : "Recipe_Alternate_SteelCoatedPlate_C",
+      "name" : "Alternate: Steel Coated Plate",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_SteelIngot_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_Plastic_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 18,
+          "item" : "Desc_IronPlate_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 5,
+      "id" : "Recipe_Alternate_SteelRod_C",
+      "name" : "Alternate: Steel Rod",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_SteelIngot_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 4,
+          "item" : "Desc_IronRod_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 4,
+      "id" : "Recipe_SteelBeam_C",
+      "name" : "Steel Beam",
+      "ingredients" : [
+        {
+          "amount" : 4,
+          "item" : "Desc_SteelIngot_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_SteelPlate_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 6,
+      "id" : "Recipe_SteelPipe_C",
+      "name" : "Steel Pipe",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_SteelIngot_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_SteelPipe_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 4,
+      "id" : "Recipe_IngotSteel_C",
+      "name" : "Steel Ingot",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_OreIron_C"
+        },
+        {
+          "amount" : 3,
+          "item" : "Desc_Coal_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_SteelIngot_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 24,
+      "id" : "Recipe_SpaceElevatorPart_2_C",
+      "name" : "Versatile Framework",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_ModularFrame_C"
+        },
+        {
+          "amount" : 12,
+          "item" : "Desc_SteelPlate_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_SpaceElevatorPart_2_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 8,
+      "id" : "Recipe_Alternate_TurboHeavyFuel_C",
+      "name" : "Alternate: Turbo Heavy Fuel",
+      "ingredients" : [
+        {
+          "amount" : 5000,
+          "item" : "Desc_HeavyOilResidue_C"
+        },
+        {
+          "amount" : 4,
+          "item" : "Desc_CompactedCoal_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 4000,
+          "item" : "Desc_LiquidTurboFuel_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 6,
+      "id" : "Recipe_PackagedTurboFuel_C",
+      "name" : "Packaged Turbofuel",
+      "ingredients" : [
+        {
+          "amount" : 2000,
+          "item" : "Desc_LiquidTurboFuel_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_FluidCanister_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_TurboFuel_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 6,
+      "id" : "Recipe_UnpackageTurboFuel_C",
+      "name" : "Unpackage Turbofuel",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_TurboFuel_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2000,
+          "item" : "Desc_LiquidTurboFuel_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_FluidCanister_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 4,
+      "id" : "Recipe_Alternate_Coal_1_C",
+      "name" : "Alternate: Charcoal",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Wood_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 10,
+          "item" : "Desc_Coal_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 8,
+      "id" : "Recipe_Alternate_Coal_2_C",
+      "name" : "Alternate: Biocoal",
+      "ingredients" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_GenericBiomass_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 6,
+          "item" : "Desc_Coal_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_Alternate_EnrichedCoal_C",
+      "name" : "Alternate: Compacted Coal",
+      "ingredients" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_Coal_C"
+        },
+        {
+          "amount" : 5,
+          "item" : "Desc_Sulfur_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_CompactedCoal_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 3,
+      "id" : "Recipe_Alternate_WetConcrete_C",
+      "name" : "Alternate: Wet Concrete",
+      "ingredients" : [
+        {
+          "amount" : 6,
+          "item" : "Desc_Stone_C"
+        },
+        {
+          "amount" : 5000,
+          "item" : "Desc_Water_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 4,
+          "item" : "Desc_Cement_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 8,
+      "id" : "Recipe_Alternate_AlcladCasing_C",
+      "name" : "Alternate: Alclad Casing",
+      "ingredients" : [
+        {
+          "amount" : 20,
+          "item" : "Desc_AluminumIngot_C"
+        },
+        {
+          "amount" : 10,
+          "item" : "Desc_CopperIngot_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 15,
+          "item" : "Desc_AluminumCasing_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 3,
+      "id" : "Recipe_Battery_C",
+      "name" : "Battery",
+      "ingredients" : [
+        {
+          "amount" : 2500,
+          "item" : "Desc_SulfuricAcid_C"
+        },
+        {
+          "amount" : 2000,
+          "item" : "Desc_AluminaSolution_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_AluminumCasing_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Battery_C"
+        },
+        {
+          "amount" : 1500,
+          "item" : "Desc_Water_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 32,
+      "id" : "Recipe_ComputerSuper_C",
+      "name" : "Supercomputer",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_Computer_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_CircuitBoardHighSpeed_C"
+        },
+        {
+          "amount" : 3,
+          "item" : "Desc_HighSpeedConnector_C"
+        },
+        {
+          "amount" : 28,
+          "item" : "Desc_Plastic_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_ComputerSuper_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 6,
+      "id" : "Recipe_SulfuricAcid_C",
+      "name" : "Sulfuric Acid",
+      "ingredients" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_Sulfur_C"
+        },
+        {
+          "amount" : 5000,
+          "item" : "Desc_Water_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 5000,
+          "item" : "Desc_SulfuricAcid_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 80,
+      "id" : "Recipe_SpaceElevatorPart_7_C",
+      "name" : "Assembly Director System",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_SpaceElevatorPart_5_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_ComputerSuper_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_SpaceElevatorPart_7_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 16,
+      "id" : "Recipe_HighSpeedConnector_C",
+      "name" : "High-Speed Connector",
+      "ingredients" : [
+        {
+          "amount" : 56,
+          "item" : "Desc_HighSpeedWire_C"
+        },
+        {
+          "amount" : 10,
+          "item" : "Desc_Cable_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_CircuitBoard_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_HighSpeedConnector_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 1,
+      "id" : "Recipe_UnpackageSulfuricAcid_C",
+      "name" : "Unpackage Sulfuric Acid",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_PackagedSulfuricAcid_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1000,
+          "item" : "Desc_SulfuricAcid_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_FluidCanister_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 32,
+      "id" : "Recipe_Alternate_CoolingDevice_C",
+      "name" : "Alternate: Cooling Device",
+      "ingredients" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_AluminumPlateReinforced_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_Motor_C"
+        },
+        {
+          "amount" : 24000,
+          "item" : "Desc_NitrogenGas_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_CoolingSystem_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 8,
+      "id" : "Recipe_HeatSink_C",
+      "name" : "Heat Sink",
+      "ingredients" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_AluminumPlate_C"
+        },
+        {
+          "amount" : 3,
+          "item" : "Desc_CopperSheet_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_AluminumPlateReinforced_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 40,
+      "id" : "Recipe_FusedModularFrame_C",
+      "name" : "Fused Modular Frame",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_ModularFrameHeavy_C"
+        },
+        {
+          "amount" : 50,
+          "item" : "Desc_AluminumCasing_C"
+        },
+        {
+          "amount" : 25000,
+          "item" : "Desc_NitrogenGas_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_ModularFrameFused_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 1,
+      "id" : "Recipe_GasTank_C",
+      "name" : "Empty Fluid Tank",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_AluminumIngot_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_GasTank_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 1,
+      "id" : "Recipe_UnpackageNitrogen_C",
+      "name" : "Unpackage Nitrogen Gas",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_PackagedNitrogenGas_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 4000,
+          "item" : "Desc_NitrogenGas_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_GasTank_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 6,
+      "id" : "Recipe_Alternate_DilutedFuel_C",
+      "name" : "Alternate: Diluted Fuel",
+      "ingredients" : [
+        {
+          "amount" : 5000,
+          "item" : "Desc_HeavyOilResidue_C"
+        },
+        {
+          "amount" : 10000,
+          "item" : "Desc_Water_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 10000,
+          "item" : "Desc_LiquidFuel_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 16,
+      "id" : "Recipe_Alternate_ElectricMotor_C",
+      "name" : "Alternate: Electric Motor",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_ElectromagneticControlRod_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_Rotor_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_Motor_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_Alternate_FertileUranium_C",
+      "name" : "Alternate: Fertile Uranium",
+      "ingredients" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_OreUranium_C"
+        },
+        {
+          "amount" : 5,
+          "item" : "Desc_NuclearWaste_C"
+        },
+        {
+          "amount" : 3000,
+          "item" : "Desc_NitricAcid_C"
+        },
+        {
+          "amount" : 5000,
+          "item" : "Desc_SulfuricAcid_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 20,
+          "item" : "Desc_NonFissibleUranium_C"
+        },
+        {
+          "amount" : 8000,
+          "item" : "Desc_Water_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_PlutoniumCell_C",
+      "name" : "Encased Plutonium Cell",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_PlutoniumPellet_C"
+        },
+        {
+          "amount" : 4,
+          "item" : "Desc_Cement_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_PlutoniumCell_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 60,
+      "id" : "Recipe_PressureConversionCube_C",
+      "name" : "Pressure Conversion Cube",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_ModularFrameFused_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_ModularFrameLightweight_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_PressureConversionCube_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 6,
+      "id" : "Recipe_CopperDust_C",
+      "name" : "Copper Powder",
+      "ingredients" : [
+        {
+          "amount" : 30,
+          "item" : "Desc_CopperIngot_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_CopperDust_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 60,
+      "id" : "Recipe_Plutonium_C",
+      "name" : "Plutonium Pellet",
+      "ingredients" : [
+        {
+          "amount" : 100,
+          "item" : "Desc_NonFissibleUranium_C"
+        },
+        {
+          "amount" : 25,
+          "item" : "Desc_NuclearWaste_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 30,
+          "item" : "Desc_PlutoniumPellet_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 120,
+      "id" : "Recipe_SpaceElevatorPart_9_C",
+      "name" : "Nuclear Pasta",
+      "ingredients" : [
+        {
+          "amount" : 200,
+          "item" : "Desc_CopperDust_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_PressureConversionCube_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_SpaceElevatorPart_9_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 3,
+      "id" : "Recipe_UnpackageNitricAcid_C",
+      "name" : "Unpackage Nitric Acid",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_PackagedNitricAcid_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1000,
+          "item" : "Desc_NitricAcid_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_GasTank_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 20,
+      "id" : "Recipe_Alternate_HeatFusedFrame_C",
+      "name" : "Alternate: Heat-Fused Frame",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_ModularFrameHeavy_C"
+        },
+        {
+          "amount" : 50,
+          "item" : "Desc_AluminumIngot_C"
+        },
+        {
+          "amount" : 8000,
+          "item" : "Desc_NitricAcid_C"
+        },
+        {
+          "amount" : 10000,
+          "item" : "Desc_LiquidFuel_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_ModularFrameFused_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 120,
+      "id" : "Recipe_Alternate_InstantPlutoniumCell_C",
+      "name" : "Alternate: Instant Plutonium Cell",
+      "ingredients" : [
+        {
+          "amount" : 150,
+          "item" : "Desc_NonFissibleUranium_C"
+        },
+        {
+          "amount" : 20,
+          "item" : "Desc_AluminumCasing_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 20,
+          "item" : "Desc_PlutoniumCell_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 6,
+      "id" : "Recipe_Alternate_InstantScrap_C",
+      "name" : "Alternate: Instant Scrap",
+      "ingredients" : [
+        {
+          "amount" : 15,
+          "item" : "Desc_OreBauxite_C"
+        },
+        {
+          "amount" : 10,
+          "item" : "Desc_Coal_C"
+        },
+        {
+          "amount" : 5000,
+          "item" : "Desc_SulfuricAcid_C"
+        },
+        {
+          "amount" : 6000,
+          "item" : "Desc_Water_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 30,
+          "item" : "Desc_AluminumScrap_C"
+        },
+        {
+          "amount" : 5000,
+          "item" : "Desc_Water_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 20,
+      "id" : "Recipe_Alternate_OCSupercomputer_C",
+      "name" : "Alternate: OC Supercomputer",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_ModularFrameLightweight_C"
+        },
+        {
+          "amount" : 3,
+          "item" : "Desc_CoolingSystem_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_ComputerSuper_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 40,
+      "id" : "Recipe_Alternate_RadioControlSystem_C",
+      "name" : "Alternate: Radio Control System",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_CrystalOscillator_C"
+        },
+        {
+          "amount" : 10,
+          "item" : "Desc_CircuitBoard_C"
+        },
+        {
+          "amount" : 60,
+          "item" : "Desc_AluminumCasing_C"
+        },
+        {
+          "amount" : 30,
+          "item" : "Desc_Rubber_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_ModularFrameLightweight_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 3,
+      "id" : "Recipe_Alternate_SloppyAlumina_C",
+      "name" : "Alternate: Sloppy Alumina",
+      "ingredients" : [
+        {
+          "amount" : 10,
+          "item" : "Desc_OreBauxite_C"
+        },
+        {
+          "amount" : 10000,
+          "item" : "Desc_Water_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 12000,
+          "item" : "Desc_AluminaSolution_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 50,
+      "id" : "Recipe_Alternate_SuperStateComputer_C",
+      "name" : "Alternate: Super-State Computer",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_Computer_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_ElectromagneticControlRod_C"
+        },
+        {
+          "amount" : 20,
+          "item" : "Desc_Battery_C"
+        },
+        {
+          "amount" : 45,
+          "item" : "Desc_Wire_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_ComputerSuper_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 30,
+      "id" : "Recipe_ElectromagneticControlRod_C",
+      "name" : "Electromagnetic Control Rod",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_Stator_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_CircuitBoardHighSpeed_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_ElectromagneticControlRod_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 120,
+      "id" : "Recipe_SpaceElevatorPart_6_C",
+      "name" : "Magnetic Field Generator",
+      "ingredients" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_SpaceElevatorPart_2_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_ElectromagneticControlRod_C"
+        },
+        {
+          "amount" : 10,
+          "item" : "Desc_Battery_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_SpaceElevatorPart_6_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 8,
+      "id" : "Recipe_Alternate_TurboBlendFuel_C",
+      "name" : "Alternate: Turbo Blend Fuel",
+      "ingredients" : [
+        {
+          "amount" : 2000,
+          "item" : "Desc_LiquidFuel_C"
+        },
+        {
+          "amount" : 4000,
+          "item" : "Desc_HeavyOilResidue_C"
+        },
+        {
+          "amount" : 3,
+          "item" : "Desc_Sulfur_C"
+        },
+        {
+          "amount" : 3,
+          "item" : "Desc_PetroleumCoke_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 6000,
+          "item" : "Desc_LiquidTurboFuel_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 32,
+      "id" : "Recipe_Alternate_TurboPressureMotor_C",
+      "name" : "Alternate: Turbo Pressure Motor",
+      "ingredients" : [
+        {
+          "amount" : 4,
+          "item" : "Desc_Motor_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_PressureConversionCube_C"
+        },
+        {
+          "amount" : 24,
+          "item" : "Desc_PackagedNitrogenGas_C"
+        },
+        {
+          "amount" : 8,
+          "item" : "Desc_Stator_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_MotorLightweight_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_Alternate_Cable_1_C",
+      "name" : "Alternate: Insulated Cable",
+      "ingredients" : [
+        {
+          "amount" : 9,
+          "item" : "Desc_Wire_C"
+        },
+        {
+          "amount" : 6,
+          "item" : "Desc_Rubber_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 20,
+          "item" : "Desc_Cable_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 24,
+      "id" : "Recipe_Alternate_Cable_2_C",
+      "name" : "Alternate: Quickwire Cable",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_HighSpeedWire_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_Rubber_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 11,
+          "item" : "Desc_Cable_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 4,
+      "id" : "Recipe_IngotCaterium_C",
+      "name" : "Caterium Ingot",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_OreGold_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_GoldIngot_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 24,
+      "id" : "Recipe_Alternate_CircuitBoard_1_C",
+      "name" : "Alternate: Silicon Circuit Board",
+      "ingredients" : [
+        {
+          "amount" : 11,
+          "item" : "Desc_CopperSheet_C"
+        },
+        {
+          "amount" : 11,
+          "item" : "Desc_Silica_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_CircuitBoard_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 48,
+      "id" : "Recipe_Alternate_CircuitBoard_2_C",
+      "name" : "Alternate: Caterium Circuit Board",
+      "ingredients" : [
+        {
+          "amount" : 10,
+          "item" : "Desc_Plastic_C"
+        },
+        {
+          "amount" : 30,
+          "item" : "Desc_HighSpeedWire_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 7,
+          "item" : "Desc_CircuitBoard_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 16,
+      "id" : "Recipe_Alternate_Computer_1_C",
+      "name" : "Alternate: Caterium Computer",
+      "ingredients" : [
+        {
+          "amount" : 7,
+          "item" : "Desc_CircuitBoard_C"
+        },
+        {
+          "amount" : 28,
+          "item" : "Desc_HighSpeedWire_C"
+        },
+        {
+          "amount" : 12,
+          "item" : "Desc_Rubber_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Computer_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 64,
+      "id" : "Recipe_Alternate_Computer_2_C",
+      "name" : "Alternate: Crystal Computer",
+      "ingredients" : [
+        {
+          "amount" : 8,
+          "item" : "Desc_CircuitBoard_C"
+        },
+        {
+          "amount" : 3,
+          "item" : "Desc_CrystalOscillator_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_Computer_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 24,
+      "id" : "Recipe_Alternate_Concrete_C",
+      "name" : "Alternate: Fine Concrete",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_Silica_C"
+        },
+        {
+          "amount" : 12,
+          "item" : "Desc_Stone_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 10,
+          "item" : "Desc_Cement_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 32,
+      "id" : "Recipe_Alternate_CrystalOscillator_C",
+      "name" : "Alternate: Insulated Crystal Oscillator",
+      "ingredients" : [
+        {
+          "amount" : 10,
+          "item" : "Desc_QuartzCrystal_C"
+        },
+        {
+          "amount" : 7,
+          "item" : "Desc_Rubber_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_CircuitBoardHighSpeed_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_CrystalOscillator_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 15,
+      "id" : "Recipe_Alternate_ElectromagneticControlRod_1_C",
+      "name" : "Alternate: Electromagnetic Connection Rod",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_Stator_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_HighSpeedConnector_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_ElectromagneticControlRod_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 16,
+      "id" : "Recipe_Alternate_Gunpowder_1_C",
+      "name" : "Alternate: Fine Black Powder",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_Sulfur_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_CompactedCoal_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 4,
+          "item" : "Desc_Gunpowder_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 6,
+      "id" : "Recipe_Alternate_HeatSink_1_C",
+      "name" : "Alternate: Heat Exchanger",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_AluminumCasing_C"
+        },
+        {
+          "amount" : 3,
+          "item" : "Desc_Rubber_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_AluminumPlateReinforced_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 64,
+      "id" : "Recipe_Alternate_ModularFrameHeavy_C",
+      "name" : "Alternate: Heavy Encased Frame",
+      "ingredients" : [
+        {
+          "amount" : 8,
+          "item" : "Desc_ModularFrame_C"
+        },
+        {
+          "amount" : 10,
+          "item" : "Desc_SteelPlateReinforced_C"
+        },
+        {
+          "amount" : 36,
+          "item" : "Desc_SteelPipe_C"
+        },
+        {
+          "amount" : 22,
+          "item" : "Desc_Cement_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_ModularFrameHeavy_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 40,
+      "id" : "Recipe_Alternate_HighSpeedConnector_C",
+      "name" : "Alternate: Silicon High-Speed Connector",
+      "ingredients" : [
+        {
+          "amount" : 60,
+          "item" : "Desc_HighSpeedWire_C"
+        },
+        {
+          "amount" : 25,
+          "item" : "Desc_Silica_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_CircuitBoard_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_HighSpeedConnector_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 6,
+      "id" : "Recipe_Alternate_IngotIron_C",
+      "name" : "Alternate: Iron Alloy Ingot",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_OreIron_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_OreCopper_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_IronIngot_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 3,
+      "id" : "Recipe_Alternate_IngotSteel_1_C",
+      "name" : "Alternate: Solid Steel Ingot",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_IronIngot_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_Coal_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_SteelIngot_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 16,
+      "id" : "Recipe_Alternate_IngotSteel_2_C",
+      "name" : "Alternate: Compacted Steel Ingot",
+      "ingredients" : [
+        {
+          "amount" : 6,
+          "item" : "Desc_OreIron_C"
+        },
+        {
+          "amount" : 3,
+          "item" : "Desc_CompactedCoal_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 10,
+          "item" : "Desc_SteelIngot_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 60,
+      "id" : "Recipe_Alternate_ModularFrame_C",
+      "name" : "Alternate: Steeled Frame",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_IronPlateReinforced_C"
+        },
+        {
+          "amount" : 10,
+          "item" : "Desc_SteelPipe_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_ModularFrame_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 48,
+      "id" : "Recipe_Alternate_Motor_1_C",
+      "name" : "Alternate: Rigour Motor",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_Rotor_C"
+        },
+        {
+          "amount" : 3,
+          "item" : "Desc_Stator_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_CrystalOscillator_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 6,
+          "item" : "Desc_Motor_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_Alternate_Plastic_1_C",
+      "name" : "Alternate: Recycled Plastic",
+      "ingredients" : [
+        {
+          "amount" : 6,
+          "item" : "Desc_Rubber_C"
+        },
+        {
+          "amount" : 6000,
+          "item" : "Desc_LiquidFuel_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 12,
+          "item" : "Desc_Plastic_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 8,
+      "id" : "Recipe_Alternate_Quickwire_C",
+      "name" : "Alternate: Fused Quickwire",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_GoldIngot_C"
+        },
+        {
+          "amount" : 5,
+          "item" : "Desc_CopperIngot_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 12,
+          "item" : "Desc_HighSpeedWire_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 16,
+      "id" : "Recipe_Alternate_RadioControlUnit_1_C",
+      "name" : "Alternate: Radio Connection Unit",
+      "ingredients" : [
+        {
+          "amount" : 4,
+          "item" : "Desc_AluminumPlateReinforced_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_HighSpeedConnector_C"
+        },
+        {
+          "amount" : 12,
+          "item" : "Desc_QuartzCrystal_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_ModularFrameLightweight_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_Alternate_ReinforcedIronPlate_1_C",
+      "name" : "Alternate: Bolted Iron Plate",
+      "ingredients" : [
+        {
+          "amount" : 18,
+          "item" : "Desc_IronPlate_C"
+        },
+        {
+          "amount" : 50,
+          "item" : "Desc_IronScrew_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_IronPlateReinforced_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 32,
+      "id" : "Recipe_Alternate_ReinforcedIronPlate_2_C",
+      "name" : "Alternate: Stitched Iron Plate",
+      "ingredients" : [
+        {
+          "amount" : 10,
+          "item" : "Desc_IronPlate_C"
+        },
+        {
+          "amount" : 20,
+          "item" : "Desc_Wire_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_IronPlateReinforced_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 15,
+      "id" : "Recipe_Alternate_EncasedIndustrialBeam_C",
+      "name" : "Alternate: Encased Industrial Pipe",
+      "ingredients" : [
+        {
+          "amount" : 7,
+          "item" : "Desc_SteelPipe_C"
+        },
+        {
+          "amount" : 5,
+          "item" : "Desc_Cement_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_SteelPlateReinforced_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_Alternate_Rotor_C",
+      "name" : "Alternate: Steel Rotor",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_SteelPipe_C"
+        },
+        {
+          "amount" : 6,
+          "item" : "Desc_Wire_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Rotor_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 24,
+      "id" : "Recipe_Alternate_Screw_C",
+      "name" : "Alternate: Cast Screw",
+      "ingredients" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_IronIngot_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 20,
+          "item" : "Desc_IronScrew_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_Alternate_Screw_2_C",
+      "name" : "Alternate: Steel Screw",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_SteelPlate_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 52,
+          "item" : "Desc_IronScrew_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 16,
+      "id" : "Recipe_Alternate_Silica_C",
+      "name" : "Alternate: Cheap Silica",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_RawQuartz_C"
+        },
+        {
+          "amount" : 5,
+          "item" : "Desc_Stone_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 7,
+          "item" : "Desc_Silica_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 15,
+      "id" : "Recipe_Alternate_Stator_C",
+      "name" : "Alternate: Quickwire Stator",
+      "ingredients" : [
+        {
+          "amount" : 4,
+          "item" : "Desc_SteelPipe_C"
+        },
+        {
+          "amount" : 15,
+          "item" : "Desc_HighSpeedWire_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_Stator_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 16,
+      "id" : "Recipe_Alternate_Turbofuel_C",
+      "name" : "Turbofuel",
+      "ingredients" : [
+        {
+          "amount" : 6000,
+          "item" : "Desc_LiquidFuel_C"
+        },
+        {
+          "amount" : 4,
+          "item" : "Desc_CompactedCoal_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 5000,
+          "item" : "Desc_LiquidTurboFuel_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 64,
+      "id" : "Recipe_Alternate_TurboMotor_1_C",
+      "name" : "Alternate: Turbo Electric Motor",
+      "ingredients" : [
+        {
+          "amount" : 7,
+          "item" : "Desc_Motor_C"
+        },
+        {
+          "amount" : 9,
+          "item" : "Desc_ModularFrameLightweight_C"
+        },
+        {
+          "amount" : 5,
+          "item" : "Desc_ElectromagneticControlRod_C"
+        },
+        {
+          "amount" : 7,
+          "item" : "Desc_Rotor_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_MotorLightweight_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 32,
+      "id" : "Recipe_MotorTurbo_C",
+      "name" : "Turbo Motor",
+      "ingredients" : [
+        {
+          "amount" : 4,
+          "item" : "Desc_CoolingSystem_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_ModularFrameLightweight_C"
+        },
+        {
+          "amount" : 4,
+          "item" : "Desc_Motor_C"
+        },
+        {
+          "amount" : 24,
+          "item" : "Desc_Rubber_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_MotorLightweight_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 120,
+      "id" : "Recipe_SpaceElevatorPart_8_C",
+      "name" : "Thermal Propulsion Rocket",
+      "ingredients" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_SpaceElevatorPart_4_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_MotorLightweight_C"
+        },
+        {
+          "amount" : 6,
+          "item" : "Desc_CoolingSystem_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_ModularFrameFused_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_SpaceElevatorPart_8_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_Alternate_UraniumCell_1_C",
+      "name" : "Alternate: Infused Uranium Cell",
+      "ingredients" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_OreUranium_C"
+        },
+        {
+          "amount" : 3,
+          "item" : "Desc_Silica_C"
+        },
+        {
+          "amount" : 5,
+          "item" : "Desc_Sulfur_C"
+        },
+        {
+          "amount" : 15,
+          "item" : "Desc_HighSpeedWire_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 4,
+          "item" : "Desc_UraniumCell_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 24,
+      "id" : "Recipe_Alternate_Wire_1_C",
+      "name" : "Alternate: Iron Wire",
+      "ingredients" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_IronIngot_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 9,
+          "item" : "Desc_Wire_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 4,
+      "id" : "Recipe_Alternate_Wire_2_C",
+      "name" : "Alternate: Caterium Wire",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_GoldIngot_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 8,
+          "item" : "Desc_Wire_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 8,
+      "id" : "Recipe_FilterGasMask_C",
+      "name" : "Gas Filter",
+      "ingredients" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_Coal_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_Rubber_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_Fabric_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Filter_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 16,
+      "id" : "Recipe_FilterHazmat_C",
+      "name" : "Iodine Infused Filter",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Filter_C"
+        },
+        {
+          "amount" : 8,
+          "item" : "Desc_HighSpeedWire_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_AluminumCasing_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_HazmatFilter_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 3,
+      "id" : "Recipe_Protein_Hog_C",
+      "name" : "Hog Protein",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_HogParts_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_AlienProtein_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 3,
+      "id" : "Recipe_Protein_Spitter_C",
+      "name" : "Spitter Protein",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_SpitterParts_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_AlienProtein_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 6,
+      "id" : "Recipe_AlienDNACapsule_C",
+      "name" : "Organic Data Capsule",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_AlienProtein_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_AlienDNACapsule_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 3,
+      "id" : "Recipe_Protein_Crab_C",
+      "name" : "Hatcher Protein",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_HatcherParts_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_AlienProtein_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 3,
+      "id" : "Recipe_Protein_Stinger_C",
+      "name" : "Stinger Protein",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_StingerParts_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_AlienProtein_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 5,
+      "id" : "Recipe_Quickwire_C",
+      "name" : "Quickwire",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_GoldIngot_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_HighSpeedWire_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 8,
+      "id" : "Recipe_PowerCrystalShard_1_C",
+      "name" : "Power Shard (1)",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Crystal_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_CrystalShard_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_PowerCrystalShard_2_C",
+      "name" : "Power Shard (2)",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Crystal_mk2_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_CrystalShard_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 24,
+      "id" : "Recipe_PowerCrystalShard_3_C",
+      "name" : "Power Shard (5)",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Crystal_mk3_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_CrystalShard_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 4,
+      "id" : "Recipe_Gunpowder_C",
+      "name" : "Black Powder",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Coal_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_Sulfur_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_Gunpowder_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 6,
+      "id" : "Recipe_GunpowderMK2_C",
+      "name" : "Smokeless Powder",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_Gunpowder_C"
+        },
+        {
+          "amount" : 1000,
+          "item" : "Desc_HeavyOilResidue_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_GunpowderMK2_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_CandyCane_C",
+      "name" : "Candy Cane",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_Gift_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_CandyCane_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_XmasBow_C",
+      "name" : "FICSMAS Bow",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_Gift_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_XmasBow_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_Snow_C",
+      "name" : "Actual Snow",
+      "ingredients" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_Gift_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_Snow_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_XmasBall3_C",
+      "name" : "Copper FICSMAS Ornament",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_XmasBall1_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_CopperIngot_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_XmasBall3_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_XmasBall4_C",
+      "name" : "Iron FICSMAS Ornament",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_XmasBall2_C"
+        },
+        {
+          "amount" : 3,
+          "item" : "Desc_IronIngot_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_XmasBall4_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_XmasBall1_C",
+      "name" : "Red FICSMAS Ornament",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Gift_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_XmasBall1_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_XmasBall2_C",
+      "name" : "Blue FICSMAS Ornament",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Gift_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_XmasBall2_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 12,
+      "id" : "Recipe_XmasBallCluster_C",
+      "name" : "FICSMAS Ornament Bundle",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_XmasBall3_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_XmasBall4_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_XmasBallCluster_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 60,
+      "id" : "Recipe_XmasWreath_C",
+      "name" : "FICSMAS Decoration",
+      "ingredients" : [
+        {
+          "amount" : 15,
+          "item" : "Desc_XmasBranch_C"
+        },
+        {
+          "amount" : 6,
+          "item" : "Desc_XmasBallCluster_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_XmasWreath_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : 60,
+      "id" : "Recipe_XmasStar_C",
+      "name" : "FICSMAS Wonder Star",
+      "ingredients" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_XmasWreath_C"
+        },
+        {
+          "amount" : 20,
+          "item" : "Desc_CandyCane_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_XmasStar_C"
+        }
+      ]
+    }
+  ]
+}
