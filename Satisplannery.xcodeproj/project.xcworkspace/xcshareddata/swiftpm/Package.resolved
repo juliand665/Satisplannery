@@ -1,25 +1,32 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "HandyOperators",
-        "repositoryURL": "https://github.com/juliand665/HandyOperators.git",
-        "state": {
-          "branch": null,
-          "revision": "39f39ae74471112d54152227bb70053b59ea796f",
-          "version": "2.1.0"
-        }
-      },
-      {
-        "package": "UserDefault",
-        "repositoryURL": "https://github.com/juliand665/UserDefault",
-        "state": {
-          "branch": null,
-          "revision": "aabe6e72534c85baa5c07e7de7be5345a5506eb2",
-          "version": "1.1.2"
-        }
+  "pins" : [
+    {
+      "identity" : "handyoperators",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/juliand665/HandyOperators.git",
+      "state" : {
+        "revision" : "39f39ae74471112d54152227bb70053b59ea796f",
+        "version" : "2.1.0"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "simpleparser",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/juliand665/SimpleParser.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "3f6e62c2c204541d32d02ce4b70f86784fb4aa31"
+      }
+    },
+    {
+      "identity" : "userdefault",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/juliand665/UserDefault",
+      "state" : {
+        "revision" : "aabe6e72534c85baa5c07e7de7be5345a5506eb2",
+        "version" : "1.1.2"
+      }
+    }
+  ],
+  "version" : 2
 }

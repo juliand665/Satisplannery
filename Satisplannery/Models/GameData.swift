@@ -50,28 +50,26 @@ struct ItemStack: Hashable, Codable {
 	var amount: Int
 }
 
-struct ObjectID<Object>: Hashable {
-	var rawValue: String
+extension ItemStack {
+	static func * (stack: Self, factor: Int) -> Self {
+		.init(item: stack.item, amount: stack.amount * factor)
+	}
 }
 
-extension ObjectID: Codable {
-	init(from decoder: Decoder) throws {
-		let container = try decoder.singleValueContainer()
-		rawValue = try container.decode(String.self)
+extension Recipe {
+	static func all(producing item: Item.ID) -> [Self] {
+		GameData.shared.recipes
+			.filter { $0.products.contains { $0.item == item } }
 	}
 	
-	func encode(to encoder: Encoder) throws {
-		var container = encoder.singleValueContainer()
-		try container.encode(rawValue)
+	static func all(producingAnyOf items: Set<Item.ID>) -> [Self] {
+		GameData.shared.recipes
+			.filter { !items.isDisjoint(with: $0.products.map(\.item)) }
 	}
 }
 
-extension ObjectID: Comparable {
-	static func < (lhs: Self, rhs: Self) -> Bool {
-		lhs.rawValue < rhs.rawValue
+extension Collection where Element == Recipe {
+	func canonicalRecipe() -> Recipe {
+		first { !$0.name.hasPrefix("Alternate:") } ?? first!
 	}
-}
-
-extension ObjectID: Identifiable {
-	var id: Self { self }
 }

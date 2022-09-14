@@ -192,57 +192,7 @@ struct StepSection: View {
 	}
 }
 
-struct ItemPicker: View {
-	private static let craftableItems = Set(
-		GameData.shared.recipes
-			.lazy
-			.flatMap(\.products)
-			.map(\.item)
-	).sorted()
-	
-	var pick: (Item.ID) -> Void
-	@Environment(\.dismiss) private var dismiss
-	
-	var body: some View {
-		List(Self.craftableItems) { itemID in
-			let item = itemID.resolved()
-			Button {
-				withAnimation {
-					pick(itemID)
-					dismiss()
-				}
-			} label: {
-				HStack(spacing: 16) {
-					item.icon.frame(width: 64)
-					Text(item.name)
-						.tint(.primary)
-					Spacer()
-					Image(systemName: "plus")
-				}
-			}
-		}
-	}
-}
-
 extension CraftingStep: DefaultsValueConvertible {}
-
-extension Recipe {
-	static func all(producing item: Item.ID) -> [Self] {
-		GameData.shared.recipes
-			.filter { $0.products.contains { $0.item == item } }
-	}
-	
-	static func all(producingAnyOf items: Set<Item.ID>) -> [Self] {
-		GameData.shared.recipes
-			.filter { !items.isDisjoint(with: $0.products.map(\.item)) }
-	}
-}
-
-extension Collection where Element == Recipe {
-	func canonicalRecipe() -> Recipe {
-		first { !$0.name.hasPrefix("Alternate:") } ?? first!
-	}
-}
 
 struct AmountLabel: View {
 	var amount: Int
@@ -250,47 +200,6 @@ struct AmountLabel: View {
 	var body: some View {
 		Text("\(amount > 0 ? "+" : "")\(amount)")
 			.foregroundColor(amount > 0 ? .green : amount < 0 ? .red : nil)
-	}
-}
-
-struct CraftingStep: Identifiable, Codable {
-	let id = UUID()
-	var recipe: Recipe
-	var factor: Int = 1
-	
-	private enum CodingKeys: String, CodingKey {
-		case recipe
-		case factor
-	}
-}
-
-extension ItemStack {
-	static func * (stack: Self, factor: Int) -> Self {
-		.init(item: stack.item, amount: stack.amount * factor)
-	}
-}
-
-struct ItemBag {
-	var counts: [Item.ID: Int] = [:]
-	
-	var inputs: [Item.ID: Int] {
-		counts.filter { $1 < 0 }
-	}
-	var outputs: [Item.ID: Int] {
-		counts.filter { $1 > 0 }
-	}
-	
-	mutating func add(_ stack: ItemStack, factor: Int = 1) {
-		counts[stack.item, default: 0] += stack.amount * factor
-	}
-	
-	mutating func apply(_ step: CraftingStep) {
-		for product in step.recipe.products {
-			add(product, factor: step.factor)
-		}
-		for ingredient in step.recipe.ingredients {
-			add(ingredient, factor: -step.factor)
-		}
 	}
 }
 
