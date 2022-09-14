@@ -13,6 +13,7 @@
 		B9269B7628D22C5A00B95697 /* ItemPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9269B7528D22C5A00B95697 /* ItemPicker.swift */; };
 		B9269B7828D2376800B95697 /* ProcessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9269B7728D2376800B95697 /* ProcessView.swift */; };
 		B9269B7B28D2490800B95697 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = B9269B7A28D2490800B95697 /* Algorithms */; };
+		B9269B7D28D2518300B95697 /* Swift+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9269B7C28D2518300B95697 /* Swift+Helpers.swift */; };
 		B945242328D1108D00D9937B /* SatisplanneryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B945242228D1108D00D9937B /* SatisplanneryApp.swift */; };
 		B945242528D1108D00D9937B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B945242428D1108D00D9937B /* ContentView.swift */; };
 		B945242728D1109200D9937B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B945242628D1109200D9937B /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 		B9269B7328D22C2200B95697 /* Crafting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crafting.swift; sourceTree = "<group>"; };
 		B9269B7528D22C5A00B95697 /* ItemPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemPicker.swift; sourceTree = "<group>"; };
 		B9269B7728D2376800B95697 /* ProcessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessView.swift; sourceTree = "<group>"; };
+		B9269B7C28D2518300B95697 /* Swift+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swift+Helpers.swift"; sourceTree = "<group>"; };
 		B945241F28D1108D00D9937B /* Satisplannery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Satisplannery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B945242228D1108D00D9937B /* SatisplanneryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatisplanneryApp.swift; sourceTree = "<group>"; };
 		B945242428D1108D00D9937B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				B9269B7528D22C5A00B95697 /* ItemPicker.swift */,
 				B945245128D158A200D9937B /* Icon.swift */,
 				B9269B6E28D22BD900B95697 /* Models */,
+				B9269B7C28D2518300B95697 /* Swift+Helpers.swift */,
 				B945242628D1109200D9937B /* Assets.xcassets */,
 				B945244B28D149F800D9937B /* data.json */,
 				B945244D28D14A0100D9937B /* images */,
@@ -267,6 +270,7 @@
 				B9269B7828D2376800B95697 /* ProcessView.swift in Sources */,
 				B9269B7628D22C5A00B95697 /* ItemPicker.swift in Sources */,
 				B945242528D1108D00D9937B /* ContentView.swift in Sources */,
+				B9269B7D28D2518300B95697 /* Swift+Helpers.swift in Sources */,
 				B945245028D1586600D9937B /* GameData.swift in Sources */,
 				B9269B7028D22BE300B95697 /* ObjectID.swift in Sources */,
 				B9269B7228D22BFE00B95697 /* ItemBag.swift in Sources */,

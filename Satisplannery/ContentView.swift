@@ -18,7 +18,20 @@ struct ContentView: View {
 							processes[index] = $0
 						})
 					} label: {
-						Text(process.name.isEmpty ? "Untitled Process" : process.name)
+						HStack(spacing: 16) {
+							Text(process.name.isEmpty ? "Untitled Process" : process.name)
+							
+							Spacer()
+							
+							HStack {
+								let outputs = process.totals.outputs.sorted(on: \.key).sorted { -$0.value }.map(\.key)
+								let maxCount = 3
+								ForEach(outputs.prefix(maxCount)) { output in
+									output.resolved().icon
+								}
+							}
+							.frame(height: 48)
+						}
 					}
 				}
 				.onDelete { processes.remove(atOffsets: $0) }
