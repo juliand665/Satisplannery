@@ -36,6 +36,7 @@ struct FGRecipe: Class, Encodable {
 	var ingredients: [ItemStack]
 	var products: [ItemStack]
 	var craftingTime: Double
+	var producedIn: [String]
 	
 	init(raw: RawClass) {
 		id = raw.name
@@ -43,10 +44,22 @@ struct FGRecipe: Class, Encodable {
 		ingredients = .init(rawValue: raw.ingredients.unparenthesized())
 		products = .init(rawValue: raw.product.unparenthesized())
 		craftingTime = raw.manufactoringDuration // why
+		producedIn = raw.producedIn.isEmpty ? [] : [Path](rawValue: raw.producedIn.unparenthesized()).map(\.name)
 	}
 }
 
-struct ItemStack: Parseable, Encodable {
+struct Path: Parseable {
+	var path: String
+	var name: String
+	
+	init(from parser: inout Parser) {
+		path = String(parser.consume(upTo: ".")!)
+		parser.consume(".")
+		name = String(parser.consume { $0.isLetter || $0.isNumber || $0 == "_" })
+	}
+}
+
+struct ItemStack: Parseable, Encodable, Hashable {
 	var item: String
 	var amount: Int
 	
