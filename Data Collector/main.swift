@@ -34,6 +34,7 @@ let recipes = decodeClasses(of: FGRecipe.self)
 print(recipes.count, "recipes")
 let relevantRecipes = recipes.filter {
 	$0.products.allSatisfy { knownItems.contains($0.item) }
+	&& $0.products != $0.ingredients
 }
 print(relevantRecipes.count, "relevant recipes")
 
