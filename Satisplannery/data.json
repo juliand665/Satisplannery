@@ -671,6 +671,9 @@
     {
       "craftingTime" : 8,
       "id" : "Recipe_Alternate_ClassicBattery_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C"
+      ],
       "name" : "Alternate: Classic Battery",
       "ingredients" : [
         {
@@ -700,6 +703,11 @@
     {
       "craftingTime" : 2,
       "id" : "Recipe_Cable_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Cable",
       "ingredients" : [
         {
@@ -717,6 +725,11 @@
     {
       "craftingTime" : 4,
       "id" : "Recipe_Wire_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Wire",
       "ingredients" : [
         {
@@ -734,6 +747,11 @@
     {
       "craftingTime" : 2,
       "id" : "Recipe_IngotCopper_C",
+      "producedIn" : [
+        "Build_SmelterMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Copper Ingot",
       "ingredients" : [
         {
@@ -751,6 +769,11 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_IronPlateReinforced_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Reinforced Iron Plate",
       "ingredients" : [
         {
@@ -772,6 +795,11 @@
     {
       "craftingTime" : 4,
       "id" : "Recipe_Concrete_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Concrete",
       "ingredients" : [
         {
@@ -789,6 +817,11 @@
     {
       "craftingTime" : 6,
       "id" : "Recipe_Screw_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Screw",
       "ingredients" : [
         {
@@ -806,6 +839,9 @@
     {
       "craftingTime" : 6,
       "id" : "Recipe_XmasBranch_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C"
+      ],
       "name" : "FICSMAS Tree Branch",
       "ingredients" : [
         {
@@ -823,6 +859,11 @@
     {
       "craftingTime" : 6,
       "id" : "Recipe_IronPlate_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Iron Plate",
       "ingredients" : [
         {
@@ -840,6 +881,11 @@
     {
       "craftingTime" : 4,
       "id" : "Recipe_IronRod_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Iron Rod",
       "ingredients" : [
         {
@@ -856,177 +902,12 @@
     },
     {
       "craftingTime" : 2,
-      "id" : "Recipe_Coal_C",
-      "name" : "Coal",
-      "ingredients" : [
-        {
-          "amount" : 1,
-          "item" : "Desc_Coal_C"
-        }
-      ],
-      "products" : [
-        {
-          "amount" : 1,
-          "item" : "Desc_Coal_C"
-        }
-      ]
-    },
-    {
-      "craftingTime" : 2,
-      "id" : "Recipe_CrudeOil_C",
-      "name" : "Crude Oil",
-      "ingredients" : [
-        {
-          "amount" : 1,
-          "item" : "Desc_LiquidOil_C"
-        }
-      ],
-      "products" : [
-        {
-          "amount" : 1,
-          "item" : "Desc_LiquidOil_C"
-        }
-      ]
-    },
-    {
-      "craftingTime" : 2,
-      "id" : "Recipe_Limestone_C",
-      "name" : "Limestone",
-      "ingredients" : [
-        {
-          "amount" : 1,
-          "item" : "Desc_Stone_C"
-        }
-      ],
-      "products" : [
-        {
-          "amount" : 1,
-          "item" : "Desc_Stone_C"
-        }
-      ]
-    },
-    {
-      "craftingTime" : 2,
-      "id" : "Recipe_OreBauxite_C",
-      "name" : "Bauxite",
-      "ingredients" : [
-        {
-          "amount" : 1,
-          "item" : "Desc_OreBauxite_C"
-        }
-      ],
-      "products" : [
-        {
-          "amount" : 1,
-          "item" : "Desc_OreBauxite_C"
-        }
-      ]
-    },
-    {
-      "craftingTime" : 2,
-      "id" : "Recipe_OreCaterium_C",
-      "name" : "Caterium Ore",
-      "ingredients" : [
-        {
-          "amount" : 1,
-          "item" : "Desc_OreGold_C"
-        }
-      ],
-      "products" : [
-        {
-          "amount" : 1,
-          "item" : "Desc_OreGold_C"
-        }
-      ]
-    },
-    {
-      "craftingTime" : 2,
-      "id" : "Recipe_OreCopper_C",
-      "name" : "Copper Ore",
-      "ingredients" : [
-        {
-          "amount" : 1,
-          "item" : "Desc_OreCopper_C"
-        }
-      ],
-      "products" : [
-        {
-          "amount" : 1,
-          "item" : "Desc_OreCopper_C"
-        }
-      ]
-    },
-    {
-      "craftingTime" : 2,
-      "id" : "Recipe_OreIron_C",
-      "name" : "Iron Ore",
-      "ingredients" : [
-        {
-          "amount" : 1,
-          "item" : "Desc_OreIron_C"
-        }
-      ],
-      "products" : [
-        {
-          "amount" : 1,
-          "item" : "Desc_OreIron_C"
-        }
-      ]
-    },
-    {
-      "craftingTime" : 2,
-      "id" : "Recipe_OreUranium_C",
-      "name" : "Uranium",
-      "ingredients" : [
-        {
-          "amount" : 1,
-          "item" : "Desc_OreUranium_C"
-        }
-      ],
-      "products" : [
-        {
-          "amount" : 1,
-          "item" : "Desc_OreUranium_C"
-        }
-      ]
-    },
-    {
-      "craftingTime" : 2,
-      "id" : "Recipe_RawQuartz_C",
-      "name" : "Raw Quartz",
-      "ingredients" : [
-        {
-          "amount" : 1,
-          "item" : "Desc_RawQuartz_C"
-        }
-      ],
-      "products" : [
-        {
-          "amount" : 1,
-          "item" : "Desc_RawQuartz_C"
-        }
-      ]
-    },
-    {
-      "craftingTime" : 2,
-      "id" : "Recipe_Sulfur_C",
-      "name" : "Sulfur",
-      "ingredients" : [
-        {
-          "amount" : 1,
-          "item" : "Desc_Sulfur_C"
-        }
-      ],
-      "products" : [
-        {
-          "amount" : 1,
-          "item" : "Desc_Sulfur_C"
-        }
-      ]
-    },
-    {
-      "craftingTime" : 2,
       "id" : "Recipe_IngotIron_C",
+      "producedIn" : [
+        "Build_SmelterMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Iron Ingot",
       "ingredients" : [
         {
@@ -1044,6 +925,9 @@
     {
       "craftingTime" : 16,
       "id" : "Recipe_Alternate_AdheredIronPlate_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: Adhered Iron Plate",
       "ingredients" : [
         {
@@ -1065,6 +949,11 @@
     {
       "craftingTime" : 8,
       "id" : "Recipe_CircuitBoard_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Circuit Board",
       "ingredients" : [
         {
@@ -1086,6 +975,9 @@
     {
       "craftingTime" : 6,
       "id" : "Recipe_LiquidFuel_C",
+      "producedIn" : [
+        "Build_OilRefinery_C"
+      ],
       "name" : "Fuel",
       "ingredients" : [
         {
@@ -1107,6 +999,9 @@
     {
       "craftingTime" : 6,
       "id" : "Recipe_PetroleumCoke_C",
+      "producedIn" : [
+        "Build_OilRefinery_C"
+      ],
       "name" : "Petroleum Coke",
       "ingredients" : [
         {
@@ -1124,6 +1019,9 @@
     {
       "craftingTime" : 6,
       "id" : "Recipe_Plastic_C",
+      "producedIn" : [
+        "Build_OilRefinery_C"
+      ],
       "name" : "Plastic",
       "ingredients" : [
         {
@@ -1145,6 +1043,9 @@
     {
       "craftingTime" : 6,
       "id" : "Recipe_Rubber_C",
+      "producedIn" : [
+        "Build_OilRefinery_C"
+      ],
       "name" : "Rubber",
       "ingredients" : [
         {
@@ -1166,6 +1067,9 @@
     {
       "craftingTime" : 6,
       "id" : "Recipe_ResidualFuel_C",
+      "producedIn" : [
+        "Build_OilRefinery_C"
+      ],
       "name" : "Residual Fuel",
       "ingredients" : [
         {
@@ -1183,6 +1087,9 @@
     {
       "craftingTime" : 6,
       "id" : "Recipe_ResidualPlastic_C",
+      "producedIn" : [
+        "Build_OilRefinery_C"
+      ],
       "name" : "Residual Plastic",
       "ingredients" : [
         {
@@ -1204,6 +1111,9 @@
     {
       "craftingTime" : 6,
       "id" : "Recipe_ResidualRubber_C",
+      "producedIn" : [
+        "Build_OilRefinery_C"
+      ],
       "name" : "Residual Rubber",
       "ingredients" : [
         {
@@ -1225,6 +1135,9 @@
     {
       "craftingTime" : 24,
       "id" : "Recipe_Alternate_BoltedFrame_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: Bolted Frame",
       "ingredients" : [
         {
@@ -1246,6 +1159,11 @@
     {
       "craftingTime" : 60,
       "id" : "Recipe_ModularFrame_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Modular Frame",
       "ingredients" : [
         {
@@ -1267,6 +1185,11 @@
     {
       "craftingTime" : 15,
       "id" : "Recipe_Rotor_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Rotor",
       "ingredients" : [
         {
@@ -1288,6 +1211,11 @@
     {
       "craftingTime" : 6,
       "id" : "Recipe_CopperSheet_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Copper Sheet",
       "ingredients" : [
         {
@@ -1305,6 +1233,9 @@
     {
       "craftingTime" : 30,
       "id" : "Recipe_SpaceElevatorPart_1_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Smart Plating",
       "ingredients" : [
         {
@@ -1326,6 +1257,9 @@
     {
       "craftingTime" : 8,
       "id" : "Recipe_Alternate_CoatedCable_C",
+      "producedIn" : [
+        "Build_OilRefinery_C"
+      ],
       "name" : "Alternate: Coated Cable",
       "ingredients" : [
         {
@@ -1347,6 +1281,9 @@
     {
       "craftingTime" : 4,
       "id" : "Recipe_Alternate_CoatedIronCanister_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: Coated Iron Canister",
       "ingredients" : [
         {
@@ -1368,6 +1305,10 @@
     {
       "craftingTime" : 6,
       "id" : "Recipe_ColorCartridge_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C"
+      ],
       "name" : "Color Cartridge",
       "ingredients" : [
         {
@@ -1385,6 +1326,11 @@
     {
       "craftingTime" : 4,
       "id" : "Recipe_FluidCanister_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Empty Canister",
       "ingredients" : [
         {
@@ -1402,6 +1348,9 @@
     {
       "craftingTime" : 3,
       "id" : "Recipe_Fuel_C",
+      "producedIn" : [
+        "Build_Packager_C"
+      ],
       "name" : "Packaged Fuel",
       "ingredients" : [
         {
@@ -1423,6 +1372,9 @@
     {
       "craftingTime" : 4,
       "id" : "Recipe_PackagedCrudeOil_C",
+      "producedIn" : [
+        "Build_Packager_C"
+      ],
       "name" : "Packaged Oil",
       "ingredients" : [
         {
@@ -1444,6 +1396,9 @@
     {
       "craftingTime" : 4,
       "id" : "Recipe_PackagedOilResidue_C",
+      "producedIn" : [
+        "Build_Packager_C"
+      ],
       "name" : "Packaged Heavy Oil Residue",
       "ingredients" : [
         {
@@ -1465,6 +1420,9 @@
     {
       "craftingTime" : 2,
       "id" : "Recipe_PackagedWater_C",
+      "producedIn" : [
+        "Build_Packager_C"
+      ],
       "name" : "Packaged Water",
       "ingredients" : [
         {
@@ -1486,6 +1444,9 @@
     {
       "craftingTime" : 2,
       "id" : "Recipe_UnpackageFuel_C",
+      "producedIn" : [
+        "Build_Packager_C"
+      ],
       "name" : "Unpackage Fuel",
       "ingredients" : [
         {
@@ -1507,6 +1468,9 @@
     {
       "craftingTime" : 2,
       "id" : "Recipe_UnpackageOil_C",
+      "producedIn" : [
+        "Build_Packager_C"
+      ],
       "name" : "Unpackage Oil",
       "ingredients" : [
         {
@@ -1528,6 +1492,9 @@
     {
       "craftingTime" : 6,
       "id" : "Recipe_UnpackageOilResidue_C",
+      "producedIn" : [
+        "Build_Packager_C"
+      ],
       "name" : "Unpackage Heavy Oil Residue",
       "ingredients" : [
         {
@@ -1549,6 +1516,9 @@
     {
       "craftingTime" : 1,
       "id" : "Recipe_UnpackageWater_C",
+      "producedIn" : [
+        "Build_Packager_C"
+      ],
       "name" : "Unpackage Water",
       "ingredients" : [
         {
@@ -1570,6 +1540,9 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_Alternate_CoatedIronPlate_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: Coated Iron Plate",
       "ingredients" : [
         {
@@ -1591,6 +1564,9 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_Alternate_CokeSteelIngot_C",
+      "producedIn" : [
+        "Build_FoundryMk1_C"
+      ],
       "name" : "Alternate: Coke Steel Ingot",
       "ingredients" : [
         {
@@ -1612,6 +1588,9 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_Alternate_CopperAlloyIngot_C",
+      "producedIn" : [
+        "Build_FoundryMk1_C"
+      ],
       "name" : "Alternate: Copper Alloy Ingot",
       "ingredients" : [
         {
@@ -1633,6 +1612,9 @@
     {
       "craftingTime" : 16,
       "id" : "Recipe_Alternate_CopperRotor_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: Copper Rotor",
       "ingredients" : [
         {
@@ -1654,6 +1636,9 @@
     {
       "craftingTime" : 2,
       "id" : "Recipe_Alternate_DilutedPackagedFuel_C",
+      "producedIn" : [
+        "Build_OilRefinery_C"
+      ],
       "name" : "Alternate: Diluted Packaged Fuel",
       "ingredients" : [
         {
@@ -1675,6 +1660,9 @@
     {
       "craftingTime" : 4,
       "id" : "Recipe_Alternate_ElectroAluminumScrap_C",
+      "producedIn" : [
+        "Build_OilRefinery_C"
+      ],
       "name" : "Alternate: Electrode - Aluminum Scrap",
       "ingredients" : [
         {
@@ -1700,6 +1688,9 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_UraniumCell_C",
+      "producedIn" : [
+        "Build_Blender_C"
+      ],
       "name" : "Encased Uranium Cell",
       "ingredients" : [
         {
@@ -1729,6 +1720,9 @@
     {
       "craftingTime" : 10,
       "id" : "Recipe_CoolingSystem_C",
+      "producedIn" : [
+        "Build_Blender_C"
+      ],
       "name" : "Cooling System",
       "ingredients" : [
         {
@@ -1758,6 +1752,9 @@
     {
       "craftingTime" : 6,
       "id" : "Recipe_NitricAcid_C",
+      "producedIn" : [
+        "Build_Blender_C"
+      ],
       "name" : "Nitric Acid",
       "ingredients" : [
         {
@@ -1783,6 +1780,9 @@
     {
       "craftingTime" : 24,
       "id" : "Recipe_NonFissileUranium_C",
+      "producedIn" : [
+        "Build_Blender_C"
+      ],
       "name" : "Non-fissile Uranium",
       "ingredients" : [
         {
@@ -1816,6 +1816,11 @@
     {
       "craftingTime" : 2,
       "id" : "Recipe_AluminumCasing_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Aluminum Casing",
       "ingredients" : [
         {
@@ -1833,6 +1838,11 @@
     {
       "craftingTime" : 6,
       "id" : "Recipe_AluminumSheet_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Alclad Aluminum Sheet",
       "ingredients" : [
         {
@@ -1854,6 +1864,11 @@
     {
       "craftingTime" : 48,
       "id" : "Recipe_RadioControlUnit_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Radio Control Unit",
       "ingredients" : [
         {
@@ -1879,6 +1894,9 @@
     {
       "craftingTime" : 6,
       "id" : "Recipe_AluminaSolution_C",
+      "producedIn" : [
+        "Build_OilRefinery_C"
+      ],
       "name" : "Alumina Solution",
       "ingredients" : [
         {
@@ -1904,6 +1922,9 @@
     {
       "craftingTime" : 1,
       "id" : "Recipe_AluminumScrap_C",
+      "producedIn" : [
+        "Build_OilRefinery_C"
+      ],
       "name" : "Aluminum Scrap",
       "ingredients" : [
         {
@@ -1929,6 +1950,10 @@
     {
       "craftingTime" : 4,
       "id" : "Recipe_IngotAluminum_C",
+      "producedIn" : [
+        "Build_FoundryMk1_C",
+        "BP_WorkBenchComponent_C"
+      ],
       "name" : "Aluminum Ingot",
       "ingredients" : [
         {
@@ -1950,6 +1975,11 @@
     {
       "craftingTime" : 8,
       "id" : "Recipe_QuartzCrystal_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Quartz Crystal",
       "ingredients" : [
         {
@@ -1967,6 +1997,11 @@
     {
       "craftingTime" : 8,
       "id" : "Recipe_Silica_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Silica",
       "ingredients" : [
         {
@@ -1984,6 +2019,11 @@
     {
       "craftingTime" : 120,
       "id" : "Recipe_CrystalOscillator_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Crystal Oscillator",
       "ingredients" : [
         {
@@ -2009,6 +2049,9 @@
     {
       "craftingTime" : 1,
       "id" : "Recipe_UnpackageAlumina_C",
+      "producedIn" : [
+        "Build_Packager_C"
+      ],
       "name" : "Unpackage Alumina Solution",
       "ingredients" : [
         {
@@ -2030,6 +2073,9 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_Alternate_ElectrodeCircuitBoard_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: Electrode Circuit Board",
       "ingredients" : [
         {
@@ -2051,6 +2097,9 @@
     {
       "craftingTime" : 16,
       "id" : "Recipe_Alternate_FlexibleFramework_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C"
+      ],
       "name" : "Alternate: Flexible Framework",
       "ingredients" : [
         {
@@ -2076,6 +2125,9 @@
     {
       "craftingTime" : 20,
       "id" : "Recipe_Alternate_FusedWire_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: Fused Wire",
       "ingredients" : [
         {
@@ -2097,6 +2149,9 @@
     {
       "craftingTime" : 16,
       "id" : "Recipe_Alternate_HeavyFlexibleFrame_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C"
+      ],
       "name" : "Alternate: Heavy Flexible Frame",
       "ingredients" : [
         {
@@ -2126,6 +2181,11 @@
     {
       "craftingTime" : 24,
       "id" : "Recipe_Computer_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Computer",
       "ingredients" : [
         {
@@ -2155,6 +2215,9 @@
     {
       "craftingTime" : 60,
       "id" : "Recipe_SpaceElevatorPart_4_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C"
+      ],
       "name" : "Modular Engine",
       "ingredients" : [
         {
@@ -2180,6 +2243,9 @@
     {
       "craftingTime" : 120,
       "id" : "Recipe_SpaceElevatorPart_5_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C"
+      ],
       "name" : "Adaptive Control Unit",
       "ingredients" : [
         {
@@ -2209,6 +2275,9 @@
     {
       "craftingTime" : 6,
       "id" : "Recipe_Alternate_HeavyOilResidue_C",
+      "producedIn" : [
+        "Build_OilRefinery_C"
+      ],
       "name" : "Alternate: Heavy Oil Residue",
       "ingredients" : [
         {
@@ -2230,6 +2299,9 @@
     {
       "craftingTime" : 32,
       "id" : "Recipe_Alternate_HighSpeedWiring_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C"
+      ],
       "name" : "Alternate: Automated Speed Wiring",
       "ingredients" : [
         {
@@ -2255,6 +2327,11 @@
     {
       "craftingTime" : 10,
       "id" : "Recipe_EncasedIndustrialBeam_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Encased Industrial Beam",
       "ingredients" : [
         {
@@ -2276,6 +2353,11 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_Motor_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Motor",
       "ingredients" : [
         {
@@ -2297,6 +2379,11 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_Stator_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Stator",
       "ingredients" : [
         {
@@ -2318,6 +2405,11 @@
     {
       "craftingTime" : 30,
       "id" : "Recipe_ModularFrameHeavy_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Heavy Modular Frame",
       "ingredients" : [
         {
@@ -2347,6 +2439,9 @@
     {
       "craftingTime" : 24,
       "id" : "Recipe_SpaceElevatorPart_3_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Automated Wiring",
       "ingredients" : [
         {
@@ -2368,6 +2463,11 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_AILimiter_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "AI Limiter",
       "ingredients" : [
         {
@@ -2389,6 +2489,9 @@
     {
       "craftingTime" : 24,
       "id" : "Recipe_Alternate_PlasticSmartPlating_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C"
+      ],
       "name" : "Alternate: Plastic Smart Plating",
       "ingredients" : [
         {
@@ -2414,6 +2517,9 @@
     {
       "craftingTime" : 6,
       "id" : "Recipe_Alternate_PolymerResin_C",
+      "producedIn" : [
+        "Build_OilRefinery_C"
+      ],
       "name" : "Alternate: Polymer Resin",
       "ingredients" : [
         {
@@ -2435,6 +2541,9 @@
     {
       "craftingTime" : 2,
       "id" : "Recipe_PureAluminumIngot_C",
+      "producedIn" : [
+        "Build_SmelterMk1_C"
+      ],
       "name" : "Alternate: Pure Aluminum Ingot",
       "ingredients" : [
         {
@@ -2452,6 +2561,9 @@
     {
       "craftingTime" : 5,
       "id" : "Recipe_Alternate_PureCateriumIngot_C",
+      "producedIn" : [
+        "Build_OilRefinery_C"
+      ],
       "name" : "Alternate: Pure Caterium Ingot",
       "ingredients" : [
         {
@@ -2473,6 +2585,9 @@
     {
       "craftingTime" : 24,
       "id" : "Recipe_Alternate_PureCopperIngot_C",
+      "producedIn" : [
+        "Build_OilRefinery_C"
+      ],
       "name" : "Alternate: Pure Copper Ingot",
       "ingredients" : [
         {
@@ -2494,6 +2609,9 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_Alternate_PureIronIngot_C",
+      "producedIn" : [
+        "Build_OilRefinery_C"
+      ],
       "name" : "Alternate: Pure Iron Ingot",
       "ingredients" : [
         {
@@ -2515,6 +2633,9 @@
     {
       "craftingTime" : 8,
       "id" : "Recipe_Alternate_PureQuartzCrystal_C",
+      "producedIn" : [
+        "Build_OilRefinery_C"
+      ],
       "name" : "Alternate: Pure Quartz Crystal",
       "ingredients" : [
         {
@@ -2536,6 +2657,9 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_Alternate_RecycledRubber_C",
+      "producedIn" : [
+        "Build_OilRefinery_C"
+      ],
       "name" : "Alternate: Recycled Rubber",
       "ingredients" : [
         {
@@ -2557,6 +2681,9 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_Alternate_RubberConcrete_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: Rubber Concrete",
       "ingredients" : [
         {
@@ -2578,6 +2705,9 @@
     {
       "craftingTime" : 8,
       "id" : "Recipe_Alternate_SteamedCopperSheet_C",
+      "producedIn" : [
+        "Build_OilRefinery_C"
+      ],
       "name" : "Alternate: Steamed Copper Sheet",
       "ingredients" : [
         {
@@ -2599,6 +2729,9 @@
     {
       "craftingTime" : 3,
       "id" : "Recipe_Alternate_SteelCanister_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C"
+      ],
       "name" : "Alternate: Steel Canister",
       "ingredients" : [
         {
@@ -2616,6 +2749,9 @@
     {
       "craftingTime" : 24,
       "id" : "Recipe_Alternate_SteelCoatedPlate_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: Steel Coated Plate",
       "ingredients" : [
         {
@@ -2637,6 +2773,9 @@
     {
       "craftingTime" : 5,
       "id" : "Recipe_Alternate_SteelRod_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C"
+      ],
       "name" : "Alternate: Steel Rod",
       "ingredients" : [
         {
@@ -2654,6 +2793,11 @@
     {
       "craftingTime" : 4,
       "id" : "Recipe_SteelBeam_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Steel Beam",
       "ingredients" : [
         {
@@ -2671,6 +2815,11 @@
     {
       "craftingTime" : 6,
       "id" : "Recipe_SteelPipe_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Steel Pipe",
       "ingredients" : [
         {
@@ -2688,6 +2837,10 @@
     {
       "craftingTime" : 4,
       "id" : "Recipe_IngotSteel_C",
+      "producedIn" : [
+        "Build_FoundryMk1_C",
+        "BP_WorkBenchComponent_C"
+      ],
       "name" : "Steel Ingot",
       "ingredients" : [
         {
@@ -2709,6 +2862,9 @@
     {
       "craftingTime" : 24,
       "id" : "Recipe_SpaceElevatorPart_2_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Versatile Framework",
       "ingredients" : [
         {
@@ -2730,6 +2886,9 @@
     {
       "craftingTime" : 8,
       "id" : "Recipe_Alternate_TurboHeavyFuel_C",
+      "producedIn" : [
+        "Build_OilRefinery_C"
+      ],
       "name" : "Alternate: Turbo Heavy Fuel",
       "ingredients" : [
         {
@@ -2751,6 +2910,9 @@
     {
       "craftingTime" : 6,
       "id" : "Recipe_PackagedTurboFuel_C",
+      "producedIn" : [
+        "Build_Packager_C"
+      ],
       "name" : "Packaged Turbofuel",
       "ingredients" : [
         {
@@ -2772,6 +2934,9 @@
     {
       "craftingTime" : 6,
       "id" : "Recipe_UnpackageTurboFuel_C",
+      "producedIn" : [
+        "Build_Packager_C"
+      ],
       "name" : "Unpackage Turbofuel",
       "ingredients" : [
         {
@@ -2793,6 +2958,9 @@
     {
       "craftingTime" : 4,
       "id" : "Recipe_Alternate_Coal_1_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C"
+      ],
       "name" : "Alternate: Charcoal",
       "ingredients" : [
         {
@@ -2810,6 +2978,9 @@
     {
       "craftingTime" : 8,
       "id" : "Recipe_Alternate_Coal_2_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C"
+      ],
       "name" : "Alternate: Biocoal",
       "ingredients" : [
         {
@@ -2827,6 +2998,9 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_Alternate_EnrichedCoal_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: Compacted Coal",
       "ingredients" : [
         {
@@ -2848,6 +3022,9 @@
     {
       "craftingTime" : 3,
       "id" : "Recipe_Alternate_WetConcrete_C",
+      "producedIn" : [
+        "Build_OilRefinery_C"
+      ],
       "name" : "Alternate: Wet Concrete",
       "ingredients" : [
         {
@@ -2869,6 +3046,9 @@
     {
       "craftingTime" : 8,
       "id" : "Recipe_Alternate_AlcladCasing_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: Alclad Casing",
       "ingredients" : [
         {
@@ -2890,6 +3070,9 @@
     {
       "craftingTime" : 3,
       "id" : "Recipe_Battery_C",
+      "producedIn" : [
+        "Build_Blender_C"
+      ],
       "name" : "Battery",
       "ingredients" : [
         {
@@ -2919,6 +3102,11 @@
     {
       "craftingTime" : 32,
       "id" : "Recipe_ComputerSuper_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Supercomputer",
       "ingredients" : [
         {
@@ -2948,6 +3136,9 @@
     {
       "craftingTime" : 6,
       "id" : "Recipe_SulfuricAcid_C",
+      "producedIn" : [
+        "Build_OilRefinery_C"
+      ],
       "name" : "Sulfuric Acid",
       "ingredients" : [
         {
@@ -2969,6 +3160,9 @@
     {
       "craftingTime" : 80,
       "id" : "Recipe_SpaceElevatorPart_7_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Assembly Director System",
       "ingredients" : [
         {
@@ -2990,6 +3184,11 @@
     {
       "craftingTime" : 16,
       "id" : "Recipe_HighSpeedConnector_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "High-Speed Connector",
       "ingredients" : [
         {
@@ -3015,6 +3214,9 @@
     {
       "craftingTime" : 1,
       "id" : "Recipe_UnpackageSulfuricAcid_C",
+      "producedIn" : [
+        "Build_Packager_C"
+      ],
       "name" : "Unpackage Sulfuric Acid",
       "ingredients" : [
         {
@@ -3036,6 +3238,9 @@
     {
       "craftingTime" : 32,
       "id" : "Recipe_Alternate_CoolingDevice_C",
+      "producedIn" : [
+        "Build_Blender_C"
+      ],
       "name" : "Alternate: Cooling Device",
       "ingredients" : [
         {
@@ -3061,6 +3266,11 @@
     {
       "craftingTime" : 8,
       "id" : "Recipe_HeatSink_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Heat Sink",
       "ingredients" : [
         {
@@ -3082,6 +3292,9 @@
     {
       "craftingTime" : 40,
       "id" : "Recipe_FusedModularFrame_C",
+      "producedIn" : [
+        "Build_Blender_C"
+      ],
       "name" : "Fused Modular Frame",
       "ingredients" : [
         {
@@ -3107,6 +3320,10 @@
     {
       "craftingTime" : 1,
       "id" : "Recipe_GasTank_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C"
+      ],
       "name" : "Empty Fluid Tank",
       "ingredients" : [
         {
@@ -3124,6 +3341,9 @@
     {
       "craftingTime" : 1,
       "id" : "Recipe_UnpackageNitrogen_C",
+      "producedIn" : [
+        "Build_Packager_C"
+      ],
       "name" : "Unpackage Nitrogen Gas",
       "ingredients" : [
         {
@@ -3145,6 +3365,9 @@
     {
       "craftingTime" : 6,
       "id" : "Recipe_Alternate_DilutedFuel_C",
+      "producedIn" : [
+        "Build_Blender_C"
+      ],
       "name" : "Alternate: Diluted Fuel",
       "ingredients" : [
         {
@@ -3166,6 +3389,9 @@
     {
       "craftingTime" : 16,
       "id" : "Recipe_Alternate_ElectricMotor_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: Electric Motor",
       "ingredients" : [
         {
@@ -3187,6 +3413,9 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_Alternate_FertileUranium_C",
+      "producedIn" : [
+        "Build_Blender_C"
+      ],
       "name" : "Alternate: Fertile Uranium",
       "ingredients" : [
         {
@@ -3220,6 +3449,11 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_PlutoniumCell_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Encased Plutonium Cell",
       "ingredients" : [
         {
@@ -3241,6 +3475,11 @@
     {
       "craftingTime" : 60,
       "id" : "Recipe_PressureConversionCube_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Pressure Conversion Cube",
       "ingredients" : [
         {
@@ -3262,6 +3501,11 @@
     {
       "craftingTime" : 6,
       "id" : "Recipe_CopperDust_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Copper Powder",
       "ingredients" : [
         {
@@ -3279,6 +3523,9 @@
     {
       "craftingTime" : 60,
       "id" : "Recipe_Plutonium_C",
+      "producedIn" : [
+        "Build_HadronCollider_C"
+      ],
       "name" : "Plutonium Pellet",
       "ingredients" : [
         {
@@ -3300,6 +3547,9 @@
     {
       "craftingTime" : 120,
       "id" : "Recipe_SpaceElevatorPart_9_C",
+      "producedIn" : [
+        "Build_HadronCollider_C"
+      ],
       "name" : "Nuclear Pasta",
       "ingredients" : [
         {
@@ -3321,6 +3571,9 @@
     {
       "craftingTime" : 3,
       "id" : "Recipe_UnpackageNitricAcid_C",
+      "producedIn" : [
+        "Build_Packager_C"
+      ],
       "name" : "Unpackage Nitric Acid",
       "ingredients" : [
         {
@@ -3342,6 +3595,9 @@
     {
       "craftingTime" : 20,
       "id" : "Recipe_Alternate_HeatFusedFrame_C",
+      "producedIn" : [
+        "Build_Blender_C"
+      ],
       "name" : "Alternate: Heat-Fused Frame",
       "ingredients" : [
         {
@@ -3371,6 +3627,9 @@
     {
       "craftingTime" : 120,
       "id" : "Recipe_Alternate_InstantPlutoniumCell_C",
+      "producedIn" : [
+        "Build_HadronCollider_C"
+      ],
       "name" : "Alternate: Instant Plutonium Cell",
       "ingredients" : [
         {
@@ -3392,6 +3651,9 @@
     {
       "craftingTime" : 6,
       "id" : "Recipe_Alternate_InstantScrap_C",
+      "producedIn" : [
+        "Build_Blender_C"
+      ],
       "name" : "Alternate: Instant Scrap",
       "ingredients" : [
         {
@@ -3425,6 +3687,9 @@
     {
       "craftingTime" : 20,
       "id" : "Recipe_Alternate_OCSupercomputer_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: OC Supercomputer",
       "ingredients" : [
         {
@@ -3446,6 +3711,9 @@
     {
       "craftingTime" : 40,
       "id" : "Recipe_Alternate_RadioControlSystem_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C"
+      ],
       "name" : "Alternate: Radio Control System",
       "ingredients" : [
         {
@@ -3475,6 +3743,9 @@
     {
       "craftingTime" : 3,
       "id" : "Recipe_Alternate_SloppyAlumina_C",
+      "producedIn" : [
+        "Build_OilRefinery_C"
+      ],
       "name" : "Alternate: Sloppy Alumina",
       "ingredients" : [
         {
@@ -3496,6 +3767,9 @@
     {
       "craftingTime" : 50,
       "id" : "Recipe_Alternate_SuperStateComputer_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C"
+      ],
       "name" : "Alternate: Super-State Computer",
       "ingredients" : [
         {
@@ -3525,6 +3799,11 @@
     {
       "craftingTime" : 30,
       "id" : "Recipe_ElectromagneticControlRod_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Electromagnetic Control Rod",
       "ingredients" : [
         {
@@ -3546,6 +3825,9 @@
     {
       "craftingTime" : 120,
       "id" : "Recipe_SpaceElevatorPart_6_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C"
+      ],
       "name" : "Magnetic Field Generator",
       "ingredients" : [
         {
@@ -3571,6 +3853,9 @@
     {
       "craftingTime" : 8,
       "id" : "Recipe_Alternate_TurboBlendFuel_C",
+      "producedIn" : [
+        "Build_Blender_C"
+      ],
       "name" : "Alternate: Turbo Blend Fuel",
       "ingredients" : [
         {
@@ -3600,6 +3885,9 @@
     {
       "craftingTime" : 32,
       "id" : "Recipe_Alternate_TurboPressureMotor_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C"
+      ],
       "name" : "Alternate: Turbo Pressure Motor",
       "ingredients" : [
         {
@@ -3629,6 +3917,9 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_Alternate_Cable_1_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: Insulated Cable",
       "ingredients" : [
         {
@@ -3650,6 +3941,9 @@
     {
       "craftingTime" : 24,
       "id" : "Recipe_Alternate_Cable_2_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: Quickwire Cable",
       "ingredients" : [
         {
@@ -3671,6 +3965,10 @@
     {
       "craftingTime" : 4,
       "id" : "Recipe_IngotCaterium_C",
+      "producedIn" : [
+        "Build_SmelterMk1_C",
+        "BP_WorkBenchComponent_C"
+      ],
       "name" : "Caterium Ingot",
       "ingredients" : [
         {
@@ -3688,6 +3986,9 @@
     {
       "craftingTime" : 24,
       "id" : "Recipe_Alternate_CircuitBoard_1_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: Silicon Circuit Board",
       "ingredients" : [
         {
@@ -3709,6 +4010,9 @@
     {
       "craftingTime" : 48,
       "id" : "Recipe_Alternate_CircuitBoard_2_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: Caterium Circuit Board",
       "ingredients" : [
         {
@@ -3730,6 +4034,9 @@
     {
       "craftingTime" : 16,
       "id" : "Recipe_Alternate_Computer_1_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C"
+      ],
       "name" : "Alternate: Caterium Computer",
       "ingredients" : [
         {
@@ -3755,6 +4062,9 @@
     {
       "craftingTime" : 64,
       "id" : "Recipe_Alternate_Computer_2_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: Crystal Computer",
       "ingredients" : [
         {
@@ -3776,6 +4086,9 @@
     {
       "craftingTime" : 24,
       "id" : "Recipe_Alternate_Concrete_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: Fine Concrete",
       "ingredients" : [
         {
@@ -3797,6 +4110,9 @@
     {
       "craftingTime" : 32,
       "id" : "Recipe_Alternate_CrystalOscillator_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C"
+      ],
       "name" : "Alternate: Insulated Crystal Oscillator",
       "ingredients" : [
         {
@@ -3822,6 +4138,9 @@
     {
       "craftingTime" : 15,
       "id" : "Recipe_Alternate_ElectromagneticControlRod_1_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: Electromagnetic Connection Rod",
       "ingredients" : [
         {
@@ -3843,6 +4162,9 @@
     {
       "craftingTime" : 16,
       "id" : "Recipe_Alternate_Gunpowder_1_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: Fine Black Powder",
       "ingredients" : [
         {
@@ -3864,6 +4186,9 @@
     {
       "craftingTime" : 6,
       "id" : "Recipe_Alternate_HeatSink_1_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: Heat Exchanger",
       "ingredients" : [
         {
@@ -3885,6 +4210,9 @@
     {
       "craftingTime" : 64,
       "id" : "Recipe_Alternate_ModularFrameHeavy_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C"
+      ],
       "name" : "Alternate: Heavy Encased Frame",
       "ingredients" : [
         {
@@ -3914,6 +4242,9 @@
     {
       "craftingTime" : 40,
       "id" : "Recipe_Alternate_HighSpeedConnector_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C"
+      ],
       "name" : "Alternate: Silicon High-Speed Connector",
       "ingredients" : [
         {
@@ -3939,6 +4270,9 @@
     {
       "craftingTime" : 6,
       "id" : "Recipe_Alternate_IngotIron_C",
+      "producedIn" : [
+        "Build_FoundryMk1_C"
+      ],
       "name" : "Alternate: Iron Alloy Ingot",
       "ingredients" : [
         {
@@ -3960,6 +4294,9 @@
     {
       "craftingTime" : 3,
       "id" : "Recipe_Alternate_IngotSteel_1_C",
+      "producedIn" : [
+        "Build_FoundryMk1_C"
+      ],
       "name" : "Alternate: Solid Steel Ingot",
       "ingredients" : [
         {
@@ -3981,6 +4318,9 @@
     {
       "craftingTime" : 16,
       "id" : "Recipe_Alternate_IngotSteel_2_C",
+      "producedIn" : [
+        "Build_FoundryMk1_C"
+      ],
       "name" : "Alternate: Compacted Steel Ingot",
       "ingredients" : [
         {
@@ -4002,6 +4342,9 @@
     {
       "craftingTime" : 60,
       "id" : "Recipe_Alternate_ModularFrame_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: Steeled Frame",
       "ingredients" : [
         {
@@ -4023,6 +4366,9 @@
     {
       "craftingTime" : 48,
       "id" : "Recipe_Alternate_Motor_1_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C"
+      ],
       "name" : "Alternate: Rigour Motor",
       "ingredients" : [
         {
@@ -4048,6 +4394,9 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_Alternate_Plastic_1_C",
+      "producedIn" : [
+        "Build_OilRefinery_C"
+      ],
       "name" : "Alternate: Recycled Plastic",
       "ingredients" : [
         {
@@ -4069,6 +4418,9 @@
     {
       "craftingTime" : 8,
       "id" : "Recipe_Alternate_Quickwire_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: Fused Quickwire",
       "ingredients" : [
         {
@@ -4090,6 +4442,9 @@
     {
       "craftingTime" : 16,
       "id" : "Recipe_Alternate_RadioControlUnit_1_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C"
+      ],
       "name" : "Alternate: Radio Connection Unit",
       "ingredients" : [
         {
@@ -4115,6 +4470,9 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_Alternate_ReinforcedIronPlate_1_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: Bolted Iron Plate",
       "ingredients" : [
         {
@@ -4136,6 +4494,9 @@
     {
       "craftingTime" : 32,
       "id" : "Recipe_Alternate_ReinforcedIronPlate_2_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: Stitched Iron Plate",
       "ingredients" : [
         {
@@ -4157,6 +4518,9 @@
     {
       "craftingTime" : 15,
       "id" : "Recipe_Alternate_EncasedIndustrialBeam_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: Encased Industrial Pipe",
       "ingredients" : [
         {
@@ -4178,6 +4542,9 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_Alternate_Rotor_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: Steel Rotor",
       "ingredients" : [
         {
@@ -4199,6 +4566,9 @@
     {
       "craftingTime" : 24,
       "id" : "Recipe_Alternate_Screw_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C"
+      ],
       "name" : "Alternate: Cast Screw",
       "ingredients" : [
         {
@@ -4216,6 +4586,9 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_Alternate_Screw_2_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C"
+      ],
       "name" : "Alternate: Steel Screw",
       "ingredients" : [
         {
@@ -4233,6 +4606,9 @@
     {
       "craftingTime" : 16,
       "id" : "Recipe_Alternate_Silica_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: Cheap Silica",
       "ingredients" : [
         {
@@ -4254,6 +4630,9 @@
     {
       "craftingTime" : 15,
       "id" : "Recipe_Alternate_Stator_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "Alternate: Quickwire Stator",
       "ingredients" : [
         {
@@ -4275,6 +4654,9 @@
     {
       "craftingTime" : 16,
       "id" : "Recipe_Alternate_Turbofuel_C",
+      "producedIn" : [
+        "Build_OilRefinery_C"
+      ],
       "name" : "Turbofuel",
       "ingredients" : [
         {
@@ -4296,6 +4678,9 @@
     {
       "craftingTime" : 64,
       "id" : "Recipe_Alternate_TurboMotor_1_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C"
+      ],
       "name" : "Alternate: Turbo Electric Motor",
       "ingredients" : [
         {
@@ -4325,6 +4710,11 @@
     {
       "craftingTime" : 32,
       "id" : "Recipe_MotorTurbo_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Turbo Motor",
       "ingredients" : [
         {
@@ -4354,6 +4744,9 @@
     {
       "craftingTime" : 120,
       "id" : "Recipe_SpaceElevatorPart_8_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C"
+      ],
       "name" : "Thermal Propulsion Rocket",
       "ingredients" : [
         {
@@ -4383,6 +4776,9 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_Alternate_UraniumCell_1_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C"
+      ],
       "name" : "Alternate: Infused Uranium Cell",
       "ingredients" : [
         {
@@ -4412,6 +4808,9 @@
     {
       "craftingTime" : 24,
       "id" : "Recipe_Alternate_Wire_1_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C"
+      ],
       "name" : "Alternate: Iron Wire",
       "ingredients" : [
         {
@@ -4429,6 +4828,9 @@
     {
       "craftingTime" : 4,
       "id" : "Recipe_Alternate_Wire_2_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C"
+      ],
       "name" : "Alternate: Caterium Wire",
       "ingredients" : [
         {
@@ -4446,6 +4848,10 @@
     {
       "craftingTime" : 8,
       "id" : "Recipe_FilterGasMask_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C",
+        "BP_WorkshopComponent_C"
+      ],
       "name" : "Gas Filter",
       "ingredients" : [
         {
@@ -4471,6 +4877,10 @@
     {
       "craftingTime" : 16,
       "id" : "Recipe_FilterHazmat_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C",
+        "BP_WorkshopComponent_C"
+      ],
       "name" : "Iodine Infused Filter",
       "ingredients" : [
         {
@@ -4496,6 +4906,11 @@
     {
       "craftingTime" : 3,
       "id" : "Recipe_Protein_Hog_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Hog Protein",
       "ingredients" : [
         {
@@ -4513,6 +4928,11 @@
     {
       "craftingTime" : 3,
       "id" : "Recipe_Protein_Spitter_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Spitter Protein",
       "ingredients" : [
         {
@@ -4530,6 +4950,11 @@
     {
       "craftingTime" : 6,
       "id" : "Recipe_AlienDNACapsule_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Organic Data Capsule",
       "ingredients" : [
         {
@@ -4547,6 +4972,11 @@
     {
       "craftingTime" : 3,
       "id" : "Recipe_Protein_Crab_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Hatcher Protein",
       "ingredients" : [
         {
@@ -4564,6 +4994,11 @@
     {
       "craftingTime" : 3,
       "id" : "Recipe_Protein_Stinger_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Stinger Protein",
       "ingredients" : [
         {
@@ -4581,6 +5016,11 @@
     {
       "craftingTime" : 5,
       "id" : "Recipe_Quickwire_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Quickwire",
       "ingredients" : [
         {
@@ -4598,6 +5038,11 @@
     {
       "craftingTime" : 8,
       "id" : "Recipe_PowerCrystalShard_1_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Power Shard (1)",
       "ingredients" : [
         {
@@ -4615,6 +5060,11 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_PowerCrystalShard_2_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Power Shard (2)",
       "ingredients" : [
         {
@@ -4632,6 +5082,11 @@
     {
       "craftingTime" : 24,
       "id" : "Recipe_PowerCrystalShard_3_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
       "name" : "Power Shard (5)",
       "ingredients" : [
         {
@@ -4649,6 +5104,10 @@
     {
       "craftingTime" : 4,
       "id" : "Recipe_Gunpowder_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C",
+        "BP_WorkshopComponent_C"
+      ],
       "name" : "Black Powder",
       "ingredients" : [
         {
@@ -4670,6 +5129,9 @@
     {
       "craftingTime" : 6,
       "id" : "Recipe_GunpowderMK2_C",
+      "producedIn" : [
+        "Build_OilRefinery_C"
+      ],
       "name" : "Smokeless Powder",
       "ingredients" : [
         {
@@ -4691,6 +5153,9 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_CandyCane_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C"
+      ],
       "name" : "Candy Cane",
       "ingredients" : [
         {
@@ -4708,6 +5173,9 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_XmasBow_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C"
+      ],
       "name" : "FICSMAS Bow",
       "ingredients" : [
         {
@@ -4725,6 +5193,9 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_Snow_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C"
+      ],
       "name" : "Actual Snow",
       "ingredients" : [
         {
@@ -4742,6 +5213,9 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_XmasBall3_C",
+      "producedIn" : [
+        "Build_FoundryMk1_C"
+      ],
       "name" : "Copper FICSMAS Ornament",
       "ingredients" : [
         {
@@ -4763,6 +5237,9 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_XmasBall4_C",
+      "producedIn" : [
+        "Build_FoundryMk1_C"
+      ],
       "name" : "Iron FICSMAS Ornament",
       "ingredients" : [
         {
@@ -4784,6 +5261,9 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_XmasBall1_C",
+      "producedIn" : [
+        "Build_SmelterMk1_C"
+      ],
       "name" : "Red FICSMAS Ornament",
       "ingredients" : [
         {
@@ -4801,6 +5281,9 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_XmasBall2_C",
+      "producedIn" : [
+        "Build_SmelterMk1_C"
+      ],
       "name" : "Blue FICSMAS Ornament",
       "ingredients" : [
         {
@@ -4818,6 +5301,9 @@
     {
       "craftingTime" : 12,
       "id" : "Recipe_XmasBallCluster_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "FICSMAS Ornament Bundle",
       "ingredients" : [
         {
@@ -4839,6 +5325,9 @@
     {
       "craftingTime" : 60,
       "id" : "Recipe_XmasWreath_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "FICSMAS Decoration",
       "ingredients" : [
         {
@@ -4860,6 +5349,9 @@
     {
       "craftingTime" : 60,
       "id" : "Recipe_XmasStar_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
       "name" : "FICSMAS Wonder Star",
       "ingredients" : [
         {
