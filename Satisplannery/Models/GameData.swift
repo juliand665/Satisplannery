@@ -67,11 +67,6 @@ extension Recipe {
 		GameData.shared.recipes
 			.filter { $0.products.contains { $0.item == item } }
 	}
-	
-	static func all(producingAnyOf items: Set<Item.ID>) -> [Self] {
-		GameData.shared.recipes
-			.filter { !items.isDisjoint(with: $0.products.map(\.item)) }
-	}
 }
 
 extension Collection where Element == Recipe {

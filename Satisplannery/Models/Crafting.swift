@@ -12,8 +12,7 @@ struct CraftingProcess: Identifiable, Codable {
 	
 	init(name: String, steps: [CraftingStep] = []) {
 		self.name = name
-		
-		self.steps = steps // TODO: make sure this computes totals
+		self.steps = steps
 	}
 	
 	mutating func remove(_ step: CraftingStep) {
@@ -31,12 +30,15 @@ struct CraftingProcess: Identifiable, Codable {
 	}
 	
 	mutating func addStep(using recipe: Recipe, toProduce count: Fraction, of item: Item.ID) {
-		let baseCount = recipe.products.first { $0.item == item }!.amount
-		steps.append(.init(recipe: recipe, factor: count / baseCount))
+		steps.append(.init(
+			recipe: recipe,
+			primaryOutput: item,
+			factor: count / recipe.amountProduced(of: item)
+		))
 	}
 	
-	mutating func addStep(using recipe: Recipe) {
-		steps.append(.init(recipe: recipe))
+	mutating func addStep(using recipe: Recipe, for output: Item.ID) {
+		steps.append(.init(recipe: recipe, primaryOutput: output))
 	}
 	
 	private enum CodingKeys: String, CodingKey {
@@ -48,11 +50,25 @@ struct CraftingProcess: Identifiable, Codable {
 
 struct CraftingStep: Identifiable, Codable {
 	let id = UUID()
-	var recipe: Recipe
+	var recipe: Recipe {
+		didSet {
+			guard recipe != oldValue else { return }
+			factor *= oldValue.amountProduced(of: primaryOutput)
+			/ recipe.amountProduced(of: primaryOutput)
+		}
+	}
+	var primaryOutput: Item.ID
 	var factor: Fraction = 1
 	
 	private enum CodingKeys: String, CodingKey {
 		case recipe
 		case factor
+		case primaryOutput
+	}
+}
+
+extension Recipe {
+	func amountProduced(of item: Item.ID) -> Fraction {
+		.init(products.first { $0.item == item }?.amount ?? 0)
 	}
 }

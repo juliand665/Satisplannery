@@ -74,7 +74,7 @@ struct ProcessView: View {
 			NavigationLink {
 				ItemPicker { pickedItem in
 					let recipeOptions = Recipe.all(producing: pickedItem)
-					process.addStep(using: recipeOptions.canonicalRecipe())
+					process.addStep(using: recipeOptions.canonicalRecipe(), for: pickedItem)
 				}
 			} label: {
 				Label("Add Product", systemImage: "plus")
@@ -145,16 +145,8 @@ struct StepSection: View {
 			}
 			
 			VStack {
-				ForEach(step.recipe.products, id: \.item) { product in
-					let item = product.item.resolved()
-					HStack {
-						item.icon.frame(width: 64)
-						Text(item.name)
-						
-						FractionEditor.forAmount($step.factor, multipliedBy: .init(product.amount))
-						
-						matchDemandButton(for: product)
-					}
+				ForEach(step.recipe.products.sorted { $1.item == step.primaryOutput }, id: \.item) { product in
+					productRow(for: product)
 				}
 			}
 		}
@@ -178,8 +170,7 @@ struct StepSection: View {
 	
 	@ViewBuilder
 	var recipePicker: some View {
-		let products = Set(step.recipe.products.map(\.item))
-		let recipeOptions = Recipe.all(producingAnyOf: products)
+		let recipeOptions = Recipe.all(producing: step.primaryOutput)
 		if recipeOptions.count > 1 {
 			Picker("Recipe", selection: $step.recipe) {
 				ForEach(recipeOptions) { recipe in
@@ -204,6 +195,19 @@ struct StepSection: View {
 	}
 	
 	@ViewBuilder
+	func productRow(for product: ItemStack) -> some View {
+		let item = product.item.resolved()
+		HStack {
+			item.icon.frame(width: 64)
+			Text(item.name)
+			
+			FractionEditor.forAmount($step.factor, multipliedBy: .init(product.amount))
+			
+			matchDemandButton(for: product)
+		}
+	}
+	
+	@ViewBuilder
 	func matchDemandButton(for product: ItemStack) -> some View {
 		let baseDemand = -(process.totals.counts[product.item] ?? 0)
 		let production = step.factor * product.amount
@@ -222,8 +226,8 @@ struct ProcessView_Previews: PreviewProvider {
 	static var previews: some View {
 		NavigationStack {
 			ProcessView(process: .constant(.init(name: "Example", steps: [
-				.init(recipe: GameData.shared.recipes[0]),
-				.init(recipe: GameData.shared.recipes[2], factor: 6),
+				.init(recipe: GameData.shared.recipes[0], primaryOutput: GameData.shared.recipes[0].products[0].item),
+				.init(recipe: GameData.shared.recipes[2], primaryOutput: GameData.shared.recipes[2].products[0].item, factor: 6),
 			])))
 		}
 		.previewLayout(.fixed(width: 320, height: 640))
