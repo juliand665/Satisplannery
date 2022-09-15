@@ -14,6 +14,9 @@
 		B9269B7828D2376800B95697 /* ProcessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9269B7728D2376800B95697 /* ProcessView.swift */; };
 		B9269B7B28D2490800B95697 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = B9269B7A28D2490800B95697 /* Algorithms */; };
 		B9269B7D28D2518300B95697 /* Swift+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9269B7C28D2518300B95697 /* Swift+Helpers.swift */; };
+		B9269B7F28D2540900B95697 /* Fraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9269B7E28D2540900B95697 /* Fraction.swift */; };
+		B9269B8128D2801400B95697 /* Fraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9269B7E28D2540900B95697 /* Fraction.swift */; };
+		B9269B8428D2929800B95697 /* HandyOperators in Frameworks */ = {isa = PBXBuildFile; productRef = B9269B8328D2929800B95697 /* HandyOperators */; };
 		B945242328D1108D00D9937B /* SatisplanneryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B945242228D1108D00D9937B /* SatisplanneryApp.swift */; };
 		B945242528D1108D00D9937B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B945242428D1108D00D9937B /* ContentView.swift */; };
 		B945242728D1109200D9937B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B945242628D1109200D9937B /* Assets.xcassets */; };
@@ -49,6 +52,7 @@
 		B9269B7528D22C5A00B95697 /* ItemPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemPicker.swift; sourceTree = "<group>"; };
 		B9269B7728D2376800B95697 /* ProcessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessView.swift; sourceTree = "<group>"; };
 		B9269B7C28D2518300B95697 /* Swift+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swift+Helpers.swift"; sourceTree = "<group>"; };
+		B9269B7E28D2540900B95697 /* Fraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fraction.swift; sourceTree = "<group>"; };
 		B945241F28D1108D00D9937B /* Satisplannery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Satisplannery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B945242228D1108D00D9937B /* SatisplanneryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatisplanneryApp.swift; sourceTree = "<group>"; };
 		B945242428D1108D00D9937B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,6 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B945244328D1319000D9937B /* SimpleParser in Frameworks */,
+				B9269B8428D2929800B95697 /* HandyOperators in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,10 +103,19 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		B9269B8028D2800000B95697 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				B9269B7E28D2540900B95697 /* Fraction.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		B945241628D1108D00D9937B = {
 			isa = PBXGroup;
 			children = (
 				B945242128D1108D00D9937B /* Satisplannery */,
+				B9269B8028D2800000B95697 /* Shared */,
 				B945243828D1230800D9937B /* Data Collector */,
 				B945242028D1108D00D9937B /* Products */,
 				B945244128D1319000D9937B /* Frameworks */,
@@ -201,6 +215,7 @@
 			name = "Data Collector";
 			packageProductDependencies = (
 				B945244228D1319000D9937B /* SimpleParser */,
+				B9269B8328D2929800B95697 /* HandyOperators */,
 			);
 			productName = "Data Collector";
 			productReference = B945243728D1230800D9937B /* Data Collector */;
@@ -237,6 +252,7 @@
 				B945243E28D1317500D9937B /* XCRemoteSwiftPackageReference "SimpleParser" */,
 				B945245328D1695C00D9937B /* XCRemoteSwiftPackageReference "UserDefault" */,
 				B9269B7928D2490800B95697 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
+				B9269B8228D2929800B95697 /* XCRemoteSwiftPackageReference "HandyOperators" */,
 			);
 			productRefGroup = B945242028D1108D00D9937B /* Products */;
 			projectDirPath = "";
@@ -277,6 +293,7 @@
 				B9269B7428D22C2200B95697 /* Crafting.swift in Sources */,
 				B945245228D158A200D9937B /* Icon.swift in Sources */,
 				B945242328D1108D00D9937B /* SatisplanneryApp.swift in Sources */,
+				B9269B7F28D2540900B95697 /* Fraction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +305,7 @@
 				B945244A28D145ED00D9937B /* Swift+Helpers.swift in Sources */,
 				B945244628D1458700D9937B /* Classes.swift in Sources */,
 				B945243A28D1230800D9937B /* main.swift in Sources */,
+				B9269B8128D2801400B95697 /* Fraction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,6 +567,14 @@
 				kind = branch;
 			};
 		};
+		B9269B8228D2929800B95697 /* XCRemoteSwiftPackageReference "HandyOperators" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/juliand665/HandyOperators";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		B945243E28D1317500D9937B /* XCRemoteSwiftPackageReference "SimpleParser" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/juliand665/SimpleParser.git";
@@ -572,6 +598,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B9269B7928D2490800B95697 /* XCRemoteSwiftPackageReference "swift-algorithms" */;
 			productName = Algorithms;
+		};
+		B9269B8328D2929800B95697 /* HandyOperators */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B9269B8228D2929800B95697 /* XCRemoteSwiftPackageReference "HandyOperators" */;
+			productName = HandyOperators;
 		};
 		B945244228D1319000D9937B /* SimpleParser */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -30,6 +30,11 @@ struct CraftingProcess: Identifiable, Codable {
 		steps.insert(steps.remove(at: index), at: index + offset)
 	}
 	
+	mutating func addStep(using recipe: Recipe, toProduce count: Fraction, of item: Item.ID) {
+		let baseCount = recipe.products.first { $0.item == item }!.amount
+		steps.append(.init(recipe: recipe, factor: count / baseCount))
+	}
+	
 	mutating func addStep(using recipe: Recipe) {
 		steps.append(.init(recipe: recipe))
 	}
@@ -44,7 +49,7 @@ struct CraftingProcess: Identifiable, Codable {
 struct CraftingStep: Identifiable, Codable {
 	let id = UUID()
 	var recipe: Recipe
-	var factor: Int = 1
+	var factor: Fraction = 1
 	
 	private enum CodingKeys: String, CodingKey {
 		case recipe

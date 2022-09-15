@@ -15,7 +15,7 @@ struct ProcessView: View {
 			
 			ForEach($process.steps) { $step in
 				Section {
-					StepSection(step: $step)
+					StepSection(step: $step, process: process)
 				} header: {
 					HStack(spacing: 16) {
 						Text(step.recipe.name)
@@ -62,16 +62,10 @@ struct ProcessView: View {
 		let outputs = process.totals.outputs
 		
 		Section("Produced Items") {
-			ForEach(outputs.keys.sorted()) { itemID in
-				let item = itemID.resolved()
+			let items = outputs.keys.map { $0.resolved() }.sorted(on: \.name)
+			ForEach(items) { item in
 				VStack(alignment: .leading) {
-					HStack {
-						item.icon
-							.frame(width: 32)
-						Text(item.name)
-						Spacer()
-						AmountLabel(amount: outputs[itemID]!)
-					}
+					ItemLabel(item: item, amount: outputs[item.id]!)
 				}
 			}
 			
@@ -91,38 +85,71 @@ struct ProcessView: View {
 		let inputs = process.totals.inputs
 		if !inputs.isEmpty {
 			Section("Required Items") {
-				ForEach(inputs.keys.sorted()) { itemID in
-					let item = itemID.resolved()
+				let items = inputs.keys.map { $0.resolved() }.sorted(on: \.name)
+				ForEach(items) { item in
 					HStack {
+						let amount = inputs[item.id]!
+						ItemLabel(item: item, amount: amount)
 						
-						let recipeOptions = Recipe.all(producing: itemID)
-						if !recipeOptions.isEmpty {
-							Button {
-								process.addStep(using: recipeOptions.canonicalRecipe())
-							} label: {
-								Label("Add Corresponding Step", systemImage: "plus")
-									.labelStyle(.iconOnly)
-							}
-						}
-						item.icon
-							.frame(width: 48)
-						Text(item.name)
-						Spacer()
-						AmountLabel(amount: inputs[itemID]!)
+						addStepButton(for: item, amount: -amount)
 					}
 				}
 			}
+		}
+	}
+	
+	@ViewBuilder
+	func addStepButton(for item: Item, amount: Fraction) -> some View {
+		let recipeOptions = Recipe.all(producing: item.id)
+		Button {
+			process.addStep(
+				using: recipeOptions.canonicalRecipe(),
+				toProduce: amount,
+				of: item.id
+			)
+		} label: {
+			Label("Add Corresponding Step", systemImage: "plus")
+				.labelStyle(.iconOnly)
+		}
+		.disabled(recipeOptions.isEmpty)
+	}
+}
+
+struct ItemLabel: View {
+	var item: Item
+	var amount: Fraction
+	
+	var body: some View {
+		HStack {
+			item.icon.frame(width: 48)
+			
+			Text(item.name)
+			
+			Spacer()
+			
+			Text(amount, format: .fraction(alwaysShowSign: true))
+				.coloredBasedOn(amount)
 		}
 	}
 }
 
 struct StepSection: View {
 	@Binding var step: CraftingStep
+	var process: CraftingProcess
 	@State var isExpanded = true
+	@FocusState var isMultiplierFocused: Bool
 	
 	var body: some View {
-		let products = Set(step.recipe.products.map(\.item))
+		headerCell
 		
+		if isExpanded {
+			multiplierCell
+			recipePicker
+			ingredientsInfo
+		}
+	}
+	
+	var headerCell: some View {
 		HStack(spacing: 20) {
 			Button {
 				withAnimation {
@@ -137,56 +164,106 @@ struct StepSection: View {
 				ForEach(step.recipe.products, id: \.item) { product in
 					let item = product.item.resolved()
 					HStack {
-						item.icon.frame(width: 48)
+						item.icon.frame(width: 64)
 						Text(item.name)
-						Spacer()
-						AmountLabel(amount: product.amount * step.factor)
+						
+						FractionEditor.editing($step.factor, multipliedBy: .init(product.amount))
+						
+						matchDemandButton(for: product)
 					}
 				}
 			}
 		}
 		.alignmentGuide(.listRowSeparatorLeading) { $0[.leading] }
-		
-		if isExpanded {
-			Stepper(value: $step.factor, in: 1...1_000_000) {
-				HStack {
-					Text("Multiplier")
-					Spacer()
-					Text("\(step.factor)×")
-				}
+	}
+	
+	var multiplierCell: some View {
+		HStack {
+			Text("Multiplier")
+			Spacer()
+			HStack(spacing: 4) {
+				FractionEditor(label: "Multiplier", value: $step.factor)
+					.focused($isMultiplierFocused)
+				Text("×")
 			}
-			
-			let recipeOptions = Recipe.all(producingAnyOf: products)
-			if recipeOptions.count > 1 {
-				Picker("Recipe", selection: $step.recipe) {
-					ForEach(recipeOptions) { recipe in
-						Text(recipe.name)
-							.tag(recipe)
-					}
-				}
-			}
-			
-			VStack {
-				ForEach(step.recipe.ingredients, id: \.item) { ingredient in
-					let item = ingredient.item.resolved()
-					HStack {
-						item.icon.frame(width: 32)
-						Text(item.name)
-						Spacer()
-						AmountLabel(amount: ingredient.amount * -step.factor)
-					}
+		}
+		.onTapGesture {
+			isMultiplierFocused = true
+		}
+	}
+	
+	@ViewBuilder
+	var recipePicker: some View {
+		let products = Set(step.recipe.products.map(\.item))
+		let recipeOptions = Recipe.all(producingAnyOf: products)
+		if recipeOptions.count > 1 {
+			Picker("Recipe", selection: $step.recipe) {
+				ForEach(recipeOptions) { recipe in
+					Text(recipe.name)
+						.tag(recipe)
 				}
 			}
 		}
 	}
+	
+	var ingredientsInfo: some View {
+		VStack {
+			ForEach(step.recipe.ingredients, id: \.item) { ingredient in
+				let item = ingredient.item.resolved()
+				HStack {
+					item.icon.frame(width: 32)
+					Text(item.name)
+					FractionEditor.editing($step.factor, multipliedBy: .init(-ingredient.amount))
+				}
+			}
+		}
+	}
+	
+	@ViewBuilder
+	func matchDemandButton(for product: ItemStack) -> some View {
+		let baseDemand = -(process.totals.counts[product.item] ?? 0)
+		let production = step.factor * product.amount
+		let demand = baseDemand + production
+		Button {
+			step.factor = demand / product.amount
+		} label: {
+			Image(systemName: "equal")
+		}
+		.buttonStyle(.bordered)
+		.disabled(production == demand || demand <= 0)
+	}
 }
 
-struct AmountLabel: View {
-	var amount: Int
+extension FractionEditor {
+	static func editing(_ amount: Binding<Fraction>, multipliedBy factor: Fraction) -> some View {
+		Self(
+			label: "Amount",
+			value: Binding {
+				amount.wrappedValue * factor
+			} set: {
+				amount.wrappedValue = abs($0 / factor).matchingSign(of: amount.wrappedValue)
+			},
+			alwaysShowSign: true
+		)
+		.coloredBasedOn(amount.wrappedValue * factor)
+	}
+}
+
+struct FractionEditor: View {
+	var label: LocalizedStringKey
+	@Binding var value: Fraction
+	var alwaysShowSign: Bool = false
 	
 	var body: some View {
-		Text("\(amount > 0 ? "+" : "")\(amount)")
-			.foregroundColor(amount > 0 ? .green : amount < 0 ? .red : nil)
+		TextField(label, value: $value, format: .fraction(alwaysShowSign: alwaysShowSign))
+			.multilineTextAlignment(.trailing)
+			.keyboardType(.numbersAndPunctuation)
+	}
+}
+
+extension View {
+	func coloredBasedOn(_ value: some Numeric & Comparable) -> some View {
+		foregroundColor(value > .zero ? .green : value < .zero ? .red : nil)
 	}
 }
 

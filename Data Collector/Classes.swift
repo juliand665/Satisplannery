@@ -35,7 +35,7 @@ struct FGRecipe: Class, Encodable {
 	var name: String
 	var ingredients: [ItemStack]
 	var products: [ItemStack]
-	var craftingTime: Double
+	var craftingTime: Fraction
 	var producedIn: [String]
 	
 	init(raw: RawClass) {
@@ -43,7 +43,7 @@ struct FGRecipe: Class, Encodable {
 		name = raw.displayName
 		ingredients = .init(rawValue: raw.ingredients.unparenthesized())
 		products = .init(rawValue: raw.product.unparenthesized())
-		craftingTime = raw.manufactoringDuration // why
+		craftingTime = .init(raw.manufactoringDuration)! // nice typo lol
 		producedIn = raw.producedIn.isEmpty ? [] : [Path](rawValue: raw.producedIn.unparenthesized()).map(\.name)
 	}
 }

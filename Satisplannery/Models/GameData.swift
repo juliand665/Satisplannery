@@ -43,6 +43,12 @@ struct Recipe: Identifiable, Hashable, Codable {
 	var name: String
 	var ingredients: [ItemStack]
 	var products: [ItemStack]
+	var craftingTime: Fraction
+	var producedIn: [Building.ID]
+}
+
+enum Building {
+	typealias ID = ObjectID<Self>
 }
 
 struct ItemStack: Hashable, Codable {

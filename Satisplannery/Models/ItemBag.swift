@@ -1,16 +1,16 @@
 import Foundation
 
 struct ItemBag: Codable {
-	var counts: [Item.ID: Int] = [:]
+	var counts: [Item.ID: Fraction] = [:]
 	
-	var inputs: [Item.ID: Int] {
+	var inputs: [Item.ID: Fraction] {
 		counts.filter { $1 < 0 }
 	}
-	var outputs: [Item.ID: Int] {
+	var outputs: [Item.ID: Fraction] {
 		counts.filter { $1 > 0 }
 	}
 	
-	mutating func add(_ stack: ItemStack, factor: Int = 1) {
+	mutating func add(_ stack: ItemStack, factor: Fraction = 1) {
 		counts[stack.item, default: 0] += stack.amount * factor
 	}
 	

@@ -6,7 +6,7 @@ struct ItemPicker: View {
 			.lazy
 			.flatMap(\.products)
 			.map(\.item)
-	).sorted().map { $0.resolved() }
+	).map { $0.resolved() }.sorted(on: \.name)
 	
 	var pick: (Item.ID) -> Void
 	@State var search = ""
