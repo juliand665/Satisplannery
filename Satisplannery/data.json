@@ -7,12 +7,6 @@
       "resourceSinkPoints" : 0
     },
     {
-      "id" : "Desc_PlutoniumWaste_C",
-      "name" : "Plutonium Waste",
-      "description" : "The by-product of consuming Plutonium Fuel Rods in the Nuclear Power Plant.\r\nNeeds to be stored in a safe location. Handle with caution.\r\n\r\nCaution: EXTREMELY Radioactive.",
-      "resourceSinkPoints" : 0
-    },
-    {
       "id" : "Desc_Filter_C",
       "name" : "Gas Filter",
       "description" : "Used in the Gas Mask to filter out toxics and pollutants from the air.",
@@ -155,12 +149,6 @@
       "name" : "Color Cartridge",
       "description" : "Used for applying Patterns to structures with the Customizer.\r\n\r\n(Patterns can be purchased in the AWESOME Shop.)",
       "resourceSinkPoints" : 10
-    },
-    {
-      "id" : "Desc_HUBParts_C",
-      "name" : "HUB Parts",
-      "description" : "The parts required to build the basic structure of the HUB.",
-      "resourceSinkPoints" : 0
     },
     {
       "id" : "Desc_IronPlateReinforced_C",
@@ -665,6 +653,228 @@
       "name" : "Nitrogen Gas",
       "description" : "Nitrogen can be used in a variety of ways, such as metallurgy, cooling, and Nitric Acid production. On Massage-2(AB)b, it can be extracted from underground gas wells.",
       "resourceSinkPoints" : 10
+    },
+    {
+      "id" : "BP_ItemDescriptorPortableMiner_C",
+      "name" : "Portable Miner",
+      "description" : "Can be set up on a resource node to automatically extract the resource. Note that it has limited storage space.",
+      "resourceSinkPoints" : 56
+    },
+    {
+      "id" : "Desc_HogParts_C",
+      "name" : "Hog Remains",
+      "description" : "The carapace of the alien Hog creature.\r\nUsed for MAM research.",
+      "resourceSinkPoints" : 0
+    },
+    {
+      "id" : "Desc_SpitterParts_C",
+      "name" : "Plasma Spitter Remains",
+      "description" : "The remains of a plasma spitting alien creature.\r\nUsed for MAM research.",
+      "resourceSinkPoints" : 0
+    },
+    {
+      "id" : "Desc_FlowerPetals_C",
+      "name" : "Flower Petals",
+      "description" : "Used for crafting.\r\nColorful native flower petals.",
+      "resourceSinkPoints" : 10
+    },
+    {
+      "id" : "Desc_Leaves_C",
+      "name" : "Leaves",
+      "description" : "Primarily used as fuel.\r\nBiomass Burners and vehicles can use it for power.",
+      "resourceSinkPoints" : 3
+    },
+    {
+      "id" : "Desc_Mycelia_C",
+      "name" : "Mycelia",
+      "description" : "Used for crafting.\r\nBiomass Burners and vehicles can use it for power.",
+      "resourceSinkPoints" : 10
+    },
+    {
+      "id" : "Desc_Wood_C",
+      "name" : "Wood",
+      "description" : "Primarily used as fuel.\r\nBiomass Burners and vehicles can use it for power.",
+      "resourceSinkPoints" : 30
+    },
+    {
+      "id" : "Desc_StingerParts_C",
+      "name" : "Stinger Remains",
+      "description" : "The remains of whatever that creepy thing was.\r\nUsed for MAM research.",
+      "resourceSinkPoints" : 0
+    },
+    {
+      "id" : "Desc_Biofuel_C",
+      "name" : "Solid Biofuel",
+      "description" : "The most energy-efficient form of solid biomass. Can be used as fuel for the Chainsaw.",
+      "resourceSinkPoints" : 48
+    },
+    {
+      "id" : "Desc_PackagedBiofuel_C",
+      "name" : "Packaged Liquid Biofuel",
+      "description" : "Liquid Biofuel, packaged for alternative transport. Can be used as fuel for Vehicles.",
+      "resourceSinkPoints" : 370
+    },
+    {
+      "id" : "Desc_GenericBiomass_C",
+      "name" : "Biomass",
+      "description" : "Primarily used as fuel.\r\nBiomass burners and vehicles can use it for power.\r\nBiomass is much more energy-efficient than raw biological matter.",
+      "resourceSinkPoints" : 12
+    },
+    {
+      "id" : "Desc_LiquidBiofuel_C",
+      "name" : "Liquid Biofuel",
+      "description" : "Liquid Biofuel can be used to generate power or packaged to be used as fuel for Vehicles.",
+      "resourceSinkPoints" : 261
+    },
+    {
+      "id" : "Desc_PackagedAlumina_C",
+      "name" : "Packaged Alumina Solution",
+      "description" : "Alumina Solution, packaged for alternative transport.",
+      "resourceSinkPoints" : 160
+    },
+    {
+      "id" : "Desc_PackagedSulfuricAcid_C",
+      "name" : "Packaged Sulfuric Acid",
+      "description" : "Sulfuric Acid, packaged for alternative transport.",
+      "resourceSinkPoints" : 152
+    },
+    {
+      "id" : "Desc_PackagedNitrogenGas_C",
+      "name" : "Packaged Nitrogen Gas",
+      "description" : "Nitrogen Gas, packaged for alternative transport.",
+      "resourceSinkPoints" : 312
+    },
+    {
+      "id" : "Desc_PackagedNitricAcid_C",
+      "name" : "Packaged Nitric Acid",
+      "description" : "Nitric Acid, packaged for alternative transport.",
+      "resourceSinkPoints" : 412
+    },
+    {
+      "id" : "Desc_Fabric_C",
+      "name" : "Fabric",
+      "description" : "Used for equipment crafting.\r\nFlexible but durable fabric.",
+      "resourceSinkPoints" : 140
+    },
+    {
+      "id" : "Desc_HatcherParts_C",
+      "name" : "Hatcher Remains",
+      "description" : "The shell-like remains an alien... thing.\r\nUsed for MAM research.",
+      "resourceSinkPoints" : 0
+    },
+    {
+      "id" : "Desc_Rebar_Explosive_C",
+      "name" : "Explosive Rebar",
+      "description" : "Explodes on impact, dealing heavy damage.",
+      "resourceSinkPoints" : 360
+    },
+    {
+      "id" : "Desc_Rebar_Stunshot_C",
+      "name" : "Stun Rebar",
+      "description" : "Electrocutes the target on impact, stunning it for a short time.\r\n\r\nStun duration: 5 seconds",
+      "resourceSinkPoints" : 186
+    },
+    {
+      "id" : "Desc_SpikedRebar_C",
+      "name" : "Iron Rebar",
+      "description" : "A simple iron rebar that can be shot using the Rebar Gun, for self-defense purposes.",
+      "resourceSinkPoints" : 8
+    },
+    {
+      "id" : "Desc_CartridgeSmartProjectile_C",
+      "name" : "Homing Rifle Ammo",
+      "description" : "The bullet guidance system, build into this ammunition, allows it to accurately hit any target within the reticle area.\r\nEspecially useful when dealing with agile threats, or for Pioneers who can't be bothered to aim properly.",
+      "resourceSinkPoints" : 855
+    },
+    {
+      "id" : "Desc_NobeliskCluster_C",
+      "name" : "Cluster Nobelisk",
+      "description" : "A Nobelisk that detonates into multiple smaller explosions. Practical when clearing out large areas of vegetation and other inconveniences.",
+      "resourceSinkPoints" : 1376
+    },
+    {
+      "id" : "Desc_NobeliskExplosive_C",
+      "name" : "Nobelisk",
+      "description" : "A simple explosive, useful for clearing boulders, vegetation, and other obstacles.",
+      "resourceSinkPoints" : 152
+    },
+    {
+      "id" : "Desc_NobeliskGas_C",
+      "name" : "Gas Nobelisk",
+      "description" : "Instead of a regular explosion, this Nobelisk creates a deadly gas cloud.",
+      "resourceSinkPoints" : 544
+    },
+    {
+      "id" : "Desc_NobeliskNuke_C",
+      "name" : "Nuke Nobelisk",
+      "description" : "This Nobelisk uses a nuclear fission reaction to generate a massive explosion.\r\n\r\nWARNING: Ensure all FICSIT property is clear of the blast zone before detonation.\r\n",
+      "resourceSinkPoints" : 19600
+    },
+    {
+      "id" : "Desc_NobeliskShockwave_C",
+      "name" : "Pulse Nobelisk",
+      "description" : "Instead of a regular explosion, this Nobelisk generates a powerful shockwave.",
+      "resourceSinkPoints" : 1533
+    },
+    {
+      "id" : "Desc_Fireworks_Projectile_01_C",
+      "name" : "Sweet Fireworks",
+      "description" : "Merry FICSMAS and a Happy New Year!\r\n\r\nAlternative Nobelisk Ammo. Use G to swap!",
+      "resourceSinkPoints" : 18
+    },
+    {
+      "id" : "Desc_Fireworks_Projectile_02_C",
+      "name" : "Fancy Fireworks",
+      "description" : "Fireworks are produced from random ingredients. Primarily used for having a good time.\r\n\r\nAlternative Nobelisk Ammo. Use G to swap!",
+      "resourceSinkPoints" : 14
+    },
+    {
+      "id" : "Desc_Fireworks_Projectile_03_C",
+      "name" : "Sparkly Fireworks",
+      "description" : "Goes Pfffeeeeew... BOOM! *Sparkle*\r\n\r\nAlternative Nobelisk Ammo. Use G to swap!",
+      "resourceSinkPoints" : 10
+    },
+    {
+      "id" : "Desc_SnowballProjectile_C",
+      "name" : "Snowball",
+      "description" : "Compressed dihydrogen monoxide crystals.\r\n\r\nAlternative Nobelisk Ammo. Use G to swap!",
+      "resourceSinkPoints" : 1
+    },
+    {
+      "id" : "Desc_NuclearFuelRod_C",
+      "name" : "Uranium Fuel Rod",
+      "description" : "Used as fuel for the Nuclear Power Plant.\r\n\r\nCaution: Produces radioactive Uranium Waste when consumed.\r\nCaution: Moderately Radioactive.",
+      "resourceSinkPoints" : 44092
+    },
+    {
+      "id" : "Desc_PlutoniumFuelRod_C",
+      "name" : "Plutonium Fuel Rod",
+      "description" : "Used as fuel for the Nuclear Power Plant.\r\n\r\nCaution: Produces radioactive Plutonium Waste when consumed.\r\nCaution: HIGHLY Radioactive.",
+      "resourceSinkPoints" : 153184
+    },
+    {
+      "id" : "BP_EquipmentDescriptorBeacon_C",
+      "name" : "Beacon",
+      "description" : "PENDING REMOVAL\r\nThis item will (likely) be removed in a future update.\r\n\r\nCurrently only used as an ingredient in an alternative recipe.",
+      "resourceSinkPoints" : 320
+    },
+    {
+      "id" : "Desc_Rebar_Spreadshot_C",
+      "name" : "Shatter Rebar",
+      "description" : "This rebar fractures when shot, launching deadly debris in a wide spread but with limited range.",
+      "resourceSinkPoints" : 332
+    },
+    {
+      "id" : "Desc_CartridgeChaos_C",
+      "name" : "Turbo Rifle Ammo",
+      "description" : "Lightweight, compact, and volatile. These rounds provide extreme capacity and fire rates, at the cost of accuracy.",
+      "resourceSinkPoints" : 120
+    },
+    {
+      "id" : "Desc_CartridgeStandard_C",
+      "name" : "Rifle Ammo",
+      "description" : "Standard issue Rifle ammunition, useful for establishing dominance.",
+      "resourceSinkPoints" : 25
     }
   ],
   "recipes" : [
@@ -854,6 +1064,140 @@
         {
           "amount" : 4,
           "item" : "Desc_IronScrew_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 5,
+        "denominator" : 1
+      },
+      "id" : "Recipe_Biomass_Leaves_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
+      "name" : "Biomass (Leaves)",
+      "ingredients" : [
+        {
+          "amount" : 10,
+          "item" : "Desc_Leaves_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_GenericBiomass_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 4,
+        "denominator" : 1
+      },
+      "id" : "Recipe_Biomass_Wood_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
+      "name" : "Biomass (Wood)",
+      "ingredients" : [
+        {
+          "amount" : 4,
+          "item" : "Desc_Wood_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 20,
+          "item" : "Desc_GenericBiomass_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 24,
+        "denominator" : 1
+      },
+      "id" : "Recipe_Fireworks_01_C",
+      "producedIn" : [
+        "BP_WorkshopComponent_C",
+        "Build_AssemblerMk1_C"
+      ],
+      "name" : "Sweet Fireworks",
+      "ingredients" : [
+        {
+          "amount" : 6,
+          "item" : "Desc_XmasBranch_C"
+        },
+        {
+          "amount" : 3,
+          "item" : "Desc_CandyCane_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Fireworks_Projectile_01_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 24,
+        "denominator" : 1
+      },
+      "id" : "Recipe_Fireworks_02_C",
+      "producedIn" : [
+        "BP_WorkshopComponent_C",
+        "Build_AssemblerMk1_C"
+      ],
+      "name" : "Fancy Fireworks",
+      "ingredients" : [
+        {
+          "amount" : 4,
+          "item" : "Desc_XmasBranch_C"
+        },
+        {
+          "amount" : 3,
+          "item" : "Desc_XmasBow_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Fireworks_Projectile_02_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 24,
+        "denominator" : 1
+      },
+      "id" : "Recipe_Fireworks_03_C",
+      "producedIn" : [
+        "BP_WorkshopComponent_C",
+        "Build_AssemblerMk1_C"
+      ],
+      "name" : "Sparkly Fireworks",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_XmasBranch_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_Snow_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Fireworks_Projectile_03_C"
         }
       ]
     },
@@ -1464,6 +1808,60 @@
         "numerator" : 4,
         "denominator" : 1
       },
+      "id" : "Recipe_LiquidBiofuel_C",
+      "producedIn" : [
+        "Build_OilRefinery_C"
+      ],
+      "name" : "Liquid Biofuel",
+      "ingredients" : [
+        {
+          "amount" : 6,
+          "item" : "Desc_Biofuel_C"
+        },
+        {
+          "amount" : 3000,
+          "item" : "Desc_Water_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 4000,
+          "item" : "Desc_LiquidBiofuel_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 3,
+        "denominator" : 1
+      },
+      "id" : "Recipe_PackagedBiofuel_C",
+      "producedIn" : [
+        "Build_Packager_C"
+      ],
+      "name" : "Packaged Liquid Biofuel",
+      "ingredients" : [
+        {
+          "amount" : 2000,
+          "item" : "Desc_LiquidBiofuel_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_FluidCanister_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_PackagedBiofuel_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 4,
+        "denominator" : 1
+      },
       "id" : "Recipe_PackagedCrudeOil_C",
       "producedIn" : [
         "Build_Packager_C"
@@ -1537,6 +1935,33 @@
         {
           "amount" : 2,
           "item" : "Desc_PackagedWater_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 2,
+        "denominator" : 1
+      },
+      "id" : "Recipe_UnpackageBioFuel_C",
+      "producedIn" : [
+        "Build_Packager_C"
+      ],
+      "name" : "Unpackage Liquid Biofuel",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_PackagedBiofuel_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2000,
+          "item" : "Desc_LiquidBiofuel_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_FluidCanister_C"
         }
       ]
     },
@@ -2100,6 +2525,33 @@
         {
           "amount" : 2000,
           "item" : "Desc_Water_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 1,
+        "denominator" : 1
+      },
+      "id" : "Recipe_PackagedAlumina_C",
+      "producedIn" : [
+        "Build_Packager_C"
+      ],
+      "name" : "Packaged Alumina Solution",
+      "ingredients" : [
+        {
+          "amount" : 2000,
+          "item" : "Desc_AluminaSolution_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_FluidCanister_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_PackagedAlumina_C"
         }
       ]
     },
@@ -3360,6 +3812,41 @@
     },
     {
       "craftingTime" : {
+        "numerator" : 60,
+        "denominator" : 1
+      },
+      "id" : "Recipe_Alternate_AutomatedMiner_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C"
+      ],
+      "name" : "Alternate: Automated Miner",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Motor_C"
+        },
+        {
+          "amount" : 4,
+          "item" : "Desc_SteelPipe_C"
+        },
+        {
+          "amount" : 4,
+          "item" : "Desc_IronRod_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_IronPlate_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "BP_ItemDescriptorPortableMiner_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
         "numerator" : 3,
         "denominator" : 1
       },
@@ -3454,6 +3941,33 @@
         {
           "amount" : 5000,
           "item" : "Desc_SulfuricAcid_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 3,
+        "denominator" : 1
+      },
+      "id" : "Recipe_PackagedSulfuricAcid_C",
+      "producedIn" : [
+        "Build_Packager_C"
+      ],
+      "name" : "Packaged Sulfuric Acid",
+      "ingredients" : [
+        {
+          "amount" : 2000,
+          "item" : "Desc_SulfuricAcid_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_FluidCanister_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_PackagedSulfuricAcid_C"
         }
       ]
     },
@@ -3656,6 +4170,33 @@
         {
           "amount" : 1,
           "item" : "Desc_GasTank_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 1,
+        "denominator" : 1
+      },
+      "id" : "Recipe_PackagedNitrogen_C",
+      "producedIn" : [
+        "Build_Packager_C"
+      ],
+      "name" : "Packaged Nitrogen Gas",
+      "ingredients" : [
+        {
+          "amount" : 4000,
+          "item" : "Desc_NitrogenGas_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_GasTank_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_PackagedNitrogenGas_C"
         }
       ]
     },
@@ -3891,6 +4432,68 @@
     },
     {
       "craftingTime" : {
+        "numerator" : 240,
+        "denominator" : 1
+      },
+      "id" : "Recipe_PlutoniumFuelRod_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C"
+      ],
+      "name" : "Plutonium Fuel Rod",
+      "ingredients" : [
+        {
+          "amount" : 30,
+          "item" : "Desc_PlutoniumCell_C"
+        },
+        {
+          "amount" : 18,
+          "item" : "Desc_SteelPlate_C"
+        },
+        {
+          "amount" : 6,
+          "item" : "Desc_ElectromagneticControlRod_C"
+        },
+        {
+          "amount" : 10,
+          "item" : "Desc_AluminumPlateReinforced_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_PlutoniumFuelRod_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 2,
+        "denominator" : 1
+      },
+      "id" : "Recipe_PackagedNitricAcid_C",
+      "producedIn" : [
+        "Build_Packager_C"
+      ],
+      "name" : "Packaged Nitric Acid",
+      "ingredients" : [
+        {
+          "amount" : 1000,
+          "item" : "Desc_NitricAcid_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_GasTank_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_PackagedNitricAcid_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
         "numerator" : 120,
         "denominator" : 1
       },
@@ -4073,6 +4676,33 @@
     },
     {
       "craftingTime" : {
+        "numerator" : 120,
+        "denominator" : 1
+      },
+      "id" : "Recipe_Alternate_PlutoniumFuelUnit_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C"
+      ],
+      "name" : "Alternate: Plutonium Fuel Unit",
+      "ingredients" : [
+        {
+          "amount" : 20,
+          "item" : "Desc_PlutoniumCell_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_PressureConversionCube_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_PlutoniumFuelRod_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
         "numerator" : 40,
         "denominator" : 1
       },
@@ -4199,6 +4829,37 @@
     },
     {
       "craftingTime" : {
+        "numerator" : 150,
+        "denominator" : 1
+      },
+      "id" : "Recipe_NuclearFuelRod_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C"
+      ],
+      "name" : "Uranium Fuel Rod",
+      "ingredients" : [
+        {
+          "amount" : 50,
+          "item" : "Desc_UraniumCell_C"
+        },
+        {
+          "amount" : 3,
+          "item" : "Desc_SteelPlateReinforced_C"
+        },
+        {
+          "amount" : 5,
+          "item" : "Desc_ElectromagneticControlRod_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_NuclearFuelRod_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
         "numerator" : 120,
         "denominator" : 1
       },
@@ -4295,6 +4956,37 @@
         {
           "amount" : 2,
           "item" : "Desc_MotorLightweight_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 120,
+        "denominator" : 1
+      },
+      "id" : "Recipe_Alternate_Beacon_1_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C"
+      ],
+      "name" : "Alternate: Crystal Beacon",
+      "ingredients" : [
+        {
+          "amount" : 4,
+          "item" : "Desc_SteelPlate_C"
+        },
+        {
+          "amount" : 16,
+          "item" : "Desc_SteelPipe_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_CrystalOscillator_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 20,
+          "item" : "BP_EquipmentDescriptorBeacon_C"
         }
       ]
     },
@@ -4834,6 +5526,41 @@
     },
     {
       "craftingTime" : {
+        "numerator" : 300,
+        "denominator" : 1
+      },
+      "id" : "Recipe_Alternate_NuclearFuelRod_1_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C"
+      ],
+      "name" : "Alternate: Uranium Fuel Unit",
+      "ingredients" : [
+        {
+          "amount" : 100,
+          "item" : "Desc_UraniumCell_C"
+        },
+        {
+          "amount" : 10,
+          "item" : "Desc_ElectromagneticControlRod_C"
+        },
+        {
+          "amount" : 3,
+          "item" : "Desc_CrystalOscillator_C"
+        },
+        {
+          "amount" : 6,
+          "item" : "BP_EquipmentDescriptorBeacon_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_NuclearFuelRod_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
         "numerator" : 12,
         "denominator" : 1
       },
@@ -5345,6 +6072,67 @@
         "numerator" : 8,
         "denominator" : 1
       },
+      "id" : "Recipe_Beacon_C",
+      "producedIn" : [
+        "BP_WorkshopComponent_C",
+        "Build_ManufacturerMk1_C"
+      ],
+      "name" : "Beacon",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_IronPlate_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_IronRod_C"
+        },
+        {
+          "amount" : 15,
+          "item" : "Desc_Wire_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_Cable_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "BP_EquipmentDescriptorBeacon_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 4,
+        "denominator" : 1
+      },
+      "id" : "Recipe_Biofuel_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "Build_AutomatedWorkBench_C"
+      ],
+      "name" : "Solid Biofuel",
+      "ingredients" : [
+        {
+          "amount" : 8,
+          "item" : "Desc_GenericBiomass_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 4,
+          "item" : "Desc_Biofuel_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 8,
+        "denominator" : 1
+      },
       "id" : "Recipe_FilterGasMask_C",
       "producedIn" : [
         "Build_ManufacturerMk1_C",
@@ -5431,6 +6219,30 @@
     },
     {
       "craftingTime" : {
+        "numerator" : 4,
+        "denominator" : 1
+      },
+      "id" : "Recipe_SpikedRebar_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkshopComponent_C"
+      ],
+      "name" : "Iron Rebar",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_IronRod_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_SpikedRebar_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
         "numerator" : 3,
         "denominator" : 1
       },
@@ -5476,6 +6288,31 @@
         {
           "amount" : 1,
           "item" : "Desc_AlienDNACapsule_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 4,
+        "denominator" : 1
+      },
+      "id" : "Recipe_Biomass_AlienProtein_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
+      "name" : "Biomass (Alien Protein)",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_AlienProtein_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 100,
+          "item" : "Desc_GenericBiomass_C"
         }
       ]
     },
@@ -5556,6 +6393,171 @@
     },
     {
       "craftingTime" : {
+        "numerator" : 6,
+        "denominator" : 1
+      },
+      "id" : "Recipe_Rebar_Stunshot_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C",
+        "BP_WorkshopComponent_C"
+      ],
+      "name" : "Stun Rebar",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_SpikedRebar_C"
+        },
+        {
+          "amount" : 5,
+          "item" : "Desc_HighSpeedWire_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Rebar_Stunshot_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 24,
+        "denominator" : 1
+      },
+      "id" : "Recipe_CartridgeSmart_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C",
+        "BP_WorkshopComponent_C"
+      ],
+      "name" : "Homing Rifle Ammo",
+      "ingredients" : [
+        {
+          "amount" : 20,
+          "item" : "Desc_CartridgeStandard_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_HighSpeedConnector_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 10,
+          "item" : "Desc_CartridgeSmartProjectile_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 4,
+        "denominator" : 1
+      },
+      "id" : "Recipe_Biomass_Mycelia_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
+      "name" : "Biomass (Mycelia)",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Mycelia_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 10,
+          "item" : "Desc_GenericBiomass_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 4,
+        "denominator" : 1
+      },
+      "id" : "Recipe_Fabric_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
+      ],
+      "name" : "Fabric",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Mycelia_C"
+        },
+        {
+          "amount" : 5,
+          "item" : "Desc_GenericBiomass_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Fabric_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 2,
+        "denominator" : 1
+      },
+      "id" : "Recipe_Alternate_PolyesterFabric_C",
+      "producedIn" : [
+        "Build_OilRefinery_C"
+      ],
+      "name" : "Alternate: Polyester Fabric",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_PolymerResin_C"
+        },
+        {
+          "amount" : 1000,
+          "item" : "Desc_Water_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Fabric_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 12,
+        "denominator" : 1
+      },
+      "id" : "Recipe_NobeliskGas_C",
+      "producedIn" : [
+        "BP_WorkshopComponent_C",
+        "Build_AssemblerMk1_C"
+      ],
+      "name" : "Gas Nobelisk",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_NobeliskExplosive_C"
+        },
+        {
+          "amount" : 10,
+          "item" : "Desc_GenericBiomass_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_NobeliskGas_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
         "numerator" : 8,
         "denominator" : 1
       },
@@ -5631,6 +6633,62 @@
     },
     {
       "craftingTime" : {
+        "numerator" : 12,
+        "denominator" : 1
+      },
+      "id" : "Recipe_Rebar_Spreadshot_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C",
+        "BP_WorkshopComponent_C"
+      ],
+      "name" : "Shatter Rebar",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_SpikedRebar_C"
+        },
+        {
+          "amount" : 3,
+          "item" : "Desc_QuartzCrystal_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Rebar_Spreadshot_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 60,
+        "denominator" : 1
+      },
+      "id" : "Recipe_NobeliskShockwave_C",
+      "producedIn" : [
+        "BP_WorkshopComponent_C",
+        "Build_AssemblerMk1_C"
+      ],
+      "name" : "Pulse Nobelisk",
+      "ingredients" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_NobeliskExplosive_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_CrystalOscillator_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_NobeliskShockwave_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
         "numerator" : 4,
         "denominator" : 1
       },
@@ -5681,6 +6739,221 @@
         {
           "amount" : 2,
           "item" : "Desc_GunpowderMK2_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 6,
+        "denominator" : 1
+      },
+      "id" : "Recipe_Nobelisk_C",
+      "producedIn" : [
+        "BP_WorkshopComponent_C",
+        "Build_AssemblerMk1_C"
+      ],
+      "name" : "Nobelisk",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_Gunpowder_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_SteelPipe_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_NobeliskExplosive_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 24,
+        "denominator" : 1
+      },
+      "id" : "Recipe_NobeliskCluster_C",
+      "producedIn" : [
+        "BP_WorkshopComponent_C",
+        "Build_AssemblerMk1_C"
+      ],
+      "name" : "Cluster Nobelisk",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_NobeliskExplosive_C"
+        },
+        {
+          "amount" : 4,
+          "item" : "Desc_GunpowderMK2_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_NobeliskCluster_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 12,
+        "denominator" : 1
+      },
+      "id" : "Recipe_Cartridge_C",
+      "producedIn" : [
+        "Build_AssemblerMk1_C",
+        "BP_WorkshopComponent_C"
+      ],
+      "name" : "Rifle Ammo",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_CopperSheet_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_GunpowderMK2_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 15,
+          "item" : "Desc_CartridgeStandard_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 12,
+        "denominator" : 1
+      },
+      "id" : "Recipe_Rebar_Explosive_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C",
+        "BP_WorkshopComponent_C"
+      ],
+      "name" : "Explosive Rebar",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_SpikedRebar_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_GunpowderMK2_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_SteelPipe_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Rebar_Explosive_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 120,
+        "denominator" : 1
+      },
+      "id" : "Recipe_NobeliskNuke_C",
+      "producedIn" : [
+        "BP_WorkshopComponent_C",
+        "Build_ManufacturerMk1_C"
+      ],
+      "name" : "Nuke Nobelisk",
+      "ingredients" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_NobeliskExplosive_C"
+        },
+        {
+          "amount" : 20,
+          "item" : "Desc_UraniumCell_C"
+        },
+        {
+          "amount" : 10,
+          "item" : "Desc_GunpowderMK2_C"
+        },
+        {
+          "amount" : 6,
+          "item" : "Desc_CircuitBoardHighSpeed_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_NobeliskNuke_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 12,
+        "denominator" : 1
+      },
+      "id" : "Recipe_CartridgeChaos_C",
+      "producedIn" : [
+        "Build_Blender_C"
+      ],
+      "name" : "Turbo Rifle Ammo",
+      "ingredients" : [
+        {
+          "amount" : 25,
+          "item" : "Desc_CartridgeStandard_C"
+        },
+        {
+          "amount" : 3,
+          "item" : "Desc_AluminumCasing_C"
+        },
+        {
+          "amount" : 3000,
+          "item" : "Desc_LiquidTurboFuel_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 50,
+          "item" : "Desc_CartridgeChaos_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 12,
+        "denominator" : 1
+      },
+      "id" : "Recipe_CartridgeChaos_Packaged_C",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C",
+        "BP_WorkshopComponent_C"
+      ],
+      "name" : "Turbo Rifle Ammo",
+      "ingredients" : [
+        {
+          "amount" : 25,
+          "item" : "Desc_CartridgeStandard_C"
+        },
+        {
+          "amount" : 3,
+          "item" : "Desc_AluminumCasing_C"
+        },
+        {
+          "amount" : 3,
+          "item" : "Desc_TurboFuel_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 50,
+          "item" : "Desc_CartridgeChaos_C"
         }
       ]
     },
@@ -5931,6 +7204,29 @@
         {
           "amount" : 1,
           "item" : "Desc_XmasStar_C"
+        }
+      ]
+    },
+    {
+      "craftingTime" : {
+        "numerator" : 12,
+        "denominator" : 1
+      },
+      "id" : "Recipe_Snowball_C",
+      "producedIn" : [
+        "Build_ConstructorMk1_C"
+      ],
+      "name" : "Snowball",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_Snow_C"
+        }
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_SnowballProjectile_C"
         }
       ]
     }

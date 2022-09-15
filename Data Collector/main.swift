@@ -3,11 +3,11 @@ import SimpleParser
 
 let fileManager = FileManager.default
 
-let downloads = try! fileManager.url(for: .downloadsDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
 // unpackaged using UEViewer
-let baseFolder = downloads.appendingPathComponent("UModelExport", isDirectory: true)
+let baseFolder = URL(fileURLWithPath: "/Volumes/julia/Desktop/FullExport", isDirectory: true)
 
-let outputFolder = baseFolder.appendingPathComponent("processed")
+let downloads = try! fileManager.url(for: .downloadsDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+let outputFolder = downloads.appendingPathComponent("processed")
 try? fileManager.createDirectory(at: outputFolder, withIntermediateDirectories: false)
 
 let imageFolder = outputFolder.appendingPathComponent("images")
@@ -24,19 +24,51 @@ func decodeClasses<T: Class>(of type: T.Type = T.self, forKey key: String? = nil
 
 print("decoding assets…")
 
-let items = decodeClasses(of: FGItemDescriptor.self)
-+ decodeClasses(of: FGItemDescriptor.self, forKey: "FGResourceDescriptor") // mwahaha
-print(items.count, "items")
+// fuck off
+let itemClasses = [
+	"FGItemDescriptor",
+	"FGResourceDescriptor",
+	"FGEquipmentDescriptor",
+	"FGItemDescriptorBiomass",
+	"FGAmmoTypeProjectile",
+	"FGItemDescriptorNuclearFuel",
+	"FGConsumableDescriptor",
+	"FGAmmoTypeSpreadshot",
+	"FGAmmoTypeInstantHit"
+]
 
-let knownItems = Set(items.lazy.map(\.id))
+let automatedProducers: Set = [
+	"Build_SmelterMk1_C",
+	"Build_ConstructorMk1_C",
+	"Build_AssemblerMk1_C",
+	"Build_ManufacturerMk1_C",
+	"Build_FoundryMk1_C",
+	"Build_OilRefinery_C",
+	"Build_Packager_C",
+	"Build_Blender_C",
+	"Build_HadronCollider_C",
+]
 
 let recipes = decodeClasses(of: FGRecipe.self)
 print(recipes.count, "recipes")
 let relevantRecipes = recipes.filter {
-	$0.products.allSatisfy { knownItems.contains($0.item) }
-	&& $0.products != $0.ingredients
+	!automatedProducers.isDisjoint(with: $0.producedIn)
 }
 print(relevantRecipes.count, "relevant recipes")
+
+let producers = Set(relevantRecipes.lazy.flatMap(\.producedIn))
+print(producers.sorted())
+
+let relevantItems = Set(relevantRecipes.lazy.flatMap { $0.ingredients.map(\.item) + $0.products.map(\.item) })
+
+let items: [FGItemDescriptor] = itemClasses
+	.lazy
+	.flatMap { decodeClasses(forKey: $0) }
+	.filter { relevantItems.contains($0.id) }
+print(items.count, "items")
+
+let difference = relevantItems.symmetricDifference(items.map(\.id))
+assert(difference.isEmpty)
 
 // export json
 
@@ -57,11 +89,17 @@ print("json exported!")
 
 // copy images
 
+let shouldSkipExisting = true
+
 print("copying images…")
-for item in items {
+for (index, item) in items.enumerated() {
+	print("\(index + 1)/\(items.count):", item.id)
 	let source = baseFolder.appendingPathComponent("\(item.icon).png")
 	let destination = imageFolder.appendingPathComponent("\(item.id).png")
-	try? fileManager.removeItem(at: destination)
+	if fileManager.fileExists(atPath: destination.path) && shouldSkipExisting {
+		continue
+	}
+	try! fileManager.removeItem(at: destination)
 	try! fileManager.copyItem(at: source, to: destination)
 }
 print("done!")
