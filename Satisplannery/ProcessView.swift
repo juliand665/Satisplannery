@@ -6,55 +6,57 @@ struct ProcessView: View {
 	var body: some View {
 		Form {
 			Section("Name") {
-				HStack {
-					TextField("Process Name", text: $process.name)
-				}
+				TextField("Process Name", text: $process.name)
 			}
 			
 			outputsSection
 			
 			ForEach($process.steps) { $step in
-				Section {
-					StepSection(step: $step, process: process)
-				} header: {
-					HStack(spacing: 16) {
-						Text(step.recipe.name)
-						
-						Spacer()
-						
-						Button {
-							withAnimation {
-								process.remove(step)
-							}
-						} label: {
-							Image(systemName: "trash")
-						}
-						
-						Button {
-							withAnimation {
-								process.move(step, by: -1)
-							}
-						} label: {
-							Image(systemName: "chevron.up")
-						}
-						.disabled(!process.canMove(step, by: -1))
-						
-						Button {
-							withAnimation {
-								process.move(step, by: +1)
-							}
-						} label: {
-							Image(systemName: "chevron.down")
-						}
-						.disabled(!process.canMove(step, by: +1))
-					}
-				}
+				stepSection($step: $step)
 			}
 			.headerProminence(.increased)
 			
 			inputsSection
 		}
 		.navigationTitle(process.name.isEmpty ? "Untitled Process" : process.name)
+	}
+	
+	func stepSection(@Binding step: CraftingStep) -> some View {
+		Section {
+			StepSection(step: $step, process: process)
+		} header: {
+			HStack(spacing: 16) {
+				Text(step.recipe.name)
+				
+				Spacer()
+				
+				Button {
+					withAnimation {
+						process.remove(step)
+					}
+				} label: {
+					Image(systemName: "trash")
+				}
+				
+				Button {
+					withAnimation {
+						process.move(step, by: -1)
+					}
+				} label: {
+					Image(systemName: "chevron.up")
+				}
+				.disabled(!process.canMove(step, by: -1))
+				
+				Button {
+					withAnimation {
+						process.move(step, by: +1)
+					}
+				} label: {
+					Image(systemName: "chevron.down")
+				}
+				.disabled(!process.canMove(step, by: +1))
+			}
+		}
 	}
 	
 	@ViewBuilder
@@ -115,24 +117,6 @@ struct ProcessView: View {
 	}
 }
 
-struct ItemLabel: View {
-	var item: Item
-	var amount: Fraction
-	
-	var body: some View {
-		HStack {
-			item.icon.frame(width: 48)
-			
-			Text(item.name)
-			
-			Spacer()
-			
-			Text(amount, format: .fraction(alwaysShowSign: true))
-				.coloredBasedOn(amount)
-		}
-	}
-}
-
 struct StepSection: View {
 	@Binding var step: CraftingStep
 	var process: CraftingProcess
@@ -167,7 +151,7 @@ struct StepSection: View {
 						item.icon.frame(width: 64)
 						Text(item.name)
 						
-						FractionEditor.editing($step.factor, multipliedBy: .init(product.amount))
+						FractionEditor.forAmount($step.factor, multipliedBy: .init(product.amount))
 						
 						matchDemandButton(for: product)
 					}
@@ -213,7 +197,7 @@ struct StepSection: View {
 				HStack {
 					item.icon.frame(width: 32)
 					Text(item.name)
-					FractionEditor.editing($step.factor, multipliedBy: .init(-ingredient.amount))
+					FractionEditor.forAmount($step.factor, multipliedBy: .init(-ingredient.amount))
 				}
 			}
 		}
@@ -231,39 +215,6 @@ struct StepSection: View {
 		}
 		.buttonStyle(.bordered)
 		.disabled(production == demand || demand <= 0)
-	}
-}
-
-extension FractionEditor {
-	static func editing(_ amount: Binding<Fraction>, multipliedBy factor: Fraction) -> some View {
-		Self(
-			label: "Amount",
-			value: Binding {
-				amount.wrappedValue * factor
-			} set: {
-				amount.wrappedValue = abs($0 / factor).matchingSign(of: amount.wrappedValue)
-			},
-			alwaysShowSign: true
-		)
-		.coloredBasedOn(amount.wrappedValue * factor)
-	}
-}
-
-struct FractionEditor: View {
-	var label: LocalizedStringKey
-	@Binding var value: Fraction
-	var alwaysShowSign: Bool = false
-	
-	var body: some View {
-		TextField(label, value: $value, format: .fraction(alwaysShowSign: alwaysShowSign))
-			.multilineTextAlignment(.trailing)
-			.keyboardType(.numbersAndPunctuation)
-	}
-}
-
-extension View {
-	func coloredBasedOn(_ value: some Numeric & Comparable) -> some View {
-		foregroundColor(value > .zero ? .green : value < .zero ? .red : nil)
 	}
 }
 

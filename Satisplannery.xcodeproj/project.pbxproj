@@ -17,6 +17,7 @@
 		B9269B7F28D2540900B95697 /* Fraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9269B7E28D2540900B95697 /* Fraction.swift */; };
 		B9269B8128D2801400B95697 /* Fraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9269B7E28D2540900B95697 /* Fraction.swift */; };
 		B9269B8428D2929800B95697 /* HandyOperators in Frameworks */ = {isa = PBXBuildFile; productRef = B9269B8328D2929800B95697 /* HandyOperators */; };
+		B9269B8628D2AC6100B95697 /* FractionEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9269B8528D2AC6000B95697 /* FractionEditor.swift */; };
 		B945242328D1108D00D9937B /* SatisplanneryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B945242228D1108D00D9937B /* SatisplanneryApp.swift */; };
 		B945242528D1108D00D9937B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B945242428D1108D00D9937B /* ContentView.swift */; };
 		B945242728D1109200D9937B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B945242628D1109200D9937B /* Assets.xcassets */; };
@@ -29,7 +30,7 @@
 		B945244C28D149F800D9937B /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = B945244B28D149F800D9937B /* data.json */; };
 		B945244E28D14A0100D9937B /* images in Resources */ = {isa = PBXBuildFile; fileRef = B945244D28D14A0100D9937B /* images */; };
 		B945245028D1586600D9937B /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B945244F28D1586600D9937B /* GameData.swift */; };
-		B945245228D158A200D9937B /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B945245128D158A200D9937B /* Icon.swift */; };
+		B945245228D158A200D9937B /* ItemViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B945245128D158A200D9937B /* ItemViews.swift */; };
 		B945245528D1695C00D9937B /* UserDefault in Frameworks */ = {isa = PBXBuildFile; productRef = B945245428D1695C00D9937B /* UserDefault */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		B9269B7728D2376800B95697 /* ProcessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessView.swift; sourceTree = "<group>"; };
 		B9269B7C28D2518300B95697 /* Swift+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swift+Helpers.swift"; sourceTree = "<group>"; };
 		B9269B7E28D2540900B95697 /* Fraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fraction.swift; sourceTree = "<group>"; };
+		B9269B8528D2AC6000B95697 /* FractionEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FractionEditor.swift; sourceTree = "<group>"; };
 		B945241F28D1108D00D9937B /* Satisplannery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Satisplannery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B945242228D1108D00D9937B /* SatisplanneryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatisplanneryApp.swift; sourceTree = "<group>"; };
 		B945242428D1108D00D9937B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -67,7 +69,7 @@
 		B945244B28D149F800D9937B /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		B945244D28D14A0100D9937B /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		B945244F28D1586600D9937B /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
-		B945245128D158A200D9937B /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
+		B945245128D158A200D9937B /* ItemViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +140,7 @@
 				B945242428D1108D00D9937B /* ContentView.swift */,
 				B9269B7728D2376800B95697 /* ProcessView.swift */,
 				B9269B7528D22C5A00B95697 /* ItemPicker.swift */,
-				B945245128D158A200D9937B /* Icon.swift */,
+				B945245128D158A200D9937B /* ItemViews.swift */,
 				B9269B6E28D22BD900B95697 /* Models */,
 				B9269B7C28D2518300B95697 /* Swift+Helpers.swift */,
 				B945242628D1109200D9937B /* Assets.xcassets */,
@@ -146,6 +148,7 @@
 				B945244D28D14A0100D9937B /* images */,
 				B945242828D1109200D9937B /* Satisplannery.entitlements */,
 				B945242928D1109200D9937B /* Preview Content */,
+				B9269B8528D2AC6000B95697 /* FractionEditor.swift */,
 			);
 			path = Satisplannery;
 			sourceTree = "<group>";
@@ -291,7 +294,8 @@
 				B9269B7028D22BE300B95697 /* ObjectID.swift in Sources */,
 				B9269B7228D22BFE00B95697 /* ItemBag.swift in Sources */,
 				B9269B7428D22C2200B95697 /* Crafting.swift in Sources */,
-				B945245228D158A200D9937B /* Icon.swift in Sources */,
+				B9269B8628D2AC6100B95697 /* FractionEditor.swift in Sources */,
+				B945245228D158A200D9937B /* ItemViews.swift in Sources */,
 				B945242328D1108D00D9937B /* SatisplanneryApp.swift in Sources */,
 				B9269B7F28D2540900B95697 /* Fraction.swift in Sources */,
 			);

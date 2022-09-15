@@ -22,3 +22,21 @@ extension Image {
 #endif
 	}
 }
+
+struct ItemLabel: View {
+	var item: Item
+	var amount: Fraction
+	
+	var body: some View {
+		HStack {
+			item.icon.frame(width: 48)
+			
+			Text(item.name)
+			
+			Spacer()
+			
+			Text(amount, format: .fraction(alwaysShowSign: true))
+				.coloredBasedOn(amount)
+		}
+	}
+}
