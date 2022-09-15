@@ -145,7 +145,7 @@ struct StepSection: View {
 			}
 			
 			VStack {
-				ForEach(step.recipe.products.sorted { $1.item == step.primaryOutput }, id: \.item) { product in
+				ForEach(step.recipe.products.sorted { $1.item != step.primaryOutput }, id: \.item) { product in
 					productRow(for: product)
 				}
 			}
