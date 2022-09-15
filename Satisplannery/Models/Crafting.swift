@@ -33,7 +33,7 @@ struct CraftingProcess: Identifiable, Codable {
 		steps.append(.init(
 			recipe: recipe,
 			primaryOutput: item,
-			factor: count / recipe.amountProduced(of: item)
+			factor: count / recipe.production(of: item)
 		))
 	}
 	
@@ -53,8 +53,8 @@ struct CraftingStep: Identifiable, Codable {
 	var recipe: Recipe {
 		didSet {
 			guard recipe != oldValue else { return }
-			factor *= oldValue.amountProduced(of: primaryOutput)
-			/ recipe.amountProduced(of: primaryOutput)
+			factor *= oldValue.production(of: primaryOutput)
+			/ recipe.production(of: primaryOutput)
 		}
 	}
 	var primaryOutput: Item.ID
@@ -68,7 +68,15 @@ struct CraftingStep: Identifiable, Codable {
 }
 
 extension Recipe {
-	func amountProduced(of item: Item.ID) -> Fraction {
+	func production(of item: Item.ID) -> Fraction {
 		.init(products.first { $0.item == item }?.amount ?? 0)
+	}
+	
+	func consumption(of item: Item.ID) -> Fraction {
+		.init(ingredients.first { $0.item == item }?.amount ?? 0)
+	}
+	
+	func netProduction(of item: Item.ID) -> Fraction {
+		return production(of: item) - consumption(of: item)
 	}
 }

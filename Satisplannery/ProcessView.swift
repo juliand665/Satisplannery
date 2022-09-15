@@ -210,7 +210,7 @@ struct StepSection: View {
 	@ViewBuilder
 	func matchDemandButton(for product: ItemStack) -> some View {
 		let baseDemand = -(process.totals.counts[product.item] ?? 0)
-		let production = step.factor * product.amount
+		let production = step.factor * step.recipe.netProduction(of: product.item)
 		let demand = baseDemand + production
 		Button {
 			step.factor = demand / product.amount
