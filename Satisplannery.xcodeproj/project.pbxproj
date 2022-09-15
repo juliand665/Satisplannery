@@ -55,6 +55,7 @@
 		B9269B7C28D2518300B95697 /* Swift+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swift+Helpers.swift"; sourceTree = "<group>"; };
 		B9269B7E28D2540900B95697 /* Fraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fraction.swift; sourceTree = "<group>"; };
 		B9269B8528D2AC6000B95697 /* FractionEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FractionEditor.swift; sourceTree = "<group>"; };
+		B9269B8728D2BE4D00B95697 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B945241F28D1108D00D9937B /* Satisplannery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Satisplannery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B945242228D1108D00D9937B /* SatisplanneryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatisplanneryApp.swift; sourceTree = "<group>"; };
 		B945242428D1108D00D9937B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -136,6 +137,7 @@
 		B945242128D1108D00D9937B /* Satisplannery */ = {
 			isa = PBXGroup;
 			children = (
+				B9269B8728D2BE4D00B95697 /* Info.plist */,
 				B945242228D1108D00D9937B /* SatisplanneryApp.swift */,
 				B945242428D1108D00D9937B /* ContentView.swift */,
 				B9269B7728D2376800B95697 /* ProcessView.swift */,
@@ -438,6 +440,7 @@
 				DEVELOPMENT_TEAM = V2EPDFA9PV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Satisplannery/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -477,6 +480,7 @@
 				DEVELOPMENT_TEAM = V2EPDFA9PV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Satisplannery/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
