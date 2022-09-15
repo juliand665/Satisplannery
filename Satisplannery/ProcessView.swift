@@ -188,7 +188,7 @@ struct StepSection: View {
 				HStack {
 					item.icon.frame(width: 32)
 					Text(item.name)
-					FractionEditor.forAmount($step.factor, multipliedBy: .init(-ingredient.amount))
+					FractionEditor.forAmount($step.factor, multipliedBy: -ingredient.amount * item.multiplier)
 				}
 			}
 		}
@@ -201,7 +201,7 @@ struct StepSection: View {
 			item.icon.frame(width: 64)
 			Text(item.name)
 			
-			FractionEditor.forAmount($step.factor, multipliedBy: .init(product.amount))
+			FractionEditor.forAmount($step.factor, multipliedBy: product.amount * item.multiplier)
 			
 			matchDemandButton(for: product)
 		}

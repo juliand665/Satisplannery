@@ -1,876 +1,1022 @@
 {
   "items" : [
     {
+      "isFluid" : false,
       "id" : "Desc_NuclearWaste_C",
       "name" : "Uranium Waste",
       "description" : "The by-product of consuming Uranium Fuel Rods in the Nuclear Power Plant.\r\nNon-fissible Uranium can be extracted. Handle with caution.\r\n\r\nCaution: HIGHLY Radioactive.",
       "resourceSinkPoints" : 0
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Filter_C",
       "name" : "Gas Filter",
       "description" : "Used in the Gas Mask to filter out toxics and pollutants from the air.",
       "resourceSinkPoints" : 830
     },
     {
+      "isFluid" : false,
       "id" : "Desc_AluminumPlate_C",
       "name" : "Alclad Aluminum Sheet",
       "description" : "Thin, lightweight, and highly durable sheets that are mainly used for products that require high heat conduction or a high specific strength.",
       "resourceSinkPoints" : 266
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Battery_C",
       "name" : "Battery",
       "description" : "Primarily used as fuel for Drones and Vehicles.",
       "resourceSinkPoints" : 465
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Plastic_C",
       "name" : "Plastic",
       "description" : "A versatile and easy to manufacture material that can be used for a lot of things.",
       "resourceSinkPoints" : 75
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Wire_C",
       "name" : "Wire",
       "description" : "Used for crafting.\r\nOne of the most basic parts.",
       "resourceSinkPoints" : 6
     },
     {
+      "isFluid" : false,
       "id" : "Desc_AluminumIngot_C",
       "name" : "Aluminum Ingot",
       "description" : "Aluminum Ingots are made from Aluminum Scrap, which is refined from Alumina Solution.\r\nUsed to produce specialized aluminum-based parts.",
       "resourceSinkPoints" : 131
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Fuel_C",
       "name" : "Packaged Fuel",
       "description" : "Fuel, packaged for alternative transport. Can be used as fuel for Vehicles or the Jetpack.",
       "resourceSinkPoints" : 270
     },
     {
+      "isFluid" : false,
       "id" : "Desc_NonFissibleUranium_C",
       "name" : "Non-fissile Uranium",
       "description" : "The isotope Uranium-238 is non-fissile, meaning it cannot be used for nuclear fission. It can, however, be conversed into fissile Plutonium in the Particle Accelerator.\r\n\r\nCaution: Mildly Radioactive.",
       "resourceSinkPoints" : 0
     },
     {
+      "isFluid" : false,
       "id" : "Desc_PlutoniumPellet_C",
       "name" : "Plutonium Pellet",
       "description" : "Produced in the Particle Accelerator through conversion of Non-fissile Uranium.\r\nUsed to produce Encased Plutonium Cells for Plutonium Fuel Rods.\r\n\r\nPower Usage: 250-750 MW (500 MW average).\r\nCaution: Moderately Radioactive.",
       "resourceSinkPoints" : 0
     },
     {
+      "isFluid" : false,
       "id" : "Desc_PlutoniumCell_C",
       "name" : "Encased Plutonium Cell",
       "description" : "Plutonium Cells are concrete encased Plutonium Pellets.\r\nUsed to produce Plutonium Fuel Rods for Nuclear Power production.\r\n\r\nCaution: Moderately Radioactive.",
       "resourceSinkPoints" : 0
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Crystal_C",
       "name" : "Blue Power Slug",
       "description" : "A strange slug radiating a weak strange power.",
       "resourceSinkPoints" : 0
     },
     {
+      "isFluid" : false,
       "id" : "Desc_IronRod_C",
       "name" : "Iron Rod",
       "description" : "Used for crafting.\r\nOne of the most basic parts.",
       "resourceSinkPoints" : 4
     },
     {
+      "isFluid" : false,
       "id" : "Desc_IronScrew_C",
       "name" : "Screw",
       "description" : "Used for crafting.\r\nOne of the most basic parts.",
       "resourceSinkPoints" : 2
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Crystal_mk2_C",
       "name" : "Yellow Power Slug",
       "description" : "A strange slug radiating a strange power.",
       "resourceSinkPoints" : 0
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Crystal_mk3_C",
       "name" : "Purple Power Slug",
       "description" : "A strange slug radiating a powerful strange power.",
       "resourceSinkPoints" : 0
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Cement_C",
       "name" : "Concrete",
       "description" : "Used for building.\r\nGood for stable foundations.",
       "resourceSinkPoints" : 12
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Silica_C",
       "name" : "Silica",
       "description" : "Derived from Raw Quartz. Commonly used to create glass structures, advanced refinement processes, and alternative production of electronics.",
       "resourceSinkPoints" : 20
     },
     {
+      "isFluid" : false,
       "id" : "Desc_IronPlate_C",
       "name" : "Iron Plate",
       "description" : "Used for crafting.\r\nOne of the most basic parts.",
       "resourceSinkPoints" : 6
     },
     {
+      "isFluid" : false,
       "id" : "Desc_SteelPlate_C",
       "name" : "Steel Beam",
       "description" : "Steel Beams are used most often when constructing a little more advanced buildings.",
       "resourceSinkPoints" : 64
     },
     {
+      "isFluid" : false,
       "id" : "Desc_TurboFuel_C",
       "name" : "Packaged Turbofuel",
       "description" : "Turbofuel, packaged for alternative transport. Can be used as fuel for Vehicles.",
       "resourceSinkPoints" : 570
     },
     {
+      "isFluid" : false,
       "id" : "Desc_HazmatFilter_C",
       "name" : "Iodine Infused Filter",
       "description" : "Used in the Hazmat Suit to absorb radioactive particles.",
       "resourceSinkPoints" : 2718
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Cable_C",
       "name" : "Cable",
       "description" : "Used for crafting.\r\nPrimarily used to build power lines.",
       "resourceSinkPoints" : 24
     },
     {
+      "isFluid" : false,
       "id" : "Desc_CrystalShard_C",
       "name" : "Power Shard",
       "description" : "Mucus from the power slugs compressed into a solid crystal-like shard. \r\nIt radiates a strange power.",
       "resourceSinkPoints" : 0
     },
     {
+      "isFluid" : false,
       "id" : "Desc_ColorCartridge_C",
       "name" : "Color Cartridge",
       "description" : "Used for applying Patterns to structures with the Customizer.\r\n\r\n(Patterns can be purchased in the AWESOME Shop.)",
       "resourceSinkPoints" : 10
     },
     {
+      "isFluid" : false,
       "id" : "Desc_IronPlateReinforced_C",
       "name" : "Reinforced Iron Plate",
       "description" : "Used for crafting.\r\nA sturdier and more durable Iron Plate.",
       "resourceSinkPoints" : 120
     },
     {
+      "isFluid" : false,
       "id" : "Desc_CopperIngot_C",
       "name" : "Copper Ingot",
       "description" : "Used for crafting.\r\nCrafted into the most basic parts.",
       "resourceSinkPoints" : 6
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Gift_C",
       "name" : "FICSMAS Gift",
       "description" : "Special FICSMAS buildings and parts can be obtained and produced from this FICSIT Holiday present.\r\n\r\n*Watch the sky for deliveries from orbit!",
       "resourceSinkPoints" : 1
     },
     {
+      "isFluid" : false,
       "id" : "Desc_CandyCane_C",
       "name" : "Candy Cane",
       "description" : "A delicious Candy Cane to be enjoyed during the FICSMAS Holidays. \r\n*Disclaimer: Can't be consumed...",
       "resourceSinkPoints" : 1
     },
     {
+      "isFluid" : false,
       "id" : "Desc_XmasBranch_C",
       "name" : "FICSMAS Tree Branch",
       "description" : "A special Tree Branch, used to produce parts and buildings during the FICSMAS Event.",
       "resourceSinkPoints" : 1
     },
     {
+      "isFluid" : false,
       "id" : "Desc_XmasBow_C",
       "name" : "FICSMAS Bow",
       "description" : "A fancy Bow, maybe someone can wear this? You certainly can't! Probably, some parts and decorations can be made from this.",
       "resourceSinkPoints" : 1
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Snow_C",
       "name" : "Actual Snow",
       "description" : "It's snow. Not the nice, thick, crunchy kind though... more the disgustingly wet, slushy kind... Guess we can make stuff from it.",
       "resourceSinkPoints" : 1
     },
     {
+      "isFluid" : false,
       "id" : "Desc_XmasStar_C",
       "name" : "FICSMAS Wonder Star",
       "description" : "This special FICSMAS Star signifies the productivity of FICSIT all across the universe. It also signifies the fact that you have nearly completed the Holiday Event, so it's time to get back to work.",
       "resourceSinkPoints" : 1
     },
     {
+      "isFluid" : false,
       "id" : "Desc_XmasBall1_C",
       "name" : "Red FICSMAS Ornament",
       "description" : "Used for making FICSMAS Decorations.",
       "resourceSinkPoints" : 1
     },
     {
+      "isFluid" : false,
       "id" : "Desc_XmasBall2_C",
       "name" : "Blue FICSMAS Ornament",
       "description" : "Again, used for making FICSMAS Decorations.",
       "resourceSinkPoints" : 1
     },
     {
+      "isFluid" : false,
       "id" : "Desc_XmasBall3_C",
       "name" : "Copper FICSMAS Ornament",
       "description" : "Still used for making FICSMAS Decorations.",
       "resourceSinkPoints" : 1
     },
     {
+      "isFluid" : false,
       "id" : "Desc_XmasBall4_C",
       "name" : "Iron FICSMAS Ornament",
       "description" : "This super special... nope... still just used for making FICSMAS Decorations.",
       "resourceSinkPoints" : 1
     },
     {
+      "isFluid" : false,
       "id" : "Desc_XmasBallCluster_C",
       "name" : "FICSMAS Ornament Bundle",
       "description" : "All the FICSMAS Ornaments smashed together to make even more FICSMAS Decorations!",
       "resourceSinkPoints" : 1
     },
     {
+      "isFluid" : false,
       "id" : "Desc_XmasWreath_C",
       "name" : "FICSMAS Decoration",
       "description" : "A decoration used to make decorations. Its use cases are questionable.",
       "resourceSinkPoints" : 1
     },
     {
+      "isFluid" : false,
       "id" : "Desc_ModularFrameFused_C",
       "name" : "Fused Modular Frame",
       "description" : "A corrosion resistant, nitride hardened, highly robust, yet lightweight modular frame.",
       "resourceSinkPoints" : 62840
     },
     {
+      "isFluid" : false,
       "id" : "Desc_CircuitBoard_C",
       "name" : "Circuit Board",
       "description" : "Circuit Boards are advanced electronics that are used in a plethora of different ways.",
       "resourceSinkPoints" : 696
     },
     {
+      "isFluid" : false,
       "id" : "Desc_CopperSheet_C",
       "name" : "Copper Sheet",
       "description" : "Used for crafting.\r\nPrimarily used for pipelines due to its high corrosion resistance.",
       "resourceSinkPoints" : 24
     },
     {
+      "isFluid" : false,
       "id" : "Desc_CrystalOscillator_C",
       "name" : "Crystal Oscillator",
       "description" : "A crystal oscillator is an electronic oscillator circuit that uses the mechanical resonance of a vibrating crystal to create an electrical signal with a precise frequency.",
       "resourceSinkPoints" : 3072
     },
     {
+      "isFluid" : false,
       "id" : "Desc_SpaceElevatorPart_1_C",
       "name" : "Smart Plating",
       "description" : "Project Part #1. Ship with the Space Elevator to complete phases of Project Assembly.",
       "resourceSinkPoints" : 520
     },
     {
+      "isFluid" : false,
       "id" : "Desc_SpaceElevatorPart_2_C",
       "name" : "Versatile Framework",
       "description" : "Project Part #2. Ship with the Space Elevator to complete phases of Project Assembly.",
       "resourceSinkPoints" : 1176
     },
     {
+      "isFluid" : false,
       "id" : "Desc_SpaceElevatorPart_3_C",
       "name" : "Automated Wiring",
       "description" : "Project Part #3. Ship with the Space Elevator to complete phases of Project Assembly.",
       "resourceSinkPoints" : 1440
     },
     {
+      "isFluid" : false,
       "id" : "Desc_SpaceElevatorPart_4_C",
       "name" : "Modular Engine",
       "description" : "Project Part #4. Ship with the Space Elevator to complete phases of Project Assembly.",
       "resourceSinkPoints" : 9960
     },
     {
+      "isFluid" : false,
       "id" : "Desc_PackagedWater_C",
       "name" : "Packaged Water",
       "description" : "Water, packaged for alternative transport.",
       "resourceSinkPoints" : 130
     },
     {
+      "isFluid" : false,
       "id" : "Desc_AlienDNACapsule_C",
       "name" : "Organic Data Capsule",
       "description" : "This data capsule translates organic chemicals into readable alien genetics information.\r\nUsed for researching alien organisms.",
       "resourceSinkPoints" : 0
     },
     {
+      "isFluid" : false,
       "id" : "Desc_HighSpeedConnector_C",
       "name" : "High-Speed Connector",
       "description" : "The high-speed connector connects several cables and wires in a very efficient way. Uses a standard pattern so its applications are many and varied.",
       "resourceSinkPoints" : 3776
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Motor_C",
       "name" : "Motor",
       "description" : "The Motor creates a mechanical force that is used to move things from machines to vehicles.",
       "resourceSinkPoints" : 1520
     },
     {
+      "isFluid" : false,
       "id" : "Desc_SpaceElevatorPart_5_C",
       "name" : "Adaptive Control Unit",
       "description" : "Project Part #5. Ship with the Space Elevator to complete phases of Project Assembly.",
       "resourceSinkPoints" : 86120
     },
     {
+      "isFluid" : false,
       "id" : "Desc_SpaceElevatorPart_6_C",
       "name" : "Magnetic Field Generator",
       "description" : "Project Part #7. Ship with the Space Elevator to complete phases of Project Assembly.\r\n\r\nThese modular generators use superconducting magnets and vast amounts of electricity to produce an easily expandable and powerful magnetic field.",
       "resourceSinkPoints" : 15650
     },
     {
+      "isFluid" : false,
       "id" : "Desc_SpaceElevatorPart_7_C",
       "name" : "Assembly Director System",
       "description" : "Project Part #6. Ship with the Space Elevator to complete phases of Project Assembly.\r\n\r\nThis extremely fast and precise computing system is specifically designed to direct the Project Assembly: Assembly Phase.",
       "resourceSinkPoints" : 543632
     },
     {
+      "isFluid" : false,
       "id" : "Desc_SpaceElevatorPart_8_C",
       "name" : "Thermal Propulsion Rocket",
       "description" : "Project Part #8. Ship with the Space Elevator to complete phases of Project Assembly.\r\n\r\nUses extreme heat to produce the high pressure plasma required to get Project Assembly into motion.",
       "resourceSinkPoints" : 732956
     },
     {
+      "isFluid" : false,
       "id" : "Desc_SpaceElevatorPart_9_C",
       "name" : "Nuclear Pasta",
       "description" : "Project Part #9. Ship with the Space Elevator to complete phases of Project Assembly.\r\nPower Usage: 500-1500 MW (1000 MW average).\r\n\r\nNuclear Pasta is extremely dense degenerate matter, formed when extreme pressure forces protons and electrons together into neutrons. It is theorized to exist naturally within the crust of neutron stars.",
       "resourceSinkPoints" : 543424
     },
     {
+      "isFluid" : false,
       "id" : "Desc_IronIngot_C",
       "name" : "Iron Ingot",
       "description" : "Used for crafting.\r\nCrafted into the most basic parts.",
       "resourceSinkPoints" : 2
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Rotor_C",
       "name" : "Rotor",
       "description" : "Used for crafting.\r\nThe moving parts of a motor.",
       "resourceSinkPoints" : 140
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Rubber_C",
       "name" : "Rubber",
       "description" : "Rubber is a material that is very flexible and has a lot of friction.",
       "resourceSinkPoints" : 60
     },
     {
+      "isFluid" : false,
       "id" : "Desc_SteelPlateReinforced_C",
       "name" : "Encased Industrial Beam",
       "description" : "Encased Industrial Beams utilizes the compressive strength of concrete and tensile strength of steel simultaneously.\r\nMostly used as a stable basis for constructing buildings.",
       "resourceSinkPoints" : 632
     },
     {
+      "isFluid" : false,
       "id" : "Desc_SteelPipe_C",
       "name" : "Steel Pipe",
       "description" : "Steel Pipes are used most often when constructing a little more advanced buildings.",
       "resourceSinkPoints" : 24
     },
     {
+      "isFluid" : true,
       "id" : "Desc_LiquidFuel_C",
       "name" : "Fuel",
       "description" : "Fuel can be used to generate power or packaged to be used as fuel for Vehicles or the Jetpack.",
       "resourceSinkPoints" : 75
     },
     {
+      "isFluid" : false,
       "id" : "Desc_PolymerResin_C",
       "name" : "Polymer Resin",
       "description" : "Used for crafting.\r\nA by-product of oil refinement into fuel. Commonly used to manufacture plastics.",
       "resourceSinkPoints" : 12
     },
     {
+      "isFluid" : true,
       "id" : "Desc_HeavyOilResidue_C",
       "name" : "Heavy Oil Residue",
       "description" : "A by-product of Plastic and Rubber production. Can be further refined into Fuel and Petroleum Coke.",
       "resourceSinkPoints" : 30
     },
     {
+      "isFluid" : false,
       "id" : "Desc_PetroleumCoke_C",
       "name" : "Petroleum Coke",
       "description" : "Used for crafting.\r\nA carbon-rich material distilled from Heavy Oil Residue. \r\nUsed as a less efficient coal replacement or for aluminum refinement.",
       "resourceSinkPoints" : 20
     },
     {
+      "isFluid" : false,
       "id" : "Desc_ModularFrame_C",
       "name" : "Modular Frame",
       "description" : "Used for crafting.\r\nMulti-purpose building block.",
       "resourceSinkPoints" : 408
     },
     {
+      "isFluid" : false,
       "id" : "Desc_FluidCanister_C",
       "name" : "Empty Canister",
       "description" : "Used to package fluids for transportation.",
       "resourceSinkPoints" : 60
     },
     {
+      "isFluid" : false,
       "id" : "Desc_ModularFrameHeavy_C",
       "name" : "Heavy Modular Frame",
       "description" : "A more robust multi-purpose frame.",
       "resourceSinkPoints" : 11520
     },
     {
+      "isFluid" : false,
       "id" : "Desc_PackagedOil_C",
       "name" : "Packaged Oil",
       "description" : "Crude Oil, packaged for alternative transport. Can be used as fuel for Vehicles.",
       "resourceSinkPoints" : 180
     },
     {
+      "isFluid" : false,
       "id" : "Desc_PackagedOilResidue_C",
       "name" : "Packaged Heavy Oil Residue",
       "description" : "Heavy Oil Residue, packaged for alternative transport. Can be used as fuel for Vehicles.",
       "resourceSinkPoints" : 180
     },
     {
+      "isFluid" : false,
       "id" : "Desc_SteelIngot_C",
       "name" : "Steel Ingot",
       "description" : "Steel Ingots are made from Iron Ore that's been smelted with Coal. They are made into several parts used in building construction.",
       "resourceSinkPoints" : 8
     },
     {
+      "isFluid" : true,
       "id" : "Desc_AluminaSolution_C",
       "name" : "Alumina Solution",
       "description" : "Dissolved Alumina, extracted from Bauxite. Can be further refined into Aluminum Scrap for Aluminum Ingot production.",
       "resourceSinkPoints" : 20
     },
     {
+      "isFluid" : false,
       "id" : "Desc_AluminumScrap_C",
       "name" : "Aluminum Scrap",
       "description" : "Aluminum Scrap is pure aluminum refined from Alumina. Can be smelted down to Aluminum Ingots for industrial usage.",
       "resourceSinkPoints" : 27
     },
     {
+      "isFluid" : true,
       "id" : "Desc_SulfuricAcid_C",
       "name" : "Sulfuric Acid",
       "description" : "A mineral acid produced by combining Sulfur and Water in a complex reaction. Primarily used in refinement processes and Battery production.",
       "resourceSinkPoints" : 16
     },
     {
+      "isFluid" : false,
       "id" : "Desc_UraniumCell_C",
       "name" : "Encased Uranium Cell",
       "description" : "Uranium Cells are produced from Uranium Ore. \r\nUsed to produce Uranium Fuel Rods for Nuclear Power production.\r\n\r\nCaution: Mildly Radioactive.",
       "resourceSinkPoints" : 147
     },
     {
+      "isFluid" : false,
       "id" : "Desc_AluminumPlateReinforced_C",
       "name" : "Heat Sink",
       "description" : "Used to dissipate heat faster.",
       "resourceSinkPoints" : 2804
     },
     {
+      "isFluid" : false,
       "id" : "Desc_CoolingSystem_C",
       "name" : "Cooling System",
       "description" : "Used to keep temperatures of advanced parts and buildings from exceeding to inefficient levels.",
       "resourceSinkPoints" : 12006
     },
     {
+      "isFluid" : true,
       "id" : "Desc_NitricAcid_C",
       "name" : "Nitric Acid",
       "description" : "Produced by reaction of Nitrogen Gas with Water. Its high corrosiveness and oxidizing properties make it an excellent choice for refinement and fuel production processes.",
       "resourceSinkPoints" : 94
     },
     {
+      "isFluid" : false,
       "id" : "Desc_AluminumCasing_C",
       "name" : "Aluminum Casing",
       "description" : "A versatile container cast from Aluminum Ingots.",
       "resourceSinkPoints" : 393
     },
     {
+      "isFluid" : false,
       "id" : "Desc_ModularFrameLightweight_C",
       "name" : "Radio Control Unit",
       "description" : "Enhances and directs radio signals.",
       "resourceSinkPoints" : 19600
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Computer_C",
       "name" : "Computer",
       "description" : "A Computer is a complex logic machine that is used to control advanced behaviour in machines.",
       "resourceSinkPoints" : 17260
     },
     {
+      "isFluid" : false,
       "id" : "Desc_QuartzCrystal_C",
       "name" : "Quartz Crystal",
       "description" : "Derived from Raw Quartz. Used in the production of advanced radar technology and high-quality display screens.",
       "resourceSinkPoints" : 50
     },
     {
+      "isFluid" : false,
       "id" : "Desc_GoldIngot_C",
       "name" : "Caterium Ingot",
       "description" : "Caterium Ingots are smelted from Caterium Ore. Caterium Ingots are mostly used for advanced electronics.",
       "resourceSinkPoints" : 42
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Stator_C",
       "name" : "Stator",
       "description" : "Used for crafting.\r\nThe static parts of a motor.",
       "resourceSinkPoints" : 240
     },
     {
+      "isFluid" : false,
       "id" : "Desc_CircuitBoardHighSpeed_C",
       "name" : "AI Limiter",
       "description" : "AI Limiters are super advanced electronics that are used to control AIs and keep them from evolving in malicious ways.",
       "resourceSinkPoints" : 920
     },
     {
+      "isFluid" : false,
       "id" : "Desc_HighSpeedWire_C",
       "name" : "Quickwire",
       "description" : "Caterium's high conductivity and resistance to corrosion makes it ideal for small, advanced electronics.",
       "resourceSinkPoints" : 17
     },
     {
+      "isFluid" : false,
       "id" : "Desc_CompactedCoal_C",
       "name" : "Compacted Coal",
       "description" : "A much more efficient alternative for Coal. Used as fuel for vehicles & coal generators.",
       "resourceSinkPoints" : 28
     },
     {
+      "isFluid" : true,
       "id" : "Desc_LiquidTurboFuel_C",
       "name" : "Turbofuel",
       "description" : "A more efficient alternative to Fuel. Can be used to generate power or packaged to be used as fuel for Vehicles.",
       "resourceSinkPoints" : 225
     },
     {
+      "isFluid" : false,
       "id" : "Desc_ComputerSuper_C",
       "name" : "Supercomputer",
       "description" : "The supercomputer is the next-gen version of the computer.",
       "resourceSinkPoints" : 99576
     },
     {
+      "isFluid" : false,
       "id" : "Desc_GasTank_C",
       "name" : "Empty Fluid Tank",
       "description" : "Used to package gases and volatile liquids for transportation.",
       "resourceSinkPoints" : 225
     },
     {
+      "isFluid" : false,
       "id" : "Desc_ElectromagneticControlRod_C",
       "name" : "Electromagnetic Control Rod",
       "description" : "Control Rods regulate power output via electromagnetism.",
       "resourceSinkPoints" : 2560
     },
     {
+      "isFluid" : false,
       "id" : "Desc_PressureConversionCube_C",
       "name" : "Pressure Conversion Cube",
       "description" : "Converts outgoing force into internal pressure. Required to contain unstable, high-energy matter.",
       "resourceSinkPoints" : 257312
     },
     {
+      "isFluid" : false,
       "id" : "Desc_MotorLightweight_C",
       "name" : "Turbo Motor",
       "description" : "The Turbo Motor is a more complex, and more powerful, version of the regular Motor.",
       "resourceSinkPoints" : 242720
     },
     {
+      "isFluid" : false,
       "id" : "Desc_CopperDust_C",
       "name" : "Copper Powder",
       "description" : "Ground down Copper Ingots.\r\nThe high natural density of Copper, combined with the granularity of the powder, make this part fit for producing Nuclear Pasta in the Particle Accelerator.",
       "resourceSinkPoints" : 72
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Gunpowder_C",
       "name" : "Black Powder",
       "description" : "An explosive powder that is commonly used to produce simple explosives.",
       "resourceSinkPoints" : 14
     },
     {
+      "isFluid" : false,
       "id" : "Desc_AlienProtein_C",
       "name" : "Alien Protein",
       "description" : "Ground down Alien Remains in a neat little package.\r\nUsed for medical purposed and to research alien organisms.",
       "resourceSinkPoints" : 0
     },
     {
+      "isFluid" : false,
       "id" : "Desc_GunpowderMK2_C",
       "name" : "Smokeless Powder",
       "description" : "An explosive powder that is commonly used to produce modern firearms.",
       "resourceSinkPoints" : 58
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Sulfur_C",
       "name" : "Sulfur",
       "description" : "Sulfur is primarily used for Black Powder.",
       "resourceSinkPoints" : 11
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Coal_C",
       "name" : "Coal",
       "description" : "Mainly used as fuel for vehicles & coal generators and for steel production.",
       "resourceSinkPoints" : 3
     },
     {
+      "isFluid" : false,
       "id" : "Desc_OreCopper_C",
       "name" : "Copper Ore",
       "description" : "Used for crafting.\r\nBasic resource mainly used for electricity.",
       "resourceSinkPoints" : 3
     },
     {
+      "isFluid" : false,
       "id" : "Desc_OreGold_C",
       "name" : "Caterium Ore",
       "description" : "Caterium Ore is smelted into Caterium Ingots. Caterium Ingots are mostly used for advanced electronics.",
       "resourceSinkPoints" : 7
     },
     {
+      "isFluid" : false,
       "id" : "Desc_OreIron_C",
       "name" : "Iron Ore",
       "description" : "Used for crafting.\r\nThe most essential basic resource.",
       "resourceSinkPoints" : 1
     },
     {
+      "isFluid" : false,
       "id" : "Desc_RawQuartz_C",
       "name" : "Raw Quartz",
       "description" : "Raw Quartz can be processed into Quartz Crystals and Silica, which both offer a variety of applications.",
       "resourceSinkPoints" : 15
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Stone_C",
       "name" : "Limestone",
       "description" : "Used for crafting.\r\nBasic resource mainly used for stable foundations.",
       "resourceSinkPoints" : 2
     },
     {
+      "isFluid" : true,
       "id" : "Desc_Water_C",
       "name" : "Water",
       "description" : "It's water.",
       "resourceSinkPoints" : 5
     },
     {
+      "isFluid" : true,
       "id" : "Desc_LiquidOil_C",
       "name" : "Crude Oil",
       "description" : "Crude Oil is refined into all kinds of Oil-based resources, like Fuel and Plastic.",
       "resourceSinkPoints" : 30
     },
     {
+      "isFluid" : false,
       "id" : "Desc_OreBauxite_C",
       "name" : "Bauxite",
       "description" : "Bauxite is used to produce Alumina, which can be further refined into the Aluminum Scrap required to produce Aluminum Ingots.",
       "resourceSinkPoints" : 8
     },
     {
+      "isFluid" : false,
       "id" : "Desc_OreUranium_C",
       "name" : "Uranium",
       "description" : "Uranium is a radioactive element. \r\nUsed to produce Encased Uranium Cells for Uranium Fuel Rods.\r\n\r\nCaution: Moderately Radioactive.",
       "resourceSinkPoints" : 35
     },
     {
+      "isFluid" : true,
       "id" : "Desc_NitrogenGas_C",
       "name" : "Nitrogen Gas",
       "description" : "Nitrogen can be used in a variety of ways, such as metallurgy, cooling, and Nitric Acid production. On Massage-2(AB)b, it can be extracted from underground gas wells.",
       "resourceSinkPoints" : 10
     },
     {
+      "isFluid" : false,
       "id" : "BP_ItemDescriptorPortableMiner_C",
       "name" : "Portable Miner",
       "description" : "Can be set up on a resource node to automatically extract the resource. Note that it has limited storage space.",
       "resourceSinkPoints" : 56
     },
     {
+      "isFluid" : false,
       "id" : "Desc_HogParts_C",
       "name" : "Hog Remains",
       "description" : "The carapace of the alien Hog creature.\r\nUsed for MAM research.",
       "resourceSinkPoints" : 0
     },
     {
+      "isFluid" : false,
       "id" : "Desc_SpitterParts_C",
       "name" : "Plasma Spitter Remains",
       "description" : "The remains of a plasma spitting alien creature.\r\nUsed for MAM research.",
       "resourceSinkPoints" : 0
     },
     {
+      "isFluid" : false,
       "id" : "Desc_FlowerPetals_C",
       "name" : "Flower Petals",
       "description" : "Used for crafting.\r\nColorful native flower petals.",
       "resourceSinkPoints" : 10
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Leaves_C",
       "name" : "Leaves",
       "description" : "Primarily used as fuel.\r\nBiomass Burners and vehicles can use it for power.",
       "resourceSinkPoints" : 3
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Mycelia_C",
       "name" : "Mycelia",
       "description" : "Used for crafting.\r\nBiomass Burners and vehicles can use it for power.",
       "resourceSinkPoints" : 10
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Wood_C",
       "name" : "Wood",
       "description" : "Primarily used as fuel.\r\nBiomass Burners and vehicles can use it for power.",
       "resourceSinkPoints" : 30
     },
     {
+      "isFluid" : false,
       "id" : "Desc_StingerParts_C",
       "name" : "Stinger Remains",
       "description" : "The remains of whatever that creepy thing was.\r\nUsed for MAM research.",
       "resourceSinkPoints" : 0
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Biofuel_C",
       "name" : "Solid Biofuel",
       "description" : "The most energy-efficient form of solid biomass. Can be used as fuel for the Chainsaw.",
       "resourceSinkPoints" : 48
     },
     {
+      "isFluid" : false,
       "id" : "Desc_PackagedBiofuel_C",
       "name" : "Packaged Liquid Biofuel",
       "description" : "Liquid Biofuel, packaged for alternative transport. Can be used as fuel for Vehicles.",
       "resourceSinkPoints" : 370
     },
     {
+      "isFluid" : false,
       "id" : "Desc_GenericBiomass_C",
       "name" : "Biomass",
       "description" : "Primarily used as fuel.\r\nBiomass burners and vehicles can use it for power.\r\nBiomass is much more energy-efficient than raw biological matter.",
       "resourceSinkPoints" : 12
     },
     {
+      "isFluid" : true,
       "id" : "Desc_LiquidBiofuel_C",
       "name" : "Liquid Biofuel",
       "description" : "Liquid Biofuel can be used to generate power or packaged to be used as fuel for Vehicles.",
       "resourceSinkPoints" : 261
     },
     {
+      "isFluid" : false,
       "id" : "Desc_PackagedAlumina_C",
       "name" : "Packaged Alumina Solution",
       "description" : "Alumina Solution, packaged for alternative transport.",
       "resourceSinkPoints" : 160
     },
     {
+      "isFluid" : false,
       "id" : "Desc_PackagedSulfuricAcid_C",
       "name" : "Packaged Sulfuric Acid",
       "description" : "Sulfuric Acid, packaged for alternative transport.",
       "resourceSinkPoints" : 152
     },
     {
+      "isFluid" : false,
       "id" : "Desc_PackagedNitrogenGas_C",
       "name" : "Packaged Nitrogen Gas",
       "description" : "Nitrogen Gas, packaged for alternative transport.",
       "resourceSinkPoints" : 312
     },
     {
+      "isFluid" : false,
       "id" : "Desc_PackagedNitricAcid_C",
       "name" : "Packaged Nitric Acid",
       "description" : "Nitric Acid, packaged for alternative transport.",
       "resourceSinkPoints" : 412
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Fabric_C",
       "name" : "Fabric",
       "description" : "Used for equipment crafting.\r\nFlexible but durable fabric.",
       "resourceSinkPoints" : 140
     },
     {
+      "isFluid" : false,
       "id" : "Desc_HatcherParts_C",
       "name" : "Hatcher Remains",
       "description" : "The shell-like remains an alien... thing.\r\nUsed for MAM research.",
       "resourceSinkPoints" : 0
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Rebar_Explosive_C",
       "name" : "Explosive Rebar",
       "description" : "Explodes on impact, dealing heavy damage.",
       "resourceSinkPoints" : 360
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Rebar_Stunshot_C",
       "name" : "Stun Rebar",
       "description" : "Electrocutes the target on impact, stunning it for a short time.\r\n\r\nStun duration: 5 seconds",
       "resourceSinkPoints" : 186
     },
     {
+      "isFluid" : false,
       "id" : "Desc_SpikedRebar_C",
       "name" : "Iron Rebar",
       "description" : "A simple iron rebar that can be shot using the Rebar Gun, for self-defense purposes.",
       "resourceSinkPoints" : 8
     },
     {
+      "isFluid" : false,
       "id" : "Desc_CartridgeSmartProjectile_C",
       "name" : "Homing Rifle Ammo",
       "description" : "The bullet guidance system, build into this ammunition, allows it to accurately hit any target within the reticle area.\r\nEspecially useful when dealing with agile threats, or for Pioneers who can't be bothered to aim properly.",
       "resourceSinkPoints" : 855
     },
     {
+      "isFluid" : false,
       "id" : "Desc_NobeliskCluster_C",
       "name" : "Cluster Nobelisk",
       "description" : "A Nobelisk that detonates into multiple smaller explosions. Practical when clearing out large areas of vegetation and other inconveniences.",
       "resourceSinkPoints" : 1376
     },
     {
+      "isFluid" : false,
       "id" : "Desc_NobeliskExplosive_C",
       "name" : "Nobelisk",
       "description" : "A simple explosive, useful for clearing boulders, vegetation, and other obstacles.",
       "resourceSinkPoints" : 152
     },
     {
+      "isFluid" : false,
       "id" : "Desc_NobeliskGas_C",
       "name" : "Gas Nobelisk",
       "description" : "Instead of a regular explosion, this Nobelisk creates a deadly gas cloud.",
       "resourceSinkPoints" : 544
     },
     {
+      "isFluid" : false,
       "id" : "Desc_NobeliskNuke_C",
       "name" : "Nuke Nobelisk",
       "description" : "This Nobelisk uses a nuclear fission reaction to generate a massive explosion.\r\n\r\nWARNING: Ensure all FICSIT property is clear of the blast zone before detonation.\r\n",
       "resourceSinkPoints" : 19600
     },
     {
+      "isFluid" : false,
       "id" : "Desc_NobeliskShockwave_C",
       "name" : "Pulse Nobelisk",
       "description" : "Instead of a regular explosion, this Nobelisk generates a powerful shockwave.",
       "resourceSinkPoints" : 1533
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Fireworks_Projectile_01_C",
       "name" : "Sweet Fireworks",
       "description" : "Merry FICSMAS and a Happy New Year!\r\n\r\nAlternative Nobelisk Ammo. Use G to swap!",
       "resourceSinkPoints" : 18
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Fireworks_Projectile_02_C",
       "name" : "Fancy Fireworks",
       "description" : "Fireworks are produced from random ingredients. Primarily used for having a good time.\r\n\r\nAlternative Nobelisk Ammo. Use G to swap!",
       "resourceSinkPoints" : 14
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Fireworks_Projectile_03_C",
       "name" : "Sparkly Fireworks",
       "description" : "Goes Pfffeeeeew... BOOM! *Sparkle*\r\n\r\nAlternative Nobelisk Ammo. Use G to swap!",
       "resourceSinkPoints" : 10
     },
     {
+      "isFluid" : false,
       "id" : "Desc_SnowballProjectile_C",
       "name" : "Snowball",
       "description" : "Compressed dihydrogen monoxide crystals.\r\n\r\nAlternative Nobelisk Ammo. Use G to swap!",
       "resourceSinkPoints" : 1
     },
     {
+      "isFluid" : false,
       "id" : "Desc_NuclearFuelRod_C",
       "name" : "Uranium Fuel Rod",
       "description" : "Used as fuel for the Nuclear Power Plant.\r\n\r\nCaution: Produces radioactive Uranium Waste when consumed.\r\nCaution: Moderately Radioactive.",
       "resourceSinkPoints" : 44092
     },
     {
+      "isFluid" : false,
       "id" : "Desc_PlutoniumFuelRod_C",
       "name" : "Plutonium Fuel Rod",
       "description" : "Used as fuel for the Nuclear Power Plant.\r\n\r\nCaution: Produces radioactive Plutonium Waste when consumed.\r\nCaution: HIGHLY Radioactive.",
       "resourceSinkPoints" : 153184
     },
     {
+      "isFluid" : false,
       "id" : "BP_EquipmentDescriptorBeacon_C",
       "name" : "Beacon",
       "description" : "PENDING REMOVAL\r\nThis item will (likely) be removed in a future update.\r\n\r\nCurrently only used as an ingredient in an alternative recipe.",
       "resourceSinkPoints" : 320
     },
     {
+      "isFluid" : false,
       "id" : "Desc_Rebar_Spreadshot_C",
       "name" : "Shatter Rebar",
       "description" : "This rebar fractures when shot, launching deadly debris in a wide spread but with limited range.",
       "resourceSinkPoints" : 332
     },
     {
+      "isFluid" : false,
       "id" : "Desc_CartridgeChaos_C",
       "name" : "Turbo Rifle Ammo",
       "description" : "Lightweight, compact, and volatile. These rounds provide extreme capacity and fire rates, at the cost of accuracy.",
       "resourceSinkPoints" : 120
     },
     {
+      "isFluid" : false,
       "id" : "Desc_CartridgeStandard_C",
       "name" : "Rifle Ammo",
       "description" : "Standard issue Rifle ammunition, useful for establishing dominance.",

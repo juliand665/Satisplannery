@@ -11,6 +11,10 @@ struct Fraction: SignedNumeric, Hashable, Codable {
 		.init(abs(numerator), denominator)
 	}
 	
+	var approximation: Double {
+		.init(numerator) / .init(denominator)
+	}
+	
 	init(_ numerator: Int, _ denominator: Int = 1) {
 		self.numerator = numerator
 		self.denominator = denominator

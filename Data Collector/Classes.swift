@@ -11,6 +11,7 @@ struct FGItemDescriptor: Class, Encodable {
 	var description: String
 	var icon: String
 	var resourceSinkPoints: Int
+	var isFluid: Bool
 	
 	init(raw: RawClass) {
 		id = raw.name
@@ -20,6 +21,7 @@ struct FGItemDescriptor: Class, Encodable {
 		parser.consume("Texture2D /")
 		icon = String(parser.consume(upTo: ".")!)
 		resourceSinkPoints = raw.resourceSinkPoints
+		isFluid = raw.stackSize == "SS_FLUID"
 	}
 	
 	enum CodingKeys: CodingKey {
@@ -27,6 +29,7 @@ struct FGItemDescriptor: Class, Encodable {
 		case name
 		case description
 		case resourceSinkPoints
+		case isFluid
 	}
 }
 

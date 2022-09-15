@@ -35,7 +35,7 @@ struct ItemLabel: View {
 			
 			Spacer()
 			
-			Text(amount, format: .fraction(alwaysShowSign: true))
+			Text(amount * item.multiplier, format: .fraction(alwaysShowSign: true))
 				.coloredBasedOn(amount)
 		}
 	}

@@ -30,6 +30,11 @@ struct Item: Identifiable, Hashable, Codable {
 	var name: String
 	var description: String
 	var resourceSinkPoints: Int
+	var isFluid: Bool
+	
+	var multiplier: Fraction {
+		.init(1, isFluid ? 1000 : 1)
+	}
 }
 
 extension ObjectID<Item> { // can't write Item.ID for some reason
