@@ -20,6 +20,7 @@ struct ProcessView: View {
 			
 			inputsSection
 		}
+		.scrollDismissesKeyboard(.interactively)
 		.toolbar {
 			Button {
 				isDisplayingAsDecimals.toggle()
