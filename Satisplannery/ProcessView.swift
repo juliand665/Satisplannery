@@ -156,6 +156,12 @@ struct StepSection: View {
 			multiplierCell
 			recipePicker
 			ingredientsInfo
+			
+			HStack {
+				Text("Producers")
+				Spacer()
+				FractionEditor.forAmount($step.factor, multipliedBy: step.recipe.craftingTime / 60)
+			}
 		}
 	}
 	
