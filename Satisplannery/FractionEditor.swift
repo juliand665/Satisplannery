@@ -5,8 +5,8 @@ struct FractionEditor: View {
 	@Binding var value: Fraction
 	var alwaysShowSign: Bool = false
 	
-	@AppStorage("decimalFormat")
-	private var isDisplayingAsDecimals = false
+	@Environment(\.isDisplayingAsDecimals.wrappedValue)
+	var isDisplayingAsDecimals
 	
 	var body: some View {
 		TextField(label, value: $value, format: .fraction(

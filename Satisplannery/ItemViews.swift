@@ -35,8 +35,8 @@ struct ItemLabel: View {
 	var item: Item
 	var amount: Fraction
 	
-	@AppStorage("decimalFormat")
-	private var isDisplayingAsDecimals = false
+	@Environment(\.isDisplayingAsDecimals.wrappedValue)
+	var isDisplayingAsDecimals
 	
 	var body: some View {
 		HStack {

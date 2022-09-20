@@ -6,6 +6,9 @@ struct ContentView: View {
 	@UserDefault.State("processes")
 	var processes: [CraftingProcess] = []
 	
+	@AppStorage("decimalFormat")
+	private var isDisplayingAsDecimals = false
+	
 	var body: some View {
 		NavigationStack {
 			List {
@@ -45,10 +48,22 @@ struct ContentView: View {
 			}
 			.navigationTitle("Crafting Processes")
 		}
+		.environment(\.isDisplayingAsDecimals, $isDisplayingAsDecimals)
 	}
 }
 
 extension CraftingProcess: DefaultsValueConvertible {}
+
+extension EnvironmentValues {
+	var isDisplayingAsDecimals: Binding<Bool> {
+		get { self[Key.self] }
+		set { self[Key.self] = newValue }
+	}
+	
+	struct Key: EnvironmentKey {
+		static let defaultValue = Binding.constant(false)
+	}
+}
 
 struct ContentView_Previews: PreviewProvider {
 	static var previews: some View {

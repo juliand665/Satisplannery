@@ -2,8 +2,6 @@ import SwiftUI
 
 struct ProcessView: View {
 	@Binding var process: CraftingProcess
-	@AppStorage("decimalFormat")
-	private var isDisplayingAsDecimals = false
 	
 	var body: some View {
 		Form {
@@ -22,11 +20,7 @@ struct ProcessView: View {
 		}
 		.scrollDismissesKeyboard(.interactively)
 		.toolbar {
-			Button {
-				isDisplayingAsDecimals.toggle()
-			} label: {
-				Label("Number Format", systemImage: "number")
-			}
+			NumberFormatToggle()
 		}
 		.navigationTitle(process.name.isEmpty ? "Untitled Process" : process.name)
 	}
@@ -124,6 +118,19 @@ struct ProcessView: View {
 				.labelStyle(.iconOnly)
 		}
 		.disabled(recipeOptions.isEmpty)
+	}
+}
+
+struct NumberFormatToggle: View {
+	@Environment(\.isDisplayingAsDecimals)
+	@Binding private var isDisplayingAsDecimals
+	
+	var body: some View {
+		Button {
+			isDisplayingAsDecimals.toggle()
+		} label: {
+			Label("Number Format", systemImage: "number")
+		}
 	}
 }
 
