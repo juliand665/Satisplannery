@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ProcessView: View {
 	@Binding var process: CraftingProcess
+	@State var expandedStep: CraftingStep.ID?
 	
 	var body: some View {
 		Form {
@@ -27,7 +28,15 @@ struct ProcessView: View {
 	
 	func stepSection(@Binding step: CraftingStep) -> some View {
 		Section {
-			StepSection(step: $step, process: process)
+			StepSection(step: $step, process: process, isExpanded: Binding {
+				expandedStep == step.id
+			} set: { shouldExpand in
+				if shouldExpand {
+					expandedStep = step.id
+				} else if expandedStep == step.id {
+					expandedStep = nil
+				}
+			})
 		} header: {
 			HStack(spacing: 16) {
 				Text(step.recipe.name)
@@ -137,7 +146,7 @@ struct NumberFormatToggle: View {
 struct StepSection: View {
 	@Binding var step: CraftingStep
 	var process: CraftingProcess
-	@State var isExpanded = true
+	@Binding var isExpanded: Bool
 	@FocusState var isMultiplierFocused: Bool
 	
 	var body: some View {
