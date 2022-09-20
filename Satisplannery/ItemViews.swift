@@ -46,11 +46,21 @@ struct ItemLabel: View {
 			
 			Spacer()
 			
-			Text(amount * item.multiplier, format: .fraction(
-				alwaysShowSign: true,
-				useDecimalFormat: isDisplayingAsDecimals
-			))
-			.coloredBasedOn(amount)
+			VStack(alignment: .trailing) {
+				let itemCount = amount * item.multiplier
+				
+				Text(itemCount, format: .fraction(
+					alwaysShowSign: true,
+					useDecimalFormat: isDisplayingAsDecimals
+				))
+				.coloredBasedOn(amount)
+				
+				if itemCount > 0 {
+					let points = itemCount * item.resourceSinkPoints
+					Text("\(points, format: .fraction(useDecimalFormat: isDisplayingAsDecimals)) pts")
+						.foregroundColor(.orange)
+				}
+			}
 		}
 	}
 }
