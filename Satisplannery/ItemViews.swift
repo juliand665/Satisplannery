@@ -1,26 +1,18 @@
 import SwiftUI
+import HandyOperators
 
 extension Item {
-	var icon: some View {
-		Icon(item: self)
+	private static var cache: [Item.ID: Image] = [:]
+	
+	private static func cachedImage(for id: Item.ID) -> Image {
+		cache[id] ?? Image(named: id.rawValue, inDirectory: "images")!.resizable() <- {
+			cache[id] = $0
+		}
 	}
 	
-	struct Icon: View {
-		var item: Item
-		@State var loaded: Image?
-		
-		var body: some View {
-			if let loaded {
-				loaded
-					.scaledToFit()
-			} else {
-				Color.primary.opacity(0.1)
-					.task {
-						loaded = Image(named: item.id.rawValue, inDirectory: "images")!
-							.resizable()
-					}
-			}
-		}
+	var icon: some View {
+		Self.cachedImage(for: id)
+			.scaledToFit()
 	}
 }
 
