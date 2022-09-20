@@ -4,15 +4,14 @@ struct CraftingProcess: Identifiable, Codable {
 	let id = UUID()
 	var name: String
 	var steps: [CraftingStep] = [] {
-		didSet {
-			totals = steps.reduce(into: ItemBag()) { $0.apply($1) }
-		}
+		didSet { updateTotals() }
 	}
 	private(set) var totals = ItemBag()
 	
 	init(name: String, steps: [CraftingStep] = []) {
 		self.name = name
 		self.steps = steps
+		updateTotals()
 	}
 	
 	mutating func remove(_ step: CraftingStep) {
@@ -39,6 +38,10 @@ struct CraftingProcess: Identifiable, Codable {
 	
 	mutating func addStep(using recipe: Recipe, for output: Item.ID) {
 		steps.append(.init(recipe: recipe, primaryOutput: output))
+	}
+	
+	mutating func updateTotals() {
+		totals = steps.reduce(into: ItemBag()) { $0.apply($1) }
 	}
 	
 	private enum CodingKeys: String, CodingKey {
