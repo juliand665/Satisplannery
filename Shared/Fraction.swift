@@ -124,12 +124,16 @@ extension Fraction {
 		typealias FormatOutput = String
 		
 		var alwaysShowSign: Bool
+		var useDecimalFormat: Bool
 		
 		var parseStrategy: Strategy { .init() }
 		
 		func format(_ value: Fraction) -> String {
-			(alwaysShowSign && value > 0 ? "+" : "")
-			+ value.description
+			let sign = alwaysShowSign && value > 0 ? "+" : ""
+			let number = useDecimalFormat
+			? value.approximation.formatted(.number.precision(.significantDigits(0..<4)))
+			: value.description
+			return sign + number
 		}
 		
 		struct Strategy: ParseStrategy {
@@ -150,8 +154,8 @@ extension Fraction {
 }
 
 extension FormatStyle where Self == Fraction.Format {
-	static func fraction(alwaysShowSign: Bool = false) -> Self {
-		.init(alwaysShowSign: alwaysShowSign)
+	static func fraction(alwaysShowSign: Bool = false, useDecimalFormat: Bool = false) -> Self {
+		.init(alwaysShowSign: alwaysShowSign, useDecimalFormat: useDecimalFormat)
 	}
 }
 

@@ -27,6 +27,9 @@ struct ItemLabel: View {
 	var item: Item
 	var amount: Fraction
 	
+	@AppStorage("decimalFormat")
+	private var isDisplayingAsDecimals = false
+	
 	var body: some View {
 		HStack {
 			item.icon.frame(width: 48)
@@ -35,8 +38,11 @@ struct ItemLabel: View {
 			
 			Spacer()
 			
-			Text(amount * item.multiplier, format: .fraction(alwaysShowSign: true))
-				.coloredBasedOn(amount)
+			Text(amount * item.multiplier, format: .fraction(
+				alwaysShowSign: true,
+				useDecimalFormat: isDisplayingAsDecimals
+			))
+			.coloredBasedOn(amount)
 		}
 	}
 }

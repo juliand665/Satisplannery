@@ -5,10 +5,16 @@ struct FractionEditor: View {
 	@Binding var value: Fraction
 	var alwaysShowSign: Bool = false
 	
+	@AppStorage("decimalFormat")
+	private var isDisplayingAsDecimals = false
+	
 	var body: some View {
-		TextField(label, value: $value, format: .fraction(alwaysShowSign: alwaysShowSign))
-			.multilineTextAlignment(.trailing)
-			.keyboardType(.numbersAndPunctuation)
+		TextField(label, value: $value, format: .fraction(
+			alwaysShowSign: alwaysShowSign,
+			useDecimalFormat: isDisplayingAsDecimals
+		))
+		.multilineTextAlignment(.trailing)
+		.keyboardType(.numbersAndPunctuation)
 	}
 }
 

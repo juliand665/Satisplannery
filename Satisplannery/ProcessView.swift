@@ -2,6 +2,8 @@ import SwiftUI
 
 struct ProcessView: View {
 	@Binding var process: CraftingProcess
+	@AppStorage("decimalFormat")
+	private var isDisplayingAsDecimals = false
 	
 	var body: some View {
 		Form {
@@ -17,6 +19,13 @@ struct ProcessView: View {
 			.headerProminence(.increased)
 			
 			inputsSection
+		}
+		.toolbar {
+			Button {
+				isDisplayingAsDecimals.toggle()
+			} label: {
+				Label("Number Format", systemImage: "number")
+			}
 		}
 		.navigationTitle(process.name.isEmpty ? "Untitled Process" : process.name)
 	}
