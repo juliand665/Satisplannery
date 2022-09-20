@@ -2,9 +2,25 @@ import SwiftUI
 
 extension Item {
 	var icon: some View {
-		Image(named: id.rawValue, inDirectory: "images")!
-			.resizable()
-			.scaledToFit()
+		Icon(item: self)
+	}
+	
+	struct Icon: View {
+		var item: Item
+		@State var loaded: Image?
+		
+		var body: some View {
+			if let loaded {
+				loaded
+					.scaledToFit()
+			} else {
+				Color.primary.opacity(0.1)
+					.task {
+						loaded = Image(named: item.id.rawValue, inDirectory: "images")!
+							.resizable()
+					}
+			}
+		}
 	}
 }
 
