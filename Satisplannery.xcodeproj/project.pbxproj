@@ -143,6 +143,7 @@
 				B9269B7728D2376800B95697 /* ProcessView.swift */,
 				B9269B7528D22C5A00B95697 /* ItemPicker.swift */,
 				B945245128D158A200D9937B /* ItemViews.swift */,
+				B9269B8528D2AC6000B95697 /* FractionEditor.swift */,
 				B9269B6E28D22BD900B95697 /* Models */,
 				B9269B7C28D2518300B95697 /* Swift+Helpers.swift */,
 				B945242628D1109200D9937B /* Assets.xcassets */,
@@ -150,7 +151,6 @@
 				B945244D28D14A0100D9937B /* images */,
 				B945242828D1109200D9937B /* Satisplannery.entitlements */,
 				B945242928D1109200D9937B /* Preview Content */,
-				B9269B8528D2AC6000B95697 /* FractionEditor.swift */,
 			);
 			path = Satisplannery;
 			sourceTree = "<group>";
@@ -437,6 +437,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Satisplannery/Satisplannery.entitlements;
 				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
@@ -479,6 +480,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Satisplannery/Satisplannery.entitlements;
 				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
