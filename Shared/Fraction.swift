@@ -128,11 +128,23 @@ extension Fraction {
 		
 		var parseStrategy: Strategy { .init() }
 		
+		static let underlines = Dictionary(uniqueKeysWithValues: zip("0123456789", "0̲1̲2̲3̲4̲5̲6̲7̲8̲9̲"))
+		
 		func format(_ value: Fraction) -> String {
 			let sign = alwaysShowSign && value > 0 ? "+" : ""
-			let number = useDecimalFormat
-			? value.approximation.formatted(.number.precision(.significantDigits(0..<4)))
-			: value.description
+			let number: String
+			if useDecimalFormat {
+				number = value.approximation.formatted(.number.precision(.significantDigits(0..<5))) <- { decimal in
+					let reparsed = Fraction(decimal)!
+					if reparsed != value {
+						print("fraction \(value) (\(decimal)) was imprecisely reparsed as \(reparsed)")
+						let last = decimal.removeLast()
+						decimal.append(Self.underlines[last] ?? last)
+					}
+				}
+			} else {
+				number = value.description
+			}
 			return sign + number
 		}
 		
@@ -182,9 +194,13 @@ extension Fraction {
 		simplify()
 	}
 	
+	static let thousandsSeparators = Set(",' ")
+	
 	private init?(decimal: some StringProtocol) {
 		let parts = decimal.split(separator: ".")
-		let integerPart = parts.first.flatMap { Int($0) }
+		let integerPart = parts.first.flatMap {
+			Int(String($0.filter { !Self.thousandsSeparators.contains($0) }))
+		}
 		guard let integerPart else { return nil }
 		
 		switch parts.count {
@@ -192,8 +208,12 @@ extension Fraction {
 			self.init(integerPart)
 		case 2:
 			guard let fractionalPart = Int("1" + parts[1]) else { return nil }
+			// denonimator is 10^digits
 			let denominator = repeatElement(10, count: fractionalPart.description.count - 1).reduce(1, *)
-			self.init((integerPart - 1) * denominator + fractionalPart, denominator)
+			self.init(
+				integerPart.signum() * ((abs(integerPart) - 1) * denominator + fractionalPart),
+				denominator
+			)
 		default:
 			return nil
 		}
