@@ -64,11 +64,25 @@ struct CraftingStep: Identifiable, Codable {
 	}
 	var primaryOutput: Item.ID
 	var factor: Fraction = 1
-	var setBuildings: Int?
+	private var setBuildings: Int?
+	private var _isBuilt: Bool?
+	
+	init(recipe: Recipe, primaryOutput: Item.ID, factor: Fraction = 1, buildings: Int = 1, isBuilt: Bool = false) {
+		self.recipe = recipe
+		self.primaryOutput = primaryOutput
+		self.factor = factor
+		self.buildings = buildings
+		self.isBuilt = isBuilt
+	}
 	
 	var buildings: Int {
 		get { setBuildings ?? 1 }
 		set { setBuildings = newValue }
+	}
+	
+	var isBuilt: Bool {
+		get { _isBuilt ?? false }
+		set { _isBuilt = newValue }
 	}
 	
 	private enum CodingKeys: String, CodingKey {
@@ -76,6 +90,7 @@ struct CraftingStep: Identifiable, Codable {
 		case factor
 		case primaryOutput
 		case setBuildings
+		case _isBuilt
 	}
 }
 

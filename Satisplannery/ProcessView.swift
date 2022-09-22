@@ -67,7 +67,16 @@ struct ProcessView_Previews: PreviewProvider {
 
 extension CraftingProcess {
 	static let example = Self(name: "Example", steps: [
-		.init(recipe: GameData.shared.recipes[0], primaryOutput: GameData.shared.recipes[0].products[0].item),
-		.init(recipe: GameData.shared.recipes[2], primaryOutput: GameData.shared.recipes[2].products[0].item, factor: 6),
+		.init(
+			recipe: GameData.shared.recipes[0],
+			primaryOutput: GameData.shared.recipes[0].products[0].item
+		),
+		.init(
+			recipe: GameData.shared.recipes[2],
+			primaryOutput: GameData.shared.recipes[2].products[0].item,
+			factor: 6,
+			buildings: 4,
+			isBuilt: true
+		),
 	])
 }
