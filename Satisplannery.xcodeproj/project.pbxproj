@@ -32,6 +32,9 @@
 		B945245028D1586600D9937B /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B945244F28D1586600D9937B /* GameData.swift */; };
 		B945245228D158A200D9937B /* ItemViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B945245128D158A200D9937B /* ItemViews.swift */; };
 		B945245528D1695C00D9937B /* UserDefault in Frameworks */ = {isa = PBXBuildFile; productRef = B945245428D1695C00D9937B /* UserDefault */; };
+		B9B11A6528DC06E8006EC232 /* SwiftUI+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B11A6428DC06E8006EC232 /* SwiftUI+Helpers.swift */; };
+		B9B11A6728DC093D006EC232 /* BuildingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B11A6628DC093D006EC232 /* BuildingView.swift */; };
+		B9B11A6928DC99FD006EC232 /* CalculationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B11A6828DC99FD006EC232 /* CalculationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -71,6 +74,9 @@
 		B945244D28D14A0100D9937B /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		B945244F28D1586600D9937B /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 		B945245128D158A200D9937B /* ItemViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViews.swift; sourceTree = "<group>"; };
+		B9B11A6428DC06E8006EC232 /* SwiftUI+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+Helpers.swift"; sourceTree = "<group>"; };
+		B9B11A6628DC093D006EC232 /* BuildingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingView.swift; sourceTree = "<group>"; };
+		B9B11A6828DC99FD006EC232 /* CalculationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,11 +147,14 @@
 				B945242228D1108D00D9937B /* SatisplanneryApp.swift */,
 				B945242428D1108D00D9937B /* ContentView.swift */,
 				B9269B7728D2376800B95697 /* ProcessView.swift */,
+				B9B11A6828DC99FD006EC232 /* CalculationView.swift */,
+				B9B11A6628DC093D006EC232 /* BuildingView.swift */,
 				B9269B7528D22C5A00B95697 /* ItemPicker.swift */,
 				B945245128D158A200D9937B /* ItemViews.swift */,
 				B9269B8528D2AC6000B95697 /* FractionEditor.swift */,
 				B9269B6E28D22BD900B95697 /* Models */,
 				B9269B7C28D2518300B95697 /* Swift+Helpers.swift */,
+				B9B11A6428DC06E8006EC232 /* SwiftUI+Helpers.swift */,
 				B945242628D1109200D9937B /* Assets.xcassets */,
 				B945244B28D149F800D9937B /* data.json */,
 				B945244D28D14A0100D9937B /* images */,
@@ -290,6 +299,7 @@
 			files = (
 				B9269B7828D2376800B95697 /* ProcessView.swift in Sources */,
 				B9269B7628D22C5A00B95697 /* ItemPicker.swift in Sources */,
+				B9B11A6728DC093D006EC232 /* BuildingView.swift in Sources */,
 				B945242528D1108D00D9937B /* ContentView.swift in Sources */,
 				B9269B7D28D2518300B95697 /* Swift+Helpers.swift in Sources */,
 				B945245028D1586600D9937B /* GameData.swift in Sources */,
@@ -298,7 +308,9 @@
 				B9269B7428D22C2200B95697 /* Crafting.swift in Sources */,
 				B9269B8628D2AC6100B95697 /* FractionEditor.swift in Sources */,
 				B945245228D158A200D9937B /* ItemViews.swift in Sources */,
+				B9B11A6528DC06E8006EC232 /* SwiftUI+Helpers.swift in Sources */,
 				B945242328D1108D00D9937B /* SatisplanneryApp.swift in Sources */,
+				B9B11A6928DC99FD006EC232 /* CalculationView.swift in Sources */,
 				B9269B7F28D2540900B95697 /* Fraction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

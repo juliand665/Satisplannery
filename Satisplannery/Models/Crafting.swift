@@ -64,11 +64,18 @@ struct CraftingStep: Identifiable, Codable {
 	}
 	var primaryOutput: Item.ID
 	var factor: Fraction = 1
+	var setBuildings: Int?
+	
+	var buildings: Int {
+		get { setBuildings ?? 1 }
+		set { setBuildings = newValue }
+	}
 	
 	private enum CodingKeys: String, CodingKey {
 		case recipe
 		case factor
 		case primaryOutput
+		case setBuildings
 	}
 }
 
