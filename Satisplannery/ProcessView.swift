@@ -22,6 +22,8 @@ struct ProcessView: View {
 		.scrollDismissesKeyboard(.interactively)
 		.toolbar {
 			NumberFormatToggle()
+			
+			ShareLink(item: process, preview: .init(process.name))
 		}
 		.navigationTitle(process.name.isEmpty ? "Untitled Process" : process.name)
 	}

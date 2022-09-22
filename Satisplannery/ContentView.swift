@@ -1,6 +1,7 @@
 import SwiftUI
 import UserDefault
 import Algorithms
+import HandyOperators
 
 struct ContentView: View {
 	@UserDefault.State("processes")
@@ -36,6 +37,7 @@ struct ContentView: View {
 							.frame(height: 48)
 						}
 					}
+					.draggable(process)
 				}
 				.onDelete { processes.remove(atOffsets: $0) }
 				.onMove { processes.move(fromOffsets: $0, toOffset: $1) }
@@ -45,8 +47,16 @@ struct ContentView: View {
 				} label: {
 					Label("Create New Process", systemImage: "plus")
 				}
+				
+				PasteButton(payloadType: CraftingProcess.self) { items in
+					processes.append(contentsOf: items)
+				}
 			}
 			.navigationTitle("Crafting Processes")
+			.dropDestination(for: CraftingProcess.self) { items, location in
+				processes.append(contentsOf: items)
+				return true
+			}
 		}
 		.environment(\.isDisplayingAsDecimals, $isDisplayingAsDecimals)
 	}

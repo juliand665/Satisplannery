@@ -1,4 +1,6 @@
 import Foundation
+import UniformTypeIdentifiers
+import CoreTransferable
 
 struct CraftingProcess: Identifiable, Codable {
 	let id = UUID()
@@ -82,4 +84,16 @@ extension Recipe {
 	func netProduction(of item: Item.ID) -> Fraction {
 		return production(of: item) - consumption(of: item)
 	}
+}
+
+extension CraftingProcess: Transferable {
+	typealias Representation = CodableRepresentation
+	
+	static var transferRepresentation: some TransferRepresentation {
+		CodableRepresentation(contentType: .process)
+	}
+}
+
+extension UTType {
+	static let process = Self(exportedAs: "com.satisplannery.process")
 }
