@@ -152,6 +152,7 @@ struct StepSection: View {
 				HStack {
 					item.icon.frame(width: 32)
 					Text(item.name)
+					Spacer()
 					FractionEditor.forAmount($step.factor, multipliedBy: -ingredient.amount * item.multiplier)
 				}
 			}
@@ -164,6 +165,8 @@ struct StepSection: View {
 		HStack {
 			item.icon.frame(width: 48)
 			Text(item.name)
+			
+			Spacer()
 			
 			FractionEditor.forAmount($step.factor, multipliedBy: product.amount * item.multiplier)
 			

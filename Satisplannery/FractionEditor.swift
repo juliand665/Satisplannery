@@ -15,6 +15,10 @@ struct FractionEditor: View {
 		))
 		.multilineTextAlignment(.trailing)
 		.keyboardType(.numbersAndPunctuation)
+		.padding(4)
+		.background(Color.primary.opacity(0.05))
+		.cornerRadius(4)
+		.frame(maxWidth: 100)
 	}
 }
 
