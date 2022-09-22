@@ -211,7 +211,7 @@ extension Fraction {
 			// denonimator is 10^digits
 			let denominator = repeatElement(10, count: fractionalPart.description.count - 1).reduce(1, *)
 			self.init(
-				integerPart.signum() * ((abs(integerPart) - 1) * denominator + fractionalPart),
+				integerPart * denominator + (fractionalPart - denominator) * (integerPart < 0 ? -1 : 1),
 				denominator
 			)
 		default:
