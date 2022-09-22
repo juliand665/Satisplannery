@@ -15,7 +15,6 @@ struct ProcessView: View {
 			ForEach($process.steps) { $step in
 				stepSection($step: $step)
 			}
-			.headerProminence(.increased)
 			
 			inputsSection
 		}
@@ -168,14 +167,14 @@ struct StepSection: View {
 	}
 	
 	var headerCell: some View {
-		HStack(spacing: 20) {
+		HStack(spacing: 12) {
 			Button {
 				withAnimation {
 					isExpanded.toggle()
 				}
 			} label: {
-				Image(systemName: "chevron.down")
-					.rotationEffect(isExpanded ? .zero : .degrees(-90))
+				Image(systemName: "chevron.right")
+					.rotationEffect(isExpanded ? .degrees(90) : .zero)
 			}
 			
 			VStack {
@@ -232,7 +231,7 @@ struct StepSection: View {
 	func productRow(for product: ItemStack) -> some View {
 		let item = product.item.resolved()
 		HStack {
-			item.icon.frame(width: 64)
+			item.icon.frame(width: 48)
 			Text(item.name)
 			
 			FractionEditor.forAmount($step.factor, multipliedBy: product.amount * item.multiplier)
