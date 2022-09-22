@@ -137,7 +137,7 @@ extension Fraction {
 				number = value.approximation.formatted(.number.precision(.significantDigits(0..<5))) <- { decimal in
 					let reparsed = Fraction(decimal)!
 					if reparsed != value {
-						print("fraction \(value) (\(decimal)) was imprecisely reparsed as \(reparsed)")
+						//print("fraction \(value) (\(decimal)) was imprecisely reparsed as \(reparsed)")
 						let last = decimal.removeLast()
 						decimal.append(Self.underlines[last] ?? last)
 					}
