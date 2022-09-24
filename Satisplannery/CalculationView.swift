@@ -16,7 +16,7 @@ struct CalculationView: View {
 				stepSection($step: $step)
 			}
 			
-			InputsSection(process: $process)
+			inputsSection
 		}
 	}
 	
@@ -66,7 +66,8 @@ struct CalculationView: View {
 			let items = outputs.keys.map { $0.resolved() }.sorted(on: \.name)
 			ForEach(items) { item in
 				VStack(alignment: .leading) {
-					ItemLabel(item: item, amount: outputs[item.id]!)
+					let amount = process.totals.outputs[item.id]!
+					itemLabel(for: item, amount: amount)
 				}
 			}
 			
@@ -77,6 +78,71 @@ struct CalculationView: View {
 				}
 			} label: {
 				Label("Add Product", systemImage: "plus")
+			}
+		}
+	}
+	
+	@ViewBuilder
+	var inputsSection: some View {
+		let inputs = process.totals.inputs
+		if !inputs.isEmpty {
+			Section("Required Items") {
+				let items = inputs.keys.map { $0.resolved() }.sorted(on: \.name)
+				ForEach(items) { item in
+					HStack {
+						let amount = inputs[item.id]!
+						
+						itemLabel(for: item, amount: amount)
+						addStepButton(for: item, amount: -amount)
+					}
+				}
+			}
+		}
+	}
+	
+	@ViewBuilder
+	func addStepButton(for item: Item, amount: Fraction) -> some View {
+		let recipeOptions = Recipe.all(producing: item.id)
+		Button {
+			process.addStep(
+				using: recipeOptions.canonicalRecipe(),
+				toProduce: amount,
+				of: item.id
+			)
+		} label: {
+			Label("Add Corresponding Step", systemImage: "plus")
+				.labelStyle(.iconOnly)
+		}
+		.disabled(recipeOptions.isEmpty)
+	}
+	
+	func itemLabel(for item: Item, amount: Fraction) -> some View {
+		HStack {
+			item.icon.frame(width: 48)
+			
+			Text(item.name)
+			
+			Spacer()
+			
+			VStack(alignment: .trailing) {
+				let itemCount = amount * item.multiplier
+				
+				FractionEditor(
+					label: "Production",
+					value: Binding {
+						itemCount
+					} set: {
+						process.scale(by: abs($0 / process.totals.counts[item.id]!))
+					},
+					alwaysShowSign: true
+				)
+				.coloredBasedOn(itemCount)
+				
+				if amount > 0 {
+					let points = itemCount * item.resourceSinkPoints
+					Text("\(points, format: .fraction(useDecimalFormat: true)) pts")
+						.foregroundColor(.orange)
+				}
 			}
 		}
 	}
@@ -186,43 +252,6 @@ struct StepSection: View {
 		}
 		.buttonStyle(.bordered)
 		.disabled(production == demand || demand <= 0)
-	}
-}
-
-struct InputsSection: View {
-	@Binding var process: CraftingProcess
-	
-	var body: some View {
-		let inputs = process.totals.inputs
-		if !inputs.isEmpty {
-			Section("Required Items") {
-				let items = inputs.keys.map { $0.resolved() }.sorted(on: \.name)
-				ForEach(items) { item in
-					HStack {
-						let amount = inputs[item.id]!
-						ItemLabel(item: item, amount: amount)
-						
-						addStepButton(for: item, amount: -amount)
-					}
-				}
-			}
-		}
-	}
-	
-	@ViewBuilder
-	func addStepButton(for item: Item, amount: Fraction) -> some View {
-		let recipeOptions = Recipe.all(producing: item.id)
-		Button {
-			process.addStep(
-				using: recipeOptions.canonicalRecipe(),
-				toProduce: amount,
-				of: item.id
-			)
-		} label: {
-			Label("Add Corresponding Step", systemImage: "plus")
-				.labelStyle(.iconOnly)
-		}
-		.disabled(recipeOptions.isEmpty)
 	}
 }
 

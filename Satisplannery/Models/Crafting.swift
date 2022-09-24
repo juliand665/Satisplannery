@@ -1,6 +1,7 @@
 import Foundation
 import UniformTypeIdentifiers
 import CoreTransferable
+import HandyOperators
 
 struct CraftingProcess: Identifiable, Codable {
 	let id = UUID()
@@ -46,6 +47,12 @@ struct CraftingProcess: Identifiable, Codable {
 		totals = steps.reduce(into: ItemBag()) { $0.apply($1) }
 	}
 	
+	mutating func scale(by factor: Fraction) {
+		steps = steps.map {
+			$0.scaled(by: factor)
+		}
+	}
+	
 	private enum CodingKeys: String, CodingKey {
 		case name
 		case steps
@@ -67,14 +74,6 @@ struct CraftingStep: Identifiable, Codable {
 	private var setBuildings: Int?
 	private var _isBuilt: Bool?
 	
-	init(recipe: Recipe, primaryOutput: Item.ID, factor: Fraction = 1, buildings: Int = 1, isBuilt: Bool = false) {
-		self.recipe = recipe
-		self.primaryOutput = primaryOutput
-		self.factor = factor
-		self.buildings = buildings
-		self.isBuilt = isBuilt
-	}
-	
 	var buildings: Int {
 		get { setBuildings ?? 1 }
 		set { setBuildings = newValue }
@@ -83,6 +82,20 @@ struct CraftingStep: Identifiable, Codable {
 	var isBuilt: Bool {
 		get { _isBuilt ?? false }
 		set { _isBuilt = newValue }
+	}
+	
+	init(recipe: Recipe, primaryOutput: Item.ID, factor: Fraction = 1, buildings: Int = 1, isBuilt: Bool = false) {
+		self.recipe = recipe
+		self.primaryOutput = primaryOutput
+		self.factor = factor
+		self.buildings = buildings
+		self.isBuilt = isBuilt
+	}
+	
+	func scaled(by factor: Fraction) -> Self {
+		self <- {
+			$0.factor *= factor
+		}
 	}
 	
 	private enum CodingKeys: String, CodingKey {
