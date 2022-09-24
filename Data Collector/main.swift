@@ -15,39 +15,25 @@ try? fileManager.createDirectory(at: imageFolder, withIntermediateDirectories: f
 
 let rawCollections = try! Data(contentsOf: baseFolder.appendingPathComponent("Docs.json")) // taken from CommunityResources folder
 let allCollections = try! JSONDecoder().decode([ClassCollection].self, from: rawCollections)
-let collections = Dictionary(uniqueKeysWithValues: allCollections.map { ($0.nativeClass, $0.classes) })
+let collections = Dictionary(uniqueKeysWithValues: allCollections.map { collection in (
+	collection.nativeClass,
+	collection.classes.map { RawClass($0, nativeClass: collection.nativeClass) }
+)})
 
-func decodeClasses<T: Class>(of type: T.Type = T.self, forKey key: String? = nil) -> [T] {
-	collections["Class'/Script/FactoryGame.\(key ?? "\(T.self)")'"]!
-		.map { .init(raw: $0) }
+func decodeClasses<T: Class>(of type: T.Type = T.self) -> [T] {
+	T.classNames.flatMap {
+		collections["Class'/Script/FactoryGame.\($0)'"]!
+			.map { .init(raw: $0) }
+	}
 }
 
 print("decoding assets…")
 
-// fuck off
-let itemClasses = [
-	"FGItemDescriptor",
-	"FGResourceDescriptor",
-	"FGEquipmentDescriptor",
-	"FGItemDescriptorBiomass",
-	"FGAmmoTypeProjectile",
-	"FGItemDescriptorNuclearFuel",
-	"FGConsumableDescriptor",
-	"FGAmmoTypeSpreadshot",
-	"FGAmmoTypeInstantHit"
-]
+let producers = decodeClasses(of: FGBuildableManufacturer.self)
+let automatedProducers = Set(producers.map(\.id))
 
-let automatedProducers: Set = [
-	"Build_SmelterMk1_C",
-	"Build_ConstructorMk1_C",
-	"Build_AssemblerMk1_C",
-	"Build_ManufacturerMk1_C",
-	"Build_FoundryMk1_C",
-	"Build_OilRefinery_C",
-	"Build_Packager_C",
-	"Build_Blender_C",
-	"Build_HadronCollider_C",
-]
+let producerDescriptors = decodeClasses(of: FGBuildingDescriptor.self)
+	.filter { automatedProducers.contains($0.id) }
 
 let recipes = decodeClasses(of: FGRecipe.self)
 print(recipes.count, "recipes")
@@ -56,14 +42,9 @@ let relevantRecipes = recipes.filter {
 }
 print(relevantRecipes.count, "relevant recipes")
 
-let producers = Set(relevantRecipes.lazy.flatMap(\.producedIn))
-print(producers.sorted())
-
 let relevantItems = Set(relevantRecipes.lazy.flatMap { $0.ingredients.map(\.item) + $0.products.map(\.item) })
 
-let items: [FGItemDescriptor] = itemClasses
-	.lazy
-	.flatMap { decodeClasses(forKey: $0) }
+let items = decodeClasses(of: FGItemDescriptor.self)
 	.filter { relevantItems.contains($0.id) }
 print(items.count, "items")
 
@@ -75,14 +56,16 @@ assert(difference.isEmpty)
 struct ProcessedData: Encodable {
 	var items: [FGItemDescriptor]
 	var recipes: [FGRecipe]
+	var producers: [FGBuildableManufacturer]
 }
 
 let data = ProcessedData(
 	items: items,
-	recipes: relevantRecipes
+	recipes: relevantRecipes,
+	producers: producers
 )
 let encoder = JSONEncoder()
-encoder.outputFormatting = .prettyPrinted
+encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
 let raw = try! encoder.encode(data)
 try! raw.write(to: outputFolder.appendingPathComponent("data.json"))
 print("json exported!")
@@ -91,15 +74,24 @@ print("json exported!")
 
 let shouldSkipExisting = true
 
-print("copying images…")
-for (index, item) in items.enumerated() {
-	print("\(index + 1)/\(items.count):", item.id)
-	let source = baseFolder.appendingPathComponent("\(item.icon).png")
-	let destination = imageFolder.appendingPathComponent("\(item.id).png")
-	if fileManager.fileExists(atPath: destination.path) && shouldSkipExisting {
-		continue
+func copyImages<C: Collection>(for objects: C) where C.Element: ClassWithIcon {
+	print("copying images…")
+	for (index, object) in objects.enumerated() {
+		print("\(index + 1)/\(objects.count):", object.id)
+		copyImage(for: object)
 	}
-	try! fileManager.removeItem(at: destination)
+	print("done!")
+}
+
+func copyImage(for object: some ClassWithIcon) {
+	let source = baseFolder.appendingPathComponent("\(object.icon).png")
+	let destination = imageFolder.appendingPathComponent("\(object.id).png")
+	if fileManager.fileExists(atPath: destination.path) {
+		guard !shouldSkipExisting else { return }
+		try! fileManager.removeItem(at: destination)
+	}
 	try! fileManager.copyItem(at: source, to: destination)
 }
-print("done!")
+
+copyImages(for: items)
+copyImages(for: producerDescriptors)
