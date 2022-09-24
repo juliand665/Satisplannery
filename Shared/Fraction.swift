@@ -51,7 +51,8 @@ struct Fraction: SignedNumeric, Hashable, Codable {
 	}
 	
 	mutating func matchSign(of other: Self) {
-		numerator *= numerator.signum() * other.numerator.signum()
+		let otherSign = other.numerator.signum()
+		numerator *= numerator.signum() * (otherSign == 0 ? 1 : otherSign)
 	}
 	
 	func matchingSign(of other: Self) -> Self {

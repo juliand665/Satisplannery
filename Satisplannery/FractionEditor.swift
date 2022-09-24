@@ -9,10 +9,19 @@ struct FractionEditor: View {
 	var isDisplayingAsDecimals
 	
 	var body: some View {
-		TextField(label, value: $value, format: .fraction(
-			alwaysShowSign: alwaysShowSign,
-			useDecimalFormat: isDisplayingAsDecimals
-		))
+		TextField(
+			label,
+			value: Binding {
+				value
+			} set: {
+				guard $0 != 0 else { return }
+				value = $0
+			},
+			format: .fraction(
+				alwaysShowSign: alwaysShowSign,
+				useDecimalFormat: isDisplayingAsDecimals
+			)
+		)
 		.multilineTextAlignment(.trailing)
 		.keyboardType(.numbersAndPunctuation)
 		.padding(4)
@@ -29,7 +38,7 @@ extension FractionEditor {
 			value: Binding {
 				amount.wrappedValue * factor
 			} set: {
-				amount.wrappedValue = abs($0 / factor).matchingSign(of: amount.wrappedValue)
+				amount.wrappedValue = ($0 / factor).matchingSign(of: amount.wrappedValue)
 			},
 			alwaysShowSign: true
 		)
