@@ -10,3 +10,9 @@ extension Sequence {
 			.map(\.element)
 	}
 }
+
+extension Dictionary {
+	init(values: some Sequence<Value>) where Value: Identifiable, Key == Value.ID {
+		self.init(uniqueKeysWithValues: values.map { ($0.id, $0) })
+	}
+}

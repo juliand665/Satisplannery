@@ -66,14 +66,17 @@ struct ProcessView_Previews: PreviewProvider {
 }
 
 extension CraftingProcess {
+	private static let classicBattery = GameData.shared.recipes[.init(rawValue: "Recipe_Alternate_ClassicBattery_C")]!
+	private static let wire = GameData.shared.recipes[.init(rawValue: "Recipe_Wire_C")]!
+	
 	static let example = Self(name: "Example", steps: [
 		.init(
-			recipe: GameData.shared.recipes[0],
-			primaryOutput: GameData.shared.recipes[0].products[0].item
+			recipeID: classicBattery.id,
+			primaryOutput: classicBattery.products[0].item
 		),
 		.init(
-			recipe: GameData.shared.recipes[2],
-			primaryOutput: GameData.shared.recipes[2].products[0].item,
+			recipeID: wire.id,
+			primaryOutput: wire.products[0].item,
 			factor: 6,
 			buildings: 4,
 			isBuilt: true

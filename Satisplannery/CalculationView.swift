@@ -202,10 +202,10 @@ struct StepSection: View {
 	var recipePicker: some View {
 		let recipeOptions = Recipe.all(producing: step.primaryOutput)
 		if recipeOptions.count > 1 {
-			Picker("Recipe", selection: $step.recipe) {
+			Picker("Recipe", selection: $step.recipeID) {
 				ForEach(recipeOptions) { recipe in
 					Text(recipe.name)
-						.tag(recipe)
+						.tag(recipe.id)
 				}
 			}
 		}

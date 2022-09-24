@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ItemPicker: View {
 	private static let craftableItems = Set(
-		GameData.shared.recipes
+		GameData.shared.recipes.values
 			.lazy
 			.flatMap(\.products)
 			.map(\.item)

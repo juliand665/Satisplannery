@@ -3,14 +3,13 @@ import Foundation
 struct GameData: Decodable {
 	static let shared = load()
 	
-	var items: [Item.ID: Item]
-	var recipes: [Recipe]
+	let items: [Item.ID: Item]
+	let recipes: [Recipe.ID: Recipe]
 	
 	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
-		let items = try container.decode([Item].self, forKey: .items)
-		self.items = .init(uniqueKeysWithValues: items.map { ($0.id, $0) })
-		self.recipes = try container.decode([Recipe].self, forKey: .recipes)
+		self.items = .init(values: try container.decode([Item].self, forKey: .items))
+		self.recipes = .init(values: try container.decode([Recipe].self, forKey: .recipes))
 	}
 	
 	private static func load() -> Self {
@@ -25,7 +24,13 @@ struct GameData: Decodable {
 	}
 }
 
-struct Item: Identifiable, Hashable, Codable {
+protocol GameObject: Identifiable {
+	static var path: KeyPath<GameData, [ID: Self]> { get }
+}
+
+struct Item: GameObject, Hashable, Codable {
+	static let path = \GameData.items
+	
 	var id: ObjectID<Self>
 	var name: String
 	var description: String
@@ -37,13 +42,15 @@ struct Item: Identifiable, Hashable, Codable {
 	}
 }
 
-extension ObjectID<Item> { // can't write Item.ID for some reason
-	func resolved() -> Item {
-		GameData.shared.items[self]!
+extension ObjectID where Object: GameObject, Object.ID == Self {
+	func resolved() -> Object {
+		GameData.shared[keyPath: Object.path][self]!
 	}
 }
 
-struct Recipe: Identifiable, Hashable, Codable {
+struct Recipe: GameObject, Hashable, Codable {
+	static let path = \GameData.recipes
+	
 	var id: ObjectID<Self>
 	var name: String
 	var ingredients: [ItemStack]
@@ -69,7 +76,7 @@ extension ItemStack {
 
 extension Recipe {
 	static func all(producing item: Item.ID) -> [Self] {
-		GameData.shared.recipes
+		GameData.shared.recipes.values
 			.filter { $0.products.contains { $0.item == item } }
 	}
 }

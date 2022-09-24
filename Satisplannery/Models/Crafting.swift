@@ -6,6 +6,7 @@ import HandyOperators
 struct CraftingProcess: Identifiable, Codable {
 	let id = UUID()
 	var name: String
+	@BackwardsCompatible
 	var steps: [CraftingStep] = [] {
 		didSet { updateTotals() }
 	}
@@ -33,14 +34,14 @@ struct CraftingProcess: Identifiable, Codable {
 	
 	mutating func addStep(using recipe: Recipe, toProduce count: Fraction, of item: Item.ID) {
 		steps.append(.init(
-			recipe: recipe,
+			recipeID: recipe.id,
 			primaryOutput: item,
 			factor: count / recipe.production(of: item)
 		))
 	}
 	
 	mutating func addStep(using recipe: Recipe, for output: Item.ID) {
-		steps.append(.init(recipe: recipe, primaryOutput: output))
+		steps.append(.init(recipeID: recipe.id, primaryOutput: output))
 	}
 	
 	mutating func updateTotals() {
@@ -62,34 +63,20 @@ struct CraftingProcess: Identifiable, Codable {
 
 struct CraftingStep: Identifiable, Codable {
 	let id = UUID()
-	var recipe: Recipe {
+	var recipeID: Recipe.ID {
 		didSet {
-			guard recipe != oldValue else { return }
-			factor *= oldValue.production(of: primaryOutput)
-			/ recipe.production(of: primaryOutput)
+			guard oldValue.id != recipeID else { return }
+			factor *= recipe.production(of: primaryOutput)
+			/ oldValue.resolved().production(of: primaryOutput)
 		}
 	}
 	var primaryOutput: Item.ID
 	var factor: Fraction = 1
-	private var setBuildings: Int?
-	private var _isBuilt: Bool?
+	var buildings = 1
+	var isBuilt = false
 	
-	var buildings: Int {
-		get { setBuildings ?? 1 }
-		set { setBuildings = newValue }
-	}
-	
-	var isBuilt: Bool {
-		get { _isBuilt ?? false }
-		set { _isBuilt = newValue }
-	}
-	
-	init(recipe: Recipe, primaryOutput: Item.ID, factor: Fraction = 1, buildings: Int = 1, isBuilt: Bool = false) {
-		self.recipe = recipe
-		self.primaryOutput = primaryOutput
-		self.factor = factor
-		self.buildings = buildings
-		self.isBuilt = isBuilt
+	var recipe: Recipe {
+		recipeID.resolved()
 	}
 	
 	func scaled(by factor: Fraction) -> Self {
@@ -99,11 +86,11 @@ struct CraftingStep: Identifiable, Codable {
 	}
 	
 	private enum CodingKeys: String, CodingKey {
-		case recipe
-		case factor
+		case recipeID
 		case primaryOutput
-		case setBuildings
-		case _isBuilt
+		case factor
+		case buildings
+		case isBuilt
 	}
 }
 
@@ -131,4 +118,28 @@ extension CraftingProcess: Transferable {
 
 extension UTType {
 	static let process = Self(exportedAs: "com.satisplannery.process")
+}
+
+extension CraftingStep: Migratable {
+	struct Old: OldVersion {
+		var recipe: FakeRecipe
+		var primaryOutput: Item.ID
+		var factor: Fraction
+		var setBuildings: Int?
+		var _isBuilt: Bool?
+		
+		func migrated() -> CraftingStep {
+			.init(
+				recipeID: recipe.id,
+				primaryOutput: primaryOutput,
+				factor: factor,
+				buildings: setBuildings ?? 1,
+				isBuilt: _isBuilt ?? false
+			)
+		}
+		
+		struct FakeRecipe: Decodable {
+			var id: Recipe.ID
+		}
+	}
 }
