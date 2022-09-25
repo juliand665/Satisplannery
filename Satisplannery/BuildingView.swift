@@ -26,6 +26,7 @@ struct BuildingView: View {
 			let buildings = process.buildingsRequired()
 			ForEach(buildings.keys.sorted()) { building in
 				HStack(spacing: 16) {
+					let (placed, total) = buildings[building]!
 					let building = building.resolved()
 					
 					building.icon
@@ -35,9 +36,16 @@ struct BuildingView: View {
 					
 					Spacer()
 					
-					HStack(spacing: 2) {
-						Text("\(buildings[building.id]!)")
-						Text("×")
+					VStack(alignment: .trailing) {
+						HStack(spacing: 2) {
+							Text("\(total)")
+							Text("×")
+						}
+						
+						if placed > 0 {
+							Text("\(placed)/\(total) placed")
+								.foregroundColor(placed < total ? .yellow : .green)
+						}
 					}
 				}
 			}

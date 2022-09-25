@@ -58,10 +58,13 @@ struct CraftingProcess: Identifiable, Codable {
 		steps.compactMap(\.powerConsumption).reduce(.zero, +)
 	}
 	
-	func buildingsRequired() -> [Producer.ID: Int] {
+	func buildingsRequired() -> [Producer.ID: (placed: Int, total: Int)] {
 		steps.reduce(into: [:]) { totals, step in
 			guard let producer = step.recipe.producer else { return }
-			totals[producer.id, default: 0] += step.buildings
+			totals[producer.id, default: (0, 0)].total += step.buildings
+			if step.isBuilt {
+				totals[producer.id, default: (0, 0)].placed += step.buildings
+			}
 		}
 	}
 	
