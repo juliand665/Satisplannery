@@ -6,26 +6,30 @@ struct ProcessView: View {
 	@State var isViewingBuildings = false
 	
 	var body: some View {
-		Group {
-			if isViewingBuildings {
-				BuildingView(process: $process)
-			} else {
-				CalculationView(process: $process)
-			}
+		ZStack {
+			BuildingView(process: $process)
+				.opacity(isViewingBuildings ? 1 : 0)
+			CalculationView(process: $process)
+				.opacity(isViewingBuildings ? 0 : 1)
 		}
-		.scrollDismissesKeyboard(.interactively)
 		.toolbar {
-			Button {
-				isViewingBuildings.toggle()
-			} label: {
-				Label("Switch Mode", systemImage: isViewingBuildings ? "doc" : "building.2")
-			}
-			
 			NumberFormatToggle()
 			
 			ShareLink(item: process, preview: .init(process.name))
 		}
+		.toolbar {
+			ToolbarItemGroup(placement: .status) {
+				Picker(selection: $isViewingBuildings) {
+					Text("Calculation")
+						.tag(false)
+					Text("Buildings")
+						.tag(true)
+				} label: {}
+					.pickerStyle(.segmented)
+			}
+		}
 		.navigationTitle(process.name.isEmpty ? "Untitled Process" : process.name)
+		.navigationBarTitleDisplayMode(.inline)
 	}
 }
 
