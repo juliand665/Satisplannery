@@ -28,13 +28,25 @@ struct BackwardsCompatible<Model: Migratable>: Codable {
 	
 	init(from decoder: Decoder) throws {
 		let container = try decoder.singleValueContainer()
-		try wrappedValue = (try? container.decode(Model.self))
-		?? container.decode(Model.Old.self).migrated()
+		do {
+			wrappedValue = try container.decode(Model.self)
+		} catch let originalError {
+			do {
+				wrappedValue = try container.decode(Model.Old.self).migrated()
+			} catch {
+				throw CombinedDecodingError(forCurrentModel: originalError, forOldModel: error)
+			}
+		}
 	}
 	
 	func encode(to encoder: Encoder) throws {
 		var container = encoder.singleValueContainer()
 		try container.encode(wrappedValue)
+	}
+	
+	struct CombinedDecodingError: Error {
+		var forCurrentModel: Error
+		var forOldModel: Error
 	}
 }
 

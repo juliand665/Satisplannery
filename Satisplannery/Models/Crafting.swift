@@ -122,7 +122,8 @@ extension UTType {
 
 extension CraftingStep: Migratable {
 	struct Old: OldVersion {
-		var recipe: FakeRecipe
+		var recipe: FakeRecipe?
+		var recipeID: Recipe.ID?
 		var primaryOutput: Item.ID
 		var factor: Fraction
 		var setBuildings: Int?
@@ -130,7 +131,7 @@ extension CraftingStep: Migratable {
 		
 		func migrated() -> CraftingStep {
 			.init(
-				recipeID: recipe.id,
+				recipeID: recipeID ?? recipe!.id,
 				primaryOutput: primaryOutput,
 				factor: factor,
 				buildings: setBuildings ?? 1,
