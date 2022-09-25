@@ -54,6 +54,17 @@ struct CraftingProcess: Identifiable, Codable {
 		}
 	}
 	
+	func powerConsumption() -> PowerConsumption {
+		steps.compactMap(\.powerConsumption).reduce(.zero, +)
+	}
+	
+	func buildingsRequired() -> [Producer.ID: Int] {
+		steps.reduce(into: [:]) { totals, step in
+			guard let producer = step.recipe.producer else { return }
+			totals[producer.id, default: 0] += step.buildings
+		}
+	}
+	
 	private enum CodingKeys: String, CodingKey {
 		case name
 		case steps
@@ -79,6 +90,26 @@ struct CraftingStep: Identifiable, Codable {
 		recipeID.resolved()
 	}
 	
+	var clockSpeed: Fraction {
+		factor * recipe.craftingTime / 60 / buildings
+	}
+	
+	var powerConsumption: PowerConsumption? {
+		guard let producer = recipe.producer else { return nil }
+		
+		let base = Double(buildings)
+		* pow(clockSpeed.approximation, producer.powerConsumptionExponent.approximation)
+		
+		if producer.usesVariablePower {
+			return .init(
+				min: base * Double(recipe.variablePowerConsumptionConstant),
+				max: base * Double(recipe.variablePowerConsumptionConstant + recipe.variablePowerConsumptionFactor)
+			)
+		} else {
+			return .init(constant: Double(producer.powerConsumption) * base)
+		}
+	}
+	
 	func scaled(by factor: Fraction) -> Self {
 		self <- {
 			$0.factor *= factor
@@ -91,6 +122,32 @@ struct CraftingStep: Identifiable, Codable {
 		case factor
 		case buildings
 		case isBuilt
+	}
+}
+
+struct PowerConsumption: Hashable {
+	static let zero = Self(constant: 0)
+	
+	var min, max: Double
+	
+	var formatted: String {
+		let numberFormat = FloatingPointFormatStyle<Double>.number
+			.precision(.significantDigits(0..<4))
+		if min == max {
+			return "\(min.formatted(numberFormat)) MW"
+		} else {
+			return "\(min.formatted(numberFormat)) – \(max.formatted(numberFormat)) MW"
+		}
+	}
+	
+	static func + (lhs: Self, rhs: Self) -> Self {
+		.init(min: lhs.min + rhs.min, max: lhs.max + rhs.max)
+	}
+}
+
+extension PowerConsumption {
+	init(constant: Double) {
+		self.init(min: constant, max: constant)
 	}
 }
 

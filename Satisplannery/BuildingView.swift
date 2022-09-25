@@ -5,10 +5,42 @@ struct BuildingView: View {
 	
 	var body: some View {
 		Form {
+			totalsSection
+			
 			ForEach($process.steps) { $step in
 				stepSection($step: $step)
 			}
-			.scrollDismissesKeyboard(.interactively)
+		}
+		.scrollDismissesKeyboard(.interactively)
+	}
+	
+	var totalsSection: some View {
+		Section("Totals") {
+			let powerConsumption = process.powerConsumption()
+			HStack {
+				Text("Power Consumption")
+				Spacer()
+				Text(powerConsumption.formatted)
+			}
+			
+			let buildings = process.buildingsRequired()
+			ForEach(buildings.keys.sorted()) { building in
+				HStack(spacing: 16) {
+					let building = building.resolved()
+					
+					building.icon
+						.frame(width: 48)
+					
+					Text(building.name)
+					
+					Spacer()
+					
+					HStack(spacing: 2) {
+						Text("\(buildings[building.id]!)")
+						Text("×")
+					}
+				}
+			}
 		}
 	}
 	
@@ -32,10 +64,9 @@ struct BuildingView: View {
 				Divider()
 				
 				ZStack {
-					HStack {
-						Spacer()
-						
+					HStack(spacing: 16) {
 						stats
+							.frame(maxWidth: .infinity, alignment: .trailing)
 						
 						stepper
 					}
@@ -64,14 +95,14 @@ struct BuildingView: View {
 		var completionOverlay: some View {
 			HStack {
 				let decoration = VStack(spacing: 3) {
-					Capsule().frame(height: 3)
-					Capsule().frame(height: 3)
+					lightlyStroked(Capsule()).frame(height: 3)
+					lightlyStroked(Capsule()).frame(height: 3)
 				}
 				
 				decoration
 				
 				ZStack {
-					Circle()
+					lightlyStroked(Circle())
 					
 					Image(systemName: "checkmark")
 						.fontWeight(.bold)
@@ -84,11 +115,19 @@ struct BuildingView: View {
 			.foregroundColor(.green)
 		}
 		
+		func lightlyStroked(_ shape: some Shape) -> some View {
+			shape.overlay {
+				shape
+					.stroke(Color.white.opacity(0.1), style: .init(lineWidth: 1))
+					.blendMode(.plusLighter)
+			}
+		}
+		
 		var itemsView: some View {
 			VStack(spacing: 8) {
 				HStack {
 					ForEach(step.recipe.products.sorted { $1.item != step.primaryOutput }, id: \.item) { product in
-						product.item.resolved().icon.frame(width: 48)
+						productIcon(for: product, maxSize: 48)
 					}
 				}
 				
@@ -97,45 +136,71 @@ struct BuildingView: View {
 				
 				HStack {
 					ForEach(step.recipe.ingredients, id: \.item) { product in
-						product.item.resolved().icon.frame(maxWidth: 32)
+						productIcon(for: product, maxSize: 32)
 					}
 				}
 			}
 		}
 		
+		func productIcon(for product: ItemStack, maxSize: CGFloat) -> some View {
+			VStack(spacing: maxSize / 24) {
+				product.item.resolved().icon.frame(maxWidth: maxSize)
+				let amount = product.amount * step.factor
+				Text(amount, format: .fraction(useDecimalFormat: isDisplayingAsDecimals))
+					.font(.caption)
+					.foregroundStyle(.secondary)
+			}
+		}
+		
 		var stats: some View {
 			VStack(alignment: .trailing, spacing: 8) {
-				HStack {
-					Text("\(step.buildings)")
-					Image(systemName: "building.2")
+				let producer = step.recipe.producer
+				if let producer {
+					Text(producer.name)
+						.fontWeight(.medium)
 				}
 				
-				HStack {
-					let clockSpeed = 100 * step.factor * step.recipe.craftingTime / 60 / step.buildings
-					HStack(spacing: 2) {
-						Text(clockSpeed, format: .fraction(useDecimalFormat: isDisplayingAsDecimals))
-						Text("%")
+				Grid(horizontalSpacing: 4, verticalSpacing: 8) {
+					GridRow {
+						Text("\(step.buildings)")
+							.gridColumnAlignment(.trailing)
+						Image(systemName: "building.2")
 					}
-					Image(systemName: "speedometer")
+					
+					let clockSpeed = step.clockSpeed
+					GridRow {
+						HStack(spacing: 2) {
+							Text(100 * clockSpeed, format: .fraction(useDecimalFormat: isDisplayingAsDecimals))
+							Text("%")
+						}
+						Image(systemName: "speedometer")
+					}
+					
+					if let power = step.powerConsumption {
+						GridRow {
+							Text(power.formatted)
+							Image(systemName: "bolt")
+						}
+					}
 				}
 			}
 		}
 		
 		var stepper: some View {
 			VStack {
-				let buttonHeight = 28.0
+				let buttonSize = 32.0
 				
 				Button {
 					step.buildings += 1
 				} label: {
 					Label("Increase Buildings", systemImage: "plus")
-						.frame(height: buttonHeight)
+						.frame(width: buttonSize - 14, height: buttonSize - 4)
 				}
 				Button {
 					step.buildings -= 1
 				} label: {
 					Label("Decrease Buildings", systemImage: "minus")
-						.frame(height: buttonHeight)
+						.frame(width: buttonSize - 14, height: buttonSize - 4)
 				}
 			}
 			.labelStyle(.iconOnly)

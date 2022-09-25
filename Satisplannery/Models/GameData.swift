@@ -5,11 +5,13 @@ struct GameData: Decodable {
 	
 	let items: [Item.ID: Item]
 	let recipes: [Recipe.ID: Recipe]
+	let producers: [Producer.ID: Producer]
 	
 	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.items = .init(values: try container.decode([Item].self, forKey: .items))
 		self.recipes = .init(values: try container.decode([Recipe].self, forKey: .recipes))
+		self.producers = .init(values: try container.decode([Producer].self, forKey: .producers))
 	}
 	
 	private static func load() -> Self {
@@ -21,6 +23,7 @@ struct GameData: Decodable {
 	private enum CodingKeys: CodingKey {
 		case items
 		case recipes
+		case producers
 	}
 }
 
@@ -28,7 +31,9 @@ protocol GameObject: Identifiable {
 	static var path: KeyPath<GameData, [ID: Self]> { get }
 }
 
-struct Item: GameObject, Hashable, Codable {
+protocol ObjectWithIcon: Identifiable where ID == ObjectID<Self> {}
+
+struct Item: GameObject, ObjectWithIcon, Hashable, Codable {
 	static let path = \GameData.items
 	
 	var id: ObjectID<Self>
@@ -56,11 +61,26 @@ struct Recipe: GameObject, Hashable, Codable {
 	var ingredients: [ItemStack]
 	var products: [ItemStack]
 	var craftingTime: Fraction
-	var producedIn: [Building.ID]
+	var producedIn: [Producer.ID]
+	var variablePowerConsumptionConstant: Int
+	var variablePowerConsumptionFactor: Int
+	
+	var producer: Producer? {
+		let options = producedIn.compactMap { GameData.shared.producers[$0] }
+		guard options.count == 1 else { return nil }
+		return options.first!
+	}
 }
 
-enum Building {
-	typealias ID = ObjectID<Self>
+struct Producer: GameObject, ObjectWithIcon, Codable {
+	static let path = \GameData.producers
+	
+	var id: ObjectID<Self>
+	var name: String
+	var description: String
+	var powerConsumption: Int
+	var powerConsumptionExponent: Fraction
+	var usesVariablePower: Bool
 }
 
 struct ItemStack: Hashable, Codable {

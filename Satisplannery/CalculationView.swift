@@ -3,11 +3,19 @@ import SwiftUI
 struct CalculationView: View {
 	@Binding var process: CraftingProcess
 	@State var expandedStep: CraftingStep.ID?
+	@State var newName: String?
 	
 	var body: some View {
 		Form {
 			Section("Name") {
-				TextField("Process Name", text: $process.name)
+				TextField("Process Name", text: Binding {
+					newName ?? process.name
+				} set: {
+					newName = $0
+				})
+				.onSubmit {
+					process.name = newName ?? process.name
+				}
 			}
 			
 			outputsSection
@@ -18,6 +26,7 @@ struct CalculationView: View {
 			
 			inputsSection
 		}
+		.scrollDismissesKeyboard(.interactively)
 	}
 	
 	func stepSection(@Binding step: CraftingStep) -> some View {
@@ -260,6 +269,5 @@ struct CalculationView_Previews: PreviewProvider {
 		NavigationStack {
 			CalculationView(process: .constant(.example))
 		}
-		.previewLayout(.fixed(width: 320, height: 640))
     }
 }

@@ -1,17 +1,17 @@
 import SwiftUI
 import HandyOperators
 
-extension Item {
-	private static var cache: [Item.ID: Image] = [:]
-	
-	private static func cachedImage(for id: Item.ID) -> Image {
-		cache[id] ?? Image(named: id.rawValue, inDirectory: "images")!.resizable() <- {
-			cache[id] = $0
-		}
+private var cache: [String: Image] = [:]
+
+private func cachedImage(for id: String) -> Image {
+	cache[id] ?? Image(named: id, inDirectory: "images")!.resizable() <- {
+		cache[id] = $0
 	}
-	
+}
+
+extension ObjectWithIcon {
 	var icon: some View {
-		Self.cachedImage(for: id)
+		cachedImage(for: id.rawValue)
 			.scaledToFit()
 	}
 }
