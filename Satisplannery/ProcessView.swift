@@ -3,14 +3,16 @@ import SwiftUI
 struct ProcessView: View {
 	@Binding var process: CraftingProcess
 	@State var expandedStep: CraftingStep.ID?
-	@State var isViewingBuildings = false
+	@State var mode = Mode.calculation
 	
 	var body: some View {
 		ZStack {
+			ReorderingView(process: $process)
+				.opacity(mode == .reordering ? 1 : 0)
 			BuildingView(process: $process)
-				.opacity(isViewingBuildings ? 1 : 0)
+				.opacity(mode == .buildings ? 1 : 0)
 			CalculationView(process: $process)
-				.opacity(isViewingBuildings ? 0 : 1)
+				.opacity(mode == .calculation ? 1 : 0)
 		}
 		.toolbar {
 			NumberFormatToggle()
@@ -19,17 +21,25 @@ struct ProcessView: View {
 		}
 		.toolbar {
 			ToolbarItemGroup(placement: .status) {
-				Picker(selection: $isViewingBuildings) {
+				Picker(selection: $mode) {
 					Text("Calculation")
-						.tag(false)
+						.tag(Mode.calculation)
 					Text("Buildings")
-						.tag(true)
+						.tag(Mode.buildings)
+					Text("Reorder")
+						.tag(Mode.reordering)
 				} label: {}
 					.pickerStyle(.segmented)
 			}
 		}
 		.navigationTitle(process.name.isEmpty ? "Untitled Process" : process.name)
 		.navigationBarTitleDisplayMode(.inline)
+	}
+	
+	enum Mode: Hashable {
+		case calculation
+		case buildings
+		case reordering
 	}
 }
 

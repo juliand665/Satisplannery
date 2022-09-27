@@ -64,3 +64,23 @@ struct ItemLabel: View {
 		}
 	}
 }
+
+struct ProductIcon: View {
+	var product: ItemStack
+	var factor: Fraction = 1
+	var maxSize: CGFloat
+	
+	@Environment(\.isDisplayingAsDecimals.wrappedValue)
+	var isDisplayingAsDecimals
+	
+	var body: some View {
+		VStack(spacing: maxSize / 24) {
+			let item = product.item.resolved()
+			item.icon.frame(maxWidth: maxSize)
+			let amount = product.amount * factor * item.multiplier
+			Text(amount, format: .fraction(useDecimalFormat: isDisplayingAsDecimals))
+				.font(.caption)
+				.foregroundStyle(.secondary)
+		}
+	}
+}

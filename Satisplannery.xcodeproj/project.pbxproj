@@ -33,6 +33,7 @@
 		B945245228D158A200D9937B /* ItemViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B945245128D158A200D9937B /* ItemViews.swift */; };
 		B945245528D1695C00D9937B /* UserDefault in Frameworks */ = {isa = PBXBuildFile; productRef = B945245428D1695C00D9937B /* UserDefault */; };
 		B94C274C28DFA9DD00402AAA /* Compatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94C274B28DFA9DD00402AAA /* Compatibility.swift */; };
+		B9891E6528E32D52005D45E7 /* ReorderingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9891E6428E32D52005D45E7 /* ReorderingView.swift */; };
 		B9B11A6528DC06E8006EC232 /* SwiftUI+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B11A6428DC06E8006EC232 /* SwiftUI+Helpers.swift */; };
 		B9B11A6728DC093D006EC232 /* BuildingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B11A6628DC093D006EC232 /* BuildingView.swift */; };
 		B9B11A6928DC99FD006EC232 /* CalculationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B11A6828DC99FD006EC232 /* CalculationView.swift */; };
@@ -76,6 +77,7 @@
 		B945244F28D1586600D9937B /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 		B945245128D158A200D9937B /* ItemViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViews.swift; sourceTree = "<group>"; };
 		B94C274B28DFA9DD00402AAA /* Compatibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compatibility.swift; sourceTree = "<group>"; };
+		B9891E6428E32D52005D45E7 /* ReorderingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReorderingView.swift; sourceTree = "<group>"; };
 		B9B11A6428DC06E8006EC232 /* SwiftUI+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+Helpers.swift"; sourceTree = "<group>"; };
 		B9B11A6628DC093D006EC232 /* BuildingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingView.swift; sourceTree = "<group>"; };
 		B9B11A6828DC99FD006EC232 /* CalculationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationView.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				B9269B7728D2376800B95697 /* ProcessView.swift */,
 				B9B11A6828DC99FD006EC232 /* CalculationView.swift */,
 				B9B11A6628DC093D006EC232 /* BuildingView.swift */,
+				B9891E6428E32D52005D45E7 /* ReorderingView.swift */,
 				B9269B7528D22C5A00B95697 /* ItemPicker.swift */,
 				B945245128D158A200D9937B /* ItemViews.swift */,
 				B9269B8528D2AC6000B95697 /* FractionEditor.swift */,
@@ -315,6 +318,7 @@
 				B9B11A6528DC06E8006EC232 /* SwiftUI+Helpers.swift in Sources */,
 				B945242328D1108D00D9937B /* SatisplanneryApp.swift in Sources */,
 				B9B11A6928DC99FD006EC232 /* CalculationView.swift in Sources */,
+				B9891E6528E32D52005D45E7 /* ReorderingView.swift in Sources */,
 				B9269B7F28D2540900B95697 /* Fraction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

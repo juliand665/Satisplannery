@@ -135,7 +135,7 @@ struct BuildingView: View {
 			VStack(spacing: 8) {
 				HStack {
 					ForEach(step.recipe.products.sorted { $1.item != step.primaryOutput }, id: \.item) { product in
-						productIcon(for: product, maxSize: 48)
+						ProductIcon(product: product, factor: step.factor, maxSize: 48)
 					}
 				}
 				
@@ -144,7 +144,7 @@ struct BuildingView: View {
 				
 				HStack {
 					ForEach(step.recipe.ingredients, id: \.item) { product in
-						productIcon(for: product, maxSize: 32)
+						ProductIcon(product: product, factor: step.factor, maxSize: 32)
 					}
 				}
 			}
