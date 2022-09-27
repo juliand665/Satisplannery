@@ -38,6 +38,15 @@ struct ContentView: View {
 						}
 					}
 					.draggable(process)
+					.contextMenu {
+						Button {
+							withAnimation {
+								processes.insert(process.copy(), at: index + 1)
+							}
+						} label: {
+							Label("Duplicate", systemImage: "plus.square.on.square")
+						}
+					}
 				}
 				.onDelete { processes.remove(atOffsets: $0) }
 				.onMove { processes.move(fromOffsets: $0, toOffset: $1) }

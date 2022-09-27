@@ -68,6 +68,10 @@ struct CraftingProcess: Identifiable, Codable {
 		}
 	}
 	
+	func copy() -> Self {
+		.init(name: name, steps: steps)
+	}
+	
 	private enum CodingKeys: String, CodingKey {
 		case name
 		case steps
