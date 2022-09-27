@@ -80,8 +80,8 @@ struct CraftingStep: Identifiable, Codable {
 	var recipeID: Recipe.ID {
 		didSet {
 			guard oldValue.id != recipeID else { return }
-			factor *= recipe.production(of: primaryOutput)
-			/ oldValue.resolved().production(of: primaryOutput)
+			factor *= oldValue.resolved().production(of: primaryOutput)
+			/ recipe.production(of: primaryOutput)
 		}
 	}
 	var primaryOutput: Item.ID
