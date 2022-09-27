@@ -39,6 +39,8 @@ struct ContentView: View {
 					}
 					.draggable(process)
 					.contextMenu {
+						ShareLink(item: process, preview: .init(process.name))
+						
 						Button {
 							withAnimation {
 								processes.insert(process.copy(), at: index + 1)
