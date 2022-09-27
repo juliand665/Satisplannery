@@ -134,14 +134,16 @@ struct CalculationView: View {
 			Spacer()
 			
 			VStack(alignment: .trailing) {
-				let itemCount = amount * item.multiplier
+				let itemCount = item.multiplier * amount
 				
 				FractionEditor(
 					label: "Production",
 					value: Binding {
 						itemCount
 					} set: {
-						process.scale(by: abs($0 / process.totals.counts[item.id]!))
+						// don't use the captured count, compute the current one instead
+						let itemCount = item.multiplier * process.totals.counts[item.id]!
+						process.scale(by: abs($0 / itemCount))
 					},
 					alwaysShowSign: true
 				)
