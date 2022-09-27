@@ -5,6 +5,9 @@ struct CalculationView: View {
 	@State var expandedStep: CraftingStep.ID?
 	@State var newName: String?
 	
+	@State var stepToDelete: CraftingStep?
+	@State var isConfirmingDelete = false
+	
 	var body: some View {
 		Form {
 			Section("Name") {
@@ -27,6 +30,17 @@ struct CalculationView: View {
 			inputsSection
 		}
 		.scrollDismissesKeyboard(.interactively)
+		.confirmationDialog(
+			"Delete Step?",
+			isPresented: $isConfirmingDelete,
+			presenting: stepToDelete
+		) { step in
+			Button("Delete", role: .destructive) {
+				process.remove(step)
+			}
+		} message: { step in
+			Text("Delete this step for \(step.recipe.name)?")
+		}
 	}
 	
 	func stepSection(@Binding step: CraftingStep) -> some View {
@@ -39,9 +53,8 @@ struct CalculationView: View {
 				Spacer()
 				
 				Button {
-					withAnimation {
-						process.remove(step)
-					}
+					stepToDelete = step
+					isConfirmingDelete = true
 				} label: {
 					Image(systemName: "trash")
 				}
