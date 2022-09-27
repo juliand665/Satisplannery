@@ -152,8 +152,9 @@ struct BuildingView: View {
 		
 		func productIcon(for product: ItemStack, maxSize: CGFloat) -> some View {
 			VStack(spacing: maxSize / 24) {
-				product.item.resolved().icon.frame(maxWidth: maxSize)
-				let amount = product.amount * step.factor
+				let item = product.item.resolved()
+				item.icon.frame(maxWidth: maxSize)
+				let amount = product.amount * step.factor * item.multiplier
 				Text(amount, format: .fraction(useDecimalFormat: isDisplayingAsDecimals))
 					.font(.caption)
 					.foregroundStyle(.secondary)
