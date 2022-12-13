@@ -8,20 +8,6 @@
       "resourceSinkPoints" : 0
     },
     {
-      "description" : "Used in the Gas Mask to filter out toxics and pollutants from the air.",
-      "id" : "Desc_Filter_C",
-      "isFluid" : false,
-      "name" : "Gas Filter",
-      "resourceSinkPoints" : 830
-    },
-    {
-      "description" : "Thin, lightweight, and highly durable sheets that are mainly used for products that require high heat conduction or a high specific strength.",
-      "id" : "Desc_AluminumPlate_C",
-      "isFluid" : false,
-      "name" : "Alclad Aluminum Sheet",
-      "resourceSinkPoints" : 266
-    },
-    {
       "description" : "Primarily used as fuel for Drones and Vehicles.",
       "id" : "Desc_Battery_C",
       "isFluid" : false,
@@ -29,32 +15,11 @@
       "resourceSinkPoints" : 465
     },
     {
-      "description" : "A versatile and easy to manufacture material that can be used for a lot of things.",
-      "id" : "Desc_Plastic_C",
-      "isFluid" : false,
-      "name" : "Plastic",
-      "resourceSinkPoints" : 75
-    },
-    {
-      "description" : "Used for crafting.\r\nOne of the most basic parts.",
-      "id" : "Desc_Wire_C",
-      "isFluid" : false,
-      "name" : "Wire",
-      "resourceSinkPoints" : 6
-    },
-    {
       "description" : "Aluminum Ingots are made from Aluminum Scrap, which is refined from Alumina Solution.\r\nUsed to produce specialized aluminum-based parts.",
       "id" : "Desc_AluminumIngot_C",
       "isFluid" : false,
       "name" : "Aluminum Ingot",
       "resourceSinkPoints" : 131
-    },
-    {
-      "description" : "Fuel, packaged for alternative transport. Can be used as fuel for Vehicles or the Jetpack.",
-      "id" : "Desc_Fuel_C",
-      "isFluid" : false,
-      "name" : "Packaged Fuel",
-      "resourceSinkPoints" : 270
     },
     {
       "description" : "The isotope Uranium-238 is non-fissile, meaning it cannot be used for nuclear fission. It can, however, be conversed into fissile Plutonium in the Particle Accelerator.\r\n\r\nCaution: Mildly Radioactive.",
@@ -99,6 +64,13 @@
       "resourceSinkPoints" : 2
     },
     {
+      "description" : "Used for crafting.\r\nOne of the most basic parts.",
+      "id" : "Desc_Wire_C",
+      "isFluid" : false,
+      "name" : "Wire",
+      "resourceSinkPoints" : 6
+    },
+    {
       "description" : "A strange slug radiating a strange power.",
       "id" : "Desc_Crystal_mk2_C",
       "isFluid" : false,
@@ -141,6 +113,41 @@
       "resourceSinkPoints" : 64
     },
     {
+      "description" : "Used for applying Patterns to structures with the Customizer.\r\n\r\n(Patterns can be purchased in the AWESOME Shop.)",
+      "id" : "Desc_ColorCartridge_C",
+      "isFluid" : false,
+      "name" : "Color Cartridge",
+      "resourceSinkPoints" : 10
+    },
+    {
+      "description" : "Mucus from the power slugs compressed into a solid crystal-like shard. \r\nIt radiates a strange power.",
+      "id" : "Desc_CrystalShard_C",
+      "isFluid" : false,
+      "name" : "Power Shard",
+      "resourceSinkPoints" : 0
+    },
+    {
+      "description" : "Used for crafting.\r\nPrimarily used to build power lines.",
+      "id" : "Desc_Cable_C",
+      "isFluid" : false,
+      "name" : "Cable",
+      "resourceSinkPoints" : 24
+    },
+    {
+      "description" : "Used for crafting.\r\nMulti-purpose building block.",
+      "id" : "Desc_ModularFrame_C",
+      "isFluid" : false,
+      "name" : "Modular Frame",
+      "resourceSinkPoints" : 408
+    },
+    {
+      "description" : "Fuel, packaged for alternative transport. Can be used as fuel for Vehicles or the Jetpack.",
+      "id" : "Desc_Fuel_C",
+      "isFluid" : false,
+      "name" : "Packaged Fuel",
+      "resourceSinkPoints" : 270
+    },
+    {
       "description" : "Turbofuel, packaged for alternative transport. Can be used as fuel for Vehicles.",
       "id" : "Desc_TurboFuel_C",
       "isFluid" : false,
@@ -155,25 +162,11 @@
       "resourceSinkPoints" : 2718
     },
     {
-      "description" : "Used for crafting.\r\nPrimarily used to build power lines.",
-      "id" : "Desc_Cable_C",
+      "description" : "Used in the Gas Mask to filter out toxics and pollutants from the air.",
+      "id" : "Desc_Filter_C",
       "isFluid" : false,
-      "name" : "Cable",
-      "resourceSinkPoints" : 24
-    },
-    {
-      "description" : "Mucus from the power slugs compressed into a solid crystal-like shard. \r\nIt radiates a strange power.",
-      "id" : "Desc_CrystalShard_C",
-      "isFluid" : false,
-      "name" : "Power Shard",
-      "resourceSinkPoints" : 0
-    },
-    {
-      "description" : "Used for applying Patterns to structures with the Customizer.\r\n\r\n(Patterns can be purchased in the AWESOME Shop.)",
-      "id" : "Desc_ColorCartridge_C",
-      "isFluid" : false,
-      "name" : "Color Cartridge",
-      "resourceSinkPoints" : 10
+      "name" : "Gas Filter",
+      "resourceSinkPoints" : 830
     },
     {
       "description" : "Used for crafting.\r\nA sturdier and more durable Iron Plate.",
@@ -337,10 +330,10 @@
       "resourceSinkPoints" : 130
     },
     {
-      "description" : "This data capsule translates organic chemicals into readable alien genetics information.\r\nUsed for researching alien organisms.",
+      "description" : "This data capsule translates organic chemicals into readable alien genetics information.\r\nUsed for researching alien organisms.\r\n\r\nGo the extra kilometer! Knowledge is power, and power is just efficiency with fewer steps. Depositing Alien DNA Capsules in the AWESOME Sink provides FICSIT with knowledge, and Pioneers with Coupons.",
       "id" : "Desc_AlienDNACapsule_C",
       "isFluid" : false,
-      "name" : "Organic Data Capsule",
+      "name" : "Alien DNA Capsule",
       "resourceSinkPoints" : 0
     },
     {
@@ -400,6 +393,13 @@
       "resourceSinkPoints" : 2
     },
     {
+      "description" : "Thin, lightweight, and highly durable sheets that are mainly used for products that require high heat conduction or a high specific strength.",
+      "id" : "Desc_AluminumPlate_C",
+      "isFluid" : false,
+      "name" : "Alclad Aluminum Sheet",
+      "resourceSinkPoints" : 266
+    },
+    {
       "description" : "Used for crafting.\r\nThe moving parts of a motor.",
       "id" : "Desc_Rotor_C",
       "isFluid" : false,
@@ -412,6 +412,13 @@
       "isFluid" : false,
       "name" : "Rubber",
       "resourceSinkPoints" : 60
+    },
+    {
+      "description" : "A versatile and easy to manufacture material that can be used for a lot of things.",
+      "id" : "Desc_Plastic_C",
+      "isFluid" : false,
+      "name" : "Plastic",
+      "resourceSinkPoints" : 75
     },
     {
       "description" : "Encased Industrial Beams utilizes the compressive strength of concrete and tensile strength of steel simultaneously.\r\nMostly used as a stable basis for constructing buildings.",
@@ -454,13 +461,6 @@
       "isFluid" : false,
       "name" : "Petroleum Coke",
       "resourceSinkPoints" : 20
-    },
-    {
-      "description" : "Used for crafting.\r\nMulti-purpose building block.",
-      "id" : "Desc_ModularFrame_C",
-      "isFluid" : false,
-      "name" : "Modular Frame",
-      "resourceSinkPoints" : 408
     },
     {
       "description" : "Used to package fluids for transportation.",
@@ -666,7 +666,7 @@
       "resourceSinkPoints" : 14
     },
     {
-      "description" : "Ground down Alien Remains in a neat little package.\r\nUsed for medical purposed and to research alien organisms.",
+      "description" : "Ground down Alien Remains in a neat little package.\r\nUsed for medical purposes and to research alien organisms.",
       "id" : "Desc_AlienProtein_C",
       "isFluid" : false,
       "name" : "Alien Protein",
@@ -678,13 +678,6 @@
       "isFluid" : false,
       "name" : "Smokeless Powder",
       "resourceSinkPoints" : 58
-    },
-    {
-      "description" : "Sulfur is primarily used for Black Powder.",
-      "id" : "Desc_Sulfur_C",
-      "isFluid" : false,
-      "name" : "Sulfur",
-      "resourceSinkPoints" : 11
     },
     {
       "description" : "Mainly used as fuel for vehicles & coal generators and for steel production.",
@@ -729,11 +722,11 @@
       "resourceSinkPoints" : 2
     },
     {
-      "description" : "It's water.",
-      "id" : "Desc_Water_C",
-      "isFluid" : true,
-      "name" : "Water",
-      "resourceSinkPoints" : 5
+      "description" : "Sulfur is primarily used for Black Powder.",
+      "id" : "Desc_Sulfur_C",
+      "isFluid" : false,
+      "name" : "Sulfur",
+      "resourceSinkPoints" : 11
     },
     {
       "description" : "Crude Oil is refined into all kinds of Oil-based resources, like Fuel and Plastic.",
@@ -741,6 +734,20 @@
       "isFluid" : true,
       "name" : "Crude Oil",
       "resourceSinkPoints" : 30
+    },
+    {
+      "description" : "Nitrogen can be used in a variety of ways, such as metallurgy, cooling, and Nitric Acid production. On Massage-2(AB)b, it can be extracted from underground gas wells.",
+      "id" : "Desc_NitrogenGas_C",
+      "isFluid" : true,
+      "name" : "Nitrogen Gas",
+      "resourceSinkPoints" : 10
+    },
+    {
+      "description" : "It's water.",
+      "id" : "Desc_Water_C",
+      "isFluid" : true,
+      "name" : "Water",
+      "resourceSinkPoints" : 5
     },
     {
       "description" : "Bauxite is used to produce Alumina, which can be further refined into the Aluminum Scrap required to produce Aluminum Ingots.",
@@ -755,13 +762,6 @@
       "isFluid" : false,
       "name" : "Uranium",
       "resourceSinkPoints" : 35
-    },
-    {
-      "description" : "Nitrogen can be used in a variety of ways, such as metallurgy, cooling, and Nitric Acid production. On Massage-2(AB)b, it can be extracted from underground gas wells.",
-      "id" : "Desc_NitrogenGas_C",
-      "isFluid" : true,
-      "name" : "Nitrogen Gas",
-      "resourceSinkPoints" : 10
     },
     {
       "description" : "Can be set up on a resource node to automatically extract the resource. Note that it has limited storage space.",
@@ -811,6 +811,13 @@
       "isFluid" : false,
       "name" : "Wood",
       "resourceSinkPoints" : 30
+    },
+    {
+      "description" : "The shell-like remains an alien... thing.\r\nUsed for MAM research.",
+      "id" : "Desc_HatcherParts_C",
+      "isFluid" : false,
+      "name" : "Hatcher Remains",
+      "resourceSinkPoints" : 0
     },
     {
       "description" : "The remains of whatever that creepy thing was.\r\nUsed for MAM research.",
@@ -881,13 +888,6 @@
       "isFluid" : false,
       "name" : "Fabric",
       "resourceSinkPoints" : 140
-    },
-    {
-      "description" : "The shell-like remains an alien... thing.\r\nUsed for MAM research.",
-      "id" : "Desc_HatcherParts_C",
-      "isFluid" : false,
-      "name" : "Hatcher Remains",
-      "resourceSinkPoints" : 0
     },
     {
       "description" : "Explodes on impact, dealing heavy damage.",
@@ -1030,8 +1030,8 @@
       "name" : "Constructor",
       "powerConsumption" : 4,
       "powerConsumptionExponent" : {
-        "denominator" : 5,
-        "numerator" : 8
+        "denominator" : 1000000,
+        "numerator" : 1321929
       },
       "usesVariablePower" : false
     },
@@ -1041,8 +1041,8 @@
       "name" : "Smelter",
       "powerConsumption" : 4,
       "powerConsumptionExponent" : {
-        "denominator" : 5,
-        "numerator" : 8
+        "denominator" : 1000000,
+        "numerator" : 1321929
       },
       "usesVariablePower" : false
     },
@@ -1052,8 +1052,8 @@
       "name" : "Foundry",
       "powerConsumption" : 16,
       "powerConsumptionExponent" : {
-        "denominator" : 5,
-        "numerator" : 8
+        "denominator" : 1000000,
+        "numerator" : 1321929
       },
       "usesVariablePower" : false
     },
@@ -1063,8 +1063,8 @@
       "name" : "Refinery",
       "powerConsumption" : 30,
       "powerConsumptionExponent" : {
-        "denominator" : 5,
-        "numerator" : 8
+        "denominator" : 1000000,
+        "numerator" : 1321929
       },
       "usesVariablePower" : false
     },
@@ -1074,8 +1074,8 @@
       "name" : "Assembler",
       "powerConsumption" : 15,
       "powerConsumptionExponent" : {
-        "denominator" : 5,
-        "numerator" : 8
+        "denominator" : 1000000,
+        "numerator" : 1321929
       },
       "usesVariablePower" : false
     },
@@ -1085,8 +1085,8 @@
       "name" : "Packager",
       "powerConsumption" : 10,
       "powerConsumptionExponent" : {
-        "denominator" : 5,
-        "numerator" : 8
+        "denominator" : 1000000,
+        "numerator" : 1321929
       },
       "usesVariablePower" : false
     },
@@ -1096,8 +1096,8 @@
       "name" : "Blender",
       "powerConsumption" : 75,
       "powerConsumptionExponent" : {
-        "denominator" : 5,
-        "numerator" : 8
+        "denominator" : 1000000,
+        "numerator" : 1321929
       },
       "usesVariablePower" : false
     },
@@ -1107,8 +1107,8 @@
       "name" : "Manufacturer",
       "powerConsumption" : 55,
       "powerConsumptionExponent" : {
-        "denominator" : 5,
-        "numerator" : 8
+        "denominator" : 1000000,
+        "numerator" : 1321929
       },
       "usesVariablePower" : false
     },
@@ -1118,50 +1118,13 @@
       "name" : "Particle Accelerator",
       "powerConsumption" : 0,
       "powerConsumptionExponent" : {
-        "denominator" : 5,
-        "numerator" : 8
+        "denominator" : 1000000,
+        "numerator" : 1321929
       },
       "usesVariablePower" : true
     }
   ],
   "recipes" : [
-    {
-      "craftingTime" : {
-        "denominator" : 1,
-        "numerator" : 8
-      },
-      "id" : "Recipe_Alternate_ClassicBattery_C",
-      "ingredients" : [
-        {
-          "amount" : 6,
-          "item" : "Desc_Sulfur_C"
-        },
-        {
-          "amount" : 7,
-          "item" : "Desc_AluminumPlate_C"
-        },
-        {
-          "amount" : 8,
-          "item" : "Desc_Plastic_C"
-        },
-        {
-          "amount" : 12,
-          "item" : "Desc_Wire_C"
-        }
-      ],
-      "name" : "Alternate: Classic Battery",
-      "producedIn" : [
-        "Build_ManufacturerMk1_C"
-      ],
-      "products" : [
-        {
-          "amount" : 4,
-          "item" : "Desc_Battery_C"
-        }
-      ],
-      "variablePowerConsumptionConstant" : 0,
-      "variablePowerConsumptionFactor" : 1
-    },
     {
       "craftingTime" : {
         "denominator" : 1,
@@ -4309,6 +4272,43 @@
     {
       "craftingTime" : {
         "denominator" : 1,
+        "numerator" : 8
+      },
+      "id" : "Recipe_Alternate_ClassicBattery_C",
+      "ingredients" : [
+        {
+          "amount" : 6,
+          "item" : "Desc_Sulfur_C"
+        },
+        {
+          "amount" : 7,
+          "item" : "Desc_AluminumPlate_C"
+        },
+        {
+          "amount" : 8,
+          "item" : "Desc_Plastic_C"
+        },
+        {
+          "amount" : 12,
+          "item" : "Desc_Wire_C"
+        }
+      ],
+      "name" : "Alternate: Classic Battery",
+      "producedIn" : [
+        "Build_ManufacturerMk1_C"
+      ],
+      "products" : [
+        {
+          "amount" : 4,
+          "item" : "Desc_Battery_C"
+        }
+      ],
+      "variablePowerConsumptionConstant" : 0,
+      "variablePowerConsumptionFactor" : 1
+    },
+    {
+      "craftingTime" : {
+        "denominator" : 1,
         "numerator" : 3
       },
       "id" : "Recipe_Battery_C",
@@ -6905,7 +6905,7 @@
           "item" : "Desc_AlienProtein_C"
         }
       ],
-      "name" : "Organic Data Capsule",
+      "name" : "Alien DNA Capsule",
       "producedIn" : [
         "Build_ConstructorMk1_C",
         "BP_WorkBenchComponent_C",
