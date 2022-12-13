@@ -195,10 +195,15 @@ extension Fraction {
 		simplify()
 	}
 	
-	static let thousandsSeparators = Set(",' ")
+	private static let thousandsSeparators = Set(".,' ") <- {
+		if let localized = Locale.current.groupingSeparator {
+			$0.insert(Character(localized))
+		}
+	}
+	private static let decimalSeparator = Locale.current.decimalSeparator ?? "."
 	
 	private init?(decimal: some StringProtocol) {
-		let parts = decimal.split(separator: ".")
+		let parts = decimal.split(separator: Self.decimalSeparator)
 		let integerPart = parts.first.flatMap {
 			Int(String($0.filter { !Self.thousandsSeparators.contains($0) }))
 		}
