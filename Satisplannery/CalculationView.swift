@@ -226,11 +226,14 @@ struct StepSection: View {
 	var recipePicker: some View {
 		let recipeOptions = Recipe.all(producing: step.primaryOutput)
 		if recipeOptions.count > 1 {
-			Picker("Recipe", selection: $step.recipeID) {
+			Picker(selection: $step.recipeID) {
 				ForEach(recipeOptions) { recipe in
 					Text(recipe.name)
 						.tag(recipe.id)
 				}
+			} label: {
+				Text("Recipe")
+					.fixedSize() // funnily enough this looks like the best way go give the actual content more horizontal space
 			}
 		}
 	}
