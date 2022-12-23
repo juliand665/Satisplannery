@@ -28,10 +28,8 @@ struct ContentView: View {
 							Spacer()
 							
 							HStack {
-								let outputs = process.totals.outputs.sorted(on: \.key).sorted { -$0.value }.map(\.key)
-								let maxCount = 3
-								ForEach(outputs.prefix(maxCount)) { output in
-									output.resolved().icon
+								ForEach(process.totals.sortedOutputs().prefix(3).reversed()) { output in
+									output.item.icon
 								}
 							}
 							.frame(height: 48)

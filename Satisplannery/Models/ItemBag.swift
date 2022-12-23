@@ -22,4 +22,45 @@ struct ItemBag: Codable {
 			add(ingredient, factor: -step.factor)
 		}
 	}
+	
+	/// Sorts outputs so the ones worth the most points are listed first (likely to be the main priority of a process)
+	func sortedOutputs() -> [ResolvedStack] {
+		outputs
+			.map { .init(item: $0.resolved(), amount: $1) }
+			.sorted(
+				on: { -$0.resourceSinkPoints },
+				then: \.item.name
+			)
+	}
+	
+	/// Sorts inputs by name, likely the most useful way
+	func sortedInputs() -> [ResolvedStack] {
+		inputs
+			.map { .init(item: $0.resolved(), amount: $1) }
+			.sorted(on: \.item.name)
+	}
+}
+
+struct ResolvedStack {
+	var item: Item
+	var amount: Fraction
+	
+	/// divides by 1000 for fluids
+	var realAmount: Fraction {
+		item.multiplier * amount
+	}
+	
+	var resourceSinkPoints: Fraction {
+		item.resourceSinkPoints * realAmount
+	}
+}
+
+extension ResolvedStack: Identifiable {
+	var id: Item.ID { item.id }
+}
+
+extension ResolvedStack {
+	init(_ stack: ItemStack) {
+		self.init(item: stack.item.resolved(), amount: .init(stack.amount))
+	}
 }

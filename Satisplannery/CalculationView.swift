@@ -82,14 +82,10 @@ struct CalculationView: View {
 	
 	@ViewBuilder
 	var outputsSection: some View {
-		let outputs = process.totals.outputs
-		
 		Section("Produced Items") {
-			let items = outputs.keys.map { $0.resolved() }.sorted(on: \.name)
-			ForEach(items) { item in
+			ForEach(process.totals.sortedOutputs()) { output in
 				VStack(alignment: .leading) {
-					let amount = process.totals.outputs[item.id]!
-					itemLabel(for: item, amount: amount)
+					itemLabel(for: output)
 				}
 			}
 			
@@ -109,13 +105,10 @@ struct CalculationView: View {
 		let inputs = process.totals.inputs
 		if !inputs.isEmpty {
 			Section("Required Items") {
-				let items = inputs.keys.map { $0.resolved() }.sorted(on: \.name)
-				ForEach(items) { item in
+				ForEach(process.totals.sortedInputs()) { input in
 					HStack {
-						let amount = inputs[item.id]!
-						
-						itemLabel(for: item, amount: amount)
-						addStepButton(for: item, amount: -amount)
+						itemLabel(for: input)
+						addStepButton(for: input.item, amount: -input.amount)
 					}
 				}
 			}
@@ -138,16 +131,16 @@ struct CalculationView: View {
 		.disabled(recipeOptions.isEmpty)
 	}
 	
-	func itemLabel(for item: Item, amount: Fraction) -> some View {
+	func itemLabel(for stack: ResolvedStack) -> some View {
 		HStack {
-			item.icon.frame(width: 48)
+			stack.item.icon.frame(width: 48)
 			
-			Text(item.name)
+			Text(stack.item.name)
 			
 			Spacer()
 			
 			VStack(alignment: .trailing) {
-				let itemCount = item.multiplier * amount
+				let itemCount = stack.realAmount
 				
 				FractionEditor(
 					label: "Production",
@@ -155,15 +148,15 @@ struct CalculationView: View {
 						itemCount
 					} set: {
 						// don't use the captured count, compute the current one instead
-						let itemCount = item.multiplier * process.totals.counts[item.id]!
+						let itemCount = stack.item.multiplier * process.totals.counts[stack.item.id]!
 						process.scale(by: abs($0 / itemCount))
 					},
 					alwaysShowSign: true
 				)
 				.coloredBasedOn(itemCount)
 				
-				if amount > 0 {
-					let points = itemCount * item.resourceSinkPoints
+				if stack.amount > 0 {
+					let points = stack.resourceSinkPoints
 					Text("\(points, format: .fraction(useDecimalFormat: true)) pts")
 						.foregroundColor(.orange)
 				}

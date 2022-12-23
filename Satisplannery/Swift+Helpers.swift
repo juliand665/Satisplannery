@@ -9,6 +9,15 @@ extension Sequence {
 			.sorted { $0.value < $1.value }
 			.map(\.element)
 	}
+	
+	func sorted<Value1ToCompare: Comparable, Value2ToCompare: Comparable>(
+		on value1: (Element) -> Value1ToCompare,
+		then value2: (Element) -> Value2ToCompare
+	) -> [Element] {
+		self.map { (value1: value1($0), value2: value2($0), element: $0) }
+			.sorted { ($0.value1, $0.value2) < ($1.value1, $1.value2) }
+			.map(\.element)
+	}
 }
 
 extension Dictionary {
