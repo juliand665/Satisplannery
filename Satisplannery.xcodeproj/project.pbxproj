@@ -32,7 +32,9 @@
 		B945245028D1586600D9937B /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B945244F28D1586600D9937B /* GameData.swift */; };
 		B945245228D158A200D9937B /* ItemViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B945245128D158A200D9937B /* ItemViews.swift */; };
 		B945245528D1695C00D9937B /* UserDefault in Frameworks */ = {isa = PBXBuildFile; productRef = B945245428D1695C00D9937B /* UserDefault */; };
-		B94C274C28DFA9DD00402AAA /* Compatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94C274B28DFA9DD00402AAA /* Compatibility.swift */; };
+		B94C274C28DFA9DD00402AAA /* Migrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94C274B28DFA9DD00402AAA /* Migrator.swift */; };
+		B94EF54C299FD879004009AA /* ReportedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94EF54B299FD879004009AA /* ReportedError.swift */; };
+		B95BA2272957BF5D00176E4A /* ProcessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95BA2262957BF5D00176E4A /* ProcessManager.swift */; };
 		B9891E6528E32D52005D45E7 /* ReorderingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9891E6428E32D52005D45E7 /* ReorderingView.swift */; };
 		B9B11A6528DC06E8006EC232 /* SwiftUI+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B11A6428DC06E8006EC232 /* SwiftUI+Helpers.swift */; };
 		B9B11A6728DC093D006EC232 /* BuildingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B11A6628DC093D006EC232 /* BuildingView.swift */; };
@@ -76,7 +78,9 @@
 		B945244D28D14A0100D9937B /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		B945244F28D1586600D9937B /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 		B945245128D158A200D9937B /* ItemViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViews.swift; sourceTree = "<group>"; };
-		B94C274B28DFA9DD00402AAA /* Compatibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compatibility.swift; sourceTree = "<group>"; };
+		B94C274B28DFA9DD00402AAA /* Migrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Migrator.swift; sourceTree = "<group>"; };
+		B94EF54B299FD879004009AA /* ReportedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportedError.swift; sourceTree = "<group>"; };
+		B95BA2262957BF5D00176E4A /* ProcessManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessManager.swift; sourceTree = "<group>"; };
 		B9891E6428E32D52005D45E7 /* ReorderingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReorderingView.swift; sourceTree = "<group>"; };
 		B9B11A6428DC06E8006EC232 /* SwiftUI+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+Helpers.swift"; sourceTree = "<group>"; };
 		B9B11A6628DC093D006EC232 /* BuildingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingView.swift; sourceTree = "<group>"; };
@@ -112,7 +116,8 @@
 				B9269B6F28D22BE300B95697 /* ObjectID.swift */,
 				B9269B7128D22BFE00B95697 /* ItemBag.swift */,
 				B9269B7328D22C2200B95697 /* Crafting.swift */,
-				B94C274B28DFA9DD00402AAA /* Compatibility.swift */,
+				B94C274B28DFA9DD00402AAA /* Migrator.swift */,
+				B95BA2262957BF5D00176E4A /* ProcessManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -166,6 +171,7 @@
 				B945244D28D14A0100D9937B /* images */,
 				B945242828D1109200D9937B /* Satisplannery.entitlements */,
 				B945242928D1109200D9937B /* Preview Content */,
+				B94EF54B299FD879004009AA /* ReportedError.swift */,
 			);
 			path = Satisplannery;
 			sourceTree = "<group>";
@@ -309,9 +315,11 @@
 				B945242528D1108D00D9937B /* ContentView.swift in Sources */,
 				B9269B7D28D2518300B95697 /* Swift+Helpers.swift in Sources */,
 				B945245028D1586600D9937B /* GameData.swift in Sources */,
+				B94EF54C299FD879004009AA /* ReportedError.swift in Sources */,
 				B9269B7028D22BE300B95697 /* ObjectID.swift in Sources */,
 				B9269B7228D22BFE00B95697 /* ItemBag.swift in Sources */,
-				B94C274C28DFA9DD00402AAA /* Compatibility.swift in Sources */,
+				B94C274C28DFA9DD00402AAA /* Migrator.swift in Sources */,
+				B95BA2272957BF5D00176E4A /* ProcessManager.swift in Sources */,
 				B9269B7428D22C2200B95697 /* Crafting.swift in Sources */,
 				B9269B8628D2AC6100B95697 /* FractionEditor.swift in Sources */,
 				B945245228D158A200D9937B /* ItemViews.swift in Sources */,

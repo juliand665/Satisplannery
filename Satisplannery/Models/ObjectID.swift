@@ -4,6 +4,12 @@ struct ObjectID<Object>: Hashable {
 	var rawValue: String
 }
 
+extension ObjectID {
+	static func uuid() -> Self {
+		.init(rawValue: UUID().uuidString)
+	}
+}
+
 extension ObjectID: Codable {
 	init(from decoder: Decoder) throws {
 		let container = try decoder.singleValueContainer()

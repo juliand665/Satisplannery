@@ -6,7 +6,6 @@ import HandyOperators
 struct CraftingProcess: Identifiable, Codable {
 	let id = UUID()
 	var name: String
-	@BackwardsCompatible
 	var steps: [CraftingStep] = [] {
 		didSet { updateTotals() }
 	}
@@ -182,29 +181,4 @@ extension CraftingProcess: Transferable {
 
 extension UTType {
 	static let process = Self(exportedAs: "com.satisplannery.process")
-}
-
-extension CraftingStep: Migratable {
-	struct Old: OldVersion {
-		var recipe: FakeRecipe?
-		var recipeID: Recipe.ID?
-		var primaryOutput: Item.ID
-		var factor: Fraction
-		var setBuildings: Int?
-		var _isBuilt: Bool?
-		
-		func migrated() -> CraftingStep {
-			.init(
-				recipeID: recipeID ?? recipe!.id,
-				primaryOutput: primaryOutput,
-				factor: factor,
-				buildings: setBuildings ?? 1,
-				isBuilt: _isBuilt ?? false
-			)
-		}
-		
-		struct FakeRecipe: Decodable {
-			var id: Recipe.ID
-		}
-	}
 }
