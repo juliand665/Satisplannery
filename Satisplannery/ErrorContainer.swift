@@ -1,26 +1,25 @@
 import SwiftUI
 
-@propertyWrapper
-struct ReportedError: DynamicProperty {
-	@State var wrappedValue: DisplayedError? {
+struct ErrorContainer {
+	var error: DisplayedError? {
 		didSet {
-			isPresented = wrappedValue != nil
+			isPresented = error != nil
 		}
 	}
-	@State var isPresented = false
+	var isPresented = false
 	
-	var projectedValue: Self { self }
-	
-	func `try`<T>(
+	mutating func `try`<T>(
 		errorTitle: LocalizedStringKey = "An Error Occurred!",
 		perform action: () throws -> T
 	) -> T? {
 		do {
 			let result = try action()
-			wrappedValue = nil
+			error = nil
 			return result
 		} catch {
-			wrappedValue = .init(error: error, title: errorTitle)
+			print("try failed:", errorTitle)
+			print(error)
+			self.error = .init(error: error, title: errorTitle)
 			return nil
 		}
 	}
@@ -28,15 +27,16 @@ struct ReportedError: DynamicProperty {
 	struct DisplayedError {
 		var error: Error
 		var title: LocalizedStringKey = "An Error Occurred!"
+		var isPresented = true
 	}
 }
 
 extension View {
-	func alert(for error: ReportedError) -> some View {
+	func alert(for error: Binding<ErrorContainer>) -> some View {
 		alert(
-			error.wrappedValue?.title ?? "",
-			isPresented: error.$isPresented,
-			presenting: error.wrappedValue
+			error.wrappedValue.error?.title ?? "",
+			isPresented: error.isPresented,
+			presenting: error.wrappedValue.error
 		) { _ in
 			Button("OK") {}
 		} message: { error in

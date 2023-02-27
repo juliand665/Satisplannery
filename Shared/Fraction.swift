@@ -170,6 +170,10 @@ extension FormatStyle where Self == Fraction.Format {
 	static func fraction(alwaysShowSign: Bool = false, useDecimalFormat: Bool = false) -> Self {
 		.init(alwaysShowSign: alwaysShowSign, useDecimalFormat: useDecimalFormat)
 	}
+	
+	static func decimalFraction(alwaysShowSign: Bool = false) -> Self {
+		fraction(alwaysShowSign: alwaysShowSign, useDecimalFormat: true)
+	}
 }
 
 private func gcd(_ a: Int, _ b: Int) -> Int {

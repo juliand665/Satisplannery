@@ -102,8 +102,7 @@ struct CalculationView: View {
 	
 	@ViewBuilder
 	var inputsSection: some View {
-		let inputs = process.totals.inputs
-		if !inputs.isEmpty {
+		if !process.totals.inputs.isEmpty {
 			Section("Required Items") {
 				ForEach(process.totals.sortedInputs()) { input in
 					HStack {
@@ -157,7 +156,7 @@ struct CalculationView: View {
 				
 				if stack.amount > 0 {
 					let points = stack.resourceSinkPoints
-					Text("\(points, format: .fraction(useDecimalFormat: true)) pts")
+					Text("\(points, format: .decimalFraction()) pts")
 						.foregroundColor(.orange)
 				}
 			}

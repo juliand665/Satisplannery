@@ -39,6 +39,14 @@ struct ItemBag: Codable {
 			.map { .init(item: $0.resolved(), amount: $1) }
 			.sorted(on: \.item.name)
 	}
+	
+	static func + (lhs: Self, rhs: Self) -> Self {
+		var sum = lhs
+		for (item, count) in rhs.counts {
+			sum.counts[item, default: 0] += count
+		}
+		return sum
+	}
 }
 
 struct ResolvedStack {

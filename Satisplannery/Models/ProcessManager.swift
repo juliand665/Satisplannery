@@ -6,61 +6,69 @@ import SwiftUI
 
 final class ProcessManager: ObservableObject {
 	private static let migrator = Migrator(version: "v1", type: HierarchyNode.Folder.self)
-	@Published var rootFolder: Result<ProcessFolder, Error>!
-	@Published var saveError: Error?
-	
-	let saveSubject: PassthroughSubject<Void, Never> = .init()
+	@Published private(set) var rootFolder: Result<ProcessFolder, Error>!
+	@Published var saveError = ErrorContainer()
 	
 	private var saveToken: AnyCancellable?
 	private let rootFolderURL = Locations.rootFolder.appending(component: "processes.json")
 	
 	init() {
 		rootFolder = nil // initialize self
-		load()
 		
-		saveToken = saveSubject
-			.debounce(for: 0.5, scheduler: DispatchQueue.main)
-			.sink(receiveValue: saveRootFolder)
+		loadHierarchy()
 	}
 	
 	func reset() {
 		rootFolder = .success(.init(manager: self))
 	}
 	
-	func load() {
+	func loadHierarchy() {
 		rootFolder = .init {
-			guard FileManager.default.fileExists(atPath: rootFolderURL.path()) else {
+			guard FileManager.default.fileExists(atPath: rootFolderURL.relativePath) else {
+				print("no stored folder found!")
 				return ProcessFolder(manager: self) <- {
 					$0.tryMigrateFromLegacyStorage()
+					linkRootFolder($0)
 				}
 			}
 			
 			let raw = try Data(contentsOf: rootFolderURL)
 			let node = try Self.migrator.load(from: raw)
-			return ProcessFolder(node, manager: self)
+			return ProcessFolder(node, manager: self) <- linkRootFolder
 		}
 	}
 	
-	private func saveRootFolder() {
+	private func linkRootFolder(_ folder: ProcessFolder) {
+		saveToken = folder.objectWillChange
+			.debounce(for: 0.5, scheduler: DispatchQueue.main)
+			.sink(receiveValue: saveHierarchy)
+	}
+	
+	private func saveHierarchy() {
 		guard let folder = try? rootFolder?.get() else { return }
 		
-		do {
+		print("saving process hierarchy")
+		
+		saveError.try(errorTitle: "Could not save processes!") {
 			let raw = try Self.migrator.save(folder.asNode())
 			try raw.write(to: rootFolderURL)
-		} catch {
-			saveError = error
 		}
 	}
 }
 
-final class ProcessFolder: ObservableObject {
+final class ProcessFolder: ObservableObject, FolderEntry {
 	let id: ObjectID<ProcessFolder> = .uuid()
 	@Published var name: String
-	@Published var entries: [Entry]
+	@Published var entries: [Entry] {
+		didSet {
+			observeEntries()
+		}
+	}
+	@Published var totals: ItemBag
 	var manager: ProcessManager
-	private var saveToken: AnyCancellable?
+	private var tokens: [Entry.ID: AnyCancellable] = [:]
 	
-	convenience init(name: String = "Processes", manager: ProcessManager) {
+	convenience init(name: String = "", manager: ProcessManager) {
 		self.init(name: name, entries: [], manager: manager)
 	}
 	
@@ -68,8 +76,34 @@ final class ProcessFolder: ObservableObject {
 		self.name = name
 		self.entries = entries
 		self.manager = manager
+		self.totals = entries.totals()
 		
-		saveToken = objectWillChange.subscribe(manager.saveSubject)
+		observeEntries()
+	}
+	
+	private func observeEntries() {
+		var needsUpdate = false
+		
+		let removedIDs = Set(tokens.keys).subtracting(entries.lazy.map(\.id))
+		for id in removedIDs {
+			needsUpdate = true
+			tokens[id] = nil
+		}
+		
+		for entry in entries {
+			guard tokens[entry.id] == nil else { continue }
+			needsUpdate = true
+			tokens[entry.id] = entry.objectWillChange
+				.debounce(for: 0.5, scheduler: DispatchQueue.main)
+				.sink { [unowned self] in
+					objectWillChange.send() // somehow not automatically triggered by the totals update
+					totals = entries.totals()
+				}
+		}
+		
+		if needsUpdate {
+			totals = entries.totals()
+		}
 	}
 	
 	func copy() throws -> Self {
@@ -81,7 +115,7 @@ final class ProcessFolder: ObservableObject {
 	}
 	
 	func addSubfolder() {
-		entries.append(.folder(.init(name: "New Folder", manager: manager)))
+		entries.append(.folder(.init(name: "", manager: manager)))
 	}
 	
 	func addProcess() throws {
@@ -94,6 +128,12 @@ final class ProcessFolder: ObservableObject {
 	
 	private func wrap(_ process: CraftingProcess) throws -> Entry {
 		.process(.init(try .init(process: process), manager: manager))
+	}
+	
+	func delete() throws {
+		for entry in entries {
+			try entry.entry.delete()
+		}
 	}
 	
 	enum Entry: Identifiable {
@@ -109,6 +149,28 @@ final class ProcessFolder: ObservableObject {
 			}
 		}
 		
+		var objectWillChange: ObservableObjectPublisher {
+			entry.objectWillChange
+		}
+		
+		var totals: ItemBag {
+			switch self {
+			case .folder(let folder):
+				return folder.totals
+			case .process(let process):
+				return process.totals
+			}
+		}
+		
+		var entry: any FolderEntry {
+			switch self {
+			case .folder(let folder):
+				return folder
+			case .process(let process):
+				return process
+			}
+		}
+		
 		func copy() throws -> Self {
 			switch self {
 			case .folder(let folder):
@@ -120,7 +182,21 @@ final class ProcessFolder: ObservableObject {
 	}
 }
 
-final class ProcessEntry: ObservableObject {
+private extension Sequence where Element == ProcessFolder.Entry {
+	func totals() -> ItemBag {
+		lazy.map(\.totals).reduce(ItemBag(), +)
+	}
+}
+
+protocol FolderEntry {
+	var objectWillChange: ObservableObjectPublisher { get }
+	var totals: ItemBag { get }
+	
+	func copy() throws -> Self
+	func delete() throws
+}
+
+final class ProcessEntry: ObservableObject, FolderEntry {
 	let id: StoredProcess.ID
 	@Published var name: String
 	@Published var totals: ItemBag
@@ -139,11 +215,10 @@ final class ProcessEntry: ObservableObject {
 		self.name = name
 		self.totals = totals
 		self.manager = manager
-		
-		saveToken = objectWillChange.subscribe(manager.saveSubject)
 	}
 	
 	private func update(from process: CraftingProcess) {
+		objectWillChange.send()
 		name = process.name
 		totals = process.totals
 	}
@@ -159,7 +234,9 @@ final class ProcessEntry: ObservableObject {
 		
 		return .init {
 			try .load(for: id) <- {
-				updateToken = $0.$process.sink { [unowned self] in update(from: $0) }
+				updateToken = $0.$process
+					.receive(on: DispatchQueue.main)
+					.sink { [unowned self] in update(from: $0) }
 			}
 		} <- { loadedProcess = $0 }
 	}
@@ -171,6 +248,11 @@ final class ProcessEntry: ObservableObject {
 			totals: totals,
 			manager: manager
 		)
+	}
+	
+	func delete() throws {
+		try StoredProcess.removeData(with: id)
+		loadedProcess = nil
 	}
 }
 
@@ -213,6 +295,10 @@ final class StoredProcess: ObservableObject, Identifiable {
 		return newID
 	}
 	
+	static func removeData(with id: ID) throws {
+		try FileManager.default.removeItem(at: url(for: id))
+	}
+	
 	private static func url(for id: ID) -> URL {
 		Locations.processFolder.appending(component: "\(id.rawValue).json")
 	}
@@ -234,13 +320,10 @@ final class StoredProcess: ObservableObject, Identifiable {
 	}
 	
 	func save() throws {
+		print("saving process \(process.name)")
+		
 		let raw = try Self.migrator.save(process)
 		try raw.write(to: Self.url(for: id))
-	}
-	
-	func delete() throws {
-		try FileManager.default.removeItem(at: Self.url(for: id))
-		saveToken = nil
 	}
 }
 
