@@ -1,26 +1,36 @@
 import SwiftUI
+import Introspect
+import Combine
 
 struct ProcessView: View {
 	@Binding var process: CraftingProcess
 	@State var expandedStep: CraftingStep.ID?
 	@State var mode = Mode.calculation
 	
+	@StateObject private var tokenHolder = TokenHolder()
+	
 	var body: some View {
+		let scrollState = tokenHolder.scrollStates[mode] ?? .init()
+		
 		ZStack {
-			ReorderingView(process: $process)
-				.opacity(mode == .reordering ? 1 : 0)
-			BuildingView(process: $process)
-				.opacity(mode == .buildings ? 1 : 0)
-			CalculationView(process: $process)
-				.opacity(mode == .calculation ? 1 : 0)
+			content(for: .calculation) {
+				CalculationView(process: $process)
+			}
+			content(for: .buildings) {
+				BuildingView(process: $process)
+			}
+			content(for: .reordering) {
+				ReorderingView(process: $process)
+			}
+			
+			bottomBarHider(shouldHideBar: scrollState.isAtBottom)
 		}
+		.toolbarBackground(scrollState.isAtTop ? .hidden : .visible, for: .navigationBar) // broken for bottomBar
 		.toolbar {
 			NumberFormatToggle()
-			
-			ShareLink(item: process, preview: .init(process.name))
 		}
 		.toolbar {
-			ToolbarItemGroup(placement: .status) {
+			ToolbarItemGroup(placement: .bottomBar) {
 				Picker(selection: $mode) {
 					Text("Calculation")
 						.tag(Mode.calculation)
@@ -32,15 +42,70 @@ struct ProcessView: View {
 					.pickerStyle(.segmented)
 			}
 		}
-		.toolbar(.visible, for: .navigationBar, .bottomBar)
 		.navigationTitle(process.name.isEmpty ? "Untitled Process" : process.name)
 		.navigationBarTitleDisplayMode(.inline)
+	}
+	
+	/// `toolbarBackground(_:for:)` doesn't work for `.bottomBar`, but this does lmao
+	func bottomBarHider(shouldHideBar: Bool) -> some View {
+		GeometryReader { geometry in
+			ScrollView {
+				Rectangle().frame(
+					height: shouldHideBar
+					? 1 // hide bottom bar background
+					: geometry.size.height * 1.1 // show bottom bar background
+				)
+			}
+		}
+		.opacity(0)
+	}
+	
+	func content<Content: View>(
+		for mode: Mode,
+		@ViewBuilder content: () -> Content
+	) -> some View {
+		content()
+			.introspectCollectionView { scrollView in
+				guard tokenHolder.views[mode] !== scrollView else { return }
+				tokenHolder.views[mode] = scrollView
+				tokenHolder.tokens[mode] = scrollView
+					.publisher(for: \.contentOffset)
+					.sink { _ in
+						tokenHolder.scrollStates[mode] = .init(of: scrollView)
+					}
+			}
+			.opacity(self.mode == mode ? 1 : 0)
 	}
 	
 	enum Mode: Hashable {
 		case calculation
 		case buildings
 		case reordering
+	}
+	
+	private final class TokenHolder: ObservableObject {
+		var tokens: [Mode: AnyCancellable] = [:]
+		var views: [Mode: UIScrollView] = [:]
+		@Published var scrollStates: [Mode: ScrollState] = [:]
+	}
+	
+	private struct ScrollState: Equatable {
+		var isAtTop, isAtBottom: Bool
+		
+		init() {
+			// conservative
+			isAtTop = false
+			isAtBottom = false
+		}
+		
+		init(of scrollView: UIScrollView) {
+			let tolerance: CGFloat = 5
+			let topOffset = scrollView.contentOffset.y + scrollView.adjustedContentInset.top
+			isAtTop = topOffset <= tolerance
+			let bottomOffset = scrollView.contentSize.height - scrollView.contentOffset.y
+			let bottom = scrollView.frame.height - scrollView.adjustedContentInset.bottom
+			isAtBottom = bottomOffset <= bottom + tolerance
+		}
 	}
 }
 

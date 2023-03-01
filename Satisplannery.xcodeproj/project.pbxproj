@@ -40,6 +40,7 @@
 		B9B11A6728DC093D006EC232 /* BuildingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B11A6628DC093D006EC232 /* BuildingView.swift */; };
 		B9B11A6928DC99FD006EC232 /* CalculationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B11A6828DC99FD006EC232 /* CalculationView.swift */; };
 		B9C4484729AD0FD80055B158 /* CustomPasteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C4484629AD0FD80055B158 /* CustomPasteButton.swift */; };
+		B9C4484A29AFBEC40055B158 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = B9C4484929AFBEC40055B158 /* Introspect */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -95,6 +96,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9269B7B28D2490800B95697 /* Algorithms in Frameworks */,
+				B9C4484A29AFBEC40055B158 /* Introspect in Frameworks */,
 				B945245528D1695C00D9937B /* UserDefault in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,6 +226,7 @@
 			packageProductDependencies = (
 				B945245428D1695C00D9937B /* UserDefault */,
 				B9269B7A28D2490800B95697 /* Algorithms */,
+				B9C4484929AFBEC40055B158 /* Introspect */,
 			);
 			productName = Satisplannery;
 			productReference = B945241F28D1108D00D9937B /* Satisplannery.app */;
@@ -282,6 +285,7 @@
 				B945245328D1695C00D9937B /* XCRemoteSwiftPackageReference "UserDefault" */,
 				B9269B7928D2490800B95697 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
 				B9269B8228D2929800B95697 /* XCRemoteSwiftPackageReference "HandyOperators" */,
+				B9C4484829AFBEC40055B158 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = B945242028D1108D00D9937B /* Products */;
 			projectDirPath = "";
@@ -643,6 +647,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		B9C4484829AFBEC40055B158 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -665,6 +677,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B945245328D1695C00D9937B /* XCRemoteSwiftPackageReference "UserDefault" */;
 			productName = UserDefault;
+		};
+		B9C4484929AFBEC40055B158 /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B9C4484829AFBEC40055B158 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
