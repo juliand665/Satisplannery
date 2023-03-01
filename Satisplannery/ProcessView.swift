@@ -32,6 +32,7 @@ struct ProcessView: View {
 					.pickerStyle(.segmented)
 			}
 		}
+		.toolbar(.visible, for: .navigationBar, .bottomBar)
 		.navigationTitle(process.name.isEmpty ? "Untitled Process" : process.name)
 		.navigationBarTitleDisplayMode(.inline)
 	}

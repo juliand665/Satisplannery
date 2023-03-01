@@ -133,15 +133,16 @@ extension Fraction {
 		
 		func format(_ value: Fraction) -> String {
 			let sign = alwaysShowSign && value > 0 ? "+" : ""
-			let number: String
+			var number: String
 			if useDecimalFormat {
-				number = value.approximation.formatted(.number.precision(.significantDigits(0..<5))) <- { decimal in
-					let reparsed = Fraction(decimal)!
-					if reparsed != value {
-						//print("fraction \(value) (\(decimal)) was imprecisely reparsed as \(reparsed)")
-						let last = decimal.removeLast()
-						decimal.append(Self.underlines[last] ?? last)
-					}
+				number = value.approximation.formatted(.number
+					.precision(.significantDigits(0..<5))
+				)
+				let reparsed = Fraction(number)!
+				if reparsed != value {
+					//print("fraction \(value) (\(decimal)) was imprecisely reparsed as \(reparsed)")
+					let last = number.removeLast()
+					number.append(Self.underlines[last] ?? last)
 				}
 			} else {
 				number = value.description

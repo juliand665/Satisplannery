@@ -93,7 +93,7 @@ final class ProcessFolder: ObservableObject, FolderEntry {
 		for entry in entries {
 			guard tokens[entry.id] == nil else { continue }
 			needsUpdate = true
-			tokens[entry.id] = entry.objectWillChange
+			tokens[entry.id] = entry.entry.objectWillChange
 				.debounce(for: 0.5, scheduler: DispatchQueue.main)
 				.sink { [unowned self] in
 					objectWillChange.send() // somehow not automatically triggered by the totals update
@@ -136,6 +136,17 @@ final class ProcessFolder: ObservableObject, FolderEntry {
 		}
 	}
 	
+	func deleteEntries(atOffsets indices: IndexSet) {
+		for index in indices {
+			do {
+				try entries[index].entry.delete()
+			} catch {
+				print("error deleting entry \(entries[index]):", error)
+			}
+		}
+		entries.remove(atOffsets: indices)
+	}
+	
 	enum Entry: Identifiable {
 		case folder(ProcessFolder)
 		case process(ProcessEntry)
@@ -147,10 +158,6 @@ final class ProcessFolder: ObservableObject, FolderEntry {
 			case .process(let process):
 				return .init(rawValue: process.id.rawValue)
 			}
-		}
-		
-		var objectWillChange: ObservableObjectPublisher {
-			entry.objectWillChange
 		}
 		
 		var totals: ItemBag {

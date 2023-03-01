@@ -66,16 +66,7 @@ struct FolderView: View {
 					}
 				}
 			}
-			.onDelete {
-				for index in $0 {
-					do {
-						try folder.entries[index].entry.delete()
-					} catch {
-						print("error deleting entry \(folder.entries[index]):", error)
-					}
-				}
-				folder.entries.remove(atOffsets: $0)
-			}
+			.onDelete { folder.deleteEntries(atOffsets: $0) }
 			.onMove { folder.entries.move(fromOffsets: $0, toOffset: $1) }
 			// TODO: only allow while editing? to make it possible to drag & drop into folders
 			// turns out that doesn't help either… not sure how to make it possible
@@ -131,7 +122,7 @@ struct FolderView: View {
 				HStack(spacing: 16) {
 					VStack(alignment: .leading) {
 						Text(folder.name)
-						Text("^[\(folder.entries.count) entry](inflect: true)")
+						Text("^[\(folder.entries.count) entries](inflect: true)")
 							.font(.footnote)
 							.foregroundStyle(.secondary)
 					}
