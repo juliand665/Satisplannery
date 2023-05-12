@@ -4,13 +4,14 @@ struct ReorderingView: View {
 	@Binding var process: CraftingProcess
 	
 	var body: some View {
-		Form {
+		List {
 			ForEach($process.steps) { $step in
 				StepRow(step: step)
 			}
 			.onDelete { process.steps.remove(atOffsets: $0) }
 			.onMove { process.steps.move(fromOffsets: $0, toOffset: $1) }
 		}
+		.listStyle(.grouped)
 	}
 	
 	struct StepRow: View {

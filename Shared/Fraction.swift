@@ -15,6 +15,14 @@ struct Fraction: SignedNumeric, Hashable, Codable {
 		.init(numerator) / .init(denominator)
 	}
 	
+	var floor: Int {
+		numerator / denominator
+	}
+	
+	var ceil: Int {
+		1 + (numerator - 1) / denominator
+	}
+	
 	init(_ numerator: Int, _ denominator: Int = 1) {
 		self.numerator = numerator
 		self.denominator = denominator

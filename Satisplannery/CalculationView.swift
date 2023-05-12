@@ -168,7 +168,6 @@ struct StepSection: View {
 	@Binding var step: CraftingStep
 	var process: CraftingProcess
 	@Binding var isExpanded: Bool
-	@FocusState var isMultiplierFocused: Bool
 	
 	var body: some View {
 		headerCell
@@ -177,12 +176,6 @@ struct StepSection: View {
 			multiplierCell
 			recipePicker
 			ingredientsInfo
-			
-			HStack {
-				Text("Producers")
-				Spacer()
-				FractionEditor.forAmount($step.factor, multipliedBy: step.recipe.craftingTime / 60)
-			}
 		}
 	}
 	
@@ -201,16 +194,14 @@ struct StepSection: View {
 	
 	var multiplierCell: some View {
 		HStack {
-			Text("Multiplier")
+			Text("Producers")
 			Spacer()
-			HStack(spacing: 4) {
-				FractionEditor(label: "Multiplier", value: $step.factor)
-					.focused($isMultiplierFocused)
-				Text("×")
-			}
-		}
-		.onTapGesture {
-			isMultiplierFocused = true
+			FractionEditor.forAmount(
+				$step.factor,
+				multipliedBy: step.recipe.craftingTime / 60,
+				shouldColorize: false,
+				alwaysShowSign: false
+			)
 		}
 	}
 	
@@ -225,7 +216,7 @@ struct StepSection: View {
 				}
 			} label: {
 				Text("Recipe")
-					.fixedSize() // funnily enough this looks like the best way go give the actual content more horizontal space
+					.fixedSize() // funnily enough this looks like the best way to give the actual content more horizontal space
 			}
 		}
 	}

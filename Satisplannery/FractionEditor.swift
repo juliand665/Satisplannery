@@ -32,7 +32,7 @@ struct FractionEditor: View {
 }
 
 extension FractionEditor {
-	static func forAmount(_ amount: Binding<Fraction>, multipliedBy factor: Fraction) -> some View {
+	static func forAmount(_ amount: Binding<Fraction>, multipliedBy factor: Fraction, shouldColorize: Bool = true, alwaysShowSign: Bool = true) -> some View {
 		Self(
 			label: "Amount",
 			value: Binding {
@@ -40,9 +40,9 @@ extension FractionEditor {
 			} set: {
 				amount.wrappedValue = ($0 / factor).matchingSign(of: amount.wrappedValue)
 			},
-			alwaysShowSign: true
+			alwaysShowSign: alwaysShowSign
 		)
-		.coloredBasedOn(amount.wrappedValue * factor)
+		.coloredBasedOn(shouldColorize ? amount.wrappedValue * factor : 0)
 	}
 }
 

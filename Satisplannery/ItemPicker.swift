@@ -1,4 +1,5 @@
 import SwiftUI
+import RegexBuilder
 
 struct ItemPicker: View {
 	private static let craftableItems = Set(
@@ -14,8 +15,7 @@ struct ItemPicker: View {
 	@Environment(\.dismiss) private var dismiss
 	
 	var body: some View {
-		let search = search.lowercased()
-		let items = Self.craftableItems.filter { $0.name.lowercased().hasPrefix(search) }
+		let items = Self.craftableItems.filter { searchAccepts($0.name) }
 		List(items) { item in
 			Button {
 				withAnimation {
@@ -34,6 +34,13 @@ struct ItemPicker: View {
 		}
 		.searchable(text: $search)
 		.navigationTitle("Choose an Item")
+	}
+	
+	func searchAccepts(_ candidate: String) -> Bool {
+		candidate.firstMatch(of: Regex {
+			Anchor.wordBoundary
+			search
+		}.ignoresCase()) != nil
 	}
 }
 

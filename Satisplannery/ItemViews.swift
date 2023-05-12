@@ -81,6 +81,8 @@ struct ProductIcon: View {
 			Text(amount, format: .fraction(useDecimalFormat: isDisplayingAsDecimals))
 				.font(.caption)
 				.foregroundStyle(.secondary)
+				.lineLimit(1)
+				.minimumScaleFactor(0.5)
 		}
 	}
 }

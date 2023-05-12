@@ -53,7 +53,7 @@ struct ProcessView: View {
 				Rectangle().frame(
 					height: shouldHideBar
 					? 1 // hide bottom bar background
-					: geometry.size.height * 1.1 // show bottom bar background
+					: geometry.size.height * 1.5 // show bottom bar background
 				)
 			}
 		}
@@ -70,6 +70,7 @@ struct ProcessView: View {
 				tokenHolder.views[mode] = scrollView
 				tokenHolder.tokens[mode] = scrollView
 					.publisher(for: \.contentOffset)
+					.receive(on: DispatchQueue.main)
 					.sink { _ in
 						tokenHolder.scrollStates[mode] = .init(of: scrollView)
 					}

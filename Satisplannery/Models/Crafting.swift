@@ -40,7 +40,11 @@ struct CraftingProcess: Identifiable, Codable {
 	}
 	
 	mutating func addStep(using recipe: Recipe, for output: Item.ID) {
-		steps.append(.init(recipeID: recipe.id, primaryOutput: output))
+		steps.append(.init(
+			recipeID: recipe.id,
+			primaryOutput: output,
+			factor: 60 / recipe.craftingTime // start at 100% clock speed
+		))
 	}
 	
 	mutating func updateTotals() {
@@ -139,10 +143,10 @@ struct PowerConsumption: Hashable {
 	var formatted: String {
 		let numberFormat = FloatingPointFormatStyle<Double>.number
 			.precision(.significantDigits(0..<4))
-		if min == max {
-			return "\(min.formatted(numberFormat)) MW"
-		} else {
+		if min != max { // NaN not formatted as range
 			return "\(min.formatted(numberFormat)) – \(max.formatted(numberFormat)) MW"
+		} else {
+			return "\(min.formatted(numberFormat)) MW"
 		}
 	}
 	

@@ -4,7 +4,7 @@ struct BuildingView: View {
 	@Binding var process: CraftingProcess
 	
 	var body: some View {
-		Form {
+		List {
 			totalsSection
 			
 			ForEach($process.steps) { $step in
@@ -12,10 +12,11 @@ struct BuildingView: View {
 			}
 		}
 		.scrollDismissesKeyboard(.interactively)
+		.listStyle(.grouped) // not inset, for more horizontal space
 	}
 	
 	var totalsSection: some View {
-		Section("Totals") {
+		Section {
 			let powerConsumption = process.powerConsumption()
 			HStack {
 				Text("Power Consumption")
@@ -49,6 +50,10 @@ struct BuildingView: View {
 					}
 				}
 			}
+		} header: {
+			Text("Totals")
+		} footer: {
+			Text("Tap a step below to mark it as complete.")
 		}
 	}
 	
@@ -67,7 +72,7 @@ struct BuildingView: View {
 		var body: some View {
 			HStack(spacing: 16) {
 				itemsView
-					.frame(maxWidth: 128)
+					.frame(maxWidth: .infinity)
 				
 				Divider()
 				
@@ -89,7 +94,6 @@ struct BuildingView: View {
 				}
 				.animation(.easeOut, value: step.isBuilt)
 			}
-			.alignmentGuide(.listRowSeparatorLeading) { $0[.leading] }
 			.onTapGesture {
 				step.isBuilt.toggle()
 				if step.isBuilt {
@@ -133,7 +137,7 @@ struct BuildingView: View {
 		
 		var itemsView: some View {
 			VStack(spacing: 8) {
-				HStack {
+				HStack(alignment: .top) {
 					ForEach(step.recipe.products.sorted { $1.item != step.primaryOutput }, id: \.item) { product in
 						ProductIcon(product: product, factor: step.factor, maxSize: 48)
 					}
@@ -142,22 +146,11 @@ struct BuildingView: View {
 				Image(systemName: "chevron.compact.up")
 					.opacity(0.25)
 				
-				HStack {
+				HStack(alignment: .top) {
 					ForEach(step.recipe.ingredients, id: \.item) { product in
 						ProductIcon(product: product, factor: step.factor, maxSize: 32)
 					}
 				}
-			}
-		}
-		
-		func productIcon(for product: ItemStack, maxSize: CGFloat) -> some View {
-			VStack(spacing: maxSize / 24) {
-				let item = product.item.resolved()
-				item.icon.frame(maxWidth: maxSize)
-				let amount = product.amount * step.factor * item.multiplier
-				Text(amount, format: .fraction(useDecimalFormat: isDisplayingAsDecimals))
-					.font(.caption)
-					.foregroundStyle(.secondary)
 			}
 		}
 		
@@ -182,6 +175,7 @@ struct BuildingView: View {
 							Text(100 * clockSpeed, format: .fraction(useDecimalFormat: isDisplayingAsDecimals))
 							Text("%")
 						}
+						.foregroundColor(clockSpeed > Fraction(5, 2) ? .red : clockSpeed > 1 ? .mint : nil)
 						Image(systemName: "speedometer")
 					}
 					
@@ -195,25 +189,52 @@ struct BuildingView: View {
 			}
 		}
 		
+		@ViewBuilder
 		var stepper: some View {
-			VStack {
-				let buttonSize = 32.0
-				
-				Button {
-					step.buildings += 1
-				} label: {
-					Label("Increase Buildings", systemImage: "plus")
-						.frame(width: buttonSize - 14, height: buttonSize - 4)
-				}
-				Button {
-					step.buildings -= 1
-				} label: {
-					Label("Decrease Buildings", systemImage: "minus")
-						.frame(width: buttonSize - 14, height: buttonSize - 4)
+			VStack(spacing: 1) {
+				Group {
+					stepperButton {
+						step.buildings += 1
+					} label: {
+						Label("Increase Buildings", systemImage: "plus")
+					}
+					
+					let ideal = (step.factor * step.recipe.craftingTime / 60).ceil
+					stepperButton(disabled: step.buildings == ideal) {
+						step.buildings = ideal
+					} label: {
+						Label("Automatically Set Buildings", systemImage: "equal")
+					}
+					
+					stepperButton(disabled: step.buildings <= 1) {
+						step.buildings -= 1
+					} label: {
+						Label("Decrease Buildings", systemImage: "minus")
+					}
 				}
 			}
+			.cornerRadius(8)
+			.compositingGroup()
 			.labelStyle(.iconOnly)
-			.buttonStyle(.bordered)
+			.buttonStyle(.plain)
+		}
+		
+		func stepperButton<Label: View>(
+			disabled: Bool = false,
+			action: @escaping () -> Void,
+			@ViewBuilder label: () -> Label
+		) -> some View {
+			Button {
+				action()
+			} label: {
+				label()
+					.frame(width: 36, height: 36)
+					.contentShape(Rectangle())
+					.foregroundColor(.accentColor)
+					.background(Color.accentColor.opacity(0.2))
+			}
+			.disabled(disabled)
+			.onTapGesture {} // absorb tap gesture so it doesn't pass through to the completion gesture
 		}
 	}
 }
@@ -221,7 +242,15 @@ struct BuildingView: View {
 struct BuildingView_Previews: PreviewProvider {
     static var previews: some View {
 		NavigationStack {
-			BuildingView(process: .constant(.example))
+			StateWrapper(process: .example)
 		}
     }
+	
+	struct StateWrapper: View {
+		@State var process: CraftingProcess
+		
+		var body: some View {
+			BuildingView(process: $process)
+		}
+	}
 }
