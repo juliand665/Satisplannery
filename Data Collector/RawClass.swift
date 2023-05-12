@@ -47,9 +47,11 @@ struct RawClass {
 
 struct ProbablyString: Decodable {
 	var value: String?
+	var values: [[String: String]]?
 	
 	init(from decoder: Decoder) throws {
 		let container = try decoder.singleValueContainer()
 		value = try? container.decode(String.self)
+		values = try? container.decode([[String: String]].self)
 	}
 }

@@ -1,5 +1,12 @@
 import Foundation
 import SimpleParser
+import HandyOperators
+
+//let pts = Fraction(732956)
+//let format = Fraction.Format.decimalFraction()
+//print(format.format(pts))
+//
+//print("0123456789".map { "\($0)\u{0332}" }.joined())
 
 let fileManager = FileManager.default
 
@@ -29,15 +36,50 @@ func decodeClasses<T: Class>(of type: T.Type = T.self) -> [T] {
 
 print("decoding assets…")
 
-let producers = decodeClasses(of: FGBuildableManufacturer.self)
-let automatedProducers = Set(producers.map(\.id))
+let nuclearPlants = decodeClasses(of: FGBuildableGeneratorNuclear.self)
+assert(nuclearPlants.count == 1)
+let nuclearPlant = nuclearPlants.first!
 
+let producers = decodeClasses(of: FGBuildableManufacturer.self) <- {
+	$0.append(nuclearPlant.buildable <- {
+		$0.powerConsumption = -nuclearPlant.powerProduction
+		$0.powerConsumptionExponent = 1
+	})
+}
+
+let automatedProducers = Set(producers.map(\.id))
 let producerDescriptors = decodeClasses(of: FGBuildingDescriptor.self)
 	.filter { automatedProducers.contains($0.id) }
 
-let recipes = decodeClasses(of: FGRecipe.self)
+let nuclearFuels = decodeClasses(of: FGItemDescriptorNuclearFuel.self)
+let nuclearRecipeNames = [
+	"Desc_NuclearFuelRod_C": "Nuclear Power: Uranium",
+	"Desc_PlutoniumFuelRod_C": "Nuclear Power: Plutonium",
+]
+let nuclearRecipes = nuclearPlant.fuels.map { process in
+	let fuel = nuclearFuels.first { $0.id == process.fuel }!
+	let powerProduced = fuel.energyValue
+	assert(process.byproductAmount == fuel.amountOfWaste)
+	let supplementalAmount = powerProduced * nuclearPlant.supplementalToPowerRatio
+	return FGRecipe(
+		id: process.fuel,
+		name: nuclearRecipeNames[process.fuel]!,
+		ingredients: [
+			.init(item: process.fuel, amount: 1),
+			.init(item: process.supplemental, amount: supplementalAmount.intValue!)
+		],
+		products: [.init(item: process.byproduct, amount: process.byproductAmount)],
+		craftingTime: powerProduced / .init(nuclearPlant.powerProduction),
+		producedIn: [nuclearPlant.buildable.id],
+		variablePowerConsumptionConstant: 1,
+		variablePowerConsumptionFactor: 0
+	)
+}
+
+let recipes = decodeClasses(of: FGRecipe.self) + nuclearRecipes
+
 print(recipes.count, "recipes")
-let relevantRecipes = recipes.filter {
+let relevantRecipes: [FGRecipe] = recipes.filter {
 	!automatedProducers.isDisjoint(with: $0.producedIn)
 }
 print(relevantRecipes.count, "relevant recipes")

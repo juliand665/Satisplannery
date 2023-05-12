@@ -8,6 +8,13 @@
       "resourceSinkPoints" : 0
     },
     {
+      "description" : "The by-product of consuming Plutonium Fuel Rods in the Nuclear Power Plant.\r\nNeeds to be stored in a safe location. Handle with caution.\r\n\r\nCaution: EXTREMELY Radioactive.",
+      "id" : "Desc_PlutoniumWaste_C",
+      "isFluid" : false,
+      "name" : "Plutonium Waste",
+      "resourceSinkPoints" : 0
+    },
+    {
       "description" : "Primarily used as fuel for Drones and Vehicles.",
       "id" : "Desc_Battery_C",
       "isFluid" : false,
@@ -1122,6 +1129,17 @@
         "numerator" : 1321929
       },
       "usesVariablePower" : true
+    },
+    {
+      "description" : "Consumes Nuclear Fuel Rods and Water to produce electricity for the power grid.\r\n\r\nProduces Nuclear Waste, which is extracted from the conveyor belt output.\r\n\r\nCaution: Always generates at the set clock speed. Shuts down if fuel requirements are not met.",
+      "id" : "Build_GeneratorNuclear_C",
+      "name" : "Nuclear Power Plant",
+      "powerConsumption" : -2500,
+      "powerConsumptionExponent" : {
+        "denominator" : 1,
+        "numerator" : 1
+      },
+      "usesVariablePower" : false
     }
   ],
   "recipes" : [
@@ -7928,6 +7946,64 @@
       ],
       "variablePowerConsumptionConstant" : 0,
       "variablePowerConsumptionFactor" : 1
+    },
+    {
+      "craftingTime" : {
+        "denominator" : 1,
+        "numerator" : 300
+      },
+      "id" : "Desc_NuclearFuelRod_C",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_NuclearFuelRod_C"
+        },
+        {
+          "amount" : 1200000,
+          "item" : "Desc_Water_C"
+        }
+      ],
+      "name" : "Nuclear Power: Uranium",
+      "producedIn" : [
+        "Build_GeneratorNuclear_C"
+      ],
+      "products" : [
+        {
+          "amount" : 50,
+          "item" : "Desc_NuclearWaste_C"
+        }
+      ],
+      "variablePowerConsumptionConstant" : 1,
+      "variablePowerConsumptionFactor" : 0
+    },
+    {
+      "craftingTime" : {
+        "denominator" : 1,
+        "numerator" : 600
+      },
+      "id" : "Desc_PlutoniumFuelRod_C",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_PlutoniumFuelRod_C"
+        },
+        {
+          "amount" : 2400000,
+          "item" : "Desc_Water_C"
+        }
+      ],
+      "name" : "Nuclear Power: Plutonium",
+      "producedIn" : [
+        "Build_GeneratorNuclear_C"
+      ],
+      "products" : [
+        {
+          "amount" : 10,
+          "item" : "Desc_PlutoniumWaste_C"
+        }
+      ],
+      "variablePowerConsumptionConstant" : 1,
+      "variablePowerConsumptionFactor" : 0
     }
   ]
 }

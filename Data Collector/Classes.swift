@@ -54,7 +54,7 @@ struct FGItemDescriptor: ClassWithIcon, Encodable {
 	}
 }
 
-struct FGRecipe: Class, Encodable {
+struct FGRecipe: Encodable {
 	var id: String
 	var name: String
 	var ingredients: [ItemStack]
@@ -63,7 +63,9 @@ struct FGRecipe: Class, Encodable {
 	var producedIn: [String]
 	var variablePowerConsumptionConstant: Int
 	var variablePowerConsumptionFactor: Int
-	
+}
+
+extension FGRecipe: Class {
 	init(raw: RawClass) {
 		id = raw.name
 		name = raw.displayName
@@ -82,15 +84,17 @@ extension Fraction {
 	}
 }
 
-struct FGBuildableManufacturer: Class, Encodable {
-	static let classNames = ["FGBuildableManufacturer", "FGBuildableManufacturerVariablePower"]
-	
+struct FGBuildableManufacturer: Encodable {
 	var id: String
 	var name: String
 	var description: String
 	var powerConsumption: Int
 	var powerConsumptionExponent: Fraction
 	var usesVariablePower: Bool
+}
+
+extension FGBuildableManufacturer: Class {
+	static let classNames = ["FGBuildableManufacturer", "FGBuildableManufacturerVariablePower"]
 	
 	init(raw: RawClass) {
 		id = raw.name
@@ -99,6 +103,48 @@ struct FGBuildableManufacturer: Class, Encodable {
 		powerConsumption = Fraction(raw.powerConsumption)!.intValue!
 		powerConsumptionExponent = .init(raw.powerConsumptionExponent)!
 		usesVariablePower = raw.nativeClass == "Class'/Script/FactoryGame.FGBuildableManufacturerVariablePower'"
+	}
+}
+
+struct FGBuildableGeneratorNuclear: Class {
+	var buildable: FGBuildableManufacturer
+	var powerProduction: Int
+	var supplementalToPowerRatio: Fraction
+	var fuels: [Fuel]
+	
+	init(raw: RawClass) {
+		buildable = .init(raw: raw)
+		powerProduction = Fraction(raw.powerProduction)!.intValue!
+		supplementalToPowerRatio = Fraction(raw.supplementalToPowerRatio)!
+		fuels = raw.data["mFuel"]!.values!.map {
+			Fuel(
+				fuel: $0["mFuelClass"]!,
+				supplemental: $0["mSupplementalResourceClass"]!,
+				byproduct: $0["mByproduct"]!,
+				byproductAmount: .init($0["mByproductAmount"]!)!
+			)
+		}
+	}
+	
+	struct Fuel {
+		var fuel: String
+		var supplemental: String
+		var byproduct: String
+		var byproductAmount: Int
+	}
+}
+
+struct FGItemDescriptorNuclearFuel: Class {
+	var id: String
+	var spentFuel: String
+	var amountOfWaste: Int
+	var energyValue: Fraction
+	
+	init(raw: RawClass) {
+		id = raw.name
+		spentFuel = raw.spentFuelClass
+		amountOfWaste = raw.amountOfWaste
+		energyValue = .init(raw.energyValue)!
 	}
 }
 
@@ -130,7 +176,9 @@ struct Path: Parseable {
 struct ItemStack: Parseable, Encodable, Hashable {
 	var item: String
 	var amount: Int
-	
+}
+
+extension ItemStack {
 	init(from parser: inout Parser) {
 		parser.consume("(ItemClass=BlueprintGeneratedClass'\"")
 		parser.consume(through: ".") // only class name
