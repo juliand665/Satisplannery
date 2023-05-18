@@ -130,10 +130,8 @@ struct NumberFormatToggle: View {
 	@Binding private var isDisplayingAsDecimals
 	
 	var body: some View {
-		Button {
-			isDisplayingAsDecimals.toggle()
-		} label: {
-			Label("Number Format", systemImage: "number")
+		Toggle(isOn: _isDisplayingAsDecimals.wrappedValue) {
+			Label("Number Format", systemImage: "textformat.123")
 		}
 	}
 }

@@ -31,6 +31,8 @@ struct FolderView: View {
 	@State var errorContainer = ErrorContainer()
 	
 	var body: some View {
+		let isRoot = folder === (try? folder.manager.rootFolder.get())
+		
 		List {
 			Section {
 				HStack {
@@ -94,10 +96,14 @@ struct FolderView: View {
 				Label("Paste Process", systemImage: "doc.on.clipboard")
 			}
 			
-			let isRoot = folder === (try? folder.manager.rootFolder.get())
 			if !isRoot {
 				outputsSection
 				inputsSection
+			}
+		}
+		.toolbar {
+			if !isRoot {
+				NumberFormatToggle()
 			}
 		}
 		.scrollDismissesKeyboard(.automatic)
@@ -171,9 +177,7 @@ struct FolderView: View {
 		if !folder.totals.outputs.isEmpty {
 			Section {
 				ForEach(folder.totals.sortedOutputs()) { output in
-					VStack(alignment: .leading) {
-						itemLabel(for: output)
-					}
+					ItemLabel(stack: output)
 				}
 			} header: {
 				Text("Produced Items")
@@ -189,30 +193,7 @@ struct FolderView: View {
 		if !folder.totals.inputs.isEmpty {
 			Section("Required Items") {
 				ForEach(folder.totals.sortedInputs()) { input in
-					itemLabel(for: input)
-				}
-			}
-		}
-	}
-	
-	func itemLabel(for stack: ResolvedStack) -> some View {
-		HStack {
-			stack.item.icon.frame(width: 48)
-			
-			Text(stack.item.name)
-			
-			Spacer()
-			
-			VStack(alignment: .trailing) {
-				let itemCount = stack.realAmount
-				
-				Text(itemCount, format: .decimalFraction(alwaysShowSign: true))
-					.foregroundColor(itemCount > 0 ? .green : .red)
-				
-				if stack.amount > 0 {
-					let points = stack.resourceSinkPoints
-					Text("\(points, format: .decimalFraction()) pts")
-						.foregroundColor(.orange)
+					ItemLabel(stack: input)
 				}
 			}
 		}

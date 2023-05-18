@@ -131,35 +131,19 @@ struct CalculationView: View {
 	}
 	
 	func itemLabel(for stack: ResolvedStack) -> some View {
-		HStack {
-			stack.item.icon.frame(width: 48)
-			
-			Text(stack.item.name)
-			
-			Spacer()
-			
-			VStack(alignment: .trailing) {
-				let itemCount = stack.realAmount
-				
-				FractionEditor(
-					label: "Production",
-					value: Binding {
-						itemCount
-					} set: {
-						// don't use the captured count, compute the current one instead
-						let itemCount = stack.item.multiplier * process.totals.counts[stack.item.id]!
-						process.scale(by: abs($0 / itemCount))
-					},
-					alwaysShowSign: true
-				)
-				.coloredBasedOn(itemCount)
-				
-				if stack.amount > 0 {
-					let points = stack.resourceSinkPoints
-					Text("\(points, format: .decimalFraction()) pts")
-						.foregroundColor(.orange)
-				}
-			}
+		ItemLabel(stack: stack) { itemCount in
+			FractionEditor(
+				label: "Production",
+				value: Binding {
+					itemCount
+				} set: {
+					// don't use the captured count, compute the current one instead
+					let itemCount = stack.item.multiplier * process.totals.counts[stack.item.id]!
+					process.scale(by: abs($0 / itemCount))
+				},
+				alwaysShowSign: true
+			)
+			// TODO: disallow pressing add button while this is focused, otherwise it crashes lol
 		}
 	}
 }
@@ -199,8 +183,7 @@ struct StepSection: View {
 			FractionEditor.forAmount(
 				$step.factor,
 				multipliedBy: step.recipe.craftingTime / 60,
-				shouldColorize: false,
-				alwaysShowSign: false
+				shouldColorize: false
 			)
 		}
 	}

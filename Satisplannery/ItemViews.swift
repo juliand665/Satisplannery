@@ -31,36 +31,39 @@ extension Image {
 	}
 }
 
-struct ItemLabel: View {
-	var item: Item
-	var amount: Fraction
+struct ItemLabel<CountLabel: View>: View {
+	var stack: ResolvedStack
 	
-	@Environment(\.isDisplayingAsDecimals.wrappedValue)
-	var isDisplayingAsDecimals
+	@ViewBuilder var countLabel: (Fraction) -> CountLabel
 	
 	var body: some View {
 		HStack {
-			item.icon.frame(width: 48)
+			stack.item.icon.frame(width: 48)
 			
-			Text(item.name)
+			Text(stack.item.name)
 			
 			Spacer()
 			
 			VStack(alignment: .trailing) {
-				let itemCount = amount * item.multiplier
+				let itemCount = stack.realAmount
 				
-				Text(itemCount, format: .fraction(
-					alwaysShowSign: true,
-					useDecimalFormat: isDisplayingAsDecimals
-				))
-				.coloredBasedOn(amount)
+				countLabel(itemCount)
+					.coloredBasedOn(itemCount)
 				
-				if itemCount > 0 {
-					let points = itemCount * item.resourceSinkPoints
-					Text("\(points, format: .fraction(useDecimalFormat: isDisplayingAsDecimals)) pts")
+				if stack.amount > 0 {
+					let points = stack.resourceSinkPoints
+					Text("\(points, format: .decimalFraction()) pts")
 						.foregroundColor(.orange)
 				}
 			}
+		}
+	}
+}
+
+extension ItemLabel where CountLabel == FractionLabel {
+	init(stack: ResolvedStack) {
+		self.init(stack: stack) { count in
+			FractionLabel(fraction: count)
 		}
 	}
 }
