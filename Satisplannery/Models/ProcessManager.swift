@@ -19,14 +19,14 @@ final class ProcessManager: ObservableObject {
 	}
 	
 	func reset() {
-		rootFolder = .success(.init(manager: self))
+		rootFolder = .success(makeRootFolder())
 	}
 	
 	func loadHierarchy() {
 		rootFolder = .init {
 			guard FileManager.default.fileExists(atPath: rootFolderURL.relativePath) else {
 				print("no stored folder found!")
-				return ProcessFolder(manager: self) <- {
+				return makeRootFolder() <- {
 					$0.tryMigrateFromLegacyStorage()
 					linkRootFolder($0)
 				}
@@ -36,6 +36,10 @@ final class ProcessManager: ObservableObject {
 			let node = try Self.migrator.load(from: raw)
 			return ProcessFolder(node, manager: self) <- linkRootFolder
 		}
+	}
+	
+	private func makeRootFolder() -> ProcessFolder {
+		.init(name: "Processes", manager: self)
 	}
 	
 	private func linkRootFolder(_ folder: ProcessFolder) {
@@ -114,26 +118,54 @@ final class ProcessFolder: ObservableObject, FolderEntry {
 		)
 	}
 	
-	func addSubfolder() {
-		entries.append(.folder(.init(name: "", manager: manager)))
+	@discardableResult
+	func addSubfolder() -> ProcessFolder {
+		ProcessFolder(name: "", manager: manager) <- {
+			entries.append(.folder($0))
+		}
 	}
 	
 	func addProcess() throws {
 		entries.append(try wrap(CraftingProcess(name: "")))
 	}
 	
-	func add(_ processes: some Sequence<CraftingProcess>) throws {
-		entries.append(contentsOf: try processes.map(wrap))
+	func add(_ entries: some Sequence<TransferableEntry>, at index: Int? = nil) throws {
+		self.entries.insert(
+			contentsOf: try entries.lazy.map(wrap),
+			at: index ?? self.entries.endIndex
+		)
+	}
+	
+	func moveEntries(withIDs ids: Set<Entry.ID>, to destination: ProcessFolder) {
+		guard destination !== self else { return }
+		let toMove = entries.filter { ids.contains($0.id) }
+		assert(toMove.count == ids.count)
+		entries.removeAll { ids.contains($0.id) }
+		destination.entries.append(contentsOf: toMove)
 	}
 	
 	private func wrap(_ process: CraftingProcess) throws -> Entry {
 		.process(.init(try .init(process: process), manager: manager))
 	}
 	
+	private func wrap(_ entry: TransferableEntry) throws -> Entry {
+		switch entry {
+		case .process(let process):
+			return try wrap(process)
+		case .folder(let name, let entries):
+			return .folder(.init(name: name, entries: try entries.map(wrap), manager: manager))
+		}
+	}
+	
 	func delete() throws {
 		for entry in entries {
 			try entry.entry.delete()
 		}
+	}
+	
+	func deleteEntries(withIDs ids: Set<Entry.ID>) {
+		let indices = entries.indexed().lazy.filter { ids.contains($0.element.id) }.map(\.index)
+		deleteEntries(atOffsets: .init(indices))
 	}
 	
 	func deleteEntries(atOffsets indices: IndexSet) {
@@ -147,9 +179,18 @@ final class ProcessFolder: ObservableObject, FolderEntry {
 		entries.remove(atOffsets: indices)
 	}
 	
-	enum Entry: Identifiable {
+	enum Entry: Identifiable, Hashable {
 		case folder(ProcessFolder)
 		case process(ProcessEntry)
+		
+		var isFolder: Bool {
+			switch self {
+			case .folder:
+				return true
+			case .process:
+				return false
+			}
+		}
 		
 		var id: ObjectID<Self> {
 			switch self {
@@ -160,16 +201,23 @@ final class ProcessFolder: ObservableObject, FolderEntry {
 			}
 		}
 		
-		var totals: ItemBag {
-			switch self {
-			case .folder(let folder):
-				return folder.totals
-			case .process(let process):
-				return process.totals
-			}
+		static func == (lhs: Self, rhs: Self) -> Bool {
+			lhs.id == rhs.id
 		}
 		
-		var entry: any FolderEntry {
+		func hash(into hasher: inout Hasher) {
+			hasher.combine(id)
+		}
+		
+		var totals: ItemBag {
+			entry.totals
+		}
+		
+		var name: String {
+			entry.name
+		}
+		
+		fileprivate var entry: any FolderEntry {
 			switch self {
 			case .folder(let folder):
 				return folder
@@ -198,6 +246,7 @@ private extension Sequence where Element == ProcessFolder.Entry {
 protocol FolderEntry {
 	var objectWillChange: ObservableObjectPublisher { get }
 	var totals: ItemBag { get }
+	var name: String { get }
 	
 	func copy() throws -> Self
 	func delete() throws
@@ -263,9 +312,29 @@ final class ProcessEntry: ObservableObject, FolderEntry {
 	}
 }
 
-extension ProcessEntry: Transferable {
+extension ProcessFolder.Entry: Transferable {
 	static var transferRepresentation: some TransferRepresentation {
-		ProxyRepresentation(exporting: { try $0.loaded().get().process })
+		ProxyRepresentation { entry in
+			try entry.transferable()
+		}
+	}
+	
+	func transferable() throws -> TransferableEntry {
+		switch self {
+		case .process(let process):
+			return .process(try process.loaded().get().process)
+		case .folder(let folder):
+			return .folder(name: folder.name, entries: try folder.entries.map { try $0.transferable() })
+		}
+	}
+}
+
+enum TransferableEntry: Transferable, Codable {
+	case process(CraftingProcess)
+	case folder(name: String, entries: [TransferableEntry])
+	
+	static var transferRepresentation: some TransferRepresentation {
+		CodableRepresentation(contentType: .process)
 	}
 }
 

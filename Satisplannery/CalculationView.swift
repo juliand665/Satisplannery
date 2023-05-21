@@ -11,14 +11,7 @@ struct CalculationView: View {
 	var body: some View {
 		Form {
 			Section("Name") {
-				TextField("Process Name", text: Binding {
-					newName ?? process.name
-				} set: {
-					newName = $0
-				})
-				.onSubmit {
-					process.name = newName ?? process.name
-				}
+				renameField()
 			}
 			
 			outputsSection
@@ -40,6 +33,23 @@ struct CalculationView: View {
 			}
 		} message: { step in
 			Text("Delete this step for \(step.recipe.name)?")
+		}
+	}
+	
+	func renameField() -> some View {
+		HStack {
+			Text("Process Name")
+				.foregroundStyle(.secondary)
+			
+			TextField("Process Name", text: Binding {
+				newName ?? process.name
+			} set: {
+				newName = $0
+			})
+			.multilineTextAlignment(.trailing)
+			.onSubmit {
+				process.name = newName ?? process.name
+			}
 		}
 	}
 	

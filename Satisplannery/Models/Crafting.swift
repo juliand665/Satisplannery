@@ -175,14 +175,6 @@ extension Recipe {
 	}
 }
 
-extension CraftingProcess: Transferable {
-	typealias Representation = CodableRepresentation
-	
-	static var transferRepresentation: some TransferRepresentation {
-		CodableRepresentation(contentType: .process)
-	}
-}
-
 extension UTType {
 	static let process = Self(exportedAs: "com.satisplannery.process")
 }

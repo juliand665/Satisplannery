@@ -4,36 +4,73 @@ import Algorithms
 import HandyOperators
 
 struct ContentView: View {
-	@StateObject
-	var processManager = ProcessManager()
+	@StateObject var processManager = ProcessManager()
+	@State var path = NavigationPath()
 	
 	@AppStorage("decimalFormat")
 	private var isDisplayingAsDecimals = false
 	
 	var body: some View {
-		NavigationStack {
+		NavigationStack(path: $path) {
 			switch processManager.rootFolder! {
 			case .success(let folder):
 				FolderView(folder: folder)
+					.navigationDestination(for: ProcessFolder.Entry.self, destination: view(for:))
 			case .failure(let error):
 				// TODO: improve this lol
 				Text(error.localizedDescription)
 					.padding()
 			}
 		}
+		.environment(\.navigationPath, path)
 		.environment(\.isDisplayingAsDecimals, $isDisplayingAsDecimals)
 		.alert(for: $processManager.saveError)
+	}
+	
+	@ViewBuilder
+	func view(for entry: ProcessFolder.Entry) -> some View {
+		switch entry {
+		case .folder(let folder):
+			FolderView(folder: folder)
+		case .process(let entry):
+			ProcessEntryView(entry: entry)
+		}
+	}
+}
+
+extension EnvironmentValues {
+	var navigationPath: NavigationPath? {
+		get { self[NavigationPathKey.self] }
+		set { self[NavigationPathKey.self] = newValue }
+	}
+	
+	private struct NavigationPathKey: EnvironmentKey {
+		static let defaultValue: NavigationPath? = nil
 	}
 }
 
 struct FolderView: View {
 	@ObservedObject var folder: ProcessFolder
 	@State var errorContainer = ErrorContainer()
+	@State var editMode = EditMode.inactive
+	@State var selection: Set<ProcessFolder.Entry.ID> = []
+	@State var isMovingSelection = false
+	@State var isConfirmingDelete = false
+	
+	var isRoot: Bool {
+		folder === (try? folder.manager.rootFolder.get())
+	}
+	
+	// tapping nav links in a list will also toggle selection status for those rows if we don't block it
+	var selectionIfEditing: Binding<Set<ProcessFolder.Entry.ID>> {
+		.init(
+			get: { editMode.isEditing ? selection : [] },
+			set: { selection = editMode.isEditing ? $0 : [] }
+		)
+	}
 	
 	var body: some View {
-		let isRoot = folder === (try? folder.manager.rootFolder.get())
-		
-		List {
+		List(selection: selectionIfEditing) {
 			Section {
 				HStack {
 					Text("Folder Name")
@@ -43,137 +80,102 @@ struct FolderView: View {
 				}
 			}
 			
-			ForEach(folder.entries.indexed(), id: \.element.id) { index, entry in
-				entryCell(for: entry).contextMenu {
-					if case .process(let process) = entry {
-						ShareLink(item: process, preview: .init(process.name))
-						
-						Button {
-							UIPasteboard.general.itemProviders = [.init() <- {
-								$0.register(process)
-							}]
-						} label: {
-							Label("Copy", systemImage: "doc.on.doc")
-						}
+			Section {
+				entryRows()
+				
+				Button {
+					errorContainer.try(errorTitle: "Could not add process!") {
+						try folder.addProcess()
 					}
-					
-					Button {
-						withAnimation {
-							errorContainer.try(errorTitle: "Duplication Failed!") {
-								folder.entries.insert(try entry.copy(), at: index + 1)
-							}
-						}
-					} label: {
-						Label("Duplicate", systemImage: "plus.square.on.square")
-					}
+				} label: {
+					Label("Create New Process", systemImage: "doc.badge.plus")
 				}
-			}
-			.onDelete { folder.deleteEntries(atOffsets: $0) }
-			.onMove { folder.entries.move(fromOffsets: $0, toOffset: $1) }
-			// TODO: only allow while editing? to make it possible to drag & drop into folders
-			// turns out that doesn't help either… not sure how to make it possible
-			//.moveDisabled(true)
-			
-			Button {
-				errorContainer.try(errorTitle: "Could not add process!") {
-					try folder.addProcess()
+				
+				Button {
+					folder.addSubfolder()
+				} label: {
+					Label("Add Folder", systemImage: "folder.badge.plus")
 				}
-			} label: {
-				Label("Create New Process", systemImage: "doc.badge.plus")
-			}
-			
-			Button {
-				folder.addSubfolder()
-			} label: {
-				Label("Add Folder", systemImage: "folder.badge.plus")
-			}
-			
-			CustomPasteButton(payloadType: CraftingProcess.self) { items in
-				errorContainer.try(errorTitle: "Could not paste processes!") {
-					try folder.add(items)
-				}
-			} label: {
-				Label("Paste Process", systemImage: "doc.on.clipboard")
 			}
 			
 			if !isRoot {
-				outputsSection
-				inputsSection
+				outputsSection()
+				inputsSection()
 			}
 		}
-		.toolbar {
-			if !isRoot {
-				NumberFormatToggle()
-			}
-		}
+		.toolbar(content: toolbarContent)
 		.scrollDismissesKeyboard(.automatic)
-		.navigationTitle(folder.name.isEmpty ? "Processes" : folder.name)
+		.navigationTitle(folder.name.isEmpty ? Text("New Folder") : Text(folder.name))
 		.alert(for: $errorContainer)
-		// TODO: pretty sure this doesn't work lol
-		/*.dropDestination(for: CraftingProcess.self) { items, location in
-			errorContainer.try(errorTitle: "Could not paste processes!") {
-				try folder.add(items)
-				return true
-			} ?? false
-		}*/
+		.environment(\.editMode, $editMode.animation())
+		.sheet(isPresented: $isMovingSelection) {
+			moveDestinationSelector()
+		}
+		.confirmationDialog("Are You Sure?", isPresented: $isConfirmingDelete) {
+			Button("Delete \(selection.count) Entries", role: .destructive) {
+				folder.deleteEntries(withIDs: selection)
+			}
+		}
 	}
 	
-	@ViewBuilder
-	func entryCell(for entry: ProcessFolder.Entry) -> some View {
-		switch entry {
-		case .folder(let folder):
-			NavigationLink {
-				FolderView(folder: folder)
-			} label: {
-				HStack(spacing: 16) {
-					VStack(alignment: .leading) {
-						Text(folder.name)
-						Text("^[\(folder.entries.count) entries](inflect: true)")
-							.font(.footnote)
-							.foregroundStyle(.secondary)
-					}
-					
-					Spacer()
-					
-					HStack {
-						ForEach(folder.totals.sortedOutputs().prefix(3).reversed()) { output in
-							output.item.icon
+	func entryRows() -> some View {
+		ForEach(folder.entries.indexed(), id: \.element.id) { index, entry in
+			NavigationLink(value: entry) {
+				EntryCell(entry: entry)
+			}
+			.draggable(entry)
+			.contextMenu {
+				Button {
+					withAnimation {
+						errorContainer.try(errorTitle: "Duplication Failed!") {
+							folder.entries.insert(try entry.copy(), at: index + 1)
 						}
 					}
-					.frame(height: 48)
+				} label: {
+					Label("Duplicate", systemImage: "plus.square.on.square")
+				}
+				
+				Button {
+					copy([entry])
+				} label: {
+					Label("Copy", systemImage: "doc.on.doc")
+				}
+				
+				Button {
+					selection = [entry.id]
+					isMovingSelection = true
+				} label: {
+					Label("Move", systemImage: "folder")
+				}
+				
+				ShareLink(item: entry, preview: .init(entry.name))
+			}
+			.swipeActions(edge: .trailing) {
+				// not using onDelete to avoid offering this as an edit action (we have bulk delete already)
+				Button(role: .destructive) {
+					folder.deleteEntries(atOffsets: [index])
+				} label: {
+					Label("Delete", systemImage: "trash")
 				}
 			}
-			.dropDestination(for: CraftingProcess.self) { items, location in
-				errorContainer.try(errorTitle: "Could not drop processes!") {
-					try folder.add(items)
-					return true
-				} ?? false
-			} isTargeted: {
-				print($0)
-			}
-		case .process(let process):
-			NavigationLink {
-				ProcessEntryView(entry: process)
-			} label: {
-				HStack(spacing: 16) {
-					Text(process.name.isEmpty ? "Untitled Process" : process.name)
-					
-					Spacer()
-					
-					HStack {
-						ForEach(process.totals.sortedOutputs().prefix(3).reversed()) { output in
-							output.item.icon
-						}
+		}
+		.onMove { folder.entries.move(fromOffsets: $0, toOffset: $1) }
+		// TODO: test! here's hoping it actually works
+		.onInsert(of: [.process]) { index, items in
+			print("onInsert:", items)
+			Task {
+				await $errorContainer.try(errorTitle: "Could not insert processes!") {
+					let processes = try await items.concurrentMap {
+						try await $0.loadTransferable(type: TransferableEntry.self)
 					}
-					.frame(height: 48)
+					try folder.add(processes, at: index)
 				}
 			}
-			.draggable(process)
 		}
 	}
 	
 	@ViewBuilder
-	var outputsSection: some View {
+	func outputsSection() -> some View {
 		if !folder.totals.outputs.isEmpty {
 			Section {
 				ForEach(folder.totals.sortedOutputs()) { output in
@@ -189,11 +191,214 @@ struct FolderView: View {
 	}
 	
 	@ViewBuilder
-	var inputsSection: some View {
+	func inputsSection() -> some View {
 		if !folder.totals.inputs.isEmpty {
 			Section("Required Items") {
 				ForEach(folder.totals.sortedInputs()) { input in
 					ItemLabel(stack: input)
+				}
+			}
+		}
+	}
+	
+	@ToolbarContentBuilder
+	func toolbarContent() -> some ToolbarContent {
+		ToolbarItemGroup {
+			if !isRoot {
+				NumberFormatToggle()
+			}
+			
+			EditButton()
+		}
+		
+		if editMode.isEditing {
+			ToolbarItemGroup(placement: .bottomBar) {
+				let selectedEntries = folder.entries.filter { selection.contains($0.id) }
+				
+				HStack {
+					Group {
+						ShareLink(items: selectedEntries, preview: { .init($0.name) })
+						
+						Button {
+							copy(selectedEntries)
+						} label: {
+							Label("Copy", systemImage: "doc.on.doc")
+						}
+						
+						Button {
+							isMovingSelection = true
+						} label: {
+							Label("Move", systemImage: "folder")
+						}
+						
+						Button(role: .destructive) {
+							isConfirmingDelete = true
+						} label: {
+							Label("Delete", systemImage: "trash")
+						}
+					}
+					.disabled(selection.isEmpty)
+					.frame(maxWidth: .infinity)
+					
+					// paste button looks ridiculous outside a menu
+					Menu {
+						Button {
+							folder.moveEntries(withIDs: selection, to: folder.addSubfolder())
+						} label: {
+							Label("New Folder with Selection", systemImage: "folder.badge.plus")
+						}
+						
+						PasteButton(payloadType: TransferableEntry.self) { entries in
+							// …oh my god
+							Task {
+								await MainActor.run {
+									errorContainer.try(errorTitle: "Paste Failed!") {
+										try folder.add(entries)
+									}
+								}
+							}
+						}
+					} label: {
+						Label("More", systemImage: "ellipsis.circle")
+					}
+					.frame(maxWidth: .infinity)
+				}
+			}
+		}
+	}
+	
+	func copy(_ entries: some Sequence<ProcessFolder.Entry>) {
+		errorContainer.try(errorTitle: "Copy Failed!") {
+			UIPasteboard.general.itemProviders = try entries.map {
+				.init(transferable: try $0.transferable())
+			}
+		}
+	}
+	
+	func moveDestinationSelector() -> some View {
+		MoveDestinationSelector(
+			manager: folder.manager,
+			entryIDs: selection
+		) { destination in
+			folder.moveEntries(withIDs: selection, to: destination)
+			isMovingSelection = false
+		}
+	}
+}
+
+struct EntryCell: View {
+	var entry: ProcessFolder.Entry
+	
+	@Environment(\.editMode?.wrappedValue.isEditing) private var isEditing
+	
+	var body: some View {
+		HStack(spacing: 16) {
+			switch entry {
+			case .folder(let folder):
+				VStack(alignment: .leading) {
+					if folder.name.isEmpty {
+						Text("New Folder")
+							.foregroundStyle(.secondary)
+					} else {
+						Text(folder.name)
+					}
+					
+					Text("\(folder.entries.count) entry(s)")
+						.font(.footnote)
+						.foregroundStyle(.secondary)
+				}
+			case .process(let process):
+				if process.name.isEmpty {
+					Text("New Process")
+						.foregroundStyle(.secondary)
+				} else {
+					Text(process.name)
+				}
+			}
+			
+			Spacer()
+			
+			HStack {
+				ForEach(entry.totals.sortedOutputs().prefix(3).reversed()) { output in
+					output.item.icon
+				}
+			}
+			.frame(height: isEditing == true ? 28 : 40)
+			.frame(height: 48)
+			.fixedSize()
+		}
+	}
+}
+
+struct MoveDestinationSelector: View {
+	var manager: ProcessManager
+	var entryIDs: Set<ProcessFolder.Entry.ID>
+	var onSelect: (ProcessFolder) -> Void
+	@State var path = NavigationPath() // must be initially empty for sheet
+	
+	@Environment(\.navigationPath) private var outerNavigationPath
+	@Environment(\.dismiss) private var dismiss
+	
+	var body: some View {
+		NavigationStack(path: $path) {
+			folderView(for: try! manager.rootFolder.get())
+				.navigationDestination(for: ProcessFolder.Entry.self) { entry in
+					switch entry {
+					case .folder(let folder):
+						folderView(for: folder)
+					case .process:
+						fatalError("only using entry for compatibility with outer navigation path")
+					}
+				}
+		}
+		.onAppear {
+			path = outerNavigationPath!
+		}
+		.onChange(of: path) { newPath in
+			print("path changed to", newPath)
+		}
+	}
+	
+	func folderView(for folder: ProcessFolder) -> some View {
+		FolderView(folder: folder, entryIDs: entryIDs, dismiss: dismiss, onSelect: onSelect)
+	}
+	
+	struct FolderView: View {
+		var folder: ProcessFolder
+		var entryIDs: Set<ProcessFolder.Entry.ID>
+		var dismiss: DismissAction
+		var onSelect: (ProcessFolder) -> Void
+		
+		var body: some View {
+			List {
+				Section {
+					ForEach(folder.entries) { entry in
+						NavigationLink(value: entry) {
+							EntryCell(entry: entry)
+						}
+						.disabled(!entry.isFolder || entryIDs.contains(entry.id))
+					}
+				}
+				
+				Button {
+					onSelect(folder)
+				} label: {
+					Label("Move \(entryIDs.count) Entry(s) Here", systemImage: "plus")
+				}
+				.fontWeight(.medium)
+			}
+			.navigationTitle(folder.name)
+			.navigationBarTitleDisplayMode(.inline)
+			.toolbar {
+				ToolbarItem(placement: .principal) {
+					Text("Move \(entryIDs.count) Entry(s)")
+						.font(.headline)
+				}
+				
+				ToolbarItem(placement: .primaryAction) {
+					Button("Cancel", role: .cancel) {
+						dismiss()
+					}
 				}
 			}
 		}
@@ -220,12 +425,19 @@ private struct ProcessEntryView: View {
 
 extension EnvironmentValues {
 	var isDisplayingAsDecimals: Binding<Bool> {
-		get { self[Key.self] }
-		set { self[Key.self] = newValue }
+		get { self[DecimalFormatKey.self] }
+		set { self[DecimalFormatKey.self] = newValue }
 	}
 	
-	struct Key: EnvironmentKey {
+	private struct DecimalFormatKey: EnvironmentKey {
 		static let defaultValue = Binding.constant(false)
+	}
+}
+
+extension NSItemProvider {
+	convenience init(transferable: some Transferable) {
+		self.init()
+		register(transferable)
 	}
 }
 

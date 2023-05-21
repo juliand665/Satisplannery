@@ -31,6 +31,25 @@ struct ErrorContainer {
 	}
 }
 
+extension Binding<ErrorContainer> {
+	@MainActor
+	func `try`<T>(
+		errorTitle: LocalizedStringKey = "An Error Occurred!",
+		perform action: () async throws -> T
+	) async -> T? {
+		do {
+			let result = try await action()
+			wrappedValue.error = nil
+			return result
+		} catch {
+			print("try failed:", errorTitle)
+			print(error)
+			wrappedValue.error = .init(error: error, title: errorTitle)
+			return nil
+		}
+	}
+}
+
 extension View {
 	func alert(for error: Binding<ErrorContainer>) -> some View {
 		alert(

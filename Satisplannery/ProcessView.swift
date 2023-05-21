@@ -42,7 +42,7 @@ struct ProcessView: View {
 					.pickerStyle(.segmented)
 			}
 		}
-		.navigationTitle(process.name.isEmpty ? "Untitled Process" : process.name)
+		.navigationTitle(process.name.isEmpty ? Text("New Process") : Text(process.name))
 		.navigationBarTitleDisplayMode(.inline)
 	}
 	
