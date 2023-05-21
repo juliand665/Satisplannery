@@ -4,6 +4,7 @@ struct FractionEditor: View {
 	var label: LocalizedStringKey
 	@Binding var value: Fraction
 	var alwaysShowSign: Bool = false
+	var cornerRadius: CGFloat = 8
 	
 	@Environment(\.isDisplayingAsDecimals.wrappedValue)
 	var isDisplayingAsDecimals
@@ -24,10 +25,11 @@ struct FractionEditor: View {
 		)
 		.multilineTextAlignment(.trailing)
 		.keyboardType(.numbersAndPunctuation)
-		.padding(4)
+		.padding(.horizontal, 8)
+		.frame(width: 100)
+		.frame(minHeight: 36)
 		.background(Color.primary.opacity(0.05))
-		.cornerRadius(4)
-		.frame(maxWidth: 100)
+		.cornerRadius(cornerRadius)
 	}
 }
 
@@ -35,6 +37,7 @@ extension FractionEditor {
 	static func forAmount(
 		_ amount: Binding<Fraction>,
 		multipliedBy factor: Fraction,
+		cornerRadius: CGFloat = 8,
 		shouldColorize: Bool = true
 	) -> some View {
 		Self(
@@ -44,7 +47,8 @@ extension FractionEditor {
 			} set: {
 				amount.wrappedValue = ($0 / factor).matchingSign(of: amount.wrappedValue)
 			},
-			alwaysShowSign: shouldColorize
+			alwaysShowSign: shouldColorize,
+			cornerRadius: cornerRadius
 		)
 		.coloredBasedOn(shouldColorize ? amount.wrappedValue * factor : 0)
 	}

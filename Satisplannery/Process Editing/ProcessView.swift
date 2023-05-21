@@ -79,7 +79,7 @@ extension CraftingProcess {
 		.init(
 			recipeID: wire.id,
 			primaryOutput: wire.products[0].item,
-			factor: 6,
+			factor: 5,
 			buildings: 4,
 			isBuilt: true
 		),

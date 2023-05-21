@@ -145,9 +145,12 @@ struct StepSection: View {
 		headerCell
 		
 		if isExpanded {
-			multiplierCell
-			recipePicker
-			ingredientsInfo
+			Group {
+				multiplierCell
+				recipePicker
+				ingredientsInfo
+			}
+			.padding(.vertical, 1.0)
 		}
 	}
 	
@@ -196,7 +199,7 @@ struct StepSection: View {
 			ForEach(step.recipe.ingredients, id: \.item) { ingredient in
 				let item = ingredient.item.resolved()
 				HStack {
-					item.icon.frame(width: 32)
+					item.icon.frame(width: 36)
 					Text(item.name)
 					Spacer()
 					FractionEditor.forAmount($step.factor, multipliedBy: -ingredient.amount * item.multiplier)
@@ -214,9 +217,12 @@ struct StepSection: View {
 			
 			Spacer()
 			
-			FractionEditor.forAmount($step.factor, multipliedBy: product.amount * item.multiplier)
-			
-			matchDemandButton(for: product)
+			HStack(spacing: 1) {
+				matchDemandButton(for: product)
+				
+				FractionEditor.forAmount($step.factor, multipliedBy: product.amount * item.multiplier, cornerRadius: 0)
+			}
+			.cornerRadius(8)
 		}
 	}
 	
@@ -229,8 +235,11 @@ struct StepSection: View {
 			step.factor = demand / product.amount
 		} label: {
 			Image(systemName: "equal")
+				.frame(width: 36, height: 36)
+				.foregroundColor(.accentColor)
+				.background(Color.accentColor.opacity(0.2))
 		}
-		.buttonStyle(.bordered)
+		.buttonStyle(.plain)
 		.disabled(production == demand || demand <= 0)
 	}
 }
@@ -240,5 +249,6 @@ struct CalculationView_Previews: PreviewProvider {
 		NavigationStack {
 			CalculationView(process: .constant(.example))
 		}
+		.listStyle(.grouped)
     }
 }
