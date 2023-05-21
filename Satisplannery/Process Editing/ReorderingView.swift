@@ -11,7 +11,6 @@ struct ReorderingView: View {
 			.onDelete { process.steps.remove(atOffsets: $0) }
 			.onMove { process.steps.move(fromOffsets: $0, toOffset: $1) }
 		}
-		.listStyle(.grouped)
 	}
 	
 	struct StepRow: View {
@@ -41,7 +40,6 @@ struct ReorderingView: View {
 					.frame(maxWidth: .infinity, alignment: .leading)
 				}
 			}
-			.alignmentGuide(.listRowSeparatorLeading) { $0[.leading] }
 		}
 	}
 }

@@ -1,5 +1,4 @@
 import SwiftUI
-import Introspect
 import Combine
 
 struct ProcessView: View {
@@ -18,6 +17,8 @@ struct ProcessView: View {
 				.tag(Mode.reordering)
 				.tabItem { Label("Reorder", systemImage: "arrow.up.arrow.down") }
 		}
+		.listStyle(.grouped) // not inset, for more horizontal space
+		.scrollDismissesKeyboard(.interactively)
 		.toolbar {
 			NumberFormatToggle()
 		}

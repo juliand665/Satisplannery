@@ -181,14 +181,15 @@ struct FolderView: View {
 					.disabled(selection.isEmpty)
 					.frame(maxWidth: .infinity)
 					
-					// paste button looks ridiculous outside a menu
 					Menu {
 						Button {
 							folder.moveEntries(withIDs: selection, to: folder.addSubfolder())
 						} label: {
 							Label("New Folder with Selection", systemImage: "folder.badge.plus")
 						}
+						.disabled(selection.isEmpty)
 						
+						// paste button looks ridiculous outside a menu
 						PasteButton(payloadType: TransferableEntry.self) { entries in
 							// …oh my god
 							Task {

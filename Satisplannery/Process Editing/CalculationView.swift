@@ -9,7 +9,7 @@ struct CalculationView: View {
 	@State var isConfirmingDelete = false
 	
 	var body: some View {
-		Form {
+		List {
 			outputsSection
 			
 			ForEach($process.steps) { $step in
@@ -18,7 +18,6 @@ struct CalculationView: View {
 			
 			inputsSection
 		}
-		.scrollDismissesKeyboard(.interactively)
 		.confirmationDialog(
 			"Delete Step?",
 			isPresented: $isConfirmingDelete,
@@ -162,7 +161,6 @@ struct StepSection: View {
 				}
 			}
 		}
-		.alignmentGuide(.listRowSeparatorLeading) { $0[.leading] }
 	}
 	
 	var multiplierCell: some View {

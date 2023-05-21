@@ -11,8 +11,6 @@ struct BuildingView: View {
 				stepSection($step: $step)
 			}
 		}
-		.scrollDismissesKeyboard(.interactively)
-		.listStyle(.grouped) // not inset, for more horizontal space
 	}
 	
 	var totalsSection: some View {
