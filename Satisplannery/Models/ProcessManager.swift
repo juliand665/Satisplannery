@@ -434,12 +434,12 @@ private extension ProcessFolder {
 			print()
 		}
 	}
-}
-
-private enum Storage {
-	// legacy format
-	@UserDefault("processes")
-	static var processes: [CraftingProcess] = []
+	
+	private enum Storage {
+		// legacy format
+		@UserDefault("processes")
+		static var processes: [CraftingProcess] = []
+	}
 }
 
 extension CraftingProcess: DefaultsValueConvertible {}

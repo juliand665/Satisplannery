@@ -1,53 +1,4 @@
 import SwiftUI
-import UserDefault
-import Algorithms
-import HandyOperators
-
-struct ContentView: View {
-	@StateObject var processManager = ProcessManager()
-	@State var path = NavigationPath()
-	
-	@AppStorage("decimalFormat")
-	private var isDisplayingAsDecimals = false
-	
-	var body: some View {
-		NavigationStack(path: $path) {
-			switch processManager.rootFolder! {
-			case .success(let folder):
-				FolderView(folder: folder)
-					.navigationDestination(for: ProcessFolder.Entry.self, destination: view(for:))
-			case .failure(let error):
-				// TODO: improve this lol
-				Text(error.localizedDescription)
-					.padding()
-			}
-		}
-		.environment(\.navigationPath, path)
-		.environment(\.isDisplayingAsDecimals, $isDisplayingAsDecimals)
-		.alert(for: $processManager.saveError)
-	}
-	
-	@ViewBuilder
-	func view(for entry: ProcessFolder.Entry) -> some View {
-		switch entry {
-		case .folder(let folder):
-			FolderView(folder: folder)
-		case .process(let entry):
-			ProcessEntryView(entry: entry)
-		}
-	}
-}
-
-extension EnvironmentValues {
-	var navigationPath: NavigationPath? {
-		get { self[NavigationPathKey.self] }
-		set { self[NavigationPathKey.self] = newValue }
-	}
-	
-	private struct NavigationPathKey: EnvironmentKey {
-		static let defaultValue: NavigationPath? = nil
-	}
-}
 
 struct FolderView: View {
 	@ObservedObject var folder: ProcessFolder
@@ -109,7 +60,7 @@ struct FolderView: View {
 		.alert(for: $errorContainer)
 		.environment(\.editMode, $editMode.animation())
 		.sheet(isPresented: $isMovingSelection) {
-			moveDestinationSelector()
+			moveDestinationPicker()
 		}
 		.confirmationDialog("Are You Sure?", isPresented: $isConfirmingDelete) {
 			Button("Delete \(selection.count) Entries", role: .destructive) {
@@ -165,9 +116,7 @@ struct FolderView: View {
 			print("onInsert:", items)
 			Task {
 				await $errorContainer.try(errorTitle: "Could not insert processes!") {
-					let processes = try await items.concurrentMap {
-						try await $0.loadTransferable(type: TransferableEntry.self)
-					}
+					let processes = try await items.loadTransferableElements(of: TransferableEntry.self)
 					try folder.add(processes, at: index)
 				}
 			}
@@ -275,174 +224,13 @@ struct FolderView: View {
 		}
 	}
 	
-	func moveDestinationSelector() -> some View {
-		MoveDestinationSelector(
+	func moveDestinationPicker() -> some View {
+		MoveDestinationPicker(
 			manager: folder.manager,
 			entryIDs: selection
 		) { destination in
 			folder.moveEntries(withIDs: selection, to: destination)
 			isMovingSelection = false
 		}
-	}
-}
-
-struct EntryCell: View {
-	var entry: ProcessFolder.Entry
-	
-	@Environment(\.editMode?.wrappedValue.isEditing) private var isEditing
-	
-	var body: some View {
-		HStack(spacing: 16) {
-			switch entry {
-			case .folder(let folder):
-				VStack(alignment: .leading) {
-					if folder.name.isEmpty {
-						Text("New Folder")
-							.foregroundStyle(.secondary)
-					} else {
-						Text(folder.name)
-					}
-					
-					Text("\(folder.entries.count) entry(s)")
-						.font(.footnote)
-						.foregroundStyle(.secondary)
-				}
-			case .process(let process):
-				if process.name.isEmpty {
-					Text("New Process")
-						.foregroundStyle(.secondary)
-				} else {
-					Text(process.name)
-				}
-			}
-			
-			Spacer()
-			
-			HStack {
-				ForEach(entry.totals.sortedOutputs().prefix(3).reversed()) { output in
-					output.item.icon
-				}
-			}
-			.frame(height: isEditing == true ? 28 : 40)
-			.frame(height: 48)
-			.fixedSize()
-		}
-	}
-}
-
-struct MoveDestinationSelector: View {
-	var manager: ProcessManager
-	var entryIDs: Set<ProcessFolder.Entry.ID>
-	var onSelect: (ProcessFolder) -> Void
-	@State var path = NavigationPath() // must be initially empty for sheet
-	
-	@Environment(\.navigationPath) private var outerNavigationPath
-	@Environment(\.dismiss) private var dismiss
-	
-	var body: some View {
-		NavigationStack(path: $path) {
-			folderView(for: try! manager.rootFolder.get())
-				.navigationDestination(for: ProcessFolder.Entry.self) { entry in
-					switch entry {
-					case .folder(let folder):
-						folderView(for: folder)
-					case .process:
-						fatalError("only using entry for compatibility with outer navigation path")
-					}
-				}
-		}
-		.onAppear {
-			path = outerNavigationPath!
-		}
-		.onChange(of: path) { newPath in
-			print("path changed to", newPath)
-		}
-	}
-	
-	func folderView(for folder: ProcessFolder) -> some View {
-		FolderView(folder: folder, entryIDs: entryIDs, dismiss: dismiss, onSelect: onSelect)
-	}
-	
-	struct FolderView: View {
-		var folder: ProcessFolder
-		var entryIDs: Set<ProcessFolder.Entry.ID>
-		var dismiss: DismissAction
-		var onSelect: (ProcessFolder) -> Void
-		
-		var body: some View {
-			List {
-				Section {
-					ForEach(folder.entries) { entry in
-						NavigationLink(value: entry) {
-							EntryCell(entry: entry)
-						}
-						.disabled(!entry.isFolder || entryIDs.contains(entry.id))
-					}
-				}
-				
-				Button {
-					onSelect(folder)
-				} label: {
-					Label("Move \(entryIDs.count) Entry(s) Here", systemImage: "plus")
-				}
-				.fontWeight(.medium)
-			}
-			.navigationTitle(folder.name)
-			.navigationBarTitleDisplayMode(.inline)
-			.toolbar {
-				ToolbarItem(placement: .principal) {
-					Text("Move \(entryIDs.count) Entry(s)")
-						.font(.headline)
-				}
-				
-				ToolbarItem(placement: .primaryAction) {
-					Button("Cancel", role: .cancel) {
-						dismiss()
-					}
-				}
-			}
-		}
-	}
-}
-
-private struct ProcessEntryView: View {
-	@ObservedObject var entry: ProcessEntry
-	
-	var body: some View {
-		switch entry.loaded() {
-		case .success(let process):
-			ProcessView(process: Binding(
-				get: { process.process },
-				set: { process.process = $0 }
-			))
-		case .failure(let error):
-			// TODO: improve this lol
-			Text(error.localizedDescription)
-				.padding()
-		}
-	}
-}
-
-extension EnvironmentValues {
-	var isDisplayingAsDecimals: Binding<Bool> {
-		get { self[DecimalFormatKey.self] }
-		set { self[DecimalFormatKey.self] = newValue }
-	}
-	
-	private struct DecimalFormatKey: EnvironmentKey {
-		static let defaultValue = Binding.constant(false)
-	}
-}
-
-extension NSItemProvider {
-	convenience init(transferable: some Transferable) {
-		self.init()
-		register(transferable)
-	}
-}
-
-struct ContentView_Previews: PreviewProvider {
-	static var previews: some View {
-		ContentView()
 	}
 }

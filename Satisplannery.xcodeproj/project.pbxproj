@@ -35,12 +35,15 @@
 		B94C274C28DFA9DD00402AAA /* Migrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94C274B28DFA9DD00402AAA /* Migrator.swift */; };
 		B94EF54C299FD879004009AA /* ErrorContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94EF54B299FD879004009AA /* ErrorContainer.swift */; };
 		B9596BBE2A19A75300D317D7 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = B9596BBD2A19A75300D317D7 /* Localizable.stringsdict */; };
+		B9596BC02A19C4C700D317D7 /* MoveDestinationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9596BBF2A19C4C600D317D7 /* MoveDestinationPicker.swift */; };
+		B9596BC92A19C6C600D317D7 /* FolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9596BC82A19C6C600D317D7 /* FolderView.swift */; };
+		B9596BCB2A19C6FB00D317D7 /* EntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9596BCA2A19C6FB00D317D7 /* EntryCell.swift */; };
+		B9596BCD2A19C7A400D317D7 /* NSItemProvider+Transferable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9596BCC2A19C7A400D317D7 /* NSItemProvider+Transferable.swift */; };
 		B95BA2272957BF5D00176E4A /* ProcessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95BA2262957BF5D00176E4A /* ProcessManager.swift */; };
 		B9891E6528E32D52005D45E7 /* ReorderingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9891E6428E32D52005D45E7 /* ReorderingView.swift */; };
 		B9B11A6528DC06E8006EC232 /* SwiftUI+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B11A6428DC06E8006EC232 /* SwiftUI+Helpers.swift */; };
 		B9B11A6728DC093D006EC232 /* BuildingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B11A6628DC093D006EC232 /* BuildingView.swift */; };
 		B9B11A6928DC99FD006EC232 /* CalculationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B11A6828DC99FD006EC232 /* CalculationView.swift */; };
-		B9C4484729AD0FD80055B158 /* CustomPasteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C4484629AD0FD80055B158 /* CustomPasteButton.swift */; };
 		B9C4484A29AFBEC40055B158 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = B9C4484929AFBEC40055B158 /* Introspect */; };
 /* End PBXBuildFile section */
 
@@ -84,12 +87,15 @@
 		B94C274B28DFA9DD00402AAA /* Migrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Migrator.swift; sourceTree = "<group>"; };
 		B94EF54B299FD879004009AA /* ErrorContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorContainer.swift; sourceTree = "<group>"; };
 		B9596BBD2A19A75300D317D7 /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
+		B9596BBF2A19C4C600D317D7 /* MoveDestinationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveDestinationPicker.swift; sourceTree = "<group>"; };
+		B9596BC82A19C6C600D317D7 /* FolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderView.swift; sourceTree = "<group>"; };
+		B9596BCA2A19C6FB00D317D7 /* EntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryCell.swift; sourceTree = "<group>"; };
+		B9596BCC2A19C7A400D317D7 /* NSItemProvider+Transferable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSItemProvider+Transferable.swift"; sourceTree = "<group>"; };
 		B95BA2262957BF5D00176E4A /* ProcessManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessManager.swift; sourceTree = "<group>"; };
 		B9891E6428E32D52005D45E7 /* ReorderingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReorderingView.swift; sourceTree = "<group>"; };
 		B9B11A6428DC06E8006EC232 /* SwiftUI+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+Helpers.swift"; sourceTree = "<group>"; };
 		B9B11A6628DC093D006EC232 /* BuildingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingView.swift; sourceTree = "<group>"; };
 		B9B11A6828DC99FD006EC232 /* CalculationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationView.swift; sourceTree = "<group>"; };
-		B9C4484629AD0FD80055B158 /* CustomPasteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPasteButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,19 +167,11 @@
 			children = (
 				B9269B8728D2BE4D00B95697 /* Info.plist */,
 				B945242228D1108D00D9937B /* SatisplanneryApp.swift */,
-				B945242428D1108D00D9937B /* ContentView.swift */,
-				B9269B7728D2376800B95697 /* ProcessView.swift */,
-				B9B11A6828DC99FD006EC232 /* CalculationView.swift */,
-				B9B11A6628DC093D006EC232 /* BuildingView.swift */,
-				B9891E6428E32D52005D45E7 /* ReorderingView.swift */,
-				B9269B7528D22C5A00B95697 /* ItemPicker.swift */,
-				B945245128D158A200D9937B /* ItemViews.swift */,
-				B9269B8528D2AC6000B95697 /* FractionEditor.swift */,
-				B94EF54B299FD879004009AA /* ErrorContainer.swift */,
-				B9C4484629AD0FD80055B158 /* CustomPasteButton.swift */,
+				B9596BC52A19C68700D317D7 /* Navigation */,
+				B9596BC42A19C67500D317D7 /* Process Editing */,
+				B9596BC72A19C6A800D317D7 /* General */,
 				B9269B6E28D22BD900B95697 /* Models */,
-				B9269B7C28D2518300B95697 /* Swift+Helpers.swift */,
-				B9B11A6428DC06E8006EC232 /* SwiftUI+Helpers.swift */,
+				B9596BC62A19C69C00D317D7 /* Helpers */,
 				B9596BBD2A19A75300D317D7 /* Localizable.stringsdict */,
 				B945242628D1109200D9937B /* Assets.xcassets */,
 				B945244B28D149F800D9937B /* data.json */,
@@ -208,6 +206,49 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B9596BC42A19C67500D317D7 /* Process Editing */ = {
+			isa = PBXGroup;
+			children = (
+				B9269B7728D2376800B95697 /* ProcessView.swift */,
+				B9B11A6828DC99FD006EC232 /* CalculationView.swift */,
+				B9B11A6628DC093D006EC232 /* BuildingView.swift */,
+				B9891E6428E32D52005D45E7 /* ReorderingView.swift */,
+				B9269B7528D22C5A00B95697 /* ItemPicker.swift */,
+			);
+			path = "Process Editing";
+			sourceTree = "<group>";
+		};
+		B9596BC52A19C68700D317D7 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				B945242428D1108D00D9937B /* ContentView.swift */,
+				B9596BC82A19C6C600D317D7 /* FolderView.swift */,
+				B9596BBF2A19C4C600D317D7 /* MoveDestinationPicker.swift */,
+				B9596BCA2A19C6FB00D317D7 /* EntryCell.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		B9596BC62A19C69C00D317D7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B94EF54B299FD879004009AA /* ErrorContainer.swift */,
+				B9269B7C28D2518300B95697 /* Swift+Helpers.swift */,
+				B9B11A6428DC06E8006EC232 /* SwiftUI+Helpers.swift */,
+				B9596BCC2A19C7A400D317D7 /* NSItemProvider+Transferable.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B9596BC72A19C6A800D317D7 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				B945245128D158A200D9937B /* ItemViews.swift */,
+				B9269B8528D2AC6000B95697 /* FractionEditor.swift */,
+			);
+			path = General;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,15 +363,18 @@
 			files = (
 				B9269B7828D2376800B95697 /* ProcessView.swift in Sources */,
 				B9269B7628D22C5A00B95697 /* ItemPicker.swift in Sources */,
+				B9596BC02A19C4C700D317D7 /* MoveDestinationPicker.swift in Sources */,
 				B9B11A6728DC093D006EC232 /* BuildingView.swift in Sources */,
 				B945242528D1108D00D9937B /* ContentView.swift in Sources */,
 				B9269B7D28D2518300B95697 /* Swift+Helpers.swift in Sources */,
 				B945245028D1586600D9937B /* GameData.swift in Sources */,
+				B9596BCD2A19C7A400D317D7 /* NSItemProvider+Transferable.swift in Sources */,
 				B94EF54C299FD879004009AA /* ErrorContainer.swift in Sources */,
+				B9596BCB2A19C6FB00D317D7 /* EntryCell.swift in Sources */,
+				B9596BC92A19C6C600D317D7 /* FolderView.swift in Sources */,
 				B9269B7028D22BE300B95697 /* ObjectID.swift in Sources */,
 				B9269B7228D22BFE00B95697 /* ItemBag.swift in Sources */,
 				B94C274C28DFA9DD00402AAA /* Migrator.swift in Sources */,
-				B9C4484729AD0FD80055B158 /* CustomPasteButton.swift in Sources */,
 				B95BA2272957BF5D00176E4A /* ProcessManager.swift in Sources */,
 				B9269B7428D22C2200B95697 /* Crafting.swift in Sources */,
 				B9269B8628D2AC6100B95697 /* FractionEditor.swift in Sources */,
