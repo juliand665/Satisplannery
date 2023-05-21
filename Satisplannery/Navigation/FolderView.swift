@@ -22,16 +22,7 @@ struct FolderView: View {
 	
 	var body: some View {
 		List(selection: selectionIfEditing) {
-			Section {
-				HStack {
-					Text("Folder Name")
-						.foregroundStyle(.secondary)
-					TextField("Folder Name", text: $folder.name)
-						.multilineTextAlignment(.trailing)
-				}
-			}
-			
-			Section {
+			Section("Entries") {
 				entryRows()
 				
 				Button {
@@ -56,7 +47,8 @@ struct FolderView: View {
 		}
 		.toolbar(content: toolbarContent)
 		.scrollDismissesKeyboard(.automatic)
-		.navigationTitle(folder.name.isEmpty ? Text("New Folder") : Text(folder.name))
+		.navigationTitle($folder.name)
+		.navigationBarTitleDisplayMode(.inline) // binding is not editable as large title
 		.alert(for: $errorContainer)
 		.environment(\.editMode, $editMode.animation())
 		.sheet(isPresented: $isMovingSelection) {

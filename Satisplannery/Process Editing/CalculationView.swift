@@ -10,10 +10,6 @@ struct CalculationView: View {
 	
 	var body: some View {
 		Form {
-			Section("Name") {
-				renameField()
-			}
-			
 			outputsSection
 			
 			ForEach($process.steps) { $step in
@@ -33,16 +29,6 @@ struct CalculationView: View {
 			}
 		} message: { step in
 			Text("Delete this step for \(step.recipe.name)?")
-		}
-	}
-	
-	func renameField() -> some View {
-		HStack {
-			Text("Process Name")
-				.foregroundStyle(.secondary)
-			
-			TextField("Process Name", text: $process.name)
-				.multilineTextAlignment(.trailing)
 		}
 	}
 	

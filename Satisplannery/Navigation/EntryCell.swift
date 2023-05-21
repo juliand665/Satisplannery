@@ -10,24 +10,14 @@ struct EntryCell: View {
 			switch entry {
 			case .folder(let folder):
 				VStack(alignment: .leading) {
-					if folder.name.isEmpty {
-						Text("New Folder")
-							.foregroundStyle(.secondary)
-					} else {
-						Text(folder.name)
-					}
+					Text(folder.name)
 					
 					Text("\(folder.entries.count) entry(s)")
 						.font(.footnote)
 						.foregroundStyle(.secondary)
 				}
 			case .process(let process):
-				if process.name.isEmpty {
-					Text("New Process")
-						.foregroundStyle(.secondary)
-				} else {
-					Text(process.name)
-				}
+				Text(process.name)
 			}
 			
 			Spacer()

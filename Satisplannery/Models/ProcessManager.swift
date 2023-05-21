@@ -120,13 +120,13 @@ final class ProcessFolder: ObservableObject, FolderEntry {
 	
 	@discardableResult
 	func addSubfolder() -> ProcessFolder {
-		ProcessFolder(name: "", manager: manager) <- {
+		ProcessFolder(name: "New Folder", manager: manager) <- {
 			entries.append(.folder($0))
 		}
 	}
 	
 	func addProcess() throws {
-		entries.append(try wrap(CraftingProcess(name: "")))
+		entries.append(try wrap(CraftingProcess(name: "New Process")))
 	}
 	
 	func add(_ entries: some Sequence<TransferableEntry>, at index: Int? = nil) throws {

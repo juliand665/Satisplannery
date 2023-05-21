@@ -21,7 +21,7 @@ struct ProcessView: View {
 		.toolbar {
 			NumberFormatToggle()
 		}
-		.navigationTitle(process.name.isEmpty ? Text("New Process") : Text(process.name))
+		.navigationTitle($process.name)
 		.navigationBarTitleDisplayMode(.inline)
 	}
 	
