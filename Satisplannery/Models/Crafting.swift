@@ -21,6 +21,12 @@ struct CraftingProcess: Identifiable, Codable {
 		steps.removeAll { $0.id == step.id }
 	}
 	
+	mutating func split(_ step: CraftingStep) {
+		let index = steps.firstIndex { $0.id == step.id }!
+		let half = step <- { $0.factor /= 2 }
+		steps.replaceSubrange(index..<index + 1, with: [half, half.copy()])
+	}
+	
 	func canMove(_ step: CraftingStep, by offset: Int) -> Bool {
 		let index = steps.firstIndex { $0.id == step.id }!
 		return steps.indices.contains(index + offset)
@@ -124,6 +130,16 @@ struct CraftingStep: Identifiable, Codable {
 		self <- {
 			$0.factor *= factor
 		}
+	}
+	
+	func copy() -> Self {
+		.init(
+			recipeID: recipeID,
+			primaryOutput: primaryOutput,
+			factor: factor,
+			buildings: buildings,
+			isBuilt: isBuilt
+		)
 	}
 	
 	private enum CodingKeys: String, CodingKey {

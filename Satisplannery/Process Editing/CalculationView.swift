@@ -48,22 +48,10 @@ struct CalculationView: View {
 				}
 				
 				Button {
-					withAnimation {
-						process.move(step, by: -1)
-					}
+					process.split(step)
 				} label: {
-					Image(systemName: "chevron.up")
+					Image(systemName: "arrow.up.and.line.horizontal.and.arrow.down")
 				}
-				.disabled(!process.canMove(step, by: -1))
-				
-				Button {
-					withAnimation {
-						process.move(step, by: +1)
-					}
-				} label: {
-					Image(systemName: "chevron.down")
-				}
-				.disabled(!process.canMove(step, by: +1))
 			}
 		}
 	}
