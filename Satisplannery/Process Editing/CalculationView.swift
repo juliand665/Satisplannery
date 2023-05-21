@@ -41,15 +41,8 @@ struct CalculationView: View {
 			Text("Process Name")
 				.foregroundStyle(.secondary)
 			
-			TextField("Process Name", text: Binding {
-				newName ?? process.name
-			} set: {
-				newName = $0
-			})
-			.multilineTextAlignment(.trailing)
-			.onSubmit {
-				process.name = newName ?? process.name
-			}
+			TextField("Process Name", text: $process.name)
+				.multilineTextAlignment(.trailing)
 		}
 	}
 	
