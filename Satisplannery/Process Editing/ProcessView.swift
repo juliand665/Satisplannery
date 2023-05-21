@@ -4,109 +4,31 @@ import Combine
 
 struct ProcessView: View {
 	@Binding var process: CraftingProcess
-	@State var expandedStep: CraftingStep.ID?
 	@State var mode = Mode.calculation
 	
-	@StateObject private var tokenHolder = TokenHolder()
-	
 	var body: some View {
-		let scrollState = tokenHolder.scrollStates[mode] ?? .init()
-		
-		ZStack {
-			content(for: .calculation) {
-				CalculationView(process: $process)
-			}
-			content(for: .buildings) {
-				BuildingView(process: $process)
-			}
-			content(for: .reordering) {
-				ReorderingView(process: $process)
-			}
-			
-			bottomBarHider(shouldHideBar: scrollState.isAtBottom)
+		TabView(selection: $mode) {
+			CalculationView(process: $process)
+				.tag(Mode.calculation)
+				.tabItem { Label("Calculation", systemImage: "plus.forwardslash.minus") }
+			BuildingView(process: $process)
+				.tag(Mode.buildings)
+				.tabItem { Label("Buildings", systemImage: "building.2") }
+			ReorderingView(process: $process)
+				.tag(Mode.reordering)
+				.tabItem { Label("Reorder", systemImage: "arrow.up.arrow.down") }
 		}
-		.toolbarBackground(scrollState.isAtTop ? .hidden : .visible, for: .navigationBar) // broken for bottomBar
 		.toolbar {
 			NumberFormatToggle()
 		}
-		.toolbar {
-			ToolbarItemGroup(placement: .bottomBar) {
-				Picker(selection: $mode) {
-					Text("Calculation")
-						.tag(Mode.calculation)
-					Text("Buildings")
-						.tag(Mode.buildings)
-					Text("Reorder")
-						.tag(Mode.reordering)
-				} label: {}
-					.pickerStyle(.segmented)
-			}
-		}
 		.navigationTitle(process.name.isEmpty ? Text("New Process") : Text(process.name))
 		.navigationBarTitleDisplayMode(.inline)
-	}
-	
-	/// `toolbarBackground(_:for:)` doesn't work for `.bottomBar`, but this does lmao
-	func bottomBarHider(shouldHideBar: Bool) -> some View {
-		GeometryReader { geometry in
-			ScrollView {
-				Rectangle().frame(
-					height: shouldHideBar
-					? 1 // hide bottom bar background
-					: geometry.size.height * 1.5 // show bottom bar background
-				)
-			}
-		}
-		.opacity(0)
-	}
-	
-	func content<Content: View>(
-		for mode: Mode,
-		@ViewBuilder content: () -> Content
-	) -> some View {
-		content()
-			.introspectCollectionView { scrollView in
-				guard tokenHolder.views[mode] !== scrollView else { return }
-				tokenHolder.views[mode] = scrollView
-				tokenHolder.tokens[mode] = scrollView
-					.publisher(for: \.contentOffset)
-					.receive(on: DispatchQueue.main)
-					.sink { _ in
-						tokenHolder.scrollStates[mode] = .init(of: scrollView)
-					}
-			}
-			.opacity(self.mode == mode ? 1 : 0)
 	}
 	
 	enum Mode: Hashable {
 		case calculation
 		case buildings
 		case reordering
-	}
-	
-	private final class TokenHolder: ObservableObject {
-		var tokens: [Mode: AnyCancellable] = [:]
-		var views: [Mode: UIScrollView] = [:]
-		@Published var scrollStates: [Mode: ScrollState] = [:]
-	}
-	
-	private struct ScrollState: Equatable {
-		var isAtTop, isAtBottom: Bool
-		
-		init() {
-			// conservative
-			isAtTop = false
-			isAtBottom = false
-		}
-		
-		init(of scrollView: UIScrollView) {
-			let tolerance: CGFloat = 5
-			let topOffset = scrollView.contentOffset.y + scrollView.adjustedContentInset.top
-			isAtTop = topOffset <= tolerance
-			let bottomOffset = scrollView.contentSize.height - scrollView.contentOffset.y
-			let bottom = scrollView.frame.height - scrollView.adjustedContentInset.bottom
-			isAtBottom = bottomOffset <= bottom + tolerance
-		}
 	}
 }
 
