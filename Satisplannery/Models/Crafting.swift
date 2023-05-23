@@ -187,7 +187,7 @@ extension Recipe {
 	}
 	
 	func netProduction(of item: Item.ID) -> Fraction {
-		return production(of: item) - consumption(of: item)
+		production(of: item) - consumption(of: item)
 	}
 }
 
