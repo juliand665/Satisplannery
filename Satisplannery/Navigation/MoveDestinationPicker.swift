@@ -24,8 +24,8 @@ struct MoveDestinationPicker: View {
 		.onAppear {
 			path = outerNavigationPath!
 		}
-		.onChange(of: path) { newPath in
-			print("path changed to", newPath)
+		.onChange(of: path) {
+			print("path changed to", path)
 		}
 	}
 	
