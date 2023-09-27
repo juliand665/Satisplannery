@@ -27,6 +27,7 @@ private struct FractionField: View {
 	var format: Fraction.Format
 	
 	@State var stringValue: String
+	@FocusState var isEditing: Bool
 	
 	init(label: LocalizedStringKey, value: Binding<Fraction>, format: Fraction.Format) {
 		self.label = label
@@ -36,9 +37,10 @@ private struct FractionField: View {
 	}
 	
 	var body: some View {
-		let isValid = value == Fraction(stringValue)
+		let isValid = !isEditing || value == Fraction(stringValue)
 		
 		TextField(label, text: $stringValue)
+			.focused($isEditing)
 			.opacity(isValid ? 1 : 0.7)
 			.multilineTextAlignment(.trailing)
 			.keyboardType(.numbersAndPunctuation)
@@ -55,7 +57,10 @@ private struct FractionField: View {
 					.opacity(isValid ? 0 : 1)
 			}
 			.onChange(of: value) {
-				guard value != Fraction(stringValue) else { return }
+				guard !isEditing else { return }
+				stringValue = format.format(value)
+			}
+			.onChange(of: format) {
 				stringValue = format.format(value)
 			}
 			.onChange(of: stringValue) {
