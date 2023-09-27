@@ -10,26 +10,58 @@ struct FractionEditor: View {
 	var isDisplayingAsDecimals
 	
 	var body: some View {
-		TextField(
-			label,
-			value: Binding {
-				value
-			} set: {
-				guard $0 != 0 else { return }
-				value = $0
-			},
+		FractionField(
+			label: label, value: $value,
 			format: .fraction(
 				alwaysShowSign: alwaysShowSign,
 				useDecimalFormat: isDisplayingAsDecimals
 			)
 		)
-		.multilineTextAlignment(.trailing)
-		.keyboardType(.numbersAndPunctuation)
-		.padding(.horizontal, 8)
-		.frame(width: 100)
-		.frame(minHeight: 36)
-		.background(Color.primary.opacity(0.05))
 		.cornerRadius(cornerRadius)
+	}
+}
+
+private struct FractionField: View {
+	var label: LocalizedStringKey
+	@Binding var value: Fraction
+	var format: Fraction.Format
+	
+	@State var stringValue: String
+	
+	init(label: LocalizedStringKey, value: Binding<Fraction>, format: Fraction.Format) {
+		self.label = label
+		self._value = value
+		self.format = format
+		self.stringValue = format.format(value.wrappedValue)
+	}
+	
+	var body: some View {
+		let isValid = value == Fraction(stringValue)
+		
+		TextField(label, text: $stringValue)
+			.opacity(isValid ? 1 : 0.7)
+			.multilineTextAlignment(.trailing)
+			.keyboardType(.numbersAndPunctuation)
+			.padding(.horizontal, 8)
+			.frame(width: 100)
+			.frame(minHeight: 36)
+			.background {
+				Color.primary.opacity(0.05)
+				
+				Text("\(format.format(value))")
+					.font(.caption2)
+					.padding(.horizontal, 1)
+					.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
+					.opacity(isValid ? 0 : 1)
+			}
+			.onChange(of: value) {
+				guard value != Fraction(stringValue) else { return }
+				stringValue = format.format(value)
+			}
+			.onChange(of: stringValue) {
+				guard let fraction = Fraction(stringValue), fraction != 0 else { return }
+				value = fraction
+			}
 	}
 }
 

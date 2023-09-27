@@ -192,7 +192,7 @@ private func gcd(_ a: Int, _ b: Int) -> Int {
 
 extension Fraction {
 	init?(_ string: String) {
-		let sides = string.split(separator: "/")
+		let sides = string.split(separator: "/", omittingEmptySubsequences: false)
 		let numerator = sides.first.flatMap(Self.init(decimal:))
 		guard let numerator else { return nil }
 		
@@ -216,7 +216,7 @@ extension Fraction {
 	private static let decimalSeparator = Locale.current.decimalSeparator ?? "."
 	
 	private init?(decimal: some StringProtocol) {
-		let parts = decimal.split(separator: Self.decimalSeparator)
+		let parts = decimal.split(separator: Self.decimalSeparator, omittingEmptySubsequences: false)
 		let integerPart = parts.first.flatMap {
 			Int(String($0.filter { !Self.thousandsSeparators.contains($0) }))
 		}
