@@ -31,3 +31,9 @@ extension ObjectID: Comparable {
 extension ObjectID: Identifiable {
 	var id: Self { self }
 }
+
+extension ObjectID: CustomStringConvertible {
+	var description: String {
+		"\(Object.self)(\(rawValue))"
+	}
+}

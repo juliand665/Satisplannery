@@ -1,5 +1,6 @@
 import SwiftUI
 
+@MainActor
 struct FolderView: View {
 	@ObservedObject var folder: ProcessFolder
 	@State var errorContainer = ErrorContainer()
