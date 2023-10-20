@@ -4,7 +4,7 @@ import Algorithms
 import HandyOperators
 
 struct ContentView: View {
-	@StateObject var processManager = ProcessManager()
+	@State var processManager = ProcessManager()
 	@State var path = NavigationPath()
 	
 	@AppStorage("decimalFormat")
@@ -39,7 +39,7 @@ struct ContentView: View {
 }
 
 private struct ProcessEntryView: View {
-	@ObservedObject var entry: ProcessEntry
+	var entry: ProcessEntry
 	
 	var body: some View {
 		switch entry.loaded() {

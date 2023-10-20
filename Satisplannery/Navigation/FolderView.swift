@@ -2,7 +2,7 @@ import SwiftUI
 
 @MainActor
 struct FolderView: View {
-	@ObservedObject var folder: ProcessFolder
+	@Bindable var folder: ProcessFolder
 	@State var errorContainer = ErrorContainer()
 	@State var editMode = EditMode.inactive
 	@State var selection: Set<ProcessFolder.Entry.ID> = []

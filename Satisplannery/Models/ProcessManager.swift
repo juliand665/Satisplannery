@@ -3,13 +3,14 @@ import Combine
 import UserDefault
 import HandyOperators
 import SwiftUI
+import Observation
 
-final class ProcessManager: ObservableObject {
+@Observable
+final class ProcessManager {
 	private static let migrator = Migrator(version: "v1", type: HierarchyNode.Folder.self)
-	@Published private(set) var rootFolder: Result<ProcessFolder, Error>!
-	@Published var saveError = ErrorContainer()
+	private(set) var rootFolder: Result<ProcessFolder, Error>!
+	var saveError = ErrorContainer()
 	
-	private var saveToken: AnyCancellable?
 	private let rootFolderURL = Locations.rootFolder.appending(component: "processes.json")
 	
 	init() {
@@ -43,9 +44,9 @@ final class ProcessManager: ObservableObject {
 	}
 	
 	private func linkRootFolder(_ folder: ProcessFolder) {
-		saveToken = folder.objectWillChange
-			.debounce(for: 0.5, scheduler: DispatchQueue.main)
-			.sink(receiveValue: saveHierarchy)
+		onObservableChange(throttlingBy: .seconds(1)) { [weak self] in
+			self?.saveHierarchy()
+		}
 	}
 	
 	private func saveHierarchy() {
@@ -60,52 +61,26 @@ final class ProcessManager: ObservableObject {
 	}
 }
 
-final class ProcessFolder: ObservableObject, FolderEntry {
+@Observable
+final class ProcessFolder: FolderEntry {
 	let id: ObjectID<ProcessFolder> = .uuid()
-	@Published var name: String
-	@Published var entries: [Entry] {
-		didSet {
-			observeEntries()
-		}
-	}
-	@Published var totals: ItemBag
-	var manager: ProcessManager
-	private var tokens: [Entry.ID: AnyCancellable] = [:]
+	var name: String
+	var entries: [ProcessFolderEntry]
+	var totals: ItemBag
+	let manager: ProcessManager
 	
 	convenience init(name: String = "", manager: ProcessManager) {
 		self.init(name: name, entries: [], manager: manager)
 	}
 	
-	private init(name: String, entries: [Entry], manager: ProcessManager) {
+	private init(name: String, entries: [ProcessFolderEntry], manager: ProcessManager) {
 		self.name = name
 		self.entries = entries
 		self.manager = manager
-		self.totals = entries.totals()
+		self.totals = .init()
 		
-		observeEntries()
-	}
-	
-	private func observeEntries() {
-		var needsUpdate = false
-		
-		let removedIDs = Set(tokens.keys).subtracting(entries.lazy.map(\.id))
-		for id in removedIDs {
-			needsUpdate = true
-			tokens[id] = nil
-		}
-		
-		for entry in entries {
-			guard tokens[entry.id] == nil else { continue }
-			needsUpdate = true
-			tokens[entry.id] = entry.entry.objectWillChange
-				.debounce(for: 0.5, scheduler: DispatchQueue.main)
-				.sink { [unowned self] in
-					objectWillChange.send() // somehow not automatically triggered by the totals update
-					totals = entries.totals()
-				}
-		}
-		
-		if needsUpdate {
+		onObservableChange { [weak self] in
+			guard let self else { return }
 			totals = entries.totals()
 		}
 	}
@@ -179,60 +154,62 @@ final class ProcessFolder: ObservableObject, FolderEntry {
 		entries.remove(atOffsets: indices)
 	}
 	
-	enum Entry: Identifiable, Hashable {
-		case folder(ProcessFolder)
-		case process(ProcessEntry)
-		
-		var isFolder: Bool {
-			switch self {
-			case .folder:
-				return true
-			case .process:
-				return false
-			}
+	typealias Entry = ProcessFolderEntry
+}
+
+enum ProcessFolderEntry: Identifiable, Hashable {
+	case folder(ProcessFolder)
+	case process(ProcessEntry)
+	
+	var isFolder: Bool {
+		switch self {
+		case .folder:
+			return true
+		case .process:
+			return false
 		}
-		
-		var id: ObjectID<Self> {
-			switch self {
-			case .folder(let folder):
-				return .init(rawValue: folder.id.rawValue)
-			case .process(let process):
-				return .init(rawValue: process.id.rawValue)
-			}
+	}
+	
+	var id: ObjectID<Self> {
+		switch self {
+		case .folder(let folder):
+			return .init(rawValue: folder.id.rawValue)
+		case .process(let process):
+			return .init(rawValue: process.id.rawValue)
 		}
-		
-		static func == (lhs: Self, rhs: Self) -> Bool {
-			lhs.id == rhs.id
+	}
+	
+	static func == (lhs: Self, rhs: Self) -> Bool {
+		lhs.id == rhs.id
+	}
+	
+	func hash(into hasher: inout Hasher) {
+		hasher.combine(id)
+	}
+	
+	var totals: ItemBag {
+		entry.totals
+	}
+	
+	var name: String {
+		entry.name
+	}
+	
+	fileprivate var entry: any FolderEntry {
+		switch self {
+		case .folder(let folder):
+			return folder
+		case .process(let process):
+			return process
 		}
-		
-		func hash(into hasher: inout Hasher) {
-			hasher.combine(id)
-		}
-		
-		var totals: ItemBag {
-			entry.totals
-		}
-		
-		var name: String {
-			entry.name
-		}
-		
-		fileprivate var entry: any FolderEntry {
-			switch self {
-			case .folder(let folder):
-				return folder
-			case .process(let process):
-				return process
-			}
-		}
-		
-		func copy() throws -> Self {
-			switch self {
-			case .folder(let folder):
-				return .folder(try folder.copy())
-			case .process(let process):
-				return .process(try process.copy())
-			}
+	}
+	
+	func copy() throws -> Self {
+		switch self {
+		case .folder(let folder):
+			return .folder(try folder.copy())
+		case .process(let process):
+			return .process(try process.copy())
 		}
 	}
 }
@@ -243,8 +220,7 @@ private extension Sequence where Element == ProcessFolder.Entry {
 	}
 }
 
-protocol FolderEntry {
-	var objectWillChange: ObservableObjectPublisher { get }
+protocol FolderEntry: Observable {
 	var totals: ItemBag { get }
 	var name: String { get }
 	
@@ -252,15 +228,14 @@ protocol FolderEntry {
 	func delete() throws
 }
 
-final class ProcessEntry: ObservableObject, FolderEntry {
+@Observable
+final class ProcessEntry: FolderEntry {
 	let id: StoredProcess.ID
-	@Published var name: String
-	@Published var totals: ItemBag
-	var manager: ProcessManager
+	var name: String
+	var totals: ItemBag
+	let manager: ProcessManager
 	
 	private var loadedProcess: Result<StoredProcess, Error>?
-	private var updateToken: AnyCancellable?
-	private var saveToken: AnyCancellable?
 	
 	convenience init(_ process: StoredProcess, manager: ProcessManager) {
 		self.init(id: process.id, name: process.process.name, totals: process.process.totals, manager: manager)
@@ -273,28 +248,27 @@ final class ProcessEntry: ObservableObject, FolderEntry {
 		self.manager = manager
 	}
 	
-	private func update(from process: CraftingProcess) {
-		objectWillChange.send()
-		name = process.name
-		totals = process.totals
-	}
-	
 	func loaded(forceRetry: Bool = false) -> Result<StoredProcess, Error> {
 		if forceRetry {
-			if let loaded = try? loadedProcess?.get() {
+			if case .success(let loaded)? = loadedProcess {
 				return .success(loaded)
 			}
 		} else if let loadedProcess {
 			return loadedProcess
 		}
 		
-		return .init {
-			try .load(for: id) <- {
-				updateToken = $0.$process
-					.receive(on: DispatchQueue.main)
-					.sink { [unowned self] in update(from: $0) }
+		return .init(catching: load) <- { loadedProcess = $0 }
+	}
+	
+	private func load() throws -> StoredProcess {
+		try .load(for: id) <- { (stored: StoredProcess) in
+			onObservableChange {
+				(stored.process.name, stored.process.totals)
+			} run: { [weak self] in
+				guard let self else { return }
+				(name, totals) = $0
 			}
-		} <- { loadedProcess = $0 }
+		}
 	}
 	
 	func copy() throws -> Self {
@@ -312,7 +286,7 @@ final class ProcessEntry: ObservableObject, FolderEntry {
 	}
 }
 
-extension ProcessFolder.Entry: Transferable {
+extension ProcessFolderEntry: Transferable {
 	static var transferRepresentation: some TransferRepresentation {
 		ProxyRepresentation { entry in
 			try entry.transferable()
@@ -338,15 +312,15 @@ enum TransferableEntry: Transferable, Codable {
 	}
 }
 
-final class StoredProcess: ObservableObject, Identifiable {
+@Observable
+final class StoredProcess: Identifiable {
 	static let migrator = Migrator(version: "v1", type: CraftingProcess.self)
 	
 	typealias ID = ObjectID<StoredProcess>
 	
 	let id: ID
-	@Published var process: CraftingProcess
-	@Published var saveError: Error?
-	var saveToken: AnyCancellable?
+	var process: CraftingProcess
+	var saveError: Error?
 	
 	fileprivate convenience init(process: CraftingProcess) throws {
 		self.init(id: .uuid(), process: process)
@@ -356,9 +330,9 @@ final class StoredProcess: ObservableObject, Identifiable {
 	private init(id: ID, process: CraftingProcess) {
 		self.id = id
 		self.process = process
-		self.saveToken = $process
-			.debounce(for: 0.5, scheduler: DispatchQueue.main)
-			.sink { [weak self] _ in self?.autosave() }
+		onObservableChange(throttlingBy: .seconds(1)) { [weak self] in
+			self?.autosave()
+		}
 	}
 	
 	convenience init() throws {
@@ -486,7 +460,7 @@ private extension ProcessEntry {
 	}
 }
 
-private extension ProcessFolder.Entry {
+private extension ProcessFolderEntry {
 	init(_ node: HierarchyNode, manager: ProcessManager) {
 		switch node {
 		case .folder(let folder):
