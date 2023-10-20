@@ -42,6 +42,9 @@
 		B95BA2272957BF5D00176E4A /* ProcessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95BA2262957BF5D00176E4A /* ProcessManager.swift */; };
 		B9891E6528E32D52005D45E7 /* ReorderingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9891E6428E32D52005D45E7 /* ReorderingView.swift */; };
 		B98C76682AE045B300D2944A /* Observation+Tracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C76672AE045B300D2944A /* Observation+Tracking.swift */; };
+		B98C767D2AE1B74C00D2944A /* Hierarchy+Encoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C767C2AE1B74C00D2944A /* Hierarchy+Encoding.swift */; };
+		B98C767F2AE21E6200D2944A /* Hierarchy+Transferable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C767E2AE21E6200D2944A /* Hierarchy+Transferable.swift */; };
+		B98C76812AE21FEB00D2944A /* Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C76802AE21FEB00D2944A /* Hierarchy.swift */; };
 		B9B11A6528DC06E8006EC232 /* SwiftUI+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B11A6428DC06E8006EC232 /* SwiftUI+Helpers.swift */; };
 		B9B11A6728DC093D006EC232 /* BuildingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B11A6628DC093D006EC232 /* BuildingView.swift */; };
 		B9B11A6928DC99FD006EC232 /* CalculationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B11A6828DC99FD006EC232 /* CalculationView.swift */; };
@@ -95,6 +98,9 @@
 		B95BA2262957BF5D00176E4A /* ProcessManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessManager.swift; sourceTree = "<group>"; };
 		B9891E6428E32D52005D45E7 /* ReorderingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReorderingView.swift; sourceTree = "<group>"; };
 		B98C76672AE045B300D2944A /* Observation+Tracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observation+Tracking.swift"; sourceTree = "<group>"; };
+		B98C767C2AE1B74C00D2944A /* Hierarchy+Encoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Hierarchy+Encoding.swift"; sourceTree = "<group>"; };
+		B98C767E2AE21E6200D2944A /* Hierarchy+Transferable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Hierarchy+Transferable.swift"; sourceTree = "<group>"; };
+		B98C76802AE21FEB00D2944A /* Hierarchy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hierarchy.swift; sourceTree = "<group>"; };
 		B9B11A6428DC06E8006EC232 /* SwiftUI+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+Helpers.swift"; sourceTree = "<group>"; };
 		B9B11A6628DC093D006EC232 /* BuildingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingView.swift; sourceTree = "<group>"; };
 		B9B11A6828DC99FD006EC232 /* CalculationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationView.swift; sourceTree = "<group>"; };
@@ -132,6 +138,9 @@
 				B9269B7328D22C2200B95697 /* Crafting.swift */,
 				B94C274B28DFA9DD00402AAA /* Migrator.swift */,
 				B95BA2262957BF5D00176E4A /* ProcessManager.swift */,
+				B98C76802AE21FEB00D2944A /* Hierarchy.swift */,
+				B98C767C2AE1B74C00D2944A /* Hierarchy+Encoding.swift */,
+				B98C767E2AE21E6200D2944A /* Hierarchy+Transferable.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -369,6 +378,8 @@
 				B9596BC02A19C4C700D317D7 /* MoveDestinationPicker.swift in Sources */,
 				B9B11A6728DC093D006EC232 /* BuildingView.swift in Sources */,
 				B945242528D1108D00D9937B /* ContentView.swift in Sources */,
+				B98C767D2AE1B74C00D2944A /* Hierarchy+Encoding.swift in Sources */,
+				B98C76812AE21FEB00D2944A /* Hierarchy.swift in Sources */,
 				B9269B7D28D2518300B95697 /* Swift+Helpers.swift in Sources */,
 				B945245028D1586600D9937B /* GameData.swift in Sources */,
 				B9596BCD2A19C7A400D317D7 /* NSItemProvider+Transferable.swift in Sources */,
@@ -381,6 +392,7 @@
 				B95BA2272957BF5D00176E4A /* ProcessManager.swift in Sources */,
 				B9269B7428D22C2200B95697 /* Crafting.swift in Sources */,
 				B9269B8628D2AC6100B95697 /* FractionEditor.swift in Sources */,
+				B98C767F2AE21E6200D2944A /* Hierarchy+Transferable.swift in Sources */,
 				B945245228D158A200D9937B /* ItemViews.swift in Sources */,
 				B9B11A6528DC06E8006EC232 /* SwiftUI+Helpers.swift in Sources */,
 				B945242328D1108D00D9937B /* SatisplanneryApp.swift in Sources */,
