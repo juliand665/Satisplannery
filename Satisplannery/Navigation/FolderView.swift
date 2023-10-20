@@ -3,6 +3,8 @@ import SwiftUI
 @MainActor
 struct FolderView: View {
 	@Bindable var folder: ProcessFolder
+	var manager: ProcessManager
+	
 	@State var errorContainer = ErrorContainer()
 	@State var editMode = EditMode.inactive
 	@State var selection: Set<ProcessFolder.Entry.ID> = []
@@ -10,7 +12,7 @@ struct FolderView: View {
 	@State var isConfirmingDelete = false
 	
 	var isRoot: Bool {
-		folder === (try? folder.manager.rootFolder.get())
+		folder === (try? manager.rootFolder.get())
 	}
 	
 	// tapping nav links in a list will also toggle selection status for those rows if we don't block it
@@ -211,16 +213,14 @@ struct FolderView: View {
 	}
 	
 	func copy(_ entries: some Sequence<ProcessFolder.Entry>) {
-		errorContainer.try(errorTitle: "Copy Failed!") {
-			UIPasteboard.general.itemProviders = try entries.map {
-				.init(transferable: try $0.transferable())
-			}
+		UIPasteboard.general.itemProviders = entries.map {
+			.init(transferable: $0)
 		}
 	}
 	
 	func moveDestinationPicker() -> some View {
 		MoveDestinationPicker(
-			manager: folder.manager,
+			manager: manager,
 			entryIDs: selection
 		) { destination in
 			folder.moveEntries(withIDs: selection, to: destination)

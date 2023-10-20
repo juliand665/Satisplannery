@@ -8,16 +8,14 @@ final class ProcessFolder: FolderEntry {
 	var name: String
 	var entries: [Entry]
 	var totals: ItemBag
-	let manager: ProcessManager
 	
-	convenience init(name: String = "", manager: ProcessManager) {
-		self.init(name: name, entries: [], manager: manager)
+	convenience init(name: String = "") {
+		self.init(name: name, entries: [])
 	}
 	
-	init(name: String, entries: [Entry], manager: ProcessManager) {
+	init(name: String, entries: [Entry]) {
 		self.name = name
 		self.entries = entries
-		self.manager = manager
 		self.totals = .init()
 		
 		onObservableChange { [weak self] in
@@ -29,14 +27,13 @@ final class ProcessFolder: FolderEntry {
 	func copy() throws -> Self {
 		.init(
 			name: name,
-			entries: try entries.map { try $0.copy() },
-			manager: manager
+			entries: try entries.map { try $0.copy() }
 		)
 	}
 	
 	@discardableResult
 	func addSubfolder() -> ProcessFolder {
-		ProcessFolder(name: "New Folder", manager: manager) <- {
+		ProcessFolder(name: "New Folder") <- {
 			entries.append(.folder($0))
 		}
 	}
@@ -61,7 +58,7 @@ final class ProcessFolder: FolderEntry {
 	}
 	
 	private func wrap(_ process: CraftingProcess) throws -> Entry {
-		.process(.init(try .init(process: process), manager: manager))
+		.process(.init(try .init(process: process)))
 	}
 	
 	private func wrap(_ entry: TransferableEntry) throws -> Entry {
@@ -69,7 +66,7 @@ final class ProcessFolder: FolderEntry {
 		case .process(let process):
 			return try wrap(process)
 		case .folder(let name, let entries):
-			return .folder(.init(name: name, entries: try entries.map(wrap), manager: manager))
+			return .folder(.init(name: name, entries: try entries.map(wrap)))
 		}
 	}
 	
@@ -172,19 +169,17 @@ final class ProcessEntry: FolderEntry {
 	let id: StoredProcess.ID
 	var name: String
 	var totals: ItemBag
-	let manager: ProcessManager
 	
 	private var loadedProcess: Result<StoredProcess, Error>?
 	
-	convenience init(_ process: StoredProcess, manager: ProcessManager) {
-		self.init(id: process.id, name: process.process.name, totals: process.process.totals, manager: manager)
+	convenience init(_ process: StoredProcess) {
+		self.init(id: process.id, name: process.process.name, totals: process.process.totals)
 	}
 	
-	init(id: StoredProcess.ID, name: String, totals: ItemBag, manager: ProcessManager) {
+	init(id: StoredProcess.ID, name: String, totals: ItemBag) {
 		self.id = id
 		self.name = name
 		self.totals = totals
-		self.manager = manager
 	}
 	
 	func loaded(forceRetry: Bool = false) -> Result<StoredProcess, Error> {
@@ -214,8 +209,7 @@ final class ProcessEntry: FolderEntry {
 		.init(
 			id: try StoredProcess.duplicateData(with: id),
 			name: name,
-			totals: totals,
-			manager: manager
+			totals: totals
 		)
 	}
 	

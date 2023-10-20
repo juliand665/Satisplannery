@@ -9,7 +9,7 @@ extension ProcessManager {
 	
 	func decodeRootFolder(from raw: Data) throws -> ProcessFolder {
 		let node = try Self.migrator.load(from: raw)
-		return ProcessFolder(node, manager: self)
+		return ProcessFolder(node)
 	}
 }
 
@@ -30,11 +30,10 @@ private enum HierarchyNode: Codable {
 }
 
 private extension ProcessFolder {
-	convenience init(_ node: HierarchyNode.Folder, manager: ProcessManager) {
+	convenience init(_ node: HierarchyNode.Folder) {
 		self.init(
 			name: node.name,
-			entries: node.entries.map { .init($0, manager: manager) },
-			manager: manager
+			entries: node.entries.map { .init($0) }
 		)
 	}
 	
@@ -44,8 +43,8 @@ private extension ProcessFolder {
 }
 
 private extension ProcessEntry {
-	convenience init(_ node: HierarchyNode.Process, manager: ProcessManager) {
-		self.init(id: node.id, name: node.name, totals: node.totals, manager: manager)
+	convenience init(_ node: HierarchyNode.Process) {
+		self.init(id: node.id, name: node.name, totals: node.totals)
 	}
 	
 	func asNode() -> HierarchyNode.Process {
@@ -54,12 +53,12 @@ private extension ProcessEntry {
 }
 
 private extension ProcessFolder.Entry {
-	init(_ node: HierarchyNode, manager: ProcessManager) {
+	init(_ node: HierarchyNode) {
 		switch node {
 		case .folder(let folder):
-			self = .folder(.init(folder, manager: manager))
+			self = .folder(.init(folder))
 		case .process(let process):
-			self = .process(.init(process, manager: manager))
+			self = .process(.init(process))
 		}
 	}
 	

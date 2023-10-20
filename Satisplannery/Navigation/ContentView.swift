@@ -14,7 +14,7 @@ struct ContentView: View {
 		NavigationStack(path: $path) {
 			switch processManager.rootFolder! {
 			case .success(let folder):
-				FolderView(folder: folder)
+				FolderView(folder: folder, manager: processManager)
 					.navigationDestination(for: ProcessFolder.Entry.self, destination: view(for:))
 			case .failure(let error):
 				// TODO: improve this lol
@@ -31,7 +31,7 @@ struct ContentView: View {
 	func view(for entry: ProcessFolder.Entry) -> some View {
 		switch entry {
 		case .folder(let folder):
-			FolderView(folder: folder)
+			FolderView(folder: folder, manager: processManager)
 		case .process(let entry):
 			ProcessEntryView(entry: entry)
 		}

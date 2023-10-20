@@ -36,7 +36,7 @@ final class ProcessManager {
 	}
 	
 	private func makeRootFolder() -> ProcessFolder {
-		.init(name: "Processes", manager: self)
+		.init(name: "Processes")
 	}
 	
 	private func saveHierarchy() {
