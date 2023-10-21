@@ -111,8 +111,8 @@ struct FolderView: View {
 			print("onInsert:", items)
 			Task {
 				await $errorContainer.try(errorTitle: "Could not insert processes!") {
-					let processes = try await items.loadTransferableElements(of: TransferableEntry.self)
-					try folder.add(processes, at: index)
+					let processes = try await items.loadTransferableElements(of: ProcessFolder.Entry.self)
+					folder.add(processes, at: index)
 				}
 			}
 		}
@@ -193,15 +193,8 @@ struct FolderView: View {
 						.disabled(selection.isEmpty)
 						
 						// paste button looks ridiculous outside a menu
-						PasteButton(payloadType: TransferableEntry.self) { entries in
-							// …oh my god
-							Task {
-								await MainActor.run {
-									errorContainer.try(errorTitle: "Paste Failed!") {
-										try folder.add(entries)
-									}
-								}
-							}
+						PasteButton(payloadType: ProcessFolder.Entry.self) { entries in
+							folder.add(entries)
 						}
 					} label: {
 						Label("More", systemImage: "ellipsis.circle")

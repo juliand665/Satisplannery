@@ -39,12 +39,12 @@ final class ProcessFolder: FolderEntry {
 	}
 	
 	func addProcess() throws {
-		entries.append(try wrap(CraftingProcess(name: "New Process")))
+		entries.append(.process(.init(try .init())))
 	}
 	
-	func add(_ entries: some Sequence<TransferableEntry>, at index: Int? = nil) throws {
+	func add(_ entries: some Collection<Entry>, at index: Int? = nil) {
 		self.entries.insert(
-			contentsOf: try entries.lazy.map(wrap),
+			contentsOf: entries,
 			at: index ?? self.entries.endIndex
 		)
 	}
@@ -55,19 +55,6 @@ final class ProcessFolder: FolderEntry {
 		assert(toMove.count == ids.count)
 		entries.removeAll { ids.contains($0.id) }
 		destination.entries.append(contentsOf: toMove)
-	}
-	
-	private func wrap(_ process: CraftingProcess) throws -> Entry {
-		.process(.init(try .init(process: process)))
-	}
-	
-	private func wrap(_ entry: TransferableEntry) throws -> Entry {
-		switch entry {
-		case .process(let process):
-			return try wrap(process)
-		case .folder(let name, let entries):
-			return .folder(.init(name: name, entries: try entries.map(wrap)))
-		}
 	}
 	
 	func delete() throws {
