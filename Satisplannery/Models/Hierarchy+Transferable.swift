@@ -8,6 +8,7 @@ extension ProcessFolder.Entry: Transferable {
 		} importing: { transferable in
 			try .init(transferable)
 		}
+		.suggestedFileName { $0.name }
 	}
 	
 	private init(_ transferable: TransferableEntry) throws {
