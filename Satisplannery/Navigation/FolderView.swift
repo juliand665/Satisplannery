@@ -186,7 +186,7 @@ struct FolderView: View {
 					
 					Menu {
 						Button {
-							folder.moveEntries(withIDs: selection, to: folder.addSubfolder())
+							folder.createSubfolder(forEntryIDs: selection)
 						} label: {
 							Label("New Folder with Selection", systemImage: "folder.badge.plus")
 						}

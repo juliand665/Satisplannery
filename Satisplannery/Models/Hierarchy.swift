@@ -9,7 +9,7 @@ final class ProcessFolder: FolderEntry {
 	var entries: [Entry]
 	var totals: ItemBag
 	
-	convenience init(name: String = "") {
+	convenience init(name: String = "New Folder") {
 		self.init(name: name, entries: [])
 	}
 	
@@ -20,7 +20,7 @@ final class ProcessFolder: FolderEntry {
 		
 		onObservableChange { [weak self] in
 			guard let self else { return }
-			totals = entries.totals()
+			totals = self.entries.totals() // without self we'd capture the argument
 		}
 	}
 	
@@ -33,7 +33,7 @@ final class ProcessFolder: FolderEntry {
 	
 	@discardableResult
 	func addSubfolder() -> ProcessFolder {
-		ProcessFolder(name: "New Folder") <- {
+		.init() <- {
 			entries.append(.folder($0))
 		}
 	}
@@ -55,6 +55,13 @@ final class ProcessFolder: FolderEntry {
 		assert(toMove.count == ids.count)
 		entries.removeAll { ids.contains($0.id) }
 		destination.entries.append(contentsOf: toMove)
+	}
+	
+	func createSubfolder(forEntryIDs ids: Set<Entry.ID>) {
+		let target = entries.firstIndex { ids.contains($0.id) }
+		let subfolder = Self()
+		entries.insert(.folder(subfolder), at: target ?? entries.endIndex)
+		moveEntries(withIDs: ids, to: subfolder)
 	}
 	
 	func delete() throws {

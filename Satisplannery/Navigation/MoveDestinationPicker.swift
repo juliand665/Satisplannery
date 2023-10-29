@@ -56,6 +56,7 @@ struct MoveDestinationPicker: View {
 					Label("Move \(entryIDs.count) Entry(s) Here", systemImage: "plus")
 				}
 				.fontWeight(.medium)
+				.disabled(folder.entries.contains { entryIDs.contains($0.id) })
 			}
 			.navigationTitle(folder.name)
 			.navigationBarTitleDisplayMode(.inline)
