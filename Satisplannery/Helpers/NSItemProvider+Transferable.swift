@@ -1,7 +1,7 @@
 import SwiftUI
 
 extension NSItemProvider {
-	convenience init(transferable: some Transferable) {
+	convenience init(transferable: some Transferable & Sendable) {
 		self.init()
 		register(transferable)
 	}

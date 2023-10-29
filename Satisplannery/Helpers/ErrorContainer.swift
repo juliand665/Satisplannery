@@ -35,7 +35,7 @@ extension Binding<ErrorContainer> {
 	@MainActor
 	func `try`<T>(
 		errorTitle: LocalizedStringKey = "An Error Occurred!",
-		perform action: () async throws -> T
+		perform action: @MainActor () async throws -> T
 	) async -> T? {
 		do {
 			let result = try await action()

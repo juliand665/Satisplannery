@@ -1,8 +1,10 @@
 import SwiftUI
 import HandyOperators
 
+@MainActor
 private var cache: [String: Image] = [:]
 
+@MainActor
 private func cachedImage(for id: String) -> Image {
 	cache[id] ?? Image(named: id, inDirectory: "images")!.resizable() <- {
 		cache[id] = $0
@@ -10,6 +12,7 @@ private func cachedImage(for id: String) -> Image {
 }
 
 extension ObjectWithIcon {
+	@MainActor
 	var icon: some View {
 		cachedImage(for: id.rawValue)
 			.scaledToFit()

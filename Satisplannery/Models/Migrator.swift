@@ -1,6 +1,6 @@
 import Foundation
 
-struct Migrator<Value: Codable, Version: Codable & Equatable> {
+struct Migrator<Value: Codable, Version: Codable & Equatable & Sendable> {
 	let version: Version
 	let encoder: JSONEncoder
 	let decoder: JSONDecoder

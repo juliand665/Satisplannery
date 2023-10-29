@@ -1,5 +1,6 @@
 import SwiftUI
 
+@MainActor
 struct CalculationView: View {
 	@Binding var process: CraftingProcess
 	@State var expandedStep: CraftingStep.ID?
@@ -124,6 +125,7 @@ struct CalculationView: View {
 	}
 }
 
+@MainActor
 struct StepSection: View {
 	@Binding var step: CraftingStep
 	var process: CraftingProcess

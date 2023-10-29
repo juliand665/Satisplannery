@@ -3,6 +3,7 @@ import Observation
 import HandyOperators
 
 @Observable
+@MainActor
 final class ProcessFolder: FolderEntry {
 	let id: ObjectID<ProcessFolder> = .uuid()
 	var name: String
@@ -86,6 +87,7 @@ final class ProcessFolder: FolderEntry {
 		entries.remove(atOffsets: indices)
 	}
 	
+	@MainActor
 	enum Entry: Identifiable, Hashable {
 		case folder(ProcessFolder)
 		case process(ProcessEntry)
@@ -99,7 +101,7 @@ final class ProcessFolder: FolderEntry {
 			}
 		}
 		
-		var id: ObjectID<Self> {
+		nonisolated var id: ObjectID<Self> {
 			switch self {
 			case .folder(let folder):
 				return .init(rawValue: folder.id.rawValue)
@@ -108,11 +110,11 @@ final class ProcessFolder: FolderEntry {
 			}
 		}
 		
-		static func == (lhs: Self, rhs: Self) -> Bool {
+		nonisolated static func == (lhs: Self, rhs: Self) -> Bool {
 			lhs.id == rhs.id
 		}
 		
-		func hash(into hasher: inout Hasher) {
+		nonisolated func hash(into hasher: inout Hasher) {
 			hasher.combine(id)
 		}
 		
@@ -150,6 +152,7 @@ private extension Sequence where Element == ProcessFolder.Entry {
 	}
 }
 
+@MainActor
 protocol FolderEntry: Observable {
 	var totals: ItemBag { get }
 	var name: String { get }
@@ -159,6 +162,7 @@ protocol FolderEntry: Observable {
 }
 
 @Observable
+@MainActor
 final class ProcessEntry: FolderEntry {
 	let id: StoredProcess.ID
 	var name: String

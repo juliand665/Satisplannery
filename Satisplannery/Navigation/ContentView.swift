@@ -3,6 +3,7 @@ import UserDefault
 import Algorithms
 import HandyOperators
 
+@MainActor
 struct ContentView: View {
 	@State var processManager = ProcessManager()
 	@State var path = NavigationPath()
@@ -15,7 +16,7 @@ struct ContentView: View {
 			switch processManager.rootFolder! {
 			case .success(let folder):
 				FolderView(folder: folder, manager: processManager)
-					.navigationDestination(for: ProcessFolder.Entry.self, destination: view(for:))
+					.navigationDestination(for: ProcessFolder.Entry.self) { view(for: $0) }
 			case .failure(let error):
 				// TODO: improve this lol
 				Text(error.localizedDescription)

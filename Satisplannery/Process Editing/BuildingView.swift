@@ -1,5 +1,6 @@
 import SwiftUI
 
+@MainActor
 struct BuildingView: View {
 	@Binding var process: CraftingProcess
 	

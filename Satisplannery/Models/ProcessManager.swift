@@ -3,6 +3,7 @@ import Observation
 import HandyOperators
 
 @Observable
+@MainActor
 final class ProcessManager {
 	private(set) var rootFolder: Result<ProcessFolder, Error>!
 	var saveError = ErrorContainer()
@@ -52,6 +53,7 @@ final class ProcessManager {
 }
 
 @Observable
+@MainActor
 final class StoredProcess: Identifiable {
 	static let migrator = Migrator(version: "v1", type: CraftingProcess.self)
 	
