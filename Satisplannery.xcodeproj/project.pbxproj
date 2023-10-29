@@ -49,6 +49,7 @@
 		B9B11A6728DC093D006EC232 /* BuildingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B11A6628DC093D006EC232 /* BuildingView.swift */; };
 		B9B11A6928DC99FD006EC232 /* CalculationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B11A6828DC99FD006EC232 /* CalculationView.swift */; };
 		B9C4484A29AFBEC40055B158 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = B9C4484929AFBEC40055B158 /* Introspect */; };
+		B9DA2B742AEDD6200014AB18 /* Task+Completion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DA2B732AEDD6200014AB18 /* Task+Completion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -104,6 +105,7 @@
 		B9B11A6428DC06E8006EC232 /* SwiftUI+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+Helpers.swift"; sourceTree = "<group>"; };
 		B9B11A6628DC093D006EC232 /* BuildingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingView.swift; sourceTree = "<group>"; };
 		B9B11A6828DC99FD006EC232 /* CalculationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationView.swift; sourceTree = "<group>"; };
+		B9DA2B732AEDD6200014AB18 /* Task+Completion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Completion.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +247,7 @@
 		B9596BC62A19C69C00D317D7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				B9DA2B732AEDD6200014AB18 /* Task+Completion.swift */,
 				B94EF54B299FD879004009AA /* ErrorContainer.swift */,
 				B9269B7C28D2518300B95697 /* Swift+Helpers.swift */,
 				B9B11A6428DC06E8006EC232 /* SwiftUI+Helpers.swift */,
@@ -379,6 +382,7 @@
 				B9B11A6728DC093D006EC232 /* BuildingView.swift in Sources */,
 				B945242528D1108D00D9937B /* ContentView.swift in Sources */,
 				B98C767D2AE1B74C00D2944A /* Hierarchy+Encoding.swift in Sources */,
+				B9DA2B742AEDD6200014AB18 /* Task+Completion.swift in Sources */,
 				B98C76812AE21FEB00D2944A /* Hierarchy.swift in Sources */,
 				B9269B7D28D2518300B95697 /* Swift+Helpers.swift in Sources */,
 				B945245028D1586600D9937B /* GameData.swift in Sources */,

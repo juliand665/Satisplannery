@@ -69,7 +69,7 @@ struct FolderView: View {
 			NavigationLink(value: entry) {
 				EntryCell(entry: entry)
 			}
-			.draggable(entry)
+			.draggable(entry.lazyTransferable())
 			.contextMenu {
 				Button {
 					withAnimation {
@@ -82,7 +82,7 @@ struct FolderView: View {
 				}
 				
 				Button {
-					copy([entry])
+					copy([entry.lazyTransferable()])
 				} label: {
 					Label("Copy", systemImage: "doc.on.doc")
 				}
@@ -94,7 +94,7 @@ struct FolderView: View {
 					Label("Move", systemImage: "folder")
 				}
 				
-				ShareLink(item: entry, preview: .init(entry.name))
+				ShareLink(item: entry.lazyTransferable(), preview: .init(entry.name))
 			}
 			.swipeActions(edge: .trailing) {
 				// not using onDelete to avoid offering this as an edit action (we have bulk delete already)
@@ -109,9 +109,10 @@ struct FolderView: View {
 		// TODO: test! here's hoping it actually works
 		.onInsert(of: [.process]) { index, items in
 			print("onInsert:", items)
+			let loadingTask = items.loadTransferableElements(of: ProcessFolder.Entry.self)
 			Task {
 				await $errorContainer.try(errorTitle: "Could not insert processes!") {
-					let processes = try await items.loadTransferableElements(of: ProcessFolder.Entry.self)
+					let processes = try await loadingTask.value
 					folder.add(processes, at: index)
 				}
 			}
@@ -157,7 +158,9 @@ struct FolderView: View {
 		
 		if editMode.isEditing {
 			ToolbarItemGroup(placement: .bottomBar) {
-				let selectedEntries = folder.entries.filter { selection.contains($0.id) }
+				let selectedEntries: Array = folder.entries.lazy
+					.filter { selection.contains($0.id) }
+					.map { $0.lazyTransferable() }
 				
 				HStack {
 					Group {
@@ -205,7 +208,7 @@ struct FolderView: View {
 		}
 	}
 	
-	func copy(_ entries: some Sequence<ProcessFolder.Entry>) {
+	func copy(_ entries: some Sequence<LazyTransferableEntry>) {
 		UIPasteboard.general.itemProviders = entries.map {
 			.init(transferable: $0)
 		}
