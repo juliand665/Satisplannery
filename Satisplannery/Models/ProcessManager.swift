@@ -77,7 +77,8 @@ final class StoredProcess: Identifiable {
 	}
 	
 	convenience init() throws {
-		try self.init(process: .init(name: ""))
+		// can't use an empty string as name because then the nav bar doesn't show a rename button
+		try self.init(process: .init(name: "New Process"))
 	}
 	
 	static func duplicateData(with id: ID) throws -> ID {
