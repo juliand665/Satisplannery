@@ -19,7 +19,7 @@ final class ProcessFolder: FolderEntry {
 		self.entries = entries
 		self.totals = .init()
 		
-		onObservableChange { [weak self] in
+		keepUpdated { [weak self] in
 			guard let self else { return }
 			totals = self.entries.totals() // without self we'd capture the argument
 		}
@@ -194,7 +194,7 @@ final class ProcessEntry: FolderEntry {
 	
 	private func load() throws -> StoredProcess {
 		try .load(for: id) <- { (stored: StoredProcess) in
-			onObservableChange {
+			keepUpdated {
 				(stored.process.name, stored.process.totals)
 			} run: { [weak self] in
 				guard let self else { return }

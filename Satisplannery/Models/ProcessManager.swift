@@ -15,7 +15,7 @@ final class ProcessManager {
 		
 		loadHierarchy()
 		
-		onObservableChange(throttlingBy: .seconds(1)) { [weak self] in
+		keepUpdated(throttlingBy: .seconds(1)) { [weak self] in
 			self?.saveHierarchy()
 		}
 	}
@@ -71,7 +71,7 @@ final class StoredProcess: Identifiable {
 	private init(id: ID, process: CraftingProcess) {
 		self.id = id
 		self.process = process
-		onObservableChange(throttlingBy: .seconds(1)) { [weak self] in
+		keepUpdated(throttlingBy: .seconds(1)) { [weak self] in
 			self?.autosave()
 		}
 	}
