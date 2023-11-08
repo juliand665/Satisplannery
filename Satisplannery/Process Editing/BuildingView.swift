@@ -43,7 +43,7 @@ struct BuildingView: View {
 						}
 						
 						if placed > 0 {
-							Text("\(placed)/\(total) placed")
+							Text("\(total - placed) remaining")
 								.foregroundColor(placed < total ? .yellow : .green)
 						}
 					}
