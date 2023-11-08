@@ -24,6 +24,7 @@ struct BuildingView: View {
 			}
 			
 			let buildings = process.buildingsRequired()
+			let isPlacing = buildings.values.contains { $0.placed > 0 }
 			ForEach(buildings.keys.sorted()) { building in
 				HStack(spacing: 16) {
 					let (placed, total) = buildings[building]!
@@ -42,7 +43,7 @@ struct BuildingView: View {
 							Text("×")
 						}
 						
-						if placed > 0 {
+						if isPlacing {
 							Text("\(total - placed) remaining")
 								.foregroundColor(placed < total ? .yellow : .green)
 						}
