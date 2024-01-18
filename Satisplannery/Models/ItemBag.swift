@@ -1,6 +1,6 @@
 import Foundation
 
-struct ItemBag: Codable {
+struct ItemBag: Codable, Sendable {
 	var counts: [Item.ID: Fraction] = [:]
 	
 	var inputs: [Item.ID: Fraction] {

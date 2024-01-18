@@ -40,6 +40,8 @@
 		B9596BCB2A19C6FB00D317D7 /* EntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9596BCA2A19C6FB00D317D7 /* EntryCell.swift */; };
 		B9596BCD2A19C7A400D317D7 /* NSItemProvider+Transferable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9596BCC2A19C7A400D317D7 /* NSItemProvider+Transferable.swift */; };
 		B95BA2272957BF5D00176E4A /* ProcessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95BA2262957BF5D00176E4A /* ProcessManager.swift */; };
+		B96F94CB2B582399005377B0 /* BigInt in Frameworks */ = {isa = PBXBuildFile; productRef = B96F94CA2B582399005377B0 /* BigInt */; };
+		B96F94CD2B5823B8005377B0 /* BigInt in Frameworks */ = {isa = PBXBuildFile; productRef = B96F94CC2B5823B8005377B0 /* BigInt */; };
 		B9891E6528E32D52005D45E7 /* ReorderingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9891E6428E32D52005D45E7 /* ReorderingView.swift */; };
 		B98C76682AE045B300D2944A /* Observation+Tracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C76672AE045B300D2944A /* Observation+Tracking.swift */; };
 		B98C767D2AE1B74C00D2944A /* Hierarchy+Encoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C767C2AE1B74C00D2944A /* Hierarchy+Encoding.swift */; };
@@ -116,6 +118,7 @@
 				B9269B7B28D2490800B95697 /* Algorithms in Frameworks */,
 				B9C4484A29AFBEC40055B158 /* Introspect in Frameworks */,
 				B945245528D1695C00D9937B /* UserDefault in Frameworks */,
+				B96F94CB2B582399005377B0 /* BigInt in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B96F94CD2B5823B8005377B0 /* BigInt in Frameworks */,
 				B945244328D1319000D9937B /* SimpleParser in Frameworks */,
 				B9269B8428D2929800B95697 /* HandyOperators in Frameworks */,
 			);
@@ -286,6 +290,7 @@
 				B945245428D1695C00D9937B /* UserDefault */,
 				B9269B7A28D2490800B95697 /* Algorithms */,
 				B9C4484929AFBEC40055B158 /* Introspect */,
+				B96F94CA2B582399005377B0 /* BigInt */,
 			);
 			productName = Satisplannery;
 			productReference = B945241F28D1108D00D9937B /* Satisplannery.app */;
@@ -307,6 +312,7 @@
 			packageProductDependencies = (
 				B945244228D1319000D9937B /* SimpleParser */,
 				B9269B8328D2929800B95697 /* HandyOperators */,
+				B96F94CC2B5823B8005377B0 /* BigInt */,
 			);
 			productName = "Data Collector";
 			productReference = B945243728D1230800D9937B /* Data Collector */;
@@ -345,6 +351,7 @@
 				B9269B7928D2490800B95697 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
 				B9269B8228D2929800B95697 /* XCRemoteSwiftPackageReference "HandyOperators" */,
 				B9C4484829AFBEC40055B158 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+				B96F94C92B582399005377B0 /* XCRemoteSwiftPackageReference "BigInt" */,
 			);
 			productRefGroup = B945242028D1108D00D9937B /* Products */;
 			projectDirPath = "";
@@ -721,6 +728,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		B96F94C92B582399005377B0 /* XCRemoteSwiftPackageReference "BigInt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/attaswift/BigInt";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
 		B9C4484829AFBEC40055B158 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect";
@@ -751,6 +766,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B945245328D1695C00D9937B /* XCRemoteSwiftPackageReference "UserDefault" */;
 			productName = UserDefault;
+		};
+		B96F94CA2B582399005377B0 /* BigInt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B96F94C92B582399005377B0 /* XCRemoteSwiftPackageReference "BigInt" */;
+			productName = BigInt;
+		};
+		B96F94CC2B5823B8005377B0 /* BigInt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B96F94C92B582399005377B0 /* XCRemoteSwiftPackageReference "BigInt" */;
+			productName = BigInt;
 		};
 		B9C4484929AFBEC40055B158 /* Introspect */ = {
 			isa = XCSwiftPackageProductDependency;

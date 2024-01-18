@@ -3,7 +3,7 @@ import UniformTypeIdentifiers
 import CoreTransferable
 import HandyOperators
 
-struct CraftingProcess: Identifiable, Codable {
+struct CraftingProcess: Identifiable, Codable, Sendable {
 	let id = UUID()
 	var name: String
 	var steps: [CraftingStep] = [] {
@@ -88,7 +88,7 @@ struct CraftingProcess: Identifiable, Codable {
 	}
 }
 
-struct CraftingStep: Identifiable, Codable {
+struct CraftingStep: Identifiable, Codable, Sendable {
 	let id = UUID()
 	var recipeID: Recipe.ID {
 		didSet {

@@ -199,7 +199,7 @@ struct BuildingView: View {
 						Label("Increase Buildings", systemImage: "plus")
 					}
 					
-					let ideal = (step.factor * step.recipe.craftingTime / 60).ceil
+					let ideal = Int((step.factor * step.recipe.craftingTime / 60).ceil)
 					stepperButton(disabled: step.buildings == ideal) {
 						step.buildings = ideal
 					} label: {

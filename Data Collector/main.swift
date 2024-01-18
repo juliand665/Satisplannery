@@ -126,6 +126,7 @@ func copyImages<C: Collection>(for objects: C) where C.Element: ClassWithIcon {
 }
 
 func copyImage(for object: some ClassWithIcon) {
+	let fileManager = FileManager.default
 	let source = baseFolder.appendingPathComponent("\(object.icon).png")
 	let destination = imageFolder.appendingPathComponent("\(object.id).png")
 	if fileManager.fileExists(atPath: destination.path) {

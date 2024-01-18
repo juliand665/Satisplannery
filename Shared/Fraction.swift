@@ -1,11 +1,13 @@
 import Foundation
+@preconcurrency
+import BigInt
 import HandyOperators
 
 /// Fractions are always simplified as far as possible
-struct Fraction: SignedNumeric, Hashable, Codable {
+struct Fraction: SignedNumeric, Hashable, Sendable {
 	static let zero = Self(0, 1)
 	
-	var numerator, denominator: Int
+	var numerator, denominator: BigInt
 	
 	var magnitude: Self {
 		.init(abs(numerator), denominator)
@@ -15,15 +17,19 @@ struct Fraction: SignedNumeric, Hashable, Codable {
 		.init(numerator) / .init(denominator)
 	}
 	
-	var floor: Int {
+	var floor: BigInt {
 		numerator / denominator
 	}
 	
-	var ceil: Int {
+	var ceil: BigInt {
 		1 + (numerator - 1) / denominator
 	}
 	
 	init(_ numerator: Int, _ denominator: Int = 1) {
+		self.init(BigInt(numerator), BigInt(denominator))
+	}
+	
+	init(_ numerator: BigInt, _ denominator: BigInt = 1) {
 		self.numerator = numerator
 		self.denominator = denominator
 		simplify()
@@ -98,22 +104,63 @@ struct Fraction: SignedNumeric, Hashable, Codable {
 		lhs = lhs / rhs
 	}
 	
-	static func * (frac: Self, scale: Int) -> Self {
+	static func * (frac: Self, scale: BigInt) -> Self {
 		.init(frac.numerator * scale, frac.denominator)
+	}
+	
+	static func * (scale: BigInt, frac: Self) -> Self {
+		.init(frac.numerator * scale, frac.denominator)
+	}
+	
+	static func / (frac: Self, scale: BigInt) -> Self {
+		.init(frac.numerator, frac.denominator * scale)
+	}
+	
+	static func * (frac: Self, scale: Int) -> Self {
+		frac * BigInt(scale)
 	}
 	
 	static func * (scale: Int, frac: Self) -> Self {
-		.init(frac.numerator * scale, frac.denominator)
+		BigInt(scale) * frac
 	}
 	
 	static func / (frac: Self, scale: Int) -> Self {
-		.init(frac.numerator, frac.denominator * scale)
+		frac / BigInt(scale)
 	}
 }
 
 extension Fraction: Comparable {
 	static func < (lhs: Fraction, rhs: Fraction) -> Bool {
 		lhs.numerator * rhs.denominator < rhs.numerator * lhs.denominator
+	}
+}
+
+extension Fraction: Codable {
+	init(from decoder: Decoder) throws {
+		do {
+			var container = try decoder.unkeyedContainer()
+			self.numerator = try container.decode(BigInt.self)
+			self.denominator = try container.decode(BigInt.self)
+			assert(container.isAtEnd)
+		} catch {
+			// old format
+			enum CodingKeys: CodingKey {
+				case numerator, denominator
+			}
+			
+			if let container = try? decoder.container(keyedBy: CodingKeys.self) {
+				self.numerator = .init(try container.decode(Int.self, forKey: .numerator))
+				self.denominator = .init(try container.decode(Int.self, forKey: .denominator))
+			} else {
+				throw error
+			}
+		}
+	}
+	
+	func encode(to encoder: Encoder) throws {
+		var container = encoder.unkeyedContainer()
+		try container.encode(numerator)
+		try container.encode(denominator)
 	}
 }
 
@@ -185,7 +232,7 @@ extension FormatStyle where Self == Fraction.Format {
 	}
 }
 
-private func gcd(_ a: Int, _ b: Int) -> Int {
+private func gcd(_ a: BigInt, _ b: BigInt) -> BigInt {
 	guard b != 0 else { return a }
 	return gcd(b, a % b)
 }

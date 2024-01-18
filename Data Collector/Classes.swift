@@ -80,7 +80,7 @@ extension FGRecipe: Class {
 
 extension Fraction {
 	var intValue: Int? {
-		denominator == 1 ? numerator : nil
+		denominator == 1 ? Int(numerator) : nil
 	}
 }
 
