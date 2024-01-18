@@ -31,8 +31,14 @@ final class ProcessManager {
 				return makeRootFolder()
 			}
 			
-			let raw = try Data(contentsOf: rootFolderURL)
-			return try decodeRootFolder(from: raw)
+			do {
+				let raw = try Data(contentsOf: rootFolderURL)
+				return try decodeRootFolder(from: raw)
+			} catch {
+				print("could not decode root folder!")
+				dump(error)
+				throw error
+			}
 		}
 	}
 	

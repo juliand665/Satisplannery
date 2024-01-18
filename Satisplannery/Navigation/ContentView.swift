@@ -18,9 +18,29 @@ struct ContentView: View {
 				FolderView(folder: folder, manager: processManager)
 					.navigationDestination(for: ProcessFolder.Entry.self) { view(for: $0) }
 			case .failure(let error):
-				// TODO: improve this lol
-				Text(error.localizedDescription)
+				ScrollView {
+					VStack(spacing: 16) {
+						VStack(spacing: 8) {
+							Text("Could not load stored processes!")
+								.font(.title2.bold())
+							Text(error.localizedDescription)
+								.frame(maxWidth: .infinity, alignment: .leading)
+						}
+						
+						let description = "" <- { dump(error, to: &$0) }
+						
+						Divider()
+						Link(destination: mailtoLink(errorDesc: description)) {
+							Label("Send to Developer", systemImage: "envelope")
+						}
+						Divider()
+						
+						Text(verbatim: description)
+							.font(.caption2.monospaced())
+							.frame(maxWidth: .infinity, alignment: .leading)
+					}
 					.padding()
+				}
 			}
 		}
 		.environment(\.navigationPath, path) // for move destination picker
@@ -36,6 +56,27 @@ struct ContentView: View {
 		case .process(let entry):
 			ProcessEntryView(entry: entry)
 		}
+	}
+	
+	func mailtoLink(errorDesc: String) -> URL {
+		(URLComponents() <- {
+			$0.scheme = "mailto"
+			$0.queryItems = [
+				.init(name: "to", value: "julian.3kreator@gmail.com"),
+				.init(name: "subject", value: "Satisplannery Error"),
+				.init(name: "body", value: """
+				If you have any more information, please report it here:
+				
+				
+				
+				
+				---
+				Error Details:
+				\(errorDesc)
+				"""),
+			]
+		})
+		.url!
 	}
 }
 
