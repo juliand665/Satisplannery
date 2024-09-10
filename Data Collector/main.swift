@@ -56,12 +56,12 @@ let nuclearFuels = decodeClasses(of: FGItemDescriptorNuclearFuel.self)
 let nuclearRecipeNames = [
 	"Desc_NuclearFuelRod_C": "Nuclear Power: Uranium",
 	"Desc_PlutoniumFuelRod_C": "Nuclear Power: Plutonium",
-    "Desc_FicsoniumFuelRod_C": "Nuclear Power: Ficsonium",
+	"Desc_FicsoniumFuelRod_C": "Nuclear Power: Ficsonium",
 ]
 let nuclearRecipes = nuclearPlant.fuels.map { process in
 	let fuel = nuclearFuels.first { $0.id == process.fuel }!
 	let powerProduced = fuel.energyValue
-    assert(process.byproduct?.amount ?? 0 == fuel.amountOfWaste)
+	assert(process.byproduct?.amount ?? 0 == fuel.amountOfWaste)
 	let supplementalAmount = powerProduced * nuclearPlant.supplementalToPowerRatio
 	return FGRecipe(
 		id: process.fuel,
@@ -70,7 +70,7 @@ let nuclearRecipes = nuclearPlant.fuels.map { process in
 			.init(item: process.fuel, amount: 1),
 			.init(item: process.supplemental, amount: supplementalAmount.intValue!)
 		],
-        products: process.byproduct.map { [.init(item: $0.id, amount: $0.amount)] } ?? [],
+		products: process.byproduct.map { [.init(item: $0.id, amount: $0.amount)] } ?? [],
 		craftingTime: powerProduced / .init(nuclearPlant.powerProduction),
 		producedIn: [nuclearPlant.buildable.id],
 		variablePowerConsumptionConstant: 1,
@@ -130,7 +130,7 @@ func copyImages<C: Collection>(for objects: C) where C.Element: ClassWithIcon {
 let contentFolder = baseFolder.appending(path: "Exports/FactoryGame/Content")
 func copyImage(for object: some ClassWithIcon) {
 	let fileManager = FileManager.default
-    let source = contentFolder.appending(path: "\(object.icon).png")
+	let source = contentFolder.appending(path: "\(object.icon).png")
 	let destination = imageFolder.appendingPathComponent("\(object.id).png")
 	if fileManager.fileExists(atPath: destination.path) {
 		guard !shouldSkipExisting else { return }

@@ -27,8 +27,8 @@ struct FGItemDescriptor: ClassWithIcon, Encodable {
 		"FGConsumableDescriptor",
 		"FGAmmoTypeSpreadshot",
 		"FGAmmoTypeInstantHit",
-        "FGPowerShardDescriptor",
-        "FGItemDescriptorPowerBoosterFuel",
+		"FGPowerShardDescriptor",
+		"FGItemDescriptorPowerBoosterFuel",
 	]
 	
 	var id: String
@@ -71,7 +71,7 @@ extension FGRecipe: Class {
 	init(raw: RawClass) {
 		id = raw.name
 		name = raw.displayName
-        ingredients = raw.ingredients.isEmpty ? [] : .init(rawValue: raw.ingredients.unparenthesized())
+		ingredients = raw.ingredients.isEmpty ? [] : .init(rawValue: raw.ingredients.unparenthesized())
 		products = .init(rawValue: raw.product.unparenthesized())
 		craftingTime = .init(raw.manufactoringDuration)! // nice typo lol
 		producedIn = raw.producedIn.isEmpty ? [] : [Path](rawValue: raw.producedIn.unparenthesized()).map(\.name)
@@ -119,14 +119,14 @@ struct FGBuildableGeneratorNuclear: Class {
 		powerProduction = Fraction(raw.powerProduction)!.intValue!
 		supplementalToPowerRatio = Fraction(raw.supplementalToPowerRatio)!
 		fuels = raw.data["mFuel"]!.values!.map {
-            let byproductAmount = $0["mByproductAmount"]!
+			let byproductAmount = $0["mByproductAmount"]!
 			return Fuel(
 				fuel: $0["mFuelClass"]!,
 				supplemental: $0["mSupplementalResourceClass"]!,
-                byproduct: byproductAmount.isEmpty ? nil : .init(
-                    id: $0["mByproduct"]!,
-                    amount: .init(byproductAmount)!
-                )
+				byproduct: byproductAmount.isEmpty ? nil : .init(
+					id: $0["mByproduct"]!,
+					amount: .init(byproductAmount)!
+				)
 			)
 		}
 	}
@@ -134,12 +134,12 @@ struct FGBuildableGeneratorNuclear: Class {
 	struct Fuel {
 		var fuel: String
 		var supplemental: String
-        var byproduct: Byproduct?
-        
-        struct Byproduct {
-            var id: String
-            var amount: Int
-        }
+		var byproduct: Byproduct?
+		
+		struct Byproduct {
+			var id: String
+			var amount: Int
+		}
 	}
 }
 
