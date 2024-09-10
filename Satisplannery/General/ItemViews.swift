@@ -6,7 +6,7 @@ private var cache: [String: Image] = [:]
 
 @MainActor
 private func cachedImage(for id: String) -> Image {
-	cache[id] ?? Image(named: id, inDirectory: "images")!.resizable() <- {
+	cache[id] ?? (Image(named: id, inDirectory: "images") ?? Image(systemName: "questionmark.square")).resizable() <- {
 		cache[id] = $0
 	}
 }

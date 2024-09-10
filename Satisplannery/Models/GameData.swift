@@ -29,6 +29,12 @@ struct GameData: Decodable {
 
 protocol GameObject: Identifiable {
 	static var path: KeyPath<GameData, [ID: Self]> { get }
+	static func placeholder(id: ID) -> Self
+}
+
+private func placeholderName<T: GameObject>(for id: ObjectID<T>) -> String {
+	let name = id.rawValue.wholeMatch(of: /Desc_(.+)_C/)?.output.1 ?? id.rawValue[...]
+	return "[Legacy] \(name)"
 }
 
 protocol ObjectWithIcon: Identifiable where ID == ObjectID<Self> {}
@@ -47,9 +53,21 @@ struct Item: GameObject, ObjectWithIcon, Hashable, Codable {
 	}
 }
 
+extension Item {
+	static func placeholder(id: ID) -> Self { .init(placeholderForID: id) }
+	
+	private init(placeholderForID id: ID) {
+		self.id = id
+		self.name = placeholderName(for: id)
+		self.description = "This item used to exist, but is no longer part of the game."
+		self.resourceSinkPoints = 0
+		self.isFluid = false
+	}
+}
+
 extension ObjectID where Object: GameObject, Object.ID == Self {
 	func resolved() -> Object {
-		GameData.shared[keyPath: Object.path][self]!
+		GameData.shared[keyPath: Object.path][self] ?? .placeholder(id: self)
 	}
 }
 
@@ -72,6 +90,21 @@ struct Recipe: GameObject, Hashable, Codable {
 	}
 }
 
+extension Recipe {
+	static func placeholder(id: ID) -> Self { .init(placeholderForID: id) }
+	
+	private init(placeholderForID id: ID) {
+		self.id = id
+		self.name = placeholderName(for: id)
+		self.ingredients = []
+		self.products = []
+		self.craftingTime = 1
+		self.producedIn = []
+		self.variablePowerConsumptionConstant = 0
+		self.variablePowerConsumptionFactor = 1
+	}
+}
+
 struct Producer: GameObject, ObjectWithIcon, Codable {
 	static let path = \GameData.producers
 	
@@ -81,6 +114,19 @@ struct Producer: GameObject, ObjectWithIcon, Codable {
 	var powerConsumption: Fraction
 	var powerConsumptionExponent: Fraction
 	var usesVariablePower: Bool
+}
+
+extension Producer {
+	static func placeholder(id: ID) -> Self { .init(placeholderForID: id) }
+	
+	private init(placeholderForID id: ID) {
+		self.id = id
+		self.name = placeholderName(for: id)
+		self.description = "This producer used to exist, but is no longer part of the game."
+		self.powerConsumption = 0
+		self.powerConsumptionExponent = 1
+		self.usesVariablePower = false
+	}
 }
 
 struct ItemStack: Hashable, Codable {
