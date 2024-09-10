@@ -10,7 +10,8 @@ import HandyOperators
 
 let fileManager = FileManager.default
 
-// unpackaged using UEViewer
+// unpackaged using FModel - https://docs.ficsit.app/satisfactory-modding/latest/Development/ExtractGameFiles.html
+// read UE version from EGS .exe file's properties > details > version
 let baseFolder = URL(fileURLWithPath: "/Volumes/julia/Desktop/FullExport", isDirectory: true)
 
 let downloads = try! fileManager.url(for: .downloadsDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
@@ -20,7 +21,7 @@ try? fileManager.createDirectory(at: outputFolder, withIntermediateDirectories: 
 let imageFolder = outputFolder.appendingPathComponent("images")
 try? fileManager.createDirectory(at: imageFolder, withIntermediateDirectories: false)
 
-let rawCollections = try! Data(contentsOf: baseFolder.appendingPathComponent("Docs.json")) // taken from CommunityResources folder
+let rawCollections = try! Data(contentsOf: baseFolder.appendingPathComponent("Docs/en-US.json")) // taken from CommunityResources folder
 let allCollections = try! JSONDecoder().decode([ClassCollection].self, from: rawCollections)
 let collections = Dictionary(uniqueKeysWithValues: allCollections.map { collection in (
 	collection.nativeClass,
@@ -29,7 +30,7 @@ let collections = Dictionary(uniqueKeysWithValues: allCollections.map { collecti
 
 func decodeClasses<T: Class>(of type: T.Type = T.self) -> [T] {
 	T.classNames.flatMap {
-		collections["Class'/Script/FactoryGame.\($0)'"]!
+		collections["/Script/CoreUObject.Class'/Script/FactoryGame.\($0)'"]!
 			.map { .init(raw: $0) }
 	}
 }
@@ -42,7 +43,7 @@ let nuclearPlant = nuclearPlants.first!
 
 let producers = decodeClasses(of: FGBuildableManufacturer.self) <- {
 	$0.append(nuclearPlant.buildable <- {
-		$0.powerConsumption = -nuclearPlant.powerProduction
+		$0.powerConsumption = Fraction(-nuclearPlant.powerProduction)
 		$0.powerConsumptionExponent = 1
 	})
 }
@@ -55,11 +56,12 @@ let nuclearFuels = decodeClasses(of: FGItemDescriptorNuclearFuel.self)
 let nuclearRecipeNames = [
 	"Desc_NuclearFuelRod_C": "Nuclear Power: Uranium",
 	"Desc_PlutoniumFuelRod_C": "Nuclear Power: Plutonium",
+    "Desc_FicsoniumFuelRod_C": "Nuclear Power: Ficsonium",
 ]
 let nuclearRecipes = nuclearPlant.fuels.map { process in
 	let fuel = nuclearFuels.first { $0.id == process.fuel }!
 	let powerProduced = fuel.energyValue
-	assert(process.byproductAmount == fuel.amountOfWaste)
+    assert(process.byproduct?.amount ?? 0 == fuel.amountOfWaste)
 	let supplementalAmount = powerProduced * nuclearPlant.supplementalToPowerRatio
 	return FGRecipe(
 		id: process.fuel,
@@ -68,7 +70,7 @@ let nuclearRecipes = nuclearPlant.fuels.map { process in
 			.init(item: process.fuel, amount: 1),
 			.init(item: process.supplemental, amount: supplementalAmount.intValue!)
 		],
-		products: [.init(item: process.byproduct, amount: process.byproductAmount)],
+        products: process.byproduct.map { [.init(item: $0.id, amount: $0.amount)] } ?? [],
 		craftingTime: powerProduced / .init(nuclearPlant.powerProduction),
 		producedIn: [nuclearPlant.buildable.id],
 		variablePowerConsumptionConstant: 1,
@@ -125,9 +127,10 @@ func copyImages<C: Collection>(for objects: C) where C.Element: ClassWithIcon {
 	print("done!")
 }
 
+let contentFolder = baseFolder.appending(path: "Exports/FactoryGame/Content")
 func copyImage(for object: some ClassWithIcon) {
 	let fileManager = FileManager.default
-	let source = baseFolder.appendingPathComponent("\(object.icon).png")
+    let source = contentFolder.appending(path: "\(object.icon).png")
 	let destination = imageFolder.appendingPathComponent("\(object.id).png")
 	if fileManager.fileExists(atPath: destination.path) {
 		guard !shouldSkipExisting else { return }

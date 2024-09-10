@@ -27,6 +27,8 @@ struct FGItemDescriptor: ClassWithIcon, Encodable {
 		"FGConsumableDescriptor",
 		"FGAmmoTypeSpreadshot",
 		"FGAmmoTypeInstantHit",
+        "FGPowerShardDescriptor",
+        "FGItemDescriptorPowerBoosterFuel",
 	]
 	
 	var id: String
@@ -69,7 +71,7 @@ extension FGRecipe: Class {
 	init(raw: RawClass) {
 		id = raw.name
 		name = raw.displayName
-		ingredients = .init(rawValue: raw.ingredients.unparenthesized())
+        ingredients = raw.ingredients.isEmpty ? [] : .init(rawValue: raw.ingredients.unparenthesized())
 		products = .init(rawValue: raw.product.unparenthesized())
 		craftingTime = .init(raw.manufactoringDuration)! // nice typo lol
 		producedIn = raw.producedIn.isEmpty ? [] : [Path](rawValue: raw.producedIn.unparenthesized()).map(\.name)
@@ -88,7 +90,7 @@ struct FGBuildableManufacturer: Encodable {
 	var id: String
 	var name: String
 	var description: String
-	var powerConsumption: Int
+	var powerConsumption: Fraction
 	var powerConsumptionExponent: Fraction
 	var usesVariablePower: Bool
 }
@@ -100,7 +102,7 @@ extension FGBuildableManufacturer: Class {
 		id = raw.name
 		name = raw.displayName
 		description = raw.description
-		powerConsumption = Fraction(raw.powerConsumption)!.intValue!
+		powerConsumption = Fraction(raw.powerConsumption)!
 		powerConsumptionExponent = .init(raw.powerConsumptionExponent)!
 		usesVariablePower = raw.nativeClass == "Class'/Script/FactoryGame.FGBuildableManufacturerVariablePower'"
 	}
@@ -117,11 +119,14 @@ struct FGBuildableGeneratorNuclear: Class {
 		powerProduction = Fraction(raw.powerProduction)!.intValue!
 		supplementalToPowerRatio = Fraction(raw.supplementalToPowerRatio)!
 		fuels = raw.data["mFuel"]!.values!.map {
-			Fuel(
+            let byproductAmount = $0["mByproductAmount"]!
+			return Fuel(
 				fuel: $0["mFuelClass"]!,
 				supplemental: $0["mSupplementalResourceClass"]!,
-				byproduct: $0["mByproduct"]!,
-				byproductAmount: .init($0["mByproductAmount"]!)!
+                byproduct: byproductAmount.isEmpty ? nil : .init(
+                    id: $0["mByproduct"]!,
+                    amount: .init(byproductAmount)!
+                )
 			)
 		}
 	}
@@ -129,8 +134,12 @@ struct FGBuildableGeneratorNuclear: Class {
 	struct Fuel {
 		var fuel: String
 		var supplemental: String
-		var byproduct: String
-		var byproductAmount: Int
+        var byproduct: Byproduct?
+        
+        struct Byproduct {
+            var id: String
+            var amount: Int
+        }
 	}
 }
 
@@ -180,10 +189,10 @@ struct ItemStack: Parseable, Encodable, Hashable {
 
 extension ItemStack {
 	init(from parser: inout Parser) {
-		parser.consume("(ItemClass=BlueprintGeneratedClass'\"")
+		parser.consume("(ItemClass=\"/Script/Engine.BlueprintGeneratedClass'")
 		parser.consume(through: ".") // only class name
-		item = .init(parser.consume(upTo: "\"")!)
-		parser.consume("\"',Amount=")
+		item = .init(parser.consume(through: "'")!)
+		parser.consume("\",Amount=")
 		amount = parser.readInt()
 		parser.consume(")")
 	}
@@ -192,6 +201,6 @@ extension ItemStack {
 func iconPath(from raw: String) -> String? {
 	guard raw != "None" else { return nil }
 	var parser = Parser(reading: raw)
-	parser.consume("Texture2D /")
+	parser.consume("Texture2D /Game/")
 	return String(parser.consume(upTo: ".")!)
 }
