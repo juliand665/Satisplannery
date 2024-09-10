@@ -78,7 +78,7 @@ struct Producer: GameObject, ObjectWithIcon, Codable {
 	var id: ObjectID<Self>
 	var name: String
 	var description: String
-	var powerConsumption: Int
+	var powerConsumption: Fraction
 	var powerConsumptionExponent: Fraction
 	var usesVariablePower: Bool
 }

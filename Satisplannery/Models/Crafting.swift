@@ -122,7 +122,7 @@ struct CraftingStep: Identifiable, Codable, Sendable {
 				max: base * Double(recipe.variablePowerConsumptionConstant + recipe.variablePowerConsumptionFactor)
 			)
 		} else {
-			return .init(constant: Double(producer.powerConsumption) * base)
+            return .init(constant: producer.powerConsumption.approximation * base)
 		}
 	}
 	
