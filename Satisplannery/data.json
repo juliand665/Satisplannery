@@ -1051,6 +1051,62 @@
       "resourceSinkPoints" : 855
     },
     {
+      "description" : "Detonates into multiple smaller explosions. Practical for clearing out large areas of vegetation and other inconveniences.",
+      "id" : "Desc_NobeliskCluster_C",
+      "isFluid" : false,
+      "name" : "Cluster Nobelisk",
+      "resourceSinkPoints" : 1376
+    },
+    {
+      "description" : "A simple explosive, useful for clearing boulders, vegetation, and other obstacles.",
+      "id" : "Desc_NobeliskExplosive_C",
+      "isFluid" : false,
+      "name" : "Nobelisk",
+      "resourceSinkPoints" : 152
+    },
+    {
+      "description" : "Creates a deadly gas cloud instead of a regular explosion.",
+      "id" : "Desc_NobeliskGas_C",
+      "isFluid" : false,
+      "name" : "Gas Nobelisk",
+      "resourceSinkPoints" : 544
+    },
+    {
+      "description" : "Uses a nuclear fission reaction to generate a massive explosion.\r\nWARNING: Ensure all FICSIT property is clear of the blast zone before detonation.\r\n",
+      "id" : "Desc_NobeliskNuke_C",
+      "isFluid" : false,
+      "name" : "Nuke Nobelisk",
+      "resourceSinkPoints" : 19600
+    },
+    {
+      "description" : "Generates a powerful shockwave instead of a regular explosion.",
+      "id" : "Desc_NobeliskShockwave_C",
+      "isFluid" : false,
+      "name" : "Pulse Nobelisk",
+      "resourceSinkPoints" : 1533
+    },
+    {
+      "description" : "Merry FICSMAS and a Happy New Year!",
+      "id" : "Desc_Fireworks_Projectile_01_C",
+      "isFluid" : false,
+      "name" : "Sweet Fireworks",
+      "resourceSinkPoints" : 60
+    },
+    {
+      "description" : "Fireworks are produced from random ingredients. Primarily used for having a good time.",
+      "id" : "Desc_Fireworks_Projectile_02_C",
+      "isFluid" : false,
+      "name" : "Fancy Fireworks",
+      "resourceSinkPoints" : 40
+    },
+    {
+      "description" : "Goes Pfffeeeeew... BOOM! *Sparkle*",
+      "id" : "Desc_Fireworks_Projectile_03_C",
+      "isFluid" : false,
+      "name" : "Sparkly Fireworks",
+      "resourceSinkPoints" : 32
+    },
+    {
       "description" : "Compressed dihydrogen monoxide crystals.",
       "id" : "Desc_SnowballProjectile_C",
       "isFluid" : false,
@@ -1444,7 +1500,9 @@
       ],
       "name" : "Iron Plate",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -1475,7 +1533,9 @@
       ],
       "name" : "Iron Rod",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -1506,7 +1566,9 @@
       ],
       "name" : "Iron Ingot",
       "producedIn" : [
-        "Build_SmelterMk1_C"
+        "Build_SmelterMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -2119,7 +2181,8 @@
       ],
       "name" : "SAM Fluctuator",
       "producedIn" : [
-        "Build_ManufacturerMk1_C"
+        "Build_ManufacturerMk1_C",
+        "BP_WorkBenchComponent_C"
       ],
       "products" : [
         {
@@ -2150,7 +2213,8 @@
       ],
       "name" : "Ficsite Trigon",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C"
       ],
       "products" : [
         {
@@ -2278,7 +2342,8 @@
       ],
       "name" : "Reanimated SAM",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C"
       ],
       "products" : [
         {
@@ -3219,7 +3284,9 @@
       ],
       "name" : "Circuit Board",
       "producedIn" : [
-        "Build_AssemblerMk1_C"
+        "Build_AssemblerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -3786,7 +3853,9 @@
       ],
       "name" : "Steel Beam",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -3817,7 +3886,9 @@
       ],
       "name" : "Steel Pipe",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -3852,7 +3923,8 @@
       ],
       "name" : "Steel Ingot",
       "producedIn" : [
-        "Build_FoundryMk1_C"
+        "Build_FoundryMk1_C",
+        "BP_WorkBenchComponent_C"
       ],
       "products" : [
         {
@@ -3949,7 +4021,9 @@
       ],
       "name" : "Empty Canister",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -4505,7 +4579,9 @@
       ],
       "name" : "Quartz Crystal",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -4672,7 +4748,9 @@
       ],
       "name" : "Aluminum Casing",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -4707,7 +4785,9 @@
       ],
       "name" : "Alclad Aluminum Sheet",
       "producedIn" : [
-        "Build_AssemblerMk1_C"
+        "Build_AssemblerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -4855,7 +4935,8 @@
       ],
       "name" : "Aluminum Ingot",
       "producedIn" : [
-        "Build_FoundryMk1_C"
+        "Build_FoundryMk1_C",
+        "BP_WorkBenchComponent_C"
       ],
       "products" : [
         {
@@ -4886,7 +4967,9 @@
       ],
       "name" : "Silica",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -4925,7 +5008,9 @@
       ],
       "name" : "Crystal Oscillator",
       "producedIn" : [
-        "Build_ManufacturerMk1_C"
+        "Build_ManufacturerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -5108,7 +5193,9 @@
       ],
       "name" : "Encased Industrial Beam",
       "producedIn" : [
-        "Build_AssemblerMk1_C"
+        "Build_AssemblerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -5143,7 +5230,9 @@
       ],
       "name" : "Motor",
       "producedIn" : [
-        "Build_AssemblerMk1_C"
+        "Build_AssemblerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -5178,7 +5267,9 @@
       ],
       "name" : "Stator",
       "producedIn" : [
-        "Build_AssemblerMk1_C"
+        "Build_AssemblerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -5248,7 +5339,9 @@
       ],
       "name" : "AI Limiter",
       "producedIn" : [
-        "Build_AssemblerMk1_C"
+        "Build_AssemblerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -5365,7 +5458,9 @@
       ],
       "name" : "Computer",
       "producedIn" : [
-        "Build_ManufacturerMk1_C"
+        "Build_ManufacturerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -5408,7 +5503,9 @@
       ],
       "name" : "Heavy Modular Frame",
       "producedIn" : [
-        "Build_ManufacturerMk1_C"
+        "Build_ManufacturerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -5743,7 +5840,9 @@
       ],
       "name" : "Modular Frame",
       "producedIn" : [
-        "Build_AssemblerMk1_C"
+        "Build_AssemblerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -5778,7 +5877,9 @@
       ],
       "name" : "Rotor",
       "producedIn" : [
-        "Build_AssemblerMk1_C"
+        "Build_AssemblerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -5809,7 +5910,9 @@
       ],
       "name" : "Copper Sheet",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -6167,7 +6270,9 @@
       ],
       "name" : "Encased Plutonium Cell",
       "producedIn" : [
-        "Build_AssemblerMk1_C"
+        "Build_AssemblerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -6202,7 +6307,9 @@
       ],
       "name" : "Pressure Conversion Cube",
       "producedIn" : [
-        "Build_AssemblerMk1_C"
+        "Build_AssemblerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -6319,7 +6426,9 @@
       ],
       "name" : "Copper Powder",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -6717,7 +6826,9 @@
       ],
       "name" : "Supercomputer",
       "producedIn" : [
-        "Build_ManufacturerMk1_C"
+        "Build_ManufacturerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -6756,7 +6867,9 @@
       ],
       "name" : "Radio Control Unit",
       "producedIn" : [
-        "Build_ManufacturerMk1_C"
+        "Build_ManufacturerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -6900,7 +7013,9 @@
       ],
       "name" : "High-Speed Connector",
       "producedIn" : [
-        "Build_ManufacturerMk1_C"
+        "Build_ManufacturerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -7013,7 +7128,9 @@
       ],
       "name" : "Electromagnetic Control Rod",
       "producedIn" : [
-        "Build_AssemblerMk1_C"
+        "Build_AssemblerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -7270,7 +7387,9 @@
       ],
       "name" : "Heat Sink",
       "producedIn" : [
-        "Build_AssemblerMk1_C"
+        "Build_AssemblerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -7340,7 +7459,8 @@
       ],
       "name" : "Empty Fluid Tank",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C"
       ],
       "products" : [
         {
@@ -8500,7 +8620,8 @@
       ],
       "name" : "Caterium Ingot",
       "producedIn" : [
-        "Build_SmelterMk1_C"
+        "Build_SmelterMk1_C",
+        "BP_WorkBenchComponent_C"
       ],
       "products" : [
         {
@@ -8586,7 +8707,9 @@
       ],
       "name" : "Turbo Motor",
       "producedIn" : [
-        "Build_ManufacturerMk1_C"
+        "Build_ManufacturerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -9918,7 +10041,8 @@
       ],
       "name" : "Iodine-Infused Filter",
       "producedIn" : [
-        "Build_ManufacturerMk1_C"
+        "Build_ManufacturerMk1_C",
+        "BP_WorkshopComponent_C"
       ],
       "products" : [
         {
@@ -9949,7 +10073,9 @@
       ],
       "name" : "Quickwire",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -9980,7 +10106,9 @@
       ],
       "name" : "Solid Biofuel",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "Build_AutomatedWorkBench_C"
       ],
       "products" : [
         {
@@ -10011,7 +10139,9 @@
       ],
       "name" : "Hog Protein",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -10042,7 +10172,9 @@
       ],
       "name" : "Spitter Protein",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -10073,7 +10205,9 @@
       ],
       "name" : "Biomass (Mycelia)",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -10104,7 +10238,9 @@
       ],
       "name" : "Power Shard (1)",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -10139,7 +10275,8 @@
       ],
       "name" : "Black Powder",
       "producedIn" : [
-        "Build_AssemblerMk1_C"
+        "Build_AssemblerMk1_C",
+        "BP_WorkshopComponent_C"
       ],
       "products" : [
         {
@@ -10217,7 +10354,9 @@
       ],
       "name" : "Stinger Protein",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -10248,7 +10387,9 @@
       ],
       "name" : "Hatcher Protein",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -10279,7 +10420,9 @@
       ],
       "name" : "Alien DNA Capsule",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -10310,7 +10453,9 @@
       ],
       "name" : "Biomass (Alien Protein)",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -10341,7 +10486,8 @@
       ],
       "name" : "Iron Rebar",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkshopComponent_C"
       ],
       "products" : [
         {
@@ -10376,7 +10522,8 @@
       ],
       "name" : "Homing Rifle Ammo",
       "producedIn" : [
-        "Build_AssemblerMk1_C"
+        "Build_AssemblerMk1_C",
+        "BP_WorkshopComponent_C"
       ],
       "products" : [
         {
@@ -10411,7 +10558,8 @@
       ],
       "name" : "Stun Rebar",
       "producedIn" : [
-        "Build_AssemblerMk1_C"
+        "Build_AssemblerMk1_C",
+        "BP_WorkshopComponent_C"
       ],
       "products" : [
         {
@@ -10450,12 +10598,49 @@
       ],
       "name" : "Gas Filter",
       "producedIn" : [
-        "Build_ManufacturerMk1_C"
+        "Build_ManufacturerMk1_C",
+        "BP_WorkshopComponent_C"
       ],
       "products" : [
         {
           "amount" : 1,
           "item" : "Desc_Filter_C"
+        }
+      ],
+      "variablePowerConsumptionConstant" : 0,
+      "variablePowerConsumptionFactor" : 1
+    },
+    {
+      "craftingTime" : [
+        [
+          "+",
+          12
+        ],
+        [
+          "+",
+          1
+        ]
+      ],
+      "id" : "Recipe_NobeliskGas_C",
+      "ingredients" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_NobeliskExplosive_C"
+        },
+        {
+          "amount" : 10,
+          "item" : "Desc_GenericBiomass_C"
+        }
+      ],
+      "name" : "Gas Nobelisk",
+      "producedIn" : [
+        "BP_WorkshopComponent_C",
+        "Build_AssemblerMk1_C"
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_NobeliskGas_C"
         }
       ],
       "variablePowerConsumptionConstant" : 0,
@@ -10520,7 +10705,9 @@
       ],
       "name" : "Fabric",
       "producedIn" : [
-        "Build_AssemblerMk1_C"
+        "Build_AssemblerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -10598,7 +10785,9 @@
       ],
       "name" : "Power Shard (5)",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -10629,12 +10818,50 @@
       ],
       "name" : "Power Shard (2)",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
           "amount" : 2,
           "item" : "Desc_CrystalShard_C"
+        }
+      ],
+      "variablePowerConsumptionConstant" : 0,
+      "variablePowerConsumptionFactor" : 1
+    },
+    {
+      "craftingTime" : [
+        [
+          "+",
+          60
+        ],
+        [
+          "+",
+          1
+        ]
+      ],
+      "id" : "Recipe_NobeliskShockwave_C",
+      "ingredients" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_NobeliskExplosive_C"
+        },
+        {
+          "amount" : 1,
+          "item" : "Desc_CrystalOscillator_C"
+        }
+      ],
+      "name" : "Pulse Nobelisk",
+      "producedIn" : [
+        "BP_WorkshopComponent_C",
+        "Build_AssemblerMk1_C"
+      ],
+      "products" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_NobeliskShockwave_C"
         }
       ],
       "variablePowerConsumptionConstant" : 0,
@@ -10664,7 +10891,8 @@
       ],
       "name" : "Shatter Rebar",
       "producedIn" : [
-        "Build_AssemblerMk1_C"
+        "Build_AssemblerMk1_C",
+        "BP_WorkshopComponent_C"
       ],
       "products" : [
         {
@@ -10703,7 +10931,8 @@
       ],
       "name" : "Turbo Rifle Ammo",
       "producedIn" : [
-        "Build_ManufacturerMk1_C"
+        "Build_ManufacturerMk1_C",
+        "BP_WorkshopComponent_C"
       ],
       "products" : [
         {
@@ -10757,6 +10986,50 @@
       "craftingTime" : [
         [
           "+",
+          120
+        ],
+        [
+          "+",
+          1
+        ]
+      ],
+      "id" : "Recipe_NobeliskNuke_C",
+      "ingredients" : [
+        {
+          "amount" : 5,
+          "item" : "Desc_NobeliskExplosive_C"
+        },
+        {
+          "amount" : 20,
+          "item" : "Desc_UraniumCell_C"
+        },
+        {
+          "amount" : 10,
+          "item" : "Desc_GunpowderMK2_C"
+        },
+        {
+          "amount" : 6,
+          "item" : "Desc_CircuitBoardHighSpeed_C"
+        }
+      ],
+      "name" : "Nuke Nobelisk",
+      "producedIn" : [
+        "BP_WorkshopComponent_C",
+        "Build_ManufacturerMk1_C"
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_NobeliskNuke_C"
+        }
+      ],
+      "variablePowerConsumptionConstant" : 0,
+      "variablePowerConsumptionFactor" : 1
+    },
+    {
+      "craftingTime" : [
+        [
+          "+",
           12
         ],
         [
@@ -10777,7 +11050,8 @@
       ],
       "name" : "Rifle Ammo",
       "producedIn" : [
-        "Build_AssemblerMk1_C"
+        "Build_AssemblerMk1_C",
+        "BP_WorkshopComponent_C"
       ],
       "products" : [
         {
@@ -10816,12 +11090,85 @@
       ],
       "name" : "Explosive Rebar",
       "producedIn" : [
-        "Build_ManufacturerMk1_C"
+        "Build_ManufacturerMk1_C",
+        "BP_WorkshopComponent_C"
       ],
       "products" : [
         {
           "amount" : 1,
           "item" : "Desc_Rebar_Explosive_C"
+        }
+      ],
+      "variablePowerConsumptionConstant" : 0,
+      "variablePowerConsumptionFactor" : 1
+    },
+    {
+      "craftingTime" : [
+        [
+          "+",
+          24
+        ],
+        [
+          "+",
+          1
+        ]
+      ],
+      "id" : "Recipe_NobeliskCluster_C",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_NobeliskExplosive_C"
+        },
+        {
+          "amount" : 4,
+          "item" : "Desc_GunpowderMK2_C"
+        }
+      ],
+      "name" : "Cluster Nobelisk",
+      "producedIn" : [
+        "BP_WorkshopComponent_C",
+        "Build_AssemblerMk1_C"
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_NobeliskCluster_C"
+        }
+      ],
+      "variablePowerConsumptionConstant" : 0,
+      "variablePowerConsumptionFactor" : 1
+    },
+    {
+      "craftingTime" : [
+        [
+          "+",
+          6
+        ],
+        [
+          "+",
+          1
+        ]
+      ],
+      "id" : "Recipe_Nobelisk_C",
+      "ingredients" : [
+        {
+          "amount" : 2,
+          "item" : "Desc_Gunpowder_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_SteelPipe_C"
+        }
+      ],
+      "name" : "Nobelisk",
+      "producedIn" : [
+        "BP_WorkshopComponent_C",
+        "Build_AssemblerMk1_C"
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_NobeliskExplosive_C"
         }
       ],
       "variablePowerConsumptionConstant" : 0,
@@ -11274,7 +11621,9 @@
       ],
       "name" : "Biomass (Leaves)",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -11305,7 +11654,9 @@
       ],
       "name" : "Biomass (Wood)",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -11340,7 +11691,9 @@
       ],
       "name" : "Reinforced Iron Plate",
       "producedIn" : [
-        "Build_AssemblerMk1_C"
+        "Build_AssemblerMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -11371,7 +11724,9 @@
       ],
       "name" : "Concrete",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -11402,7 +11757,9 @@
       ],
       "name" : "Screw",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -11433,7 +11790,9 @@
       ],
       "name" : "Cable",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -11464,7 +11823,9 @@
       ],
       "name" : "Wire",
       "producedIn" : [
-        "Build_ConstructorMk1_C"
+        "Build_ConstructorMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
@@ -11495,12 +11856,122 @@
       ],
       "name" : "Copper Ingot",
       "producedIn" : [
-        "Build_SmelterMk1_C"
+        "Build_SmelterMk1_C",
+        "BP_WorkBenchComponent_C",
+        "FGBuildableAutomatedWorkBench"
       ],
       "products" : [
         {
           "amount" : 1,
           "item" : "Desc_CopperIngot_C"
+        }
+      ],
+      "variablePowerConsumptionConstant" : 0,
+      "variablePowerConsumptionFactor" : 1
+    },
+    {
+      "craftingTime" : [
+        [
+          "+",
+          24
+        ],
+        [
+          "+",
+          1
+        ]
+      ],
+      "id" : "Recipe_Fireworks_01_C",
+      "ingredients" : [
+        {
+          "amount" : 6,
+          "item" : "Desc_XmasBranch_C"
+        },
+        {
+          "amount" : 3,
+          "item" : "Desc_CandyCane_C"
+        }
+      ],
+      "name" : "Sweet Fireworks",
+      "producedIn" : [
+        "BP_WorkshopComponent_C",
+        "Build_AssemblerMk1_C"
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Fireworks_Projectile_01_C"
+        }
+      ],
+      "variablePowerConsumptionConstant" : 0,
+      "variablePowerConsumptionFactor" : 1
+    },
+    {
+      "craftingTime" : [
+        [
+          "+",
+          24
+        ],
+        [
+          "+",
+          1
+        ]
+      ],
+      "id" : "Recipe_Fireworks_02_C",
+      "ingredients" : [
+        {
+          "amount" : 4,
+          "item" : "Desc_XmasBranch_C"
+        },
+        {
+          "amount" : 3,
+          "item" : "Desc_XmasBow_C"
+        }
+      ],
+      "name" : "Fancy Fireworks",
+      "producedIn" : [
+        "BP_WorkshopComponent_C",
+        "Build_AssemblerMk1_C"
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Fireworks_Projectile_02_C"
+        }
+      ],
+      "variablePowerConsumptionConstant" : 0,
+      "variablePowerConsumptionFactor" : 1
+    },
+    {
+      "craftingTime" : [
+        [
+          "+",
+          24
+        ],
+        [
+          "+",
+          1
+        ]
+      ],
+      "id" : "Recipe_Fireworks_03_C",
+      "ingredients" : [
+        {
+          "amount" : 3,
+          "item" : "Desc_XmasBranch_C"
+        },
+        {
+          "amount" : 2,
+          "item" : "Desc_Snow_C"
+        }
+      ],
+      "name" : "Sparkly Fireworks",
+      "producedIn" : [
+        "BP_WorkshopComponent_C",
+        "Build_AssemblerMk1_C"
+      ],
+      "products" : [
+        {
+          "amount" : 1,
+          "item" : "Desc_Fireworks_Projectile_03_C"
         }
       ],
       "variablePowerConsumptionConstant" : 0,

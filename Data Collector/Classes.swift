@@ -174,9 +174,13 @@ struct Path: Parseable {
 	var name: String
 	
 	init(from parser: inout Parser) {
+		let hasQuote = parser.tryConsume("\"")
 		path = String(parser.consume(upTo: ".")!)
 		parser.consume(".")
 		name = String(parser.consume { $0.isLetter || $0.isNumber || $0 == "_" })
+		if hasQuote {
+			parser.consume("\"")
+		}
 	}
 }
 
