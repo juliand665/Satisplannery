@@ -113,7 +113,6 @@ struct Producer: GameObject, ObjectWithIcon, Codable {
 	var description: String
 	var powerConsumption: Fraction
 	var powerConsumptionExponent: Fraction
-	var usesVariablePower: Bool
 }
 
 extension Producer {
@@ -125,7 +124,6 @@ extension Producer {
 		self.description = "This producer used to exist, but is no longer part of the game."
 		self.powerConsumption = 0
 		self.powerConsumptionExponent = 1
-		self.usesVariablePower = false
 	}
 }
 

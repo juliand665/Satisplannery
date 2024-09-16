@@ -92,7 +92,6 @@ struct FGBuildableManufacturer: Encodable {
 	var description: String
 	var powerConsumption: Fraction
 	var powerConsumptionExponent: Fraction
-	var usesVariablePower: Bool
 }
 
 extension FGBuildableManufacturer: Class {
@@ -104,7 +103,6 @@ extension FGBuildableManufacturer: Class {
 		description = raw.description
 		powerConsumption = Fraction(raw.powerConsumption)!
 		powerConsumptionExponent = .init(raw.powerConsumptionExponent)!
-		usesVariablePower = raw.nativeClass == "Class'/Script/FactoryGame.FGBuildableManufacturerVariablePower'"
 	}
 }
 

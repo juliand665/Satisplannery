@@ -116,7 +116,7 @@ struct CraftingStep: Identifiable, Codable, Sendable {
 		let base = Double(buildings)
 		* pow(clockSpeed.approximation, producer.powerConsumptionExponent.approximation)
 		
-		if producer.usesVariablePower {
+		if recipe.variablePowerConsumptionFactor != 0 {
 			return .init(
 				min: base * Double(recipe.variablePowerConsumptionConstant),
 				max: base * Double(recipe.variablePowerConsumptionConstant + recipe.variablePowerConsumptionFactor)
