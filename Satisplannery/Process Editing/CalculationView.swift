@@ -69,7 +69,7 @@ struct CalculationView: View {
 			NavigationLink {
 				ItemPicker { pickedItem in
 					let recipeOptions = Recipe.all(producing: pickedItem)
-					process.addStep(using: recipeOptions.canonicalRecipe(), for: pickedItem)
+					process.addStep(using: recipeOptions.canonicalRecipe(for: pickedItem.resolved()), for: pickedItem)
 				}
 			} label: {
 				Label("Add Product", systemImage: "plus")
@@ -96,7 +96,7 @@ struct CalculationView: View {
 		let recipeOptions = Recipe.all(producing: item.id)
 		Button {
 			process.addStep(
-				using: recipeOptions.canonicalRecipe(),
+				using: recipeOptions.canonicalRecipe(for: item),
 				toProduce: amount,
 				of: item.id
 			)

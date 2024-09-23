@@ -146,7 +146,21 @@ extension Recipe {
 }
 
 extension Collection where Element == Recipe {
-	func canonicalRecipe() -> Recipe {
-		first { !$0.name.hasPrefix("Alternate:") } ?? first!
+	func canonicalRecipe(for item: Item) -> Recipe {
+		var options = Array(self)
+		func tryFilter(_ filter: (Recipe) -> Bool) {
+			let matches = options.filter(filter)
+			if !matches.isEmpty {
+				options = matches
+			}
+		}
+		
+		tryFilter { $0.name == item.name }
+		tryFilter { !$0.name.hasPrefix("Alternate:") }
+		tryFilter { $0.products.count == 1 && $0.products.first!.item.id == item.id }
+		if options.count > 1 {
+			print("multiple matches found from \(self) as canonical recipe for \(item)")
+		}
+		return options.first!
 	}
 }
