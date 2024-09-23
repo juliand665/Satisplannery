@@ -94,6 +94,7 @@ struct BuildingView: View {
 				}
 				.animation(.easeOut, value: step.isBuilt)
 			}
+			.contentShape(Rectangle())
 			.onTapGesture {
 				step.isBuilt.toggle()
 				if step.isBuilt {
