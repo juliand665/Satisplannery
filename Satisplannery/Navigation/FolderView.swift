@@ -209,8 +209,23 @@ struct FolderView: View {
 	}
 	
 	func copy(_ entries: some Sequence<LazyTransferableEntry>) {
-		UIPasteboard.general.itemProviders = entries.map {
-			.init(transferable: $0)
+		Task {
+			do {
+				// Convert LazyTransferableEntry to NSItemProvider
+				let itemProviders: [NSItemProvider] = entries.map { .init(transferable: $0) }
+				
+				// Wait for all NSItemProviders to load their Transferable elements asynchronously
+				let resolvedTransferables: [TransferableEntry] = try await itemProviders.loadTransferableElements(
+					of: TransferableEntry.self
+				).value
+				
+				UIPasteboard.general.itemProviders = resolvedTransferables.map {
+					.init(transferable: $0)
+				}
+			} catch {
+				// TODO: Consider integrating the error container here to inform the user if the operation fails.
+				print("Failed to resolve transferable data: \(error)")
+			}
 		}
 	}
 	

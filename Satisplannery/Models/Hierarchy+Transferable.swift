@@ -48,7 +48,7 @@ struct LazyTransferableEntry: Transferable {
 	}
 }
 
-private enum TransferableEntry: Codable, Transferable, Sendable {
+enum TransferableEntry: Codable, Transferable, Sendable {
 	case process(CraftingProcess)
 	case folder(name: String, entries: [Self])
 	
