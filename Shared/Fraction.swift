@@ -193,9 +193,11 @@ extension Fraction {
 				number = value.approximation.formatted(.number
 					.precision(.significantDigits(0..<5))
 				)
-				let reparsed = Fraction(number)!
-				if reparsed != value {
-					//print("fraction \(value) (\(decimal)) was imprecisely reparsed as \(reparsed)")
+				
+				// Remove thousands separators from the number
+				let cleanedNumber = number.filter { !Fraction.thousandsSeparators.contains($0) }
+				
+				if let reparsed = Fraction(cleanedNumber), reparsed != value {
 					let last = number.removeLast()
 					number.append(Self.underlines[last] ?? last)
 				}
